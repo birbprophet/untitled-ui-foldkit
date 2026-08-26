@@ -5,7 +5,7 @@ FoldKit renderers for Untitled UI v8. npm name: **ui**.
 ## Install
 
 ```bash
-bun add github:birbprophet/untitled-ui-foldkit#cursor/initial-package-ad13
+bun add github:birbprophet/untitled-ui-foldkit#<commit-sha>
 ```
 
 ## Theme
@@ -17,9 +17,9 @@ bun add github:birbprophet/untitled-ui-foldkit#cursor/initial-package-ad13
 
 Siglata: `@import "tokens/console.css"` instead of `default-brand.css`.
 
-## Full catalog sync
+## Catalog
 
-The verified 619-ID catalog syncs from Siglata via `scripts/sync-untitled-ui-foldkit.sh` in siglata/siglata.
+Verified Untitled UI v8 catalog (619 IDs) synced from Siglata `packages/ui`.
 
 ## Cloudflare Artifacts
 
