@@ -1,7 +1,6 @@
 # untitled-ui-foldkit
 
-FoldKit renderers for Untitled UI v8. Brand-neutral renderers; the host injects
-brand colour and identity at the boundary. Published npm name: **ui**.
+FoldKit renderers for Untitled UI v8. npm name: **ui**.
 
 ## Install
 
@@ -9,21 +8,22 @@ brand colour and identity at the boundary. Published npm name: **ui**.
 bun add github:birbprophet/untitled-ui-foldkit#cursor/initial-package-ad13
 ```
 
-## Theme (other projects)
+## Theme
 
 ```css
 @import "ui/default-brand.css";
 @import "ui/theme.css";
 ```
 
-## Theme (Siglata)
+Siglata: `@import "tokens/console.css"` instead of `default-brand.css`.
 
-```css
-@import "tokens/console.css";
-@import "ui/theme.css";
-```
+## Full catalog sync
 
-See `docs/cloudflare-artifacts.md` for release-host tradeoffs.
+The verified 619-ID catalog syncs from Siglata via `scripts/sync-untitled-ui-foldkit.sh` in siglata/siglata.
+
+## Cloudflare Artifacts
+
+See `docs/cloudflare-artifacts.md`. GitHub remains primary.
 
 ## Gate
 
