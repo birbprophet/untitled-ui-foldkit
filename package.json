@@ -1,31 +1,14 @@
 {
-  "name": "ui",
-  "version": "0.1.0",
-  "description": "Verified Untitled UI v8 components ported to FoldKit. Brand-neutral renderers; consumers inject theme and identity at the host boundary.",
+  "name": "untitled-ui-foldkit",
+  "version": "0.0.0",
+  "description": "Verified Untitled UI v8 components ported to FoldKit.",
   "license": "MIT",
-  "files": ["src", "default-brand.css", "theme.css"],
   "type": "module",
-  "exports": {
-    "./application": "./src/application.ts",
-    "./base": "./src/base.ts",
-    "./brand-context": "./src/brand-context.ts",
-    "./catalog": "./src/catalog.ts",
-    "./default-brand.css": "./default-brand.css",
-    "./marketing": "./src/marketing.ts",
-    "./theme": "./src/theme.ts",
-    "./theme.css": "./theme.css",
-    "./package.json": "./package.json"
+  "dependencies": {
+    "effect": "4.0.0-rc.112",
+    "foldkit": "0.152.0"
   },
-  "scripts": { "check": "vp check", "test": "vp test" },
-  "repository": { "type": "git", "url": "git+https://github.com/birbprophet/untitled-ui-foldkit.git" },
-  "dependencies": { "effect": "4.0.0-rc.112", "foldkit": "0.152.0" },
-  "peerDependencies": { "avatar": "*" },
-  "peerDependenciesMeta": { "avatar": { "optional": true } },
-  "devDependencies": {
-    "@effect/vitest": "4.0.0-rc.112",
-    "@types/node": "26.3.0",
-    "typescript": "7.0.2",
-    "untitledui": "0.1.64",
-    "vite-plus": "0.3.0"
+  "peerDependencies": {
+    "avatar": "*"
   }
 }
