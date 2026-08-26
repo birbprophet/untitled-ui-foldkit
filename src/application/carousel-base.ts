@@ -204,8 +204,8 @@ export const carouselBase = <Message>(
             [h.AriaLabel("Choose slide"), h.Class("flex items-center gap-2")],
             props.slides.map((slideValue, slideIndex) =>
               h.button([
-                h.AriaLabel(`Go to slide ${String(slideIndex + 1)}: ${slideValue.title}`),
                 h.AriaCurrent(slideIndex === index ? "true" : "false"),
+                h.AriaLabel(`Go to slide ${String(slideIndex + 1)}: ${slideValue.title}`),
                 h.Class(
                   `size-2.5 cursor-pointer rounded-full outline-focus-ring transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${slideIndex === index ? "bg-bg-brand-solid" : "bg-bg-quaternary hover:bg-bg-quaternary_hover"}`,
                 ),
