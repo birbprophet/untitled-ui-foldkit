@@ -1,12 +1,40 @@
 {
   "name": "untitled-ui-foldkit",
   "version": "0.0.0",
-  "description": "Verified Untitled UI v8 components ported to FoldKit.",
+  "description": "Verified Untitled UI v8 components ported to FoldKit. Brand-neutral renderers; consumers inject theme and identity at the host boundary.",
   "license": "MIT",
+  "files": [
+    "src",
+    "default-brand.css",
+    "theme.css",
+    "catalog-reconciliation.json"
+  ],
   "type": "module",
+  "exports": {
+    "./application": "./src/application.ts",
+    "./base": "./src/base.ts",
+    "./brand-context": "./src/brand-context.ts",
+    "./catalog": "./src/catalog.ts",
+    "./default-brand.css": "./default-brand.css",
+    "./marketing": "./src/marketing.ts",
+    "./theme": "./src/theme.ts",
+    "./theme.css": "./theme.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "check": "vp check",
+    "test": "vp test"
+  },
   "dependencies": {
     "effect": "4.0.0-rc.112",
     "foldkit": "0.152.0"
+  },
+  "devDependencies": {
+    "@effect/vitest": "4.0.0-rc.112",
+    "@types/node": "26.3.0",
+    "typescript": "7.0.2",
+    "untitledui": "0.1.64",
+    "vite-plus": "0.3.0"
   },
   "peerDependencies": {
     "avatar": "*"
