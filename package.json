@@ -1,5 +1,5 @@
 {
-  "name": "untitled-ui-foldkit",
+  "name": "@birbprophet/untitled-ui-foldkit",
   "version": "0.0.0",
   "description": "Verified Untitled UI v8 components ported to FoldKit. Brand-neutral renderers; consumers inject theme and identity at the host boundary.",
   "license": "MIT",
@@ -37,6 +37,8 @@
     "vite-plus": "0.3.0"
   },
   "peerDependencies": {
-    "avatar": "*"
+    "avatar": "*",
+    "brand": "*",
+    "tokens": "*"
   }
 }
