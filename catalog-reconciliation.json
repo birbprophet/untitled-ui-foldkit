@@ -1,0 +1,43 @@
+{
+  "catalog": {
+    "application": 128,
+    "base": 48,
+    "marketing": 443,
+    "total": 619
+  },
+  "excluded": [
+    {
+      "category": "application",
+      "id": "rtl-demo",
+      "reason": "Siglata supports left-to-right locales only; this upstream demonstration is not a usable product component"
+    }
+  ],
+  "cli": {
+    "commandVersion": "untitledui@0.1.64",
+    "omittedByAddAll": [
+      "dropdown-context-menu-advanced",
+      "dropdown-context-menu-simple",
+      "hook-form",
+      "play-button-icon",
+      "progress-circles",
+      "radio-groups",
+      "simple-circle",
+      "slider",
+      "text-editor",
+      "video-player"
+    ],
+    "resolution": "recovered by exact-ID add at the same pinned version"
+  },
+  "mcp": {
+    "accessLevel": "authenticated",
+    "categories": ["base", "application", "marketing"]
+  },
+  "authenticatedInventoryTotal": 620,
+  "sourceOnly": [
+    {
+      "id": "select-shared",
+      "resolution": "catalogued pending; source dependency has no standalone public renderer or story"
+    }
+  ],
+  "sourceVersion": "untitledui@0.1.64/library-v8"
+}
