@@ -1,5 +1,8 @@
 /**
  * Brand asset injection for identity-bearing renderers (logos, wordmarks).
+ *
+ * Product-specific assets live in the consumer repository. Pass a `BrandContext`
+ * into renderers that show identity, or rely on the upstream default.
  */
 
 export interface BrandAssetRef {
@@ -12,6 +15,7 @@ export interface BrandContext {
   readonly wordmarkHorizontal?: BrandAssetRef;
 }
 
+/** Untitled UI default identity until a host passes project assets. */
 export const untitledDefaultBrandContext = {
   symbol: {
     alt: "Untitled UI",
