@@ -83,4 +83,4 @@ change component IDs or story titles.
 - FoldKit UI overview: https://foldkit.dev/ui/overview
 - Siglata tokens: `packages/tokens/src/console.ts`
 - Storybook wiring: `apps/storybook/.storybook/preview.ts`,
-  `apps/storybook/src/storybook.css
+  `apps/storybook/src/storybook.css`
