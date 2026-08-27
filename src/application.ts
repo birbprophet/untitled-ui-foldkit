@@ -599,3 +599,13 @@ export type {
   VerificationCodeModalLocale,
   VerificationCodeModalProps,
 } from "./application/verification-code-modal.ts";
+
+// Wildcard fixture re-exports: consumers (e.g. Storybook suites) may import a
+// single port's default-data constants without reaching through deep subpaths.
+export * from "./application/calendar-header.ts";
+export * from "./application/calendar-month.ts";
+export * from "./application/calendar-primitives.ts";
+export * from "./application/calendar-time-grid.ts";
+export * from "./application/calendar-types.ts";
+export * from "./application/gradient-picker-utils.ts";
+export * from "./application/sidebar-navigation-base.ts";

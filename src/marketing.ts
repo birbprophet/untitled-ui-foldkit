@@ -920,3 +920,9 @@ export type { TestimonialSplitImage02Props } from "./marketing/testimonial-split
 export { testimonialSplitImage03 } from "./marketing/testimonial-split-image-03.ts";
 export type { TestimonialSplitImage03Props } from "./marketing/testimonial-split-image-03.ts";
 export { verifiedMarketingComponents } from "./registry.ts";
+
+// Wildcard fixture re-exports: consumers (e.g. Storybook suites) may import a
+// single port's default-data constants without reaching through deep subpaths.
+export * from "./marketing/marketing-dropdown-shared.ts";
+export * from "./marketing/marketing-footer-shared.ts";
+export * from "./marketing/marketing-menu-shared.ts";

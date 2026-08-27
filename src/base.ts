@@ -119,3 +119,6 @@ export type {
 export { verifiedEvidence } from "./verification.ts";
 export type { VerificationEvidence } from "./verification.ts";
 export { verifiedBaseComponents } from "./registry.ts";
+
+// Wildcard fixture re-exports: consumers (e.g. Storybook suites) may import a
+// single port's default-data constants without reaching through deep subpaths.
