@@ -21,7 +21,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - name: Install
-        run: pnpm install --frozen-lockfile=false
+        run: pnpm install --frozen-lockfile
       - name: Types
         run: pnpm exec tsc --noEmit
       - name: Lint
