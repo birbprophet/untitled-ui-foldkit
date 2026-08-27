@@ -1,6 +1,7 @@
 /* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
+import type { BrandLockup } from "../internal/brand.ts";
 import {
   marketingFooterLogo,
   marketingFooterNewsletterForm,
@@ -15,6 +16,7 @@ export interface FooterLarge16BrandProps<Message> {
   readonly emailLabel: string;
   readonly emailPlaceholder: string;
   readonly formId: string;
+  readonly logo: BrandLockup;
   readonly onEmailInput: (value: string) => NoInfer<Message>;
   readonly onLink: (id: string) => NoInfer<Message>;
   readonly onSubscribe: NoInfer<Message>;
@@ -35,7 +37,7 @@ export const footerLarge16Brand = <Message>(
           h.div(
             [h.Class("flex flex-col gap-8 md:items-center")],
             [
-              marketingFooterLogo(true, h),
+              marketingFooterLogo(props.logo, true, h),
               marketingFooterQuickNav(marketingFooterQuickLinks, true, props.onLink, h),
             ],
           ),

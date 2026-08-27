@@ -7,23 +7,26 @@ import type {
   StackedWithTeamAndInvitesModalProps,
 } from "../src/application/stacked-with-team-and-invites-modal.ts";
 
+const memberAvatar = (fill: string): string =>
+  `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%23${fill}'/%3E%3C/svg%3E`;
+
 describe("stacked with team and invites modal", () => {
   it("keeps membership selection and dialog actions controlled", () => {
     const featuredMembers: readonly StackedWithTeamAndInvitesFeaturedMember[] = [
-      { avatarSeed: "phoenix-baker", name: "Phoenix Baker" },
-      { avatarSeed: "olivia-rhye", name: "Olivia Rhye" },
-      { avatarSeed: "lana-steiner", name: "Lana Steiner" },
+      { avatarUrl: memberAvatar("7f56d9"), name: "Phoenix Baker" },
+      { avatarUrl: memberAvatar("9e77ed"), name: "Olivia Rhye" },
+      { avatarUrl: memberAvatar("b692f6"), name: "Lana Steiner" },
     ];
     const members: readonly StackedWithTeamAndInvitesMember[] = [
       {
-        avatarSeed: "candice-wu",
+        avatarUrl: memberAvatar("d6bbfb"),
         id: "candice",
         name: "Candice Wu",
         role: "Admin",
         username: "@candice",
       },
       {
-        avatarSeed: "drew-cano",
+        avatarUrl: memberAvatar("444ce0"),
         id: "drew",
         name: "Drew Cano",
         role: "Editor",

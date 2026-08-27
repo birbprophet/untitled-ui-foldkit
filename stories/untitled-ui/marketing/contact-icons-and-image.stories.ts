@@ -6,7 +6,7 @@ import {
   contactIconsAndImage,
   contactIconsAndImageImage,
   contactIconsAndImageLocations,
-} from "../../../../../packages/ui/src/marketing/contact-icons-and-image.ts";
+} from "../../../src/marketing/contact-icons-and-image.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Location = S.Struct({ id: S.String, subtitle: S.String, title: S.String });

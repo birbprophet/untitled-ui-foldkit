@@ -5,8 +5,9 @@ import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { messageChatMenu } from "ui/application";
-import type { MessagingAction } from "ui/application";
+import { messageChatMenu } from "../../../src/application.ts";
+import type { MessagingAction } from "../../../src/application.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 
@@ -14,6 +15,12 @@ const Locale = S.Literals(["en-US", "pt-BR"]);
 const Tab = S.Literals(["archive", "groups", "recent"]);
 const Action = S.Literals(["ai", "copy", "download", "edit", "play", "reply"]);
 const Args = S.Struct({ locale: Locale });
+const faces = {
+  demi: agentFace("Demi Wilkinson"),
+  lana: agentFace("Lana Steiner"),
+  olivia: agentFace("Olivia Rhye"),
+  phoenix: agentFace("Phoenix Baker"),
+} as const;
 const Model = S.Struct({
   draft: S.String,
   focusedTab: Tab,
@@ -141,6 +148,7 @@ const definitionWith = (state: "empty" | "filled", initiallyOpen = true) => ({
         ),
         messageChatMenu(
           {
+            avatars: faces,
             draft: model.draft,
             focusedTab: model.focusedTab,
             id: "message-chat-menu-story",

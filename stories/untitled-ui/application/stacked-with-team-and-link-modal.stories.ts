@@ -4,10 +4,12 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { stackedWithTeamAndLinkModal } from "ui/application";
+import { stackedWithTeamAndLinkModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: Locale });
@@ -42,9 +44,9 @@ const action = (tag: "Cancel" | "Continue" | "Copy" | "Dismiss"): Message => ({ 
 const linkInput = (link: string): Message => ({ _tag: "LinkInput", value: link });
 const fixture = { locale: "en-US" } satisfies Args;
 const members = [
-  { avatarSeed: "stacked-team-caitlyn-king", name: "Caitlyn King" },
-  { avatarSeed: "stacked-team-sienna-hewitt", name: "Sienna Hewitt" },
-  { avatarSeed: "stacked-team-olly-schroeder", name: "Olly Schroeder" },
+  { avatarUrl: agentFace("Caitlyn King"), name: "Caitlyn King" },
+  { avatarUrl: agentFace("Sienna Hewitt"), name: "Sienna Hewitt" },
+  { avatarUrl: agentFace("Olly Schroeder"), name: "Olly Schroeder" },
 ] as const;
 
 const definition = {

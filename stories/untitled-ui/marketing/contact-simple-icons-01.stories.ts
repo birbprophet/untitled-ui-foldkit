@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactSimpleIcons01 } from "../../../../../packages/ui/src/marketing/contact-simple-icons-01.ts";
+import { contactSimpleIcons01 } from "../../../src/marketing/contact-simple-icons-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Item = S.Struct({

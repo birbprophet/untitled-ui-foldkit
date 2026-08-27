@@ -1,25 +1,15 @@
 /* oxlint-disable effect/noSpread, mps/require-is-prefix-for-boolean-schema-field -- Storybook controls retain the upstream `connector` prop name. */
-import { blobatarDataUri } from "avatar";
+import { agentFace, robotFace } from "../../fixtures/brand.ts";
 import * as S from "effect/Schema";
-import { activityFeed } from "ui/application";
-import type { ActivityFeedItem } from "ui/application";
+import { activityFeed } from "../../../src/application.ts";
+import type { ActivityFeedItem } from "../../../src/application.ts";
 
 import { componentMeta, matrix, staticStory } from "../story.ts";
 
 const Args = S.Struct({ connector: S.Boolean, size: S.Union([S.Literal("sm"), S.Literal("md")]) });
 
-const phoenix = blobatarDataUri("Phoenix Baker", {
-  background: "circle",
-  kind: "agent",
-  size: 128,
-  title: "Phoenix Baker",
-});
-const lana = blobatarDataUri("Lana Steiner", {
-  background: "circle",
-  kind: "robot",
-  size: 128,
-  title: "Lana Steiner",
-});
+const phoenix = agentFace("Phoenix Baker");
+const lana = robotFace("Lana Steiner");
 
 const base: ActivityFeedItem = {
   action: { content: "Added a file to", href: "#", target: "Marketing site redesign" },

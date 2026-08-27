@@ -4,7 +4,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactIconsAndFormBrand } from "../../../../../packages/ui/src/marketing/contact-icons-and-form-brand.ts";
+import { contactIconsAndFormBrand } from "../../../src/marketing/contact-icons-and-form-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Field = S.Union([

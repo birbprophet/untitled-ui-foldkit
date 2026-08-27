@@ -1,6 +1,7 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
 import type {
   UserSettingsMenuCountry,
   UserSettingsMenuField,
@@ -25,6 +26,7 @@ const countries: readonly UserSettingsMenuCountry[] = [
 const fieldInput = (field: UserSettingsMenuField, value: string): string => `${field}:${value}`;
 
 const propsFor = (locale: "en-US" | "pt-BR"): UserSettingsMenuProps<string> => ({
+  avatarUrl: agentFace("Sienna Hewitt"),
   countries,
   email: "hi@siennahewitt.com",
   firstName: "Sienna",

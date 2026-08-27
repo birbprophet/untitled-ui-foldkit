@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and play functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { button, form, input } from "ui/base";
+import { button, form, input } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

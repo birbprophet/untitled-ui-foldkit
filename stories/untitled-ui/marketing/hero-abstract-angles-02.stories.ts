@@ -1,13 +1,17 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises the controlled FoldKit hero in the browser. */
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
-import { headerNavigation } from "ui/application";
+import { headerNavigation } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
-import { heroAbstractAngles02 } from "../../../../../packages/ui/src/marketing/hero-abstract-angles-02.ts";
+import { heroAbstractAngles02 } from "../../../src/marketing/hero-abstract-angles-02.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
+  badgeAddon: S.String,
+  badgeHref: S.String,
+  badgeLabel: S.String,
   description: S.String,
   heading: S.String,
   imageAlt: S.String,
@@ -24,6 +28,7 @@ const MobileOpened = m("HeroAbstractAngles02MobileOpened");
 const MobileClosed = m("HeroAbstractAngles02MobileClosed");
 const AccountPressed = m("HeroAbstractAngles02AccountPressed");
 const SearchChanged = m("HeroAbstractAngles02SearchChanged", { value: S.String });
+const Badge = m("HeroAbstractAngles02Badge");
 type Message =
   | typeof Primary.Type
   | typeof Secondary.Type
@@ -31,6 +36,7 @@ type Message =
   | typeof MobileOpened.Type
   | typeof MobileClosed.Type
   | typeof AccountPressed.Type
+  | typeof Badge.Type
   | typeof SearchChanged.Type;
 
 const navItems = [
@@ -44,6 +50,7 @@ const navigation = (model: Model, h: Parameters<typeof headerNavigation<Message>
   headerNavigation(
     {
       activeUrl: "#pricing",
+      brand: demoBrand(),
       hideBorder: false,
       isMobileOpen: model.isMobileOpen,
       items: navItems,
@@ -81,6 +88,7 @@ const definition = {
           {
             ...model,
             navigation: navigation(model, h),
+            onBadge: Badge(),
             onPrimary: Primary(),
             onSecondary: Secondary(),
           },
@@ -91,6 +99,9 @@ const definition = {
 } as const;
 
 const args = {
+  badgeAddon: "What's new?",
+  badgeHref: "#",
+  badgeLabel: "Introducing advanced conversion analytics",
   description:
     "Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users.",
   heading: "Beautiful analytics to grow smarter",

@@ -1,9 +1,9 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises the controlled FoldKit section in the browser. */
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
-import { expect, userEvent, waitFor, within } from "storybook/test";
+import { expect, within } from "storybook/test";
 
-import { featuresIconsAndImage01 } from "../../../../../packages/ui/src/marketing/features-icons-and-image-01.ts";
+import { featuresIconsAndImage01 } from "../../../src/marketing/features-icons-and-image-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Item = S.Struct({
@@ -40,7 +40,7 @@ const definition = {
   Args,
   Model: Args,
   init: (args: Model): Model => args,
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof featuresIconsAndImage01<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],

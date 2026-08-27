@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactMap02 } from "../../../../../packages/ui/src/marketing/contact-map-02.ts";
+import { contactMap02 } from "../../../src/marketing/contact-map-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Pin = S.Struct({

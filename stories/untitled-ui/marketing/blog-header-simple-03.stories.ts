@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   blogHeaderSimple03,
   blogHeaderSimple03Articles,
-} from "../../../../../packages/ui/src/marketing/blog-header-simple-03.ts";
+} from "../../../src/marketing/blog-header-simple-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const BadgeColor = S.Union([

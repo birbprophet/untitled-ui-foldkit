@@ -10,6 +10,7 @@ import { fileUploadDropZone } from "./file-upload-base.ts";
 export type ProfileSettingsField = "introduction" | "username";
 
 export interface ProfileSettingsModalProps<Message> {
+  readonly avatarUrl: string;
   readonly consent: boolean;
   readonly copied: boolean;
   readonly id: string;
@@ -178,10 +179,9 @@ export const profileSettingsModal = <Message>(
                         [
                           avatar(
                             {
-                              alt: "Profile avatar",
-                              entityKind: "agent",
-                              seed: "profile-settings-olivia-rhye",
+                              alt: "Profile photo",
                               size: "2xl",
+                              src: props.avatarUrl,
                               verified: true,
                             },
                             h,

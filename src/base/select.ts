@@ -1,10 +1,9 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, mps/imperative-loops, mps/no-length-comparison, mps/prefer-arr-match, typescript/prefer-for-of -- Native popover selection uses bounded DOM-order roving focus. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface SelectItem<Message> {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly id: string;
   readonly iconElement?: Html;
   readonly isDisabled?: boolean;
@@ -99,20 +98,13 @@ const itemCopy = <Message>(
   h: HtmlBuilder<Message>,
 ): readonly Html[] => [
   ...(item.iconElement === undefined ? [] : [item.iconElement]),
-  ...(item.iconElement !== undefined || item.avatarSeed === undefined
+  ...(item.iconElement !== undefined || item.avatarUrl === undefined
     ? []
     : [
         h.img([
           h.Alt(""),
           h.Class(`${size === "sm" ? "size-5" : "size-6"} rounded-full`),
-          h.Src(
-            blobatarDataUri(item.avatarSeed, {
-              background: "circle",
-              kind: "agent",
-              size: 48,
-              title: item.label,
-            }),
-          ),
+          h.Src(item.avatarUrl),
         ]),
       ]),
   h.span(

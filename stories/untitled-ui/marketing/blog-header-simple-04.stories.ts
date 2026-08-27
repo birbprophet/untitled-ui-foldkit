@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   blogHeaderSimple04,
   blogHeaderSimple04Articles,
-} from "../../../../../packages/ui/src/marketing/blog-header-simple-04.ts";
+} from "../../../src/marketing/blog-header-simple-04.ts";
 
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
@@ -19,7 +19,7 @@ const TagColor = S.Union([
   S.Literal("success"),
 ]);
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String, seed: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,

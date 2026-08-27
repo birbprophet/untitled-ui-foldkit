@@ -3,18 +3,18 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { ctaSplitImageQuote03 } from "../../../../../packages/ui/src/marketing/cta-split-image-quote-03.ts";
+import { ctaSplitImageQuote03 } from "../../../src/marketing/cta-split-image-quote-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
   description: S.String,
   heading: S.String,
-  primaryLabel: S.String,
-  secondaryLabel: S.String,
   imageAlt: S.String,
   imageSrc: S.String,
+  primaryLabel: S.String,
   quote: S.String,
   quoteAuthor: S.String,
+  secondaryLabel: S.String,
 });
 const Model = Args;
 type Model = typeof Model.Type;
@@ -28,30 +28,38 @@ const definition = {
   init: (args: typeof Args.Type): Model => ({ ...args }),
   update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof ctaSplitImageQuote03<Message>>[1]) =>
-    h.div([h.Class("-m-8")], [
-      ctaSplitImageQuote03({ ...model, onPrimary: Primary(), onSecondary: Secondary() }, h),
-    ]),
+    h.div(
+      [h.Class("-m-8")],
+      [ctaSplitImageQuote03({ ...model, onPrimary: Primary(), onSecondary: Secondary() }, h)],
+    ),
 } as const;
 
 const args = {
   description: "Join over 4,000+ startups already growing with Untitled.",
   heading: "Start your free trial",
-  primaryLabel: "Get started",
-  secondaryLabel: "Learn more",
   imageAlt: "Photographer",
   imageSrc: "https://www.untitledui.com/marketing/photographer-girl.webp",
+  primaryLabel: "Get started",
   quote: "Untitled has saved us thousands of hours of work.",
   quoteAuthor: "— Amelie Laurent",
+  secondaryLabel: "Learn more",
 } as const;
 
-export default { ...componentMeta("cta-split-image-quote-03"), parameters: { layout: "fullscreen" }, title: "Untitled UI/Marketing/Cta/Cta Split Image Quote 03" };
+export default {
+  ...componentMeta("cta-split-image-quote-03"),
+  parameters: { layout: "fullscreen" },
+  title: "Untitled UI/Marketing/Cta/Cta Split Image Quote 03",
+};
 export const AllVariants = { ...liveStory(definition), args };
 export const States = { ...liveStory(definition), args };
 export const Dark = {
   ...liveStory({
     ...definition,
     view: (model, h) =>
-      h.div([h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")], [definition.view(model, h)]),
+      h.div(
+        [h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")],
+        [definition.view(model, h)],
+      ),
   }),
   args,
 };

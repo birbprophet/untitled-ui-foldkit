@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactFeaturesTabsMap01 } from "../../../../../packages/ui/src/marketing/contact-features-tabs-map-01.ts";
+import { contactFeaturesTabsMap01 } from "../../../src/marketing/contact-features-tabs-map-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Location = S.Struct({ id: S.String, subtitle: S.String, title: S.String });

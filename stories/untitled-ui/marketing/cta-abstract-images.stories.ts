@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { ctaAbstractImages } from "../../../../../packages/ui/src/marketing/cta-abstract-images.ts";
+import { ctaAbstractImages } from "../../../src/marketing/cta-abstract-images.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -11,7 +11,6 @@ const Args = S.Struct({
   eyebrow: S.String,
   heading: S.String,
 });
-type Args = typeof Args.Type;
 
 const args = {
   ctaLabel: "Get started",
@@ -21,17 +20,20 @@ const args = {
   heading: "Beautiful analytics to grow smarter",
 };
 
-const specimen = (props: Args, h: Parameters<typeof ctaAbstractImages>[1]) =>
-  h.div([h.Class("-m-8")], [ctaAbstractImages(props, h)]);
-
 export default {
   ...componentMeta("cta-abstract-images"),
   parameters: { layout: "fullscreen" },
   title: "Untitled UI/Marketing/Cta/Cta Abstract Images",
 };
 
-export const AllVariants = { ...staticStory(Args, specimen), args };
-export const States = { ...staticStory(Args, specimen), args };
+export const AllVariants = {
+  ...staticStory(Args, (props, h) => h.div([h.Class("-m-8")], [ctaAbstractImages(props, h)])),
+  args,
+};
+export const States = {
+  ...staticStory(Args, (props, h) => h.div([h.Class("-m-8")], [ctaAbstractImages(props, h)])),
+  args,
+};
 export const Dark = {
   ...staticStory(Args, (props, h) =>
     h.div(
@@ -41,9 +43,12 @@ export const Dark = {
   ),
   args,
 };
-export const Responsive = { ...staticStory(Args, specimen), args };
+export const Responsive = {
+  ...staticStory(Args, (props, h) => h.div([h.Class("-m-8")], [ctaAbstractImages(props, h)])),
+  args,
+};
 export const Interactions = {
-  ...staticStory(Args, specimen),
+  ...staticStory(Args, (props, h) => h.div([h.Class("-m-8")], [ctaAbstractImages(props, h)])),
   args,
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);

@@ -1,4 +1,4 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled renderer preserves the authenticated fixed project fixture and native slideout/select behavior directly. */
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/prefer-option-over-null -- The controlled renderer preserves the authenticated fixed project fixture and native slideout/select behavior directly. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { avatar } from "../base/avatar.ts";
@@ -14,10 +14,10 @@ export interface ProjectDetailsMember {
   readonly email: string;
   readonly id: ProjectDetailsMemberId;
   readonly name: string;
-  readonly seed: string;
 }
 
 export interface ProjectDetailsMenuProps<Message> {
+  readonly avatars: Partial<Record<ProjectDetailsMemberId, string>>;
   readonly copied: boolean;
   readonly description: string;
   readonly heading: string;
@@ -48,19 +48,16 @@ export const projectDetailsMembers: readonly ProjectDetailsMember[] = [
     email: "candice@siglata.com",
     id: "candice-wu",
     name: "Candice Wu",
-    seed: "project-details-candice-wu",
   },
   {
     email: "demi@siglata.com",
     id: "demi-wilkinson",
     name: "Demi Wilkinson",
-    seed: "project-details-demi-wilkinson",
   },
   {
     email: "drew@siglata.com",
     id: "drew-cano",
     name: "Drew Cano",
-    seed: "project-details-drew-cano",
   },
 ] as const;
 
@@ -162,6 +159,7 @@ const statusDot = <Message>(status: ProjectDetailsStatus, h: HtmlBuilder<Message
 
 const memberRow = <Message>(
   member: ProjectDetailsMember,
+  memberAvatar: string | undefined,
   removeLabel: string,
   onRemove: NoInfer<Message>,
   h: HtmlBuilder<Message>,
@@ -176,9 +174,8 @@ const memberRow = <Message>(
             {
               alt: member.name,
               border: true,
-              entityKind: "agent",
-              seed: member.seed,
               size: "md",
+              src: memberAvatar,
             },
             h,
           ),
@@ -398,6 +395,7 @@ export const projectDetailsMenu = <Message>(
                                   ...props.members.flatMap((member) => [
                                     memberRow(
                                       member,
+                                      props.avatars[member.id],
                                       copy.remove,
                                       props.onRemoveMember(member.id),
                                       h,

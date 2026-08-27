@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Storybook CSF mirrors the actual showActions prop and its keyboard play function uses the browser promise API directly. */
 import * as S from "effect/Schema";
-import { metrics } from "ui/application";
-import type { MetricVariant, MetricsProps } from "ui/application";
+import { metrics } from "../../../src/application.ts";
+import type { MetricVariant, MetricsProps } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

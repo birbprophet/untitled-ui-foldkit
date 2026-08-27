@@ -1,11 +1,11 @@
 /* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI content section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
-export interface ContentSectionRichText02Props {}
+export type ContentSectionRichText02Props = Record<never, never>;
 
-export const contentSectionRichText02 = (
+export const contentSectionRichText02 = <Message>(
   props: ContentSectionRichText02Props,
-  h: HtmlBuilder,
+  h: HtmlBuilder<Message>,
 ): Html =>
   h.section(
     [h.Class("bg-bg-primary py-16 md:py-24"), h.Dir("ltr")],

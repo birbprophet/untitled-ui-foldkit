@@ -2,12 +2,31 @@ import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
 import { teamMembersMenuFixture } from "../src/application/team-members-menu.ts";
-import type { TeamMembersMenuProps } from "../src/application/team-members-menu.ts";
+import type {
+  TeamMembersMenuMemberId,
+  TeamMembersMenuProps,
+} from "../src/application/team-members-menu.ts";
+
+import { agentFace } from "../stories/fixtures/brand.ts";
 
 describe("team members menu", () => {
   it("preserves the authenticated member order, groups, and controlled actions", () => {
     const members = teamMembersMenuFixture("en-US");
+    const avatars: Partial<Record<TeamMembersMenuMemberId, string>> = {
+      "andi-lane": agentFace("Andi Lane"),
+      "candice-wu": agentFace("Candice Wu"),
+      "demi-wilkinson": agentFace("Demi Wilkinson"),
+      "drew-cano": agentFace("Drew Cano"),
+      "kate-morrison": agentFace("Kate Morrison"),
+      "kelly-williams": agentFace("Kelly Wiliams"),
+      "lana-steiner": agentFace("Lana Steiner"),
+      "natali-craig": agentFace("Natali Craig"),
+      "olivia-rhye": agentFace("Olivia Rhye"),
+      "orlando-diggs": agentFace("Orlando Diggs"),
+      "phoenix-baker": agentFace("Phoenix Baker"),
+    };
     const props: TeamMembersMenuProps<string> = {
+      avatars,
       focusedMemberId: "drew-cano",
       id: "team-members",
       isOpen: true,
@@ -61,11 +80,6 @@ describe("team members menu", () => {
     expect(portuguese[0]?.role).toBe("Design de produto");
     expect(portuguese[5]?.role).toBe("Desenvolvimento frontend");
     expect(portuguese[9]?.role).toBe("Engenharia de qualidade");
-    expect(portuguese.map((member) => member.avatarSeed)).toEqual(
-      english.map((member) => member.avatarSeed),
-    );
-    expect(new Set(english.map((member) => member.avatarKind))).toEqual(
-      new Set(["agent", "robot"]),
-    );
+    expect(portuguese.map((member) => member.name)).toEqual(english.map((member) => member.name));
   });
 });

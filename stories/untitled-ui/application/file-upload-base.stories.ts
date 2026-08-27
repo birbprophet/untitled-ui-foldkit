@@ -1,12 +1,12 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-low-signal-variable-names, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Storybook exposes only upstream props; live selection state stays in the FoldKit model. */
 import * as S from "effect/Schema";
 import type { Html, HtmlBuilder } from "foldkit/html";
-import { fileUpload, fileUploadDropZone, fileUploadItem } from "ui/application";
+import { fileUpload, fileUploadDropZone, fileUploadItem } from "../../../src/application.ts";
 import type {
   FileUploadDropZoneProps,
   FileUploadItemProps,
   FileUploadResult,
-} from "ui/application";
+} from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

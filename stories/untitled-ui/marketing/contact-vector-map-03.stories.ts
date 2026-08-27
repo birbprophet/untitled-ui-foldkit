@@ -3,7 +3,10 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactVectorMap03,contactVectorMap03Pins } from "../../../../../packages/ui/src/marketing/contact-vector-map-03.ts";
+import {
+  contactVectorMap03,
+  contactVectorMap03Pins,
+} from "../../../src/marketing/contact-vector-map-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -44,7 +47,6 @@ const definition = {
   view: (model: Model, h: Parameters<typeof contactVectorMap03<Message>>[1]) =>
     h.div([h.Class("-m-8")], [contactVectorMap03({ ...model, ...actions }, h)]),
 } as const;
-
 
 const args = {
   badgeLabel: "Stores",
@@ -103,10 +105,8 @@ export const Interactions = {
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
     const canvas = within(canvasElement);
-    const button = canvas.queryByRole("button");
-    if (button !== null) {
-      await userEvent.click(button);
-      await waitFor(() => expect(button).toBeInTheDocument());
-    }
+    const button = canvas.getByRole("button");
+    await userEvent.click(button);
+    await waitFor(() => expect(button).toBeInTheDocument());
   },
 };

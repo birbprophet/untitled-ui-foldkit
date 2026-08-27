@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   contactSimpleIcons03,
   contactSimpleIcons03Methods,
-} from "../../../../../packages/ui/src/marketing/contact-simple-icons-03.ts";
+} from "../../../src/marketing/contact-simple-icons-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Method = S.Struct({

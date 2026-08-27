@@ -1,9 +1,6 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noTernary -- Direct FoldKit transcription of the authenticated Untitled UI FAQ section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
-import { avatar } from "../base/avatar.ts";
-import { button } from "../base/button.ts";
-
 export type FaqSimple03Icon = "credit-card" | "file" | "heart" | "mail" | "slash" | "switch";
 
 export interface FaqSimple03Item {
@@ -72,61 +69,6 @@ export const faqSimple03DefaultItems = [
     question: "How do I change my account email?",
   },
 ] as const satisfies readonly FaqSimple03Item[];
-
-const iconPaths: Record<FaqSimple03Icon, readonly string[]> = {
-  "credit-card": [
-    "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3Z",
-  ],
-  file: [
-    "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z",
-    "M14 2v6h6M16 13H8M16 17H8M10 9H8",
-  ],
-  heart: ["M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572"],
-  mail: [
-    "m2 7 8.165 5.715c.661.463.992.695 1.351.784a2 2 0 0 0 .968 0c.36-.09.69-.32 1.351-.784L22 7M6.8 20h10.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C22 17.72 22 16.88 22 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C19.72 4 18.88 4 17.2 4H6.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C2 6.28 2 7.12 2 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C4.28 20 5.12 20 6.8 20Z",
-  ],
-  slash: [
-    "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z",
-    "m4.93 4.93 14.14 14.14",
-  ],
-  switch: ["M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"],
-};
-
-const featuredIcon = <Message>(
-  kind: FaqSimple03Icon,
-  size: "md" | "lg",
-  h: HtmlBuilder<Message>,
-): Html =>
-  h.div(
-    [
-      h.Class(
-        `${size === "lg" ? "hidden size-12 md:flex" : "flex size-10 md:hidden" 
-          } items-center justify-center rounded-lg ${ 
-          false
-            ? "bg-bg-brand-solid text-fg-white shadow-xs-skeuomorphic"
-            : "bg-bg-secondary text-fg-quaternary ring-1 ring-border-secondary ring-inset"}`,
-      ),
-      h.DataAttribute("featured-icon", kind),
-    ],
-    [
-      h.svg(
-        [
-          h.AriaHidden(true),
-          h.Class(size === "lg" ? "size-6" : "size-5"),
-          h.Fill("none"),
-          h.Stroke("currentColor"),
-          h.StrokeLinecap("round"),
-          h.StrokeLinejoin("round"),
-          h.StrokeWidth("2"),
-          h.ViewBox("0 0 24 24"),
-        ],
-        iconPaths[kind].map((path) => h.path([h.D(path)])),
-      ),
-    ],
-  );
-
-const avatarNode = <Message>(entry: FaqSimple03Avatar, h: HtmlBuilder<Message>): Html =>
-  avatar({ alt: entry.alt, size: entry.size, src: entry.src }, h);
 
 export const faqSimple03 = <Message>(
   props: FaqSimple03Props<Message>,

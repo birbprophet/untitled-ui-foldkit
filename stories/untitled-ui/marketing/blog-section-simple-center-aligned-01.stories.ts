@@ -2,8 +2,9 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogSectionSimpleCenterAligned01 } from "../../../../../packages/ui/src/marketing/blog-section-simple-center-aligned-01.ts";
+import { blogSectionSimpleCenterAligned01 } from "../../../src/marketing/blog-section-simple-center-aligned-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const BadgeColor = S.Union([
   S.Literal("brand"),
@@ -16,7 +17,7 @@ const BadgeColor = S.Union([
 ]);
 const Tag = S.Struct({ color: BadgeColor, href: S.String, name: S.String });
 const Article = S.Struct({
-  author: S.Struct({ avatarSeed: S.String, href: S.String, name: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,
@@ -95,7 +96,7 @@ const definition = {
 
 const articles = [
   {
-    author: { avatarSeed: "olivia-rhye", href: "#olivia", name: "Olivia Rhye" },
+    author: { avatarUrl: agentFace("Olivia Rhye"), href: "#olivia", name: "Olivia Rhye" },
     category: { href: "#design", name: "Design" },
     href: "#article-1",
     id: "article-1",
@@ -113,7 +114,7 @@ const articles = [
     title: "UX review presentations",
   },
   {
-    author: { avatarSeed: "phoenix-baker", href: "#phoenix", name: "Phoenix Baker" },
+    author: { avatarUrl: agentFace("Phoenix Baker"), href: "#phoenix", name: "Phoenix Baker" },
     category: { href: "#product", name: "Product" },
     href: "#article-2",
     id: "article-2",
@@ -130,7 +131,7 @@ const articles = [
     title: "Migrating to Linear 101",
   },
   {
-    author: { avatarSeed: "lana-steiner", href: "#lana", name: "Lana Steiner" },
+    author: { avatarUrl: agentFace("Lana Steiner"), href: "#lana", name: "Lana Steiner" },
     category: { href: "#engineering", name: "Software Engineering" },
     href: "#article-3",
     id: "article-3",

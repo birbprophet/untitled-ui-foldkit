@@ -5,7 +5,7 @@ import { expect, userEvent, within } from "storybook/test";
 import {
   contactSimpleForm01,
   contactSimpleForm01Countries,
-} from "../../../../../packages/ui/src/marketing/contact-simple-form-01.ts";
+} from "../../../src/marketing/contact-simple-form-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Country = S.Struct({ id: S.String, label: S.String, phoneMask: S.String });

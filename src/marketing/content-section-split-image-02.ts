@@ -27,21 +27,19 @@ export const contentSectionSplitImage02 = <Message>(
           h.div(
             [h.Class("flex flex-col")],
             [
-              [
-                h.span(
-                  [h.Class("text-sm font-semibold text-text-brand-secondary md:text-md")],
-                  ["Case study"],
-                ),
-                h.h2(
-                  [
-                    h.Class(
-                      "mt-3 text-display-sm font-semibold text-text-primary md:text-display-md",
-                    ),
-                  ],
-                  ["How we helped Hourglass"],
-                ),
-                h.p([h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")], [""]),
-              ],
+              h.span(
+                [h.Class("text-sm font-semibold text-text-brand-secondary md:text-md")],
+                ["Case study"],
+              ),
+              h.h2(
+                [
+                  h.Class(
+                    "mt-3 text-display-sm font-semibold text-text-primary md:text-display-md",
+                  ),
+                ],
+                ["How we helped Hourglass"],
+              ),
+              h.p([h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")], [""]),
               h.div(
                 [h.Class("prose mt-12 md:prose-lg")],
                 [

@@ -4,10 +4,15 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { loginModal } from "ui/application";
+import { loginModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+/** Stable demo identity slot: png-free inline SVG rounded square a host swaps for its own mark. */
+const demoMark =
+  "data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2048%2048'%3E%3Crect%20width%3D'48'%20height%3D'48'%20rx%3D'12'%20fill%3D'%23C7CEDA'%2F%3E%3C%2Fsvg%3E";
+const demoMarkAlt = "Product logo";
 
 const Args = S.Struct({});
 const Model = S.Struct({
@@ -90,6 +95,8 @@ const makeDefinition = (prefilled: boolean) => ({
         onRememberToggle: action("RememberToggle"),
         onSubmit: action("Submit"),
         password: model.password,
+        wordmarkAlt: demoMarkAlt,
+        wordmarkSrc: demoMark,
       },
       h,
     ),

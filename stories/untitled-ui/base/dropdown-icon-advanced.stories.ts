@@ -1,5 +1,5 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread -- Storybook interaction functions use the browser promise API directly. */
-import { dropdownIconAdvanced } from "ui/base";
+import { dropdownIconAdvanced } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { advancedDefinition } from "./dropdown-advanced-fixture.ts";

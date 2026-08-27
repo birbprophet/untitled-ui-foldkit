@@ -6,10 +6,12 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
-import { aiAssistantIntroMenu } from "ui/application";
-import type { AIAssistantIntroLocale, AIAssistantIntroPrompt } from "ui/application";
+import { aiAssistantIntroMenu } from "../../../src/application.ts";
+import type { AIAssistantIntroLocale, AIAssistantIntroPrompt } from "../../../src/application.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
+
+import { demoBrand, agentFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Prompt = S.Literals([
@@ -21,14 +23,14 @@ const Prompt = S.Literals([
   "more",
 ]);
 const Args = S.Struct({
+  accountAvatarUrl: S.String,
   accountName: S.String,
-  accountSeed: S.String,
   locale: Locale,
   userName: S.String,
 });
 const Model = S.Struct({
+  accountAvatarUrl: S.String,
   accountName: S.String,
-  accountSeed: S.String,
   inputValue: S.String,
   isOpen: S.Boolean,
   locale: Locale,
@@ -159,8 +161,9 @@ const definitionWith = (phase: FixturePhase) => ({
   view: (model: Model, h: Parameters<typeof aiAssistantIntroMenu<Message>>[1]) =>
     aiAssistantIntroMenu(
       {
+        accountAvatarUrl: model.accountAvatarUrl,
         accountName: model.accountName,
-        accountSeed: model.accountSeed,
+        brandMark: demoBrand().mark,
         id: "ai-assistant-intro-menu-story",
         inputValue: model.inputValue,
         isOpen: model.isOpen,
@@ -204,8 +207,8 @@ const interactionDefinition = {
     ),
 };
 const fixture = {
+  accountAvatarUrl: agentFace("Olivia"),
   accountName: "Olivia",
-  accountSeed: "olivia-ai-assistant-intro",
   locale: "en-US",
   userName: "Olivia",
 } satisfies Args;

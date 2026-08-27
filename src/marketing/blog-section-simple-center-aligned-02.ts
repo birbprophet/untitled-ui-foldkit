@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI blog section. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { avatar } from "../base/avatar.ts";
@@ -8,7 +7,7 @@ export interface BlogSectionSimpleCenterAligned02Article {
   readonly author: {
     readonly href: string;
     readonly name: string;
-    readonly seed: string;
+    readonly avatarUrl: string;
   };
   readonly category: {
     readonly href: string;
@@ -18,7 +17,7 @@ export interface BlogSectionSimpleCenterAligned02Article {
   readonly id: string;
   readonly publishedAt: string;
   readonly summary: string;
-  readonly thumbnailSeed: string;
+  readonly thumbnailUrl: string;
   readonly title: string;
 }
 
@@ -54,14 +53,7 @@ const articleCard = <Message>(
             h.Class(
               "aspect-[1.5] w-full object-cover transition duration-100 ease-linear hover:scale-105 xl:w-80",
             ),
-            h.Src(
-              blobatarDataUri(article.thumbnailSeed, {
-                background: "square",
-                kind: "robot",
-                size: 480,
-                title: article.title,
-              }),
-            ),
+            h.Src(article.thumbnailUrl),
           ]),
         ],
       ),
@@ -108,10 +100,9 @@ const articleCard = <Message>(
                     {
                       alt: article.author.name,
                       border: true,
-                      entityKind: "agent",
                       focusable: true,
-                      seed: article.author.seed,
                       size: "md",
+                      src: article.author.avatarUrl,
                     },
                     h,
                   ),

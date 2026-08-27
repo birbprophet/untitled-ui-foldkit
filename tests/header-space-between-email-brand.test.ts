@@ -15,7 +15,7 @@ describe("header space between email brand", () => {
       heading: "About the company",
       hintPrefix: "We care about your data in our",
       onEmailInput: (value) => value,
-      onSubmit: () => "submit",
+      onSubmit: "submit",
       policyHref: "#privacy",
       policyLabel: "privacy policy",
       submitLabel: "Get started",

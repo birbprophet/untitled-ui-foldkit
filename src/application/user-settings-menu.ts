@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled renderer preserves the authenticated user-settings slideout anatomy. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -20,6 +19,7 @@ export interface UserSettingsMenuCountry {
 }
 
 export interface UserSettingsMenuProps<Message> {
+  readonly avatarUrl: string;
   readonly countries: readonly UserSettingsMenuCountry[];
   readonly email: string;
   readonly firstName: string;
@@ -177,7 +177,7 @@ const divider = <Message>(h: HtmlBuilder<Message>): Html =>
     ],
   );
 
-const profilePhoto = <Message>(name: string, seed: string, h: HtmlBuilder<Message>): Html =>
+const profilePhoto = <Message>(name: string, src: string, h: HtmlBuilder<Message>): Html =>
   h.div(
     [
       h.Class(
@@ -191,20 +191,7 @@ const profilePhoto = <Message>(name: string, seed: string, h: HtmlBuilder<Messag
             "relative size-full overflow-hidden rounded-full shadow-xl outline-[0.75px] -outline-offset-[0.75px] outline-black/16 before:absolute before:inset-0 before:rounded-full before:border-[1.5px] before:border-white/32 before:mask-[linear-gradient(to_bottom,black_0%,transparent_25%,transparent_75%,black_100%)]",
           ),
         ],
-        [
-          h.img([
-            h.Alt(name),
-            h.Class("size-full object-cover"),
-            h.Src(
-              blobatarDataUri(seed, {
-                background: "circle",
-                kind: "agent",
-                size: 192,
-                title: name,
-              }),
-            ),
-          ]),
-        ],
+        [h.img([h.Alt(name), h.Class("size-full object-cover"), h.Src(src)])],
       ),
     ],
   );
@@ -469,7 +456,7 @@ export const userSettingsMenu = <Message>(
                           h.div(
                             [h.Class("relative -mt-12 flex flex-col gap-4 px-4 md:px-6")],
                             [
-                              profilePhoto(profileName, "olivia-rhye", h),
+                              profilePhoto(profileName, props.avatarUrl, h),
                               h.div(
                                 [h.Class("absolute top-14 right-4 flex gap-0.5 md:right-6")],
                                 [

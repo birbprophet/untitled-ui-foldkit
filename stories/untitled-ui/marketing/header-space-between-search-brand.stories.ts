@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
-import { headerSpaceBetweenSearchBrand } from "../../../../../packages/ui/src/marketing/header-space-between-search-brand.ts";
+import { headerSpaceBetweenSearchBrand } from "../../../src/marketing/header-space-between-search-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

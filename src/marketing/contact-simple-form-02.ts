@@ -1,5 +1,4 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Direct FoldKit transcription preserves the authenticated form and validation anatomy. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -58,16 +57,6 @@ export const contactSimpleForm02Countries: readonly ContactSimpleForm02Country[]
   { id: "GB", label: "GB", phoneMask: "+44-##-####-####" },
   { id: "CA", label: "CA", phoneMask: "+1 (###) ###-####" },
 ];
-
-export const contactSimpleForm02Image = {
-  alt: "Lana Steiner",
-  src: blobatarDataUri("contact-simple-form-02-lana-steiner", {
-    background: "square",
-    kind: "agent",
-    size: 1024,
-    title: "Lana Steiner",
-  }),
-} as const;
 
 const chevron = <Message>(h: HtmlBuilder<Message>): Html =>
   h.svg(

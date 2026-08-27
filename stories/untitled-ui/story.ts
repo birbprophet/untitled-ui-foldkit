@@ -4,7 +4,7 @@ import type { Command } from "foldkit/command";
 /* oxlint-disable effect/noNewError, effect/noThrowStatement, mps/avoid-untagged-errors -- An invalid checked-in verified story is a build-time defect, not a recoverable domain failure. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 import { createFoldkitStory, waitForFoldkitStory } from "storybook-renderer-foldkit";
-import { catalog } from "ui/catalog";
+import { catalog } from "../../src/catalog.ts";
 
 export interface TaggedMessage {
   readonly _tag: string;

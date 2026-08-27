@@ -1,6 +1,5 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Placeholder is the authenticated empty composer state; the controlled native dialog keeps explicit prompt and composer anatomy. */
-import { blobatarDataUri } from "avatar";
-import { symbol } from "brand";
+import type { BrandLockup } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export type AssistantPrompt =
@@ -12,8 +11,9 @@ export type AssistantPrompt =
   | "more";
 
 export interface AIAssistantModalProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly accountName: string;
-  readonly accountSeed: string;
+  readonly brand: BrandLockup;
   readonly id: string;
   readonly inputValue: string;
   readonly isOpen: boolean;
@@ -169,12 +169,6 @@ export const aiAssistantModal = <Message>(
 ): Html => {
   const titleId = `${props.id}-title`;
   const descriptionId = `${props.id}-description`;
-  const accountImage = blobatarDataUri(props.accountSeed, {
-    background: "circle",
-    kind: "agent",
-    size: 64,
-    title: `${props.accountName}, Siglata agent`,
-  });
   return h.div(
     [],
     props.isOpen
@@ -207,10 +201,10 @@ export const aiAssistantModal = <Message>(
                     ],
                     [
                       h.img([
-                        h.Alt("Siglata logo"),
+                        h.Alt(props.brand.mark.alt),
                         h.Autofocus(true),
                         h.Class("size-10 rounded-lg shadow-lg md:size-14 md:rounded-xl"),
-                        h.Src(symbol.url.href),
+                        h.Src(props.brand.mark.src),
                         h.Tabindex(0),
                       ]),
                       h.div(
@@ -299,7 +293,7 @@ export const aiAssistantModal = <Message>(
                                   h.img([
                                     h.Alt(""),
                                     h.Class("size-4 rounded-full"),
-                                    h.Src(accountImage),
+                                    h.Src(props.accountAvatarUrl),
                                   ]),
                                   h.span(
                                     [h.Class("flex items-center gap-0.5")],

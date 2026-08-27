@@ -1,13 +1,15 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import { blogSectionSimpleLeftAligned02 } from "../src/marketing/blog-section-simple-left-aligned-02.ts";
 import type { BlogSectionSimpleLeftAligned02Props } from "../src/marketing/blog-section-simple-left-aligned-02.ts";
 
 describe("blog section simple left aligned 02", () => {
   it("keeps article, author, category, tag, and view-all actions controlled", () => {
     const article = {
-      author: { avatarSeed: "olivia-rhye", href: "#author", name: "Olivia Rhye" },
+      author: { avatarUrl: agentFace("Olivia Rhye"), href: "#author", name: "Olivia Rhye" },
       category: { href: "#design", name: "Design" },
       href: "#article",
       id: "article-1",

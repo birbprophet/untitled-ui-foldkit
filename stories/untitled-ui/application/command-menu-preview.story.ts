@@ -1,8 +1,9 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- This helper owns the shared controlled state contract of the authenticated preview-menu siblings. */
 import * as S from "effect/Schema";
 import type { Html, HtmlBuilder } from "foldkit/html";
-import type { CommandMenuUsersMenuProps } from "ui/application";
+import type { CommandMenuUsersMenuProps } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
+import { agentFace } from "../../fixtures/brand.ts";
 
 import { liveStory } from "../story.ts";
 
@@ -47,10 +48,22 @@ const update = (model: Model, message: Message): Model => {
   return model;
 };
 
+const faces = {
+  "user-01": agentFace("Phoenix Baker"),
+  "user-02": agentFace("Olivia Rhye"),
+  "user-03": agentFace("Lana Steiner"),
+  "user-04": agentFace("Demi Wilkinson"),
+  "user-05": agentFace("Candice Wu"),
+  "user-06": agentFace("Natali Craig"),
+  "user-07": agentFace("Drew Cano"),
+  "user-08": agentFace("Kari Rasmussen"),
+} as const;
+
 export const commandMenuPreviewStories = (renderer: Renderer, id: string) => {
   const view = (model: Model, h: HtmlBuilder<Message>) =>
     renderer(
       {
+        avatars: faces,
         focusedId: model.focusedId,
         id,
         isOpen: model.isOpen,

@@ -11,6 +11,8 @@ const fieldInput = (field: ProfileSettingsField, value: string): string => `${fi
 describe("profile settings modal", () => {
   it("keeps fields, consent, upload, and actions controlled", () => {
     const props: ProfileSettingsModalProps<string> = {
+      avatarUrl:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect width='192' height='192' fill='%237f56d9'/%3E%3C/svg%3E",
       consent: false,
       copied: false,
       id: "profile-settings",

@@ -4,10 +4,24 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { notificationsMenu, notificationsMenuFixture } from "ui/application";
+import { notificationsMenu, notificationsMenuFixture } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-
+import { agentFace } from "../../fixtures/brand.ts";
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+const faces = {
+  "Ava Wright": agentFace("Ava Wright"),
+  "Candice Wu": agentFace("Candice Wu"),
+  "Demi Wilkinson": agentFace("Demi Wilkinson"),
+  "Drew Cano": agentFace("Drew Cano"),
+  "Eve Leroy": agentFace("Eve Leroy"),
+  "Kate Morrison": agentFace("Kate Morrison"),
+  "Koray Okumus": agentFace("Koray Okumus"),
+  "Lana Steiner": agentFace("Lana Steiner"),
+  "Natali Craig": agentFace("Natali Craig"),
+  "Orlando Diggs": agentFace("Orlando Diggs"),
+  "Phoenix Baker": agentFace("Phoenix Baker"),
+} as const;
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: Locale });
@@ -107,7 +121,7 @@ const definition = (showTrigger = false) => ({
           {
             id: "notifications-menu-story",
             isOpen: model.isOpen,
-            items: notificationsMenuFixture(model.locale),
+            items: notificationsMenuFixture(model.locale, faces),
             locale: model.locale,
             onDismiss: dismiss,
           },
@@ -121,7 +135,6 @@ const enUs = { locale: "en-US" } satisfies Args;
 
 export default {
   ...componentMeta("notifications-menu"),
-  argTypes: { locale: { control: "select", options: ["en-US", "pt-BR"] } },
   title: "Untitled UI/Application/Notifications Menu",
 };
 

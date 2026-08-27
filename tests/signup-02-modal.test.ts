@@ -15,6 +15,8 @@ describe("signup 02 modal", () => {
       onFacebookSignup: "facebook",
       onGoogleSignup: "google",
       onSubmit: "submit",
+      wordmarkAlt: "/brand/logo.svg",
+      wordmarkSrc: "/brand/logo.svg",
     };
 
     expect(props.onEmailInput("hello@example.com")).toBe("email:hello@example.com");

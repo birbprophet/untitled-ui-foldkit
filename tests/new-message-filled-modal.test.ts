@@ -9,7 +9,14 @@ describe("new message filled modal", () => {
   it("keeps compose, upload, and recipient state controlled", () => {
     const props: NewMessageFilledModalProps<string> = {
       accountMenuOpen: false,
-      accounts: [{ avatarSeed: "olivia", id: "olivia", label: "Olivia Rhye" }],
+      accounts: [
+        {
+          avatarUrl:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%237f56d9'/%3E%3C/svg%3E",
+          id: "olivia",
+          label: "Olivia Rhye",
+        },
+      ],
       attachments: [{ id: "brief", name: "brief.pdf", progress: 40, size: 12_000_000 }],
       bodyHtml: "<p>Hello</p>",
       bodySelection: {

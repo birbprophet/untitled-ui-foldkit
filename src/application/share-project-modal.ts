@@ -11,6 +11,15 @@ export type ShareProjectMemberId = "ammar" | "mathilde" | "sienna";
 export type ShareProjectMenu = "link" | ShareProjectMemberId;
 export type ShareProjectPermission = "can-edit" | "can-view" | "owner";
 
+/** A share-project row: identity and presence supplied by the host application. */
+export interface ShareProjectMember {
+  readonly avatarUrl: string;
+  readonly email: string;
+  readonly id: ShareProjectMemberId;
+  readonly isOnline: boolean;
+  readonly name: string;
+}
+
 export interface ShareProjectMemberPermissions {
   readonly ammar: ShareProjectPermission;
   readonly mathilde: ShareProjectPermission;
@@ -25,6 +34,7 @@ export interface ShareProjectModalProps<Message> {
   readonly linkPermission: Exclude<ShareProjectPermission, "owner">;
   readonly locale: ShareProjectLocale;
   readonly memberPermissions: ShareProjectMemberPermissions;
+  readonly members: readonly ShareProjectMember[];
   readonly onCancel: NoInfer<Message>;
   readonly onCopy: NoInfer<Message>;
   readonly onDismiss: NoInfer<Message>;
@@ -78,30 +88,6 @@ const copy = {
     title: "Compartilhe este projeto",
   },
 } as const;
-
-const members = [
-  {
-    email: "sienna@siglata.com",
-    id: "sienna",
-    isOnline: true,
-    name: "Sienna Hewitt",
-    seed: "share-project-sienna-hewitt",
-  },
-  {
-    email: "ammar@siglata.com",
-    id: "ammar",
-    isOnline: false,
-    name: "Ammar Foley",
-    seed: "share-project-ammar-foley",
-  },
-  {
-    email: "mathilde@siglata.com",
-    id: "mathilde",
-    isOnline: false,
-    name: "Mathilde Lewis",
-    seed: "share-project-mathilde-lewis",
-  },
-] as const;
 
 const pathIcon = <Message>(path: string, className: string, h: HtmlBuilder<Message>): Html =>
   h.svg(
@@ -267,7 +253,7 @@ const permissionMenu = <Message>(
   );
 };
 
-const avatarLabel = <Message>(member: (typeof members)[number], h: HtmlBuilder<Message>): Html =>
+const avatarLabel = <Message>(member: ShareProjectMember, h: HtmlBuilder<Message>): Html =>
   h.figure(
     [h.Class("group flex min-w-0 flex-1 items-center gap-2")],
     [
@@ -275,9 +261,8 @@ const avatarLabel = <Message>(member: (typeof members)[number], h: HtmlBuilder<M
         {
           alt: member.name,
           border: true,
-          entityKind: "agent",
-          seed: member.seed,
           size: "md",
+          src: member.avatarUrl,
           status: member.isOnline ? "online" : undefined,
         },
         h,
@@ -468,7 +453,7 @@ export const shareProjectModal = <Message>(
                           ),
                           h.ul(
                             [h.Class("flex flex-col gap-3")],
-                            members.map((member) =>
+                            props.members.map((member) =>
                               h.keyed("li")(
                                 member.id,
                                 [h.Class("flex items-start gap-3")],

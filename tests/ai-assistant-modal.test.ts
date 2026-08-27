@@ -9,8 +9,9 @@ import type {
 describe("AI assistant modal", () => {
   it("keeps composer, prompts, actions, and visibility controlled", () => {
     const props: AIAssistantModalProps<string> = {
+      accountAvatarUrl: "/agents/olivia.svg",
       accountName: "Olivia",
-      accountSeed: "olivia-ai-assistant",
+      brand: { mark: { alt: "Brand logo", src: "/brand/logo.svg" } },
       id: "assistant",
       inputValue: "Build a launch checklist",
       isOpen: true,

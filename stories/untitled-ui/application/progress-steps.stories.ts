@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread, effect/noTernary -- Storybook CSF and the upstream variant matrix remain direct. */
 import * as S from "effect/Schema";
-import { progressSteps } from "ui/application";
+import { progressSteps } from "../../../src/application.ts";
 
 import { componentMeta, matrix, staticStory } from "../story.ts";
 

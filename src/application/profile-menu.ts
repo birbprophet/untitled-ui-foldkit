@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled native slideout preserves the authenticated user-profile anatomy. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { avatar } from "../base/avatar.ts";
@@ -10,13 +9,14 @@ export type ProfileMenuLocale = "en-US" | "pt-BR";
 
 export interface ProfileMenuExperience {
   readonly company: string;
-  readonly companySeed: string;
+  readonly companyLogoUrl?: string;
   readonly dateRange: string;
   readonly role: string;
 }
 
 export interface ProfileMenuProps<Message> {
   readonly email: string;
+  readonly avatarUrl: string;
   readonly experiences: readonly ProfileMenuExperience[];
   readonly id: string;
   readonly isOpen: boolean;
@@ -28,7 +28,6 @@ export interface ProfileMenuProps<Message> {
   readonly onDismiss: NoInfer<Message>;
   readonly onNewProject: NoInfer<Message>;
   readonly onStudio: NoInfer<Message>;
-  readonly profileSeed: string;
   readonly tags: readonly string[];
   readonly website: string;
 }
@@ -90,7 +89,7 @@ const lineIcon = <Message>(
   );
 };
 
-const profilePhoto = <Message>(name: string, seed: string, h: HtmlBuilder<Message>): Html =>
+const profilePhoto = <Message>(name: string, url: string, h: HtmlBuilder<Message>): Html =>
   h.div(
     [
       h.Class(
@@ -104,20 +103,7 @@ const profilePhoto = <Message>(name: string, seed: string, h: HtmlBuilder<Messag
             "relative size-full overflow-hidden rounded-full outline-[0.75px] -outline-offset-[0.75px] outline-black/16 before:absolute before:inset-0 before:rounded-full before:border-[1.5px] before:border-white/32",
           ),
         ],
-        [
-          h.img([
-            h.Alt(name),
-            h.Class("size-full object-cover"),
-            h.Src(
-              blobatarDataUri(seed, {
-                background: "circle",
-                kind: "agent",
-                size: 192,
-                title: name,
-              }),
-            ),
-          ]),
-        ],
+        [h.img([h.Alt(name), h.Class("size-full object-cover"), h.Src(url)])],
       ),
       h.span(
         [
@@ -236,7 +222,7 @@ export const profileMenu = <Message>(
                                   h.section(
                                     [h.Class("flex flex-col gap-4")],
                                     [
-                                      profilePhoto(props.name, props.profileSeed, h),
+                                      profilePhoto(props.name, props.avatarUrl, h),
                                       h.div(
                                         [h.Class("flex flex-col")],
                                         [
@@ -396,10 +382,9 @@ export const profileMenu = <Message>(
                                       {
                                         alt: `${experience.company} robot logo`,
                                         border: true,
-                                        entityKind: "robot",
                                         rounded: false,
-                                        seed: experience.companySeed,
                                         size: "lg",
+                                        src: experience.companyLogoUrl,
                                       },
                                       h,
                                     ),

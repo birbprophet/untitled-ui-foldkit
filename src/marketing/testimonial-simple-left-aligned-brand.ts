@@ -8,9 +8,9 @@ export interface TestimonialSimpleLeftAlignedBrandProps {
   readonly heading: string;
 }
 
-export const testimonialSimpleLeftAlignedBrand = (
+export const testimonialSimpleLeftAlignedBrand = <Message>(
   props: TestimonialSimpleLeftAlignedBrandProps,
-  h: HtmlBuilder,
+  h: HtmlBuilder<Message>,
 ): Html =>
   h.section(
     [h.Class("bg-bg-brand-section py-16 md:py-24"), h.Dir("ltr")],
@@ -21,12 +21,22 @@ export const testimonialSimpleLeftAlignedBrand = (
           h.div(
             [h.Class("mx-auto flex max-w-3xl flex-col items-center text-center")],
             [
-              h.p([h.Class("text-sm font-semibold text-text-secondary_on-brand md:text-md")], [props.eyebrow]),
+              h.p(
+                [h.Class("text-sm font-semibold text-text-secondary_on-brand md:text-md")],
+                [props.eyebrow],
+              ),
               h.h2(
-                [h.Class("mt-3 text-display-sm font-semibold text-text-primary_on-brand md:text-display-md")],
+                [
+                  h.Class(
+                    "mt-3 text-display-sm font-semibold text-text-primary_on-brand md:text-display-md",
+                  ),
+                ],
                 [props.heading],
               ),
-              h.p([h.Class("mt-4 text-lg text-text-secondary_on-brand md:mt-5 md:text-xl")], [props.description]),
+              h.p(
+                [h.Class("mt-4 text-lg text-text-secondary_on-brand md:mt-5 md:text-xl")],
+                [props.description],
+              ),
             ],
           ),
         ],

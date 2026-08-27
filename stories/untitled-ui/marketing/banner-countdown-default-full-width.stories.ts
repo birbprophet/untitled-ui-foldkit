@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { bannerCountdownDefaultFullWidth } from "../../../../../packages/ui/src/marketing/banner-countdown-default-full-width.ts";
+import { bannerCountdownDefaultFullWidth } from "../../../src/marketing/banner-countdown-default-full-width.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Unit = S.Struct({ label: S.String, value: S.Number });

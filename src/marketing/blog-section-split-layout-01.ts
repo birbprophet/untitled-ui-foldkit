@@ -1,13 +1,12 @@
 /* oxlint-disable effect/noReturnInArrow -- This renderer is a direct FoldKit transcription of the authenticated Untitled UI split-layout blog section. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
 
 export interface BlogSectionSplitLayout01Article {
+  readonly authorAvatarSrc: string;
   readonly authorHref: string;
   readonly authorName: string;
-  readonly authorSeed: string;
   readonly categoryHref: string;
   readonly categoryName: string;
   readonly href: string;
@@ -141,13 +140,7 @@ const articleCard = <Message>(
                   h.img([
                     h.Alt(article.authorName),
                     h.Class("size-10 rounded-full object-cover ring-1 ring-border-secondary_alt"),
-                    h.Src(
-                      blobatarDataUri(article.authorSeed, {
-                        kind: "agent",
-                        size: 40,
-                        title: article.authorName,
-                      }),
-                    ),
+                    h.Src(article.authorAvatarSrc),
                   ]),
                 ],
               ),

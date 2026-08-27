@@ -6,8 +6,8 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { paymentMethodMenu } from "../../../../../packages/ui/src/application/payment-method-menu.ts";
-import type { PaymentMethodMenuCard } from "../../../../../packages/ui/src/application/payment-method-menu.ts";
+import { paymentMethodMenu } from "../../../src/application/payment-method-menu.ts";
+import type { PaymentMethodMenuCard } from "../../../src/application/payment-method-menu.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 

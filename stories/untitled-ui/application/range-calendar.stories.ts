@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- showOutOfRangeDates is the exact authenticated upstream prop; Controls preserve its public name while selection and focus stay in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { rangeCalendar } from "ui/application";
+import { rangeCalendar } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";

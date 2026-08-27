@@ -4,10 +4,12 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { calendarEventModal } from "ui/application";
+import { calendarEventModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const CalendarEventLocale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: CalendarEventLocale });
@@ -42,6 +44,16 @@ const CloseCalendarEventDialog = Command.define("CloseCalendarEventDialog", {
   messages: [DialogClosed],
 });
 
+const attendeeNames = [
+  "Sienna Hewitt",
+  "Ammar Foley",
+  "Pippa Wilkinson",
+  "Olly Schroeder",
+  "Mathilde Lewis",
+] as const;
+const attendees = attendeeNames.map((name) => ({ avatarUrl: agentFace(name), name }));
+const organizer = { avatarUrl: agentFace("Sienna Hewitt"), name: "Sienna Hewitt" };
+
 const fixture = { locale: "en-US" } satisfies Args;
 
 const definition = {
@@ -64,6 +76,7 @@ const definition = {
   view: (model: Model, h: Parameters<typeof calendarEventModal<Message>>[1]) =>
     calendarEventModal(
       {
+        attendees,
         id: "calendar-event-modal-story",
         isOpen: model.isOpen,
         locale: model.locale,
@@ -72,6 +85,8 @@ const definition = {
         onDecline: simple("Decline"),
         onDismiss: simple("Dismiss"),
         onMaybe: simple("Maybe"),
+        organizer,
+        organizerEmail: "sienna@siglata.com",
       },
       h,
     ),
@@ -95,9 +110,6 @@ export const Dark = {
   }),
   args: fixture,
 };
-
-export const Responsive = { ...liveCommandStory(definition), args: fixture };
-
 export const Interactions = {
   ...liveCommandStory(definition),
   args: { locale: "pt-BR" } satisfies Args,

@@ -3,12 +3,13 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { ctaCardVertical } from "../../../../../packages/ui/src/marketing/cta-card-vertical.ts";
+import { ctaCardVertical } from "../../../src/marketing/cta-card-vertical.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
   description: S.String,
   heading: S.String,
+  headingMobile: S.String,
   primaryLabel: S.String,
   secondaryLabel: S.String,
 });
@@ -24,7 +25,7 @@ const definition = {
   init: (args: typeof Args.Type): Model => ({
     ...args,
   }),
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof ctaCardVertical<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],
@@ -44,6 +45,7 @@ const definition = {
 const args = {
   description: "Join over 4,000+ startups already growing with Untitled.",
   heading: "Start your free trial",
+  headingMobile: "Start free trial",
   primaryLabel: "Get started",
   secondaryLabel: "Learn more",
 } as const;

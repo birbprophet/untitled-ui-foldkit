@@ -8,7 +8,10 @@ export interface ContentSplitImage02Props {
   readonly heading: string;
 }
 
-export const contentSplitImage02 = (props: ContentSplitImage02Props, h: HtmlBuilder): Html =>
+export const contentSplitImage02 = <Message>(
+  props: ContentSplitImage02Props,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.section(
     [h.Class("bg-bg-primary py-16 md:py-24"), h.Dir("ltr")],
     [

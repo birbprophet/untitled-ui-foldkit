@@ -6,13 +6,14 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { userSettingsMenu } from "../../../../../packages/ui/src/application/user-settings-menu.ts";
+import { userSettingsMenu } from "../../../src/application/user-settings-menu.ts";
 import type {
   UserSettingsMenuCountry,
   UserSettingsMenuField,
-} from "../../../../../packages/ui/src/application/user-settings-menu.ts";
+} from "../../../src/application/user-settings-menu.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const countries: readonly UserSettingsMenuCountry[] = [
   {
@@ -225,6 +226,7 @@ const definitionWith = (fixtureState: FixtureState, shouldReopen = false) => ({
         ),
         userSettingsMenu(
           {
+            avatarUrl: agentFace(`${model.firstName} ${model.lastName}`),
             countries,
             email: model.email,
             firstName: model.firstName,
@@ -324,7 +326,7 @@ export const Interactions = {
     await userEvent.clear(lastName);
     await userEvent.type(lastName, "Chen");
     await userEvent.clear(email);
-    await userEvent.type(email, "maya.chen@example.com");
+    await userEvent.type(email, "maya@siglata.com");
     await userEvent.clear(username);
     await userEvent.type(username, "mayachen");
     dialog = await page.findByRole("dialog", { name: "Menu lateral" });

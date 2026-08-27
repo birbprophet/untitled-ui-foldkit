@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread, effect/noTernary -- Storybook CSF variant matrices stay direct. */
 import * as S from "effect/Schema";
-import { simpleCircle } from "ui/base";
+import { simpleCircle } from "../../../src/base.ts";
 
 import { componentMeta, staticStory } from "../story.ts";
 

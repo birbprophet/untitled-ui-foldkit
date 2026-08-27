@@ -2,27 +2,48 @@
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { menu2ColWithSidebar } from "../../../../../packages/ui/src/marketing/menu-2-col-with-sidebar.ts";
-import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({ description: S.String, heading: S.String });
+import { menu2ColWithSidebar } from "../../../src/marketing/menu-2-col-with-sidebar.ts";
+import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { marketingMenuColumns, marketingMenuTutorials } from "./marketing-menu-fixtures.ts";
+
+const Args = S.Struct({ allTutorialsLabel: S.String, tutorialsTitle: S.String });
 const Model = Args;
 type Model = typeof Model.Type;
 
-const Action = m("Menu2ColWithSidebarAction", { id: S.String });
-type Message = typeof Action.Type;
+const Actioned = m("Menu2ColWithSidebarAction", { id: S.String });
+type Message = typeof Actioned.Type;
 
 const definition = {
   Args,
   Model,
   init: (args: typeof Args.Type): Model => args,
+  update: (model: Model): Model => model,
   view: (model: Model, h: Parameters<typeof menu2ColWithSidebar<Message>>[1]) =>
-    h.div([h.Class("-m-8")], [menu2ColWithSidebar({ ...model, description: model.description, heading: model.heading, onAction: Action({ id: "action" }) }, h)]),
+    h.div(
+      [h.Class("-m-8")],
+      [
+        menu2ColWithSidebar(
+          {
+            allTutorialsLabel: model.allTutorialsLabel,
+            columns: marketingMenuColumns,
+            onAllTutorials: Actioned({ id: "all-tutorials" }),
+            onItem: (id) => Actioned({ id }),
+            tutorials: marketingMenuTutorials.map((tutorial) => ({
+              ...tutorial,
+              onWatch: Actioned({ id: tutorial.id }),
+            })),
+            tutorialsTitle: model.tutorialsTitle,
+          },
+          h,
+        ),
+      ],
+    ),
 } as const;
 
 const args = {
-  description: "Everything you need to build modern UI and great products.",
-  heading: "Build something great",
+  allTutorialsLabel: "View all tutorials",
+  tutorialsTitle: "Video tutorials",
 } as const;
 
 export default {
@@ -36,7 +57,10 @@ export const Dark = {
   ...liveStory({
     ...definition,
     view: (model: Model, h: Parameters<typeof menu2ColWithSidebar<Message>>[1]) =>
-      h.div([h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")], [definition.view(model, h)]),
+      h.div(
+        [h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")],
+        [definition.view(model, h)],
+      ),
   }),
   args,
 };
@@ -47,10 +71,8 @@ export const Interactions = {
   args,
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
-    const button = within(canvasElement).queryByRole("button");
-    if (button !== null) {
-      await userEvent.click(button);
-      await waitFor(() => expect(button).toBeVisible());
-    }
+    const button = within(canvasElement).getByRole("button");
+    await userEvent.click(button);
+    await waitFor(() => expect(button).toBeVisible());
   },
 };

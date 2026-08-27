@@ -4,8 +4,8 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { form02Modal } from "ui/application";
-import type { Form02ModalField } from "ui/application";
+import { form02Modal } from "../../../src/application.ts";
+import type { Form02ModalField } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";

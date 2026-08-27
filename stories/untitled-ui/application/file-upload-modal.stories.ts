@@ -4,8 +4,8 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { fileUploadModal } from "ui/application";
-import type { FileUploadResult } from "ui/application";
+import { fileUploadModal } from "../../../src/application.ts";
+import type { FileUploadResult } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";

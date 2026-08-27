@@ -1,10 +1,9 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, mps/imperative-loops, mps/no-length-comparison, mps/prefer-arr-match, typescript/prefer-for-of -- Bounded roving focus follows disabled items in DOM order. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface TagItem<Message> {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly count?: number;
   readonly dot?: boolean;
   readonly id: string;
@@ -128,21 +127,8 @@ const tagAdornment = <Message>(
   item: TagItem<Message>,
   h: HtmlBuilder<Message>,
 ): readonly Html[] => {
-  if (item.avatarSeed !== undefined) {
-    return [
-      h.img([
-        h.Class("size-4 rounded-full"),
-        h.Src(
-          blobatarDataUri(item.avatarSeed, {
-            background: "circle",
-            kind: "agent",
-            size: 32,
-            title: item.label,
-          }),
-        ),
-        h.Alt(""),
-      ]),
-    ];
+  if (item.avatarUrl !== undefined) {
+    return [h.img([h.Class("size-4 rounded-full"), h.Src(item.avatarUrl), h.Alt("")])];
   }
   if (item.dot === true) {
     return [
@@ -182,7 +168,7 @@ export const tags = <Message>(props: TagsProps<Message>, h: HtmlBuilder<Message>
       const removeMessage = item.onRemove;
       const leftPadding =
         mode === "none"
-          ? item.avatarSeed === undefined
+          ? item.avatarUrl === undefined
             ? item.dot === true
               ? size === "sm"
                 ? "pl-1.5"

@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread, effect/noTernary -- Storybook CSF variant matrices stay direct. */
 import * as S from "effect/Schema";
-import { badgeGroup } from "ui/base";
+import { badgeGroup } from "../../../src/base.ts";
 
 import { componentMeta, matrix, staticStory } from "../story.ts";
 

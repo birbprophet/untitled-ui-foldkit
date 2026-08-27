@@ -5,7 +5,7 @@ import { expect, userEvent, within } from "storybook/test";
 import {
   contactIconsAndMap02,
   contactIconsAndMap02Locations,
-} from "../../../../../packages/ui/src/marketing/contact-icons-and-map-02.ts";
+} from "../../../src/marketing/contact-icons-and-map-02.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

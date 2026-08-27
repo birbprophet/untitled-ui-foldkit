@@ -4,11 +4,12 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { shareProjectModal } from "ui/application";
-import type { ShareProjectMenu, ShareProjectPermission } from "ui/application";
+import { shareProjectModal } from "../../../src/application.ts";
+import type { ShareProjectMenu, ShareProjectPermission } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Permission = S.Literals(["can-edit", "can-view", "owner"]);
@@ -87,6 +88,32 @@ const init = (args: Args): Model => ({
   siennaPermission: "owner",
 });
 
+const members = [
+  {
+    avatarUrl: agentFace("Sienna Hewitt"),
+    email: "sienna@siglata.com",
+    id: "sienna",
+    isOnline: true,
+    name: "Sienna Hewitt",
+  },
+  {
+    avatarUrl: agentFace("Ammar Foley"),
+    email: "ammar@siglata.com",
+    id: "ammar",
+    isOnline: false,
+    name: "Ammar Foley",
+  },
+  {
+    avatarUrl: agentFace("Mathilde Lewis"),
+    email: "mathilde@siglata.com",
+    id: "mathilde",
+    isOnline: false,
+    name: "Mathilde Lewis",
+  },
+] as const;
+
+const fixture = { locale: "en-US" } satisfies Args;
+
 const definition = {
   Args,
   Model,
@@ -164,6 +191,8 @@ const definition = {
           mathilde: model.mathildePermission,
           sienna: model.siennaPermission,
         },
+        members,
+
         onCancel: action("Cancel"),
         onCopy: action("Copy"),
         onDismiss: action("Dismiss"),
@@ -180,9 +209,6 @@ const definition = {
       h,
     ),
 };
-
-const fixture = { locale: "en-US" } satisfies Args;
-
 export default {
   ...componentMeta("share-project-modal"),
   argTypes: { locale: { control: "select", options: ["en-US", "pt-BR"] } },

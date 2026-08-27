@@ -6,10 +6,12 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { userInviteModal } from "ui/application";
-import type { UserInviteMember } from "ui/application";
+import { userInviteModal } from "../../../src/application.ts";
+import type { UserInviteMember } from "../../../src/application.ts";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: Locale });
@@ -39,7 +41,7 @@ type Message =
 
 const members: Record<"candice" | "demi" | "drew", UserInviteMember> = {
   candice: {
-    avatarSeed: "candice-wu-user-invite",
+    avatarUrl: agentFace("Candice Wu"),
     email: "candice@siglata.com",
     id: "candice",
     name: "Candice Wu",
@@ -51,12 +53,26 @@ const members: Record<"candice" | "demi" | "drew", UserInviteMember> = {
     name: "Demi Wilkinson",
   },
   drew: {
-    avatarSeed: "drew-cano-user-invite",
+    avatarUrl: agentFace("Drew Cano"),
     email: "drew@siglata.com",
     id: "drew",
     name: "Drew Cano",
   },
 };
+
+const personNames = [
+  ["@phoenix", "Phoenix Baker"],
+  ["@olivia", "Olivia Rhye"],
+  ["@lana", "Lana Steiner"],
+  ["@demi", "Demi Wilkinson"],
+  ["@candice", "Candice Wu"],
+  ["@natali", "Natali Craig"],
+  ["@abraham", "Abraham Baker"],
+  ["@adem", "Adem Lane"],
+  ["@jackson", "Jackson Reed"],
+  ["@jessie", "Jessie Meyton"],
+] as const;
+const people = personNames.map(([id, label]) => ({ avatarUrl: agentFace(label), id, label }));
 
 const ShowUserInviteModal = Command.define("ShowUserInviteModal", {
   args: { selector: S.String },
@@ -156,6 +172,7 @@ const definitionWith = (state: FixtureState, showTrigger = false) => ({
             onRemoveMember: (id: string) => idAction("Remove", id),
             onSelectOpenChanged: selectOpenChanged,
             onSelectPerson: (id: string) => idAction("Selected", id),
+            people,
             selectedPersonId: model.selectedPersonId,
           },
           h,

@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { contentSimple } from "../../../../../packages/ui/src/marketing/content-simple.ts";
+import { contentSimple } from "../../../src/marketing/content-simple.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -21,7 +21,7 @@ const args = {
   heading: "Beautiful analytics to grow smarter",
 };
 
-const specimen = (props: Args, h: Parameters<typeof contentSimple>[1]) =>
+const specimen = (props: Args, h: Parameters<typeof contentSimple<{ readonly _tag: "Noop" }>>[1]) =>
   h.div([h.Class("-m-8")], [contentSimple(props, h)]);
 
 export default {

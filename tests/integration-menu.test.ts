@@ -6,9 +6,12 @@ import type {
   IntegrationMenuProps,
 } from "../src/application/integration-menu.ts";
 
+import { demoBrand } from "../stories/fixtures/brand.ts";
+
 describe("integration menu", () => {
   it("keeps visibility, copy feedback, actions, and dismissal controlled", () => {
     const inactive: IntegrationMenuProps<string> = {
+      brandMark: demoBrand().mark,
       copied: false,
       id: "integration-menu",
       isOpen: true,
@@ -19,6 +22,7 @@ describe("integration menu", () => {
       onDocumentation: "documentation",
     };
     const activated: IntegrationMenuProps<string> = {
+      brandMark: inactive.brandMark,
       copied: true,
       id: inactive.id,
       isOpen: inactive.isOpen,

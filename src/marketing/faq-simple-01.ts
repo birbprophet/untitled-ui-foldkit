@@ -98,11 +98,9 @@ const featuredIcon = <Message>(
   h.div(
     [
       h.Class(
-        `${size === "lg" ? "hidden size-12 md:flex" : "flex size-10 md:hidden" 
-          } items-center justify-center rounded-lg ${ 
-          false
-            ? "bg-bg-brand-solid text-fg-white shadow-xs-skeuomorphic"
-            : "bg-bg-secondary text-fg-quaternary ring-1 ring-border-secondary ring-inset"}`,
+        `${
+          size === "lg" ? "hidden size-12 md:flex" : "flex size-10 md:hidden"
+        } items-center justify-center rounded-lg bg-bg-secondary text-fg-quaternary ring-1 ring-border-secondary ring-inset`,
       ),
       h.DataAttribute("featured-icon", kind),
     ],
@@ -188,17 +186,17 @@ export const faqSimple01 = <Message>(
             [
               h.div(
                 [h.Class("flex items-end -space-x-4")],
-                props.avatars.map((avatar) =>
+                props.avatars.map((member) =>
                   h.keyed("div")(
-                    avatar.id,
+                    member.id,
                     [
                       h.Class(
-                        avatar.emphasis === true
+                        member.emphasis === true
                           ? "z-10 ring-[1.5px] ring-fg-white"
                           : "ring-[1.5px] ring-fg-white",
                       ),
                     ],
-                    [avatarNode(avatar, h)],
+                    [avatarNode(member, h)],
                   ),
                 ),
               ),

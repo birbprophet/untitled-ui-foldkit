@@ -1,9 +1,10 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Controls preserve the exact upstream prop names; hover, search, feature-card, disclosure, account, and mobile state stay in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { sidebarDualTier } from "ui/application";
+import { sidebarDualTier } from "../../../src/application.ts";
 import { userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";
+import { agentFace, demoBrand } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ activeUrl: S.String, hideBorder: S.Boolean });
 const Model = S.Struct({
@@ -252,7 +253,9 @@ const definition = {
   view: (model: Model, h: Parameters<typeof sidebarDualTier<Message>>[1]) =>
     sidebarDualTier(
       {
+        accountAvatarUrl: agentFace("Olivia Rhye"),
         activeUrl: model.activeUrl,
+        brand: demoBrand(),
         currentHref: model.currentHref,
         expandedHrefs: model.expandedHrefs,
         featureCard: model.showFeatureCard ? featureCard(h) : undefined,

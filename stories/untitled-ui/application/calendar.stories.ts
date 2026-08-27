@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noGlobals, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/use-clock-service -- Calendar navigation, view, and selection remain in the FoldKit Model; explicit civil dates never read the clock. */
 import * as S from "effect/Schema";
-import { calendar } from "ui/application";
+import { calendar } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";

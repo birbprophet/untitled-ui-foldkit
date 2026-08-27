@@ -1,9 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Controls expose only authenticated component props; navigation, disclosure, search, and overlays remain in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { sidebarSimple } from "ui/application";
+import { sidebarSimple } from "../../../src/application.ts";
 import { userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";
+
+import { agentFace, demoBrand } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ hideBorder: S.Boolean, showAccountCard: S.Boolean });
 const Model = S.Struct({
@@ -111,7 +113,9 @@ const update = (model: Model, message: Message): Model => {
 const view = (model: Model, h: Parameters<typeof sidebarSimple<Message>>[1]) =>
   sidebarSimple(
     {
+      accountAvatarUrl: agentFace("Olivia Rhye"),
       activeUrl: model.activeUrl,
+      brand: demoBrand(),
       expandedHrefs: model.expandedHrefs,
       featureCard: model.showFeatureCard
         ? h.div(

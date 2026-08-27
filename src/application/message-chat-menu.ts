@@ -1,5 +1,4 @@
-/* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Placeholder copy is part of the authenticated empty composer; fixed fixture branches and the controlled native slideout follow the source directly. */
-import type { AvatarKind } from "avatar";
+/* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/prefer-option-over-null -- Placeholder copy is part of the authenticated empty composer; fixed fixture branches and the controlled native slideout follow the source directly. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { avatar } from "../base/avatar.ts";
@@ -8,6 +7,22 @@ import { tabs } from "./tabs.ts";
 
 export type MessageChatMenuLocale = "en-US" | "pt-BR";
 export type MessageChatMenuTab = "archive" | "groups" | "recent";
+
+export type MessageChatPersonKey = "demi" | "lana" | "olivia" | "phoenix";
+
+const personKeyOfName: Partial<Record<string, MessageChatPersonKey>> = {
+  "Demi Wilkinson": "demi",
+  "Lana Steiner": "lana",
+  "Olivia Rhye": "olivia",
+  "Phoenix Baker": "phoenix",
+};
+const avatarUrlFor = (
+  fixture: MessageChatMenuFixture,
+  avatars: Partial<Record<MessageChatPersonKey, string>>,
+): string | undefined => {
+  const personKey = personKeyOfName[fixture.name];
+  return personKey === undefined ? undefined : avatars[personKey];
+};
 
 export interface MessageChatMenuProps<Message> {
   readonly draft: string;
@@ -21,6 +36,7 @@ export interface MessageChatMenuProps<Message> {
   readonly onDismiss: NoInfer<Message>;
   readonly onMessageAction: (messageId: string, action: MessagingAction) => NoInfer<Message>;
   readonly onSubmit: NoInfer<Message>;
+  readonly avatars: Partial<Record<MessageChatPersonKey, string>>;
   readonly selectedTab: MessageChatMenuTab;
 }
 
@@ -46,11 +62,9 @@ interface Copy {
 
 export interface MessageChatMenuFixture {
   readonly attachment?: { readonly name: string; readonly size: string };
-  readonly avatarKind?: AvatarKind;
   readonly id: string;
   readonly isSelf?: boolean;
   readonly name: string;
-  readonly seed?: string;
   readonly sentAt: string;
   readonly text?: string;
 }
@@ -102,19 +116,15 @@ export const messageChatMenuFixture = (
   locale === "pt-BR"
     ? [
         {
-          avatarKind: "agent",
           id: "message-001",
           name: "Lana Steiner",
-          seed: "message-chat-lana",
           sentAt: "quinta-feira, 11:40",
           text: "Olá, equipe! Terminei o documento de requisitos.",
         },
         {
           attachment: { name: "Requisitos técnicos.pdf", size: "1,2 MB" },
-          avatarKind: "agent",
           id: "message-002",
           name: "Lana Steiner",
-          seed: "message-chat-lana",
           sentAt: "quinta-feira, 11:40",
         },
         {
@@ -125,18 +135,14 @@ export const messageChatMenuFixture = (
           text: "Ótimo! Obrigado.",
         },
         {
-          avatarKind: "robot",
           id: "message-004",
           name: "Demi Wilkinson",
-          seed: "message-chat-demi",
           sentAt: "quinta-feira, 11:44",
           text: "Boa hora — eu estava olhando isso agora.",
         },
         {
-          avatarKind: "agent",
           id: "message-005",
           name: "Phoenix Baker",
-          seed: "message-chat-phoenix",
           sentAt: "sexta-feira, 14:20",
           text: "Olá, Olivia. Você pode revisar o design mais recente quando puder?",
         },
@@ -150,19 +156,15 @@ export const messageChatMenuFixture = (
       ]
     : [
         {
-          avatarKind: "agent",
           id: "message-001",
           name: "Lana Steiner",
-          seed: "message-chat-lana",
           sentAt: "Thursday 11:40am",
           text: "Hey team, I've finished with the requirements doc!",
         },
         {
           attachment: { name: "Tech requirements.pdf", size: "1.2 MB" },
-          avatarKind: "agent",
           id: "message-002",
           name: "Lana Steiner",
-          seed: "message-chat-lana",
           sentAt: "Thursday 11:40am",
         },
         {
@@ -173,18 +175,14 @@ export const messageChatMenuFixture = (
           text: "Awesome! Thanks.",
         },
         {
-          avatarKind: "robot",
           id: "message-004",
           name: "Demi Wilkinson",
-          seed: "message-chat-demi",
           sentAt: "Thursday 11:44am",
           text: "Good timing—was just looking at this.",
         },
         {
-          avatarKind: "agent",
           id: "message-005",
           name: "Phoenix Baker",
-          seed: "message-chat-phoenix",
           sentAt: "Friday 2:20pm",
           text: "Hey Olivia, can you please review the latest design when you can?",
         },
@@ -333,6 +331,7 @@ const fileIcon = <Message>(h: HtmlBuilder<Message>): Html =>
 const messageItem = <Message>(
   fixture: MessageChatMenuFixture,
   copy: Copy,
+  avatars: MessageChatMenuProps<Message>["avatars"],
   onAction: MessageChatMenuProps<Message>["onMessageAction"],
   h: HtmlBuilder<Message>,
 ): Html =>
@@ -349,9 +348,8 @@ const messageItem = <Message>(
             avatar(
               {
                 alt: fixture.name,
-                entityKind: fixture.avatarKind ?? "agent",
-                seed: fixture.seed,
                 size: "sm",
+                src: avatarUrlFor(fixture, avatars),
                 status: "online",
               },
               h,
@@ -515,7 +513,9 @@ export const messageChatMenu = <Message>(
                         [
                           ...messages
                             .slice(0, 4)
-                            .map((fixture) => messageItem(fixture, copy, props.onMessageAction, h)),
+                            .map((fixture) =>
+                              messageItem(fixture, copy, props.avatars, props.onMessageAction, h),
+                            ),
                           h.li(
                             [
                               h.AriaHidden(true),
@@ -532,7 +532,9 @@ export const messageChatMenu = <Message>(
                           ),
                           ...messages
                             .slice(4, 6)
-                            .map((fixture) => messageItem(fixture, copy, props.onMessageAction, h)),
+                            .map((fixture) =>
+                              messageItem(fixture, copy, props.avatars, props.onMessageAction, h),
+                            ),
                         ],
                       ),
                       h.footer(

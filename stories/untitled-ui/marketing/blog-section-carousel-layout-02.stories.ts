@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   blogSectionCarouselLayout02,
   blogSectionCarouselLayout02Articles,
-} from "../../../../../packages/ui/src/marketing/blog-section-carousel-layout-02.ts";
+} from "../../../src/marketing/blog-section-carousel-layout-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const BadgeColor = S.Literals([
@@ -24,7 +24,7 @@ const BadgeColor = S.Literals([
 ]);
 const Link = S.Struct({ href: S.String, name: S.String });
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String, seed: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: Link,
   href: S.String,
   id: S.String,

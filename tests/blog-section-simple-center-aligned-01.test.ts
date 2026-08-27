@@ -1,6 +1,8 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import { blogSectionSimpleCenterAligned01 } from "../src/marketing/blog-section-simple-center-aligned-01.ts";
 import type { BlogSectionSimpleCenterAligned01Props } from "../src/marketing/blog-section-simple-center-aligned-01.ts";
 
@@ -9,7 +11,7 @@ describe("blog section simple center aligned 01", () => {
     const props = {
       articles: [
         {
-          author: { avatarSeed: "olivia-rhye", href: "#author", name: "Olivia Rhye" },
+          author: { avatarUrl: agentFace("Olivia Rhye"), href: "#author", name: "Olivia Rhye" },
           category: { href: "#category", name: "Design" },
           href: "#article",
           id: "article-1",

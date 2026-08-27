@@ -6,8 +6,8 @@ import {
   gradientPicker,
   moveGradientStop,
   reverseGradientStops,
-} from "ui/application";
-import type { GradientPickerProps, GradientStop, GradientType } from "ui/application";
+} from "../../../src/application.ts";
+import type { GradientPickerProps, GradientStop, GradientType } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

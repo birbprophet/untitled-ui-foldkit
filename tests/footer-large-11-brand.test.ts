@@ -10,6 +10,10 @@ describe("footer large 11 brand", () => {
       copyright: "© 2077 Siglata. All rights reserved.",
       description: "Design amazing digital experiences.",
       homeHref: "#",
+      logo: {
+        mark: { alt: "Sample product symbol", src: "https://example.com/symbol.png" },
+        text: "Sample product",
+      },
       navGroups: [
         {
           id: "product",

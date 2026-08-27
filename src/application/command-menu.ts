@@ -1,5 +1,4 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, mps/no-length-comparison, mps/prefer-arr-match, mps/prefer-option-over-null -- Search placeholders, optional icon selection, and the controlled dialog branches are exact upstream component states. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
@@ -16,7 +15,7 @@ export type CommandMenuItemIcon =
   | "zap-fast";
 
 export interface CommandMenuItem {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly description?: string;
   readonly id: string;
   readonly icon?: CommandMenuItemIcon;
@@ -208,22 +207,17 @@ const leading = <Message>(item: CommandMenuItem, h: HtmlBuilder<Message>): reado
     ];
   }
   if (item.type === "avatar") {
-    return [
-      h.img([
-        h.Alt(""),
-        h.Class(
-          `mr-2 shrink-0 rounded-full object-cover ${item.stacked === true ? "size-10" : "size-6"}`,
-        ),
-        h.Src(
-          blobatarDataUri(item.avatarSeed ?? `command-${item.id}`, {
-            background: "circle",
-            kind: "agent",
-            size: 48,
-            title: item.label,
-          }),
-        ),
-      ]),
-    ];
+    return item.avatarUrl === undefined
+      ? []
+      : [
+          h.img([
+            h.Alt(""),
+            h.Class(
+              `mr-2 shrink-0 rounded-full object-cover ${item.stacked === true ? "size-10" : "size-6"}`,
+            ),
+            h.Src(item.avatarUrl),
+          ]),
+        ];
   }
   if (item.type === "dot") {
     return [

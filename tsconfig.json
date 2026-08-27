@@ -16,7 +16,12 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
-    "plugins": [{ "diagnostics": true, "name": "@effect/language-service" }]
+    "plugins": [
+      {
+        "diagnostics": true,
+        "name": "@effect/language-service"
+      }
+    ]
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "vite.config.ts"]
+  "include": ["src/**/*.ts", "tests/**/*.ts", "vite.config.ts", "stories/**/*.ts"]
 }

@@ -1,9 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/avoid-direct-tag-checks -- Storybook CSF and keyboard play functions stay direct. */
 import * as S from "effect/Schema";
-import { tags } from "ui/base";
+import { tags } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ label: S.String });
 const Model = S.Struct({ focusedId: S.String, label: S.String, selectedId: S.String });
@@ -19,7 +21,7 @@ const items = (
     readonly onRemove: Message;
     readonly onSelect: Message;
     readonly isSelected: boolean;
-    readonly avatarSeed: "design";
+    readonly avatarUrl: string;
   },
   {
     readonly count: 12;
@@ -32,7 +34,7 @@ const items = (
   },
 ] => [
   {
-    avatarSeed: "design",
+    avatarUrl: agentFace(model.label),
     id: "design",
     isSelected: model.selectedId === "design",
     label: model.label,

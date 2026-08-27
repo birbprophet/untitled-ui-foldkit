@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderFeaturedPost03 } from "../../../../../packages/ui/src/marketing/blog-header-featured-post-03.ts";
+import { blogHeaderFeaturedPost03 } from "../../../src/marketing/blog-header-featured-post-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const BadgeColor = S.Union([

@@ -6,7 +6,7 @@ import {
   blogHeaderAltLayout03,
   blogHeaderAltLayout03Articles,
   blogHeaderAltLayout03Tabs,
-} from "../../../../../packages/ui/src/marketing/blog-header-alt-layout-03.ts";
+} from "../../../src/marketing/blog-header-alt-layout-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const BadgeColor = S.Literals([
@@ -25,7 +25,7 @@ const BadgeColor = S.Literals([
 ]);
 const Link = S.Struct({ href: S.String, name: S.String });
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String, seed: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: Link,
   href: S.String,
   id: S.String,

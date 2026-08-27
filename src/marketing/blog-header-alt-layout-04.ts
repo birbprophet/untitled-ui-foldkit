@@ -1,5 +1,4 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread -- HTML placeholder copy and direct callbacks belong to the authenticated Untitled UI blog header. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { pagination } from "../application/pagination.ts";
@@ -10,7 +9,7 @@ export interface BlogHeaderAltLayout04Article {
   readonly author: {
     readonly href: string;
     readonly name: string;
-    readonly seed: string;
+    readonly avatarUrl: string;
   };
   readonly category: {
     readonly href: string;
@@ -20,7 +19,7 @@ export interface BlogHeaderAltLayout04Article {
   readonly id: string;
   readonly publishedAt: string;
   readonly summary: string;
-  readonly thumbnailSeed: string;
+  readonly thumbnailUrl: string;
   readonly title: string;
 }
 
@@ -70,14 +69,7 @@ const articleCard = <Message>(
             h.Class(
               "aspect-[1.5] w-full object-cover transition duration-100 ease-linear hover:scale-105 xl:w-screen xl:max-w-93.5",
             ),
-            h.Src(
-              blobatarDataUri(article.thumbnailSeed, {
-                background: "square",
-                kind: "robot",
-                size: 560,
-                title: article.title,
-              }),
-            ),
+            h.Src(article.thumbnailUrl),
           ]),
         ],
       ),
@@ -124,10 +116,9 @@ const articleCard = <Message>(
                     {
                       alt: article.author.name,
                       border: true,
-                      entityKind: "agent",
                       focusable: true,
-                      seed: article.author.seed,
                       size: "md",
+                      src: article.author.avatarUrl,
                     },
                     h,
                   ),

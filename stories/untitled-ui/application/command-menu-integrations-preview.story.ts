@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- This helper owns the controlled state contract shared by the authenticated integration preview menus. */
 import * as S from "effect/Schema";
 import type { Html, HtmlBuilder } from "foldkit/html";
-import type { CommandMenuIntegrationsMenuProps } from "ui/application";
+import type { CommandMenuIntegrationsMenuProps } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { liveStory } from "../story.ts";

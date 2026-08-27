@@ -3,7 +3,8 @@ export const marketingMenuIconPaths = {
   code: "M16 18l6-6-6-6M8 6l-6 6 6 6",
   lifeBuoy: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM12 8v4l3 3",
   play: "M9 9.003a1 1 0 0 1 1.532-.845l6.113 3.558a1 1 0 0 1 0 1.69l-6.113 3.558A1 1 0 0 1 9 14.996V9.003Z",
-  stars: "m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z",
+  stars:
+    "m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z",
 } as const;
 
 export const marketingMenuItems = [

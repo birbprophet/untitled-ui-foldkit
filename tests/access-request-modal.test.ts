@@ -6,7 +6,8 @@ import type { AccessRequestModalProps } from "../src/application/access-request-
 describe("access request modal", () => {
   it("keeps visibility and actions controlled", () => {
     const props: AccessRequestModalProps<string> = {
-      avatarSeed: "candice-wu-access-request",
+      avatarUrl:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%23c2b5a3'/%3E%3C/svg%3E",
       id: "request",
       isOpen: true,
       onCancel: "cancel",

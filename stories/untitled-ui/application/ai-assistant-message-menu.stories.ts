@@ -6,10 +6,12 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { aiAssistantMessageMenu } from "ui/application";
-import type { AIAssistantMessageMenuDecision } from "ui/application";
+import { aiAssistantMessageMenu } from "../../../src/application.ts";
+import type { AIAssistantMessageMenuDecision } from "../../../src/application.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
+
+import { demoBrand, agentFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: Locale });
@@ -140,6 +142,8 @@ const definitionWith = (phase: FixturePhase, initiallyOpen = true) => ({
         ),
         aiAssistantMessageMenu(
           {
+            accountAvatarUrl: agentFace("Olivia Rhye"),
+            brandMark: demoBrand().mark,
             id: "ai-assistant-message-menu-story",
             inputValue: model.inputValue,
             isOpen: model.isOpen,

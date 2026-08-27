@@ -11,7 +11,10 @@ export interface ContentAlternative03Props {
   readonly heroSrc: string;
 }
 
-export const contentAlternative03 = (props: ContentAlternative03Props, h: HtmlBuilder): Html =>
+export const contentAlternative03 = <Message>(
+  props: ContentAlternative03Props,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.div(
     [h.Class("bg-bg-primary"), h.Dir("ltr")],
     [

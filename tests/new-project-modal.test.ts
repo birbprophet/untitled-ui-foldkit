@@ -1,6 +1,8 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import type { NewProjectModalProps } from "../src/application/new-project-modal.ts";
 
 describe("new project modal", () => {
@@ -24,9 +26,15 @@ describe("new project modal", () => {
       onTeamSelect: (id) => `team:${id}`,
       selectedTeamId: "watchtower",
       tagInput: "",
+      teamLogos: {
+        ephemeral: agentFace("Ephemeral"),
+        leapyear: agentFace("Leapyear"),
+        watchtower: agentFace("Watchtower"),
+      },
     };
     expect(props.onNameInput("Website")).toBe("name:Website");
     expect(props.onTeamSelect("ephemeral")).toBe("team:ephemeral");
     expect(props.onTagSelect("Figma")).toBe("tag:Figma");
+    expect(props.teamLogos.watchtower).toMatch(/^data:image\//u);
   });
 });

@@ -9,8 +9,9 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   teamMembersMenu,
   teamMembersMenuFixture,
-} from "../../../../../packages/ui/src/application/team-members-menu.ts";
+} from "../../../src/application/team-members-menu.ts";
 
+import { agentFace } from "../../fixtures/brand.ts";
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
@@ -174,6 +175,19 @@ const definition = (fixture: Fixture) => ({
           : []),
         teamMembersMenu(
           {
+            avatars: {
+              "andi-lane": agentFace("Andi Lane"),
+              "candice-wu": agentFace("Candice Wu"),
+              "demi-wilkinson": agentFace("Demi Wilkinson"),
+              "drew-cano": agentFace("Drew Cano"),
+              "kate-morrison": agentFace("Kate Morrison"),
+              "kelly-williams": agentFace("Kelly Wiliams"),
+              "lana-steiner": agentFace("Lana Steiner"),
+              "natali-craig": agentFace("Natali Craig"),
+              "olivia-rhye": agentFace("Olivia Rhye"),
+              "orlando-diggs": agentFace("Orlando Diggs"),
+              "phoenix-baker": agentFace("Phoenix Baker"),
+            },
             ...(model.focusedMemberId === undefined
               ? {}
               : { focusedMemberId: model.focusedMemberId }),

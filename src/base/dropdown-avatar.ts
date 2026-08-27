@@ -1,9 +1,9 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary -- The avatar dropdown is a fixed controlled hierarchy. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface DropdownAvatarProps<Message> {
+  readonly avatarUrl: string;
   readonly focusedId: string;
   readonly isDarkMode: boolean;
   readonly isOpen: boolean;
@@ -49,8 +49,7 @@ const icon = <Message>(name: IconName, className: string, h: HtmlBuilder<Message
   );
 
 const agent = <Message>(
-  id: string,
-  label: string,
+  url: string,
   size: 20 | 24 | 32 | 40,
   h: HtmlBuilder<Message>,
   alt = "",
@@ -60,14 +59,7 @@ const agent = <Message>(
     h.Class(
       `${size === 20 ? "size-5" : size === 24 ? "size-6" : size === 32 ? "size-8" : "size-10"} max-w-none shrink-0 rounded-full object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16`,
     ),
-    h.Src(
-      blobatarDataUri(`dropdown-avatar-${id}`, {
-        background: "circle",
-        kind: "agent",
-        size: 128,
-        title: label,
-      }),
-    ),
+    h.Src(url),
   ]);
 
 const moveFocus = <Message>(props: DropdownAvatarProps<Message>, id: string, key: string) => {
@@ -191,7 +183,7 @@ export const dropdownAvatar = <Message>(
           h.OnClick(props.onToggle),
           h.Style({ "anchor-name": "--dropdown-avatar-trigger" }),
         ],
-        [agent("olivia", "Olivia Rhye", 32, h, "Olivia Rhye")],
+        [agent(props.avatarUrl, 32, h, "Olivia Rhye")],
       ),
       h.div(
         [
@@ -218,7 +210,7 @@ export const dropdownAvatar = <Message>(
                       ),
                     ],
                     [
-                      agent("olivia-menu", "Olivia Rhye", 40, h),
+                      agent(props.avatarUrl, 40, h),
                       h.span([
                         h.AriaLabel("Online"),
                         h.Class(

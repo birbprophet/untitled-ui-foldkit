@@ -1,5 +1,5 @@
-/* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
-import { symbol } from "brand";
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, unicorn/no-nested-ternary -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
+import type { BrandLockup } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { badge } from "../base/badges.ts";
@@ -28,6 +28,7 @@ export interface FooterLarge13BrandProps<Message> {
   readonly copyright: string;
   readonly description: string;
   readonly homeHref: string;
+  readonly logo: BrandLockup;
   readonly navGroups: readonly FooterLarge13BrandNavGroup[];
   readonly onHome: NoInfer<Message>;
   readonly onLink: (id: string) => NoInfer<Message>;
@@ -51,7 +52,12 @@ const socialIcon = <Message>(label: string, h: HtmlBuilder<Message>): Html =>
     [h.path([h.D("M18 6 6 18M6 6l12 12")])],
   );
 
-const logo = <Message>(homeHref: string, onHome: NoInfer<Message>, h: HtmlBuilder<Message>): Html =>
+const logo = <Message>(
+  homeHref: string,
+  onHome: NoInfer<Message>,
+  lockup: BrandLockup,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.a(
     [
       h.Class(
@@ -61,8 +67,12 @@ const logo = <Message>(homeHref: string, onHome: NoInfer<Message>, h: HtmlBuilde
       h.OnClick(onHome),
     ],
     [
-      h.img([h.Alt("Siglata"), h.Class("size-8 rounded-lg"), h.Src(symbol.url.href)]),
-      h.span([h.Class("text-lg font-semibold text-primary_on-brand")], ["Siglata"]),
+      h.img([h.Alt(lockup.mark.alt), h.Class("size-8 rounded-lg"), h.Src(lockup.mark.src)]),
+      ...(lockup.wordmarkSrc === undefined
+        ? lockup.text === undefined
+          ? []
+          : [h.span([h.Class("text-lg font-semibold text-primary_on-brand")], [lockup.text])]
+        : [h.img([h.Class("h-4.5 w-auto"), h.Src(lockup.wordmarkSrc)])]),
     ],
   );
 
@@ -85,7 +95,7 @@ export const footerLarge13Brand = <Message>(
                   h.div(
                     [h.Class("flex flex-col items-start gap-6 md:w-80")],
                     [
-                      logo(props.homeHref, props.onHome, h),
+                      logo(props.homeHref, props.onHome, props.logo, h),
                       h.p([h.Class("text-md text-tertiary_on-brand")], [props.description]),
                     ],
                   ),

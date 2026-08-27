@@ -1,11 +1,14 @@
 /* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription preserves the authenticated split-layout anatomy. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
 
 export interface BlogSectionSplitLayout02Article {
-  readonly author: Readonly<{ readonly href: string; readonly name: string }>;
+  readonly author: Readonly<{
+    readonly avatarUrl: string;
+    readonly href: string;
+    readonly name: string;
+  }>;
   readonly category: Readonly<{ readonly href: string; readonly name: string }>;
   readonly href: string;
   readonly id: string;
@@ -28,7 +31,11 @@ export interface BlogSectionSplitLayout02Props<Message> {
 
 export const blogSectionSplitLayout02Articles: readonly BlogSectionSplitLayout02Article[] = [
   {
-    author: { href: "#", name: "Olivia Rhye" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80",
+      href: "#",
+      name: "Olivia Rhye",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
@@ -39,7 +46,11 @@ export const blogSectionSplitLayout02Articles: readonly BlogSectionSplitLayout02
     title: "UX review presentations",
   },
   {
-    author: { href: "#", name: "Phoenix Baker" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80",
+      href: "#",
+      name: "Phoenix Baker",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
@@ -58,14 +69,7 @@ const authorAvatar = <Message>(
   h.img([
     h.Alt(article.author.name),
     h.Class("size-10 rounded-full object-cover"),
-    h.Src(
-      blobatarDataUri(`blog-split-layout-02-${article.author.name}`, {
-        background: "circle",
-        kind: "agent",
-        size: 80,
-        title: article.author.name,
-      }),
-    ),
+    h.Src(article.author.avatarUrl),
   ]);
 
 const articleCard = <Message>(

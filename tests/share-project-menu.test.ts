@@ -6,10 +6,17 @@ import type {
   ShareProjectMenuPermission,
   ShareProjectMenuProps,
 } from "../src/application/share-project-menu.ts";
+import { agentFace } from "../stories/fixtures/brand.ts";
 
 describe("share project menu", () => {
   it("keeps slideout state, search, permissions, copying, and actions controlled", () => {
     const props: ShareProjectMenuProps<string> = {
+      avatars: {
+        ammar: agentFace("Ammar Foley"),
+        julius: agentFace("Julius Vaughan"),
+        mathilde: agentFace("Mathilde Lewis"),
+        sienna: agentFace("Sienna Hewitt"),
+      },
       copied: false,
       focusedPermission: "can-edit",
       id: "share-project-menu",
@@ -48,6 +55,7 @@ describe("share project menu", () => {
       mathilde: "can-view",
       sienna: "owner",
     });
+    expect(props.avatars.fleur).toBeUndefined();
   });
 
   it("names all six permission-bearing surfaces and the upstream permission set", () => {

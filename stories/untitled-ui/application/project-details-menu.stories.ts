@@ -7,13 +7,14 @@ import { ts as m } from "foldkit/schema";
 import {
   projectDetailsMembers,
   projectDetailsMenu,
-} from "../../../../../packages/ui/src/application/project-details-menu.ts";
+} from "../../../src/application/project-details-menu.ts";
 import type {
   ProjectDetailsMemberId,
   ProjectDetailsStatus,
-} from "../../../../../packages/ui/src/application/project-details-menu.ts";
+} from "../../../src/application/project-details-menu.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
+import { agentFace } from "../../fixtures/brand.ts";
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
@@ -148,6 +149,11 @@ const definitionWith = (state: "copied" | "default", initiallyOpen = true) => ({
   view: (model: Model, h: Parameters<typeof projectDetailsMenu<Message>>[1]) =>
     projectDetailsMenu(
       {
+        avatars: {
+          "candice-wu": agentFace("Candice Wu"),
+          "demi-wilkinson": agentFace("Demi Wilkinson"),
+          "drew-cano": agentFace("Drew Cano"),
+        },
         copied: model.isCopied,
         description: model.description,
         heading: "Marketing site redesign",

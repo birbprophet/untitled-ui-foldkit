@@ -4,14 +4,25 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { imageCropModal } from "ui/application";
+import { imageCropModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
 
+/* Photographic specimens stay inline per the story identity doctrine: URL data only, no network fetches. */
+const optionImage = (index: number): string => {
+  const hue = String(index * 34);
+  const svg =
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'>" +
+    `<rect width='320' height='200' fill='hsl(${hue} 26% 90%)'/>` +
+    `<circle cx='252' cy='54' r='26' fill='hsl(${hue} 20% 80%)'/>` +
+    `<path d='M0 170l76-66 58 48 60-52 126 90Z' fill='hsl(${hue} 22% 76%)'/>` +
+    "</svg>";
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+};
 const images = Array.from({ length: 10 }, (_, index) => ({
   alt: `Option ${String(index + 1)}`,
-  src: `https://www.untitledui.com/application/image-cropper/option${String(index + 1)}.webp`,
+  src: optionImage(index),
 }));
 const Args = S.Struct({});
 const Model = S.Struct({

@@ -40,7 +40,7 @@ export const contentSectionSplitImage01 = <Message>(
               h.p(
                 [h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")],
                 [
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper mattis lorem non.",
+                  "Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum, nulla odio nisl vitae.",
                 ],
               ),
             ],

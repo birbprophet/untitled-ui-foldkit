@@ -4,7 +4,7 @@ import * as Match from "effect/Match";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderAltLayout02 } from "../../../../../packages/ui/src/marketing/blog-header-alt-layout-02.ts";
+import { blogHeaderAltLayout02 } from "../../../src/marketing/blog-header-alt-layout-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Tag = S.Struct({

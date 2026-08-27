@@ -12,9 +12,21 @@ describe("stacked with team and link modal", () => {
       link: "join.siglata.com/organizations/northstar",
       locale: "pt-BR",
       members: [
-        { avatarSeed: "ana-costa", name: "Ana Costa" },
-        { avatarSeed: "joao-silva", name: "João Silva" },
-        { avatarSeed: "bia-rocha", name: "Bia Rocha" },
+        {
+          avatarUrl:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%237f56d9'/%3E%3C/svg%3E",
+          name: "Ana Costa",
+        },
+        {
+          avatarUrl:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%239e77ed'/%3E%3C/svg%3E",
+          name: "João Silva",
+        },
+        {
+          avatarUrl:
+            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%23b692f6'/%3E%3C/svg%3E",
+          name: "Bia Rocha",
+        },
       ],
       onCancel: "cancel",
       onContinue: "continue",

@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread, mps/require-is-prefix-for-boolean-schema-field -- `reversed` is the exact upstream ChartLegendContent prop. */
 import * as S from "effect/Schema";
-import { chartsBase } from "ui/application";
+import { chartsBase } from "../../../src/application.ts";
 
 import { componentMeta, liveStory, matrix } from "../story.ts";
 

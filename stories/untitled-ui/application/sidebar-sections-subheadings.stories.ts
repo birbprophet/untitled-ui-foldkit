@@ -1,9 +1,10 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Controls expose the upstream activeUrl prop; interaction state remains in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { sidebarSectionsSubheadings } from "ui/application";
+import { sidebarSectionsSubheadings } from "../../../src/application.ts";
 import { userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";
+import { agentFace, demoBrand, robotFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ activeUrl: S.String });
 const Model = S.Struct({
@@ -46,10 +47,10 @@ const groups = [
   },
   {
     items: [
-      { avatarSeed: "catalog-team", href: "#", label: "Catalog", shortcut: "⌘1" },
-      { avatarSeed: "warpspeed-team", href: "#", label: "Warpspeed", shortcut: "⌘2" },
-      { avatarSeed: "boltshift-team", href: "#", label: "Boltshift", shortcut: "⌘3" },
-      { avatarSeed: "sisyphus-team", href: "#", label: "Sisyphus", shortcut: "⌘4" },
+      { avatarUrl: robotFace("Catalog Team"), href: "#", label: "Catalog", shortcut: "⌘1" },
+      { avatarUrl: robotFace("Warpspeed Team"), href: "#", label: "Warpspeed", shortcut: "⌘2" },
+      { avatarUrl: robotFace("Boltshift Team"), href: "#", label: "Boltshift", shortcut: "⌘3" },
+      { avatarUrl: robotFace("Sisyphus Team"), href: "#", label: "Sisyphus", shortcut: "⌘4" },
     ],
     label: "Your teams",
   },
@@ -84,7 +85,9 @@ const definition = {
   view: (model: Model, h: Parameters<typeof sidebarSectionsSubheadings<Message>>[1]) =>
     sidebarSectionsSubheadings(
       {
+        accountAvatarUrl: agentFace("Olivia Rhye"),
         activeUrl: model.activeUrl,
+        brand: demoBrand(),
         groups,
         isAccountOpen: model.isAccountOpen,
         isMobileOpen: model.isMobileOpen,

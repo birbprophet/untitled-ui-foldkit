@@ -6,17 +6,18 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogSectionSimpleCenterAligned02 } from "../../../../../packages/ui/src/marketing/blog-section-simple-center-aligned-02.ts";
+import { blogSectionSimpleCenterAligned02 } from "../../../src/marketing/blog-section-simple-center-aligned-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String, seed: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,
   publishedAt: S.String,
   summary: S.String,
-  thumbnailSeed: S.String,
+  thumbnailUrl: S.String,
   title: S.String,
 });
 const Args = S.Struct({
@@ -74,46 +75,46 @@ const definition = {
 
 const articles = [
   {
-    author: { href: "#", name: "Olivia Rhye", seed: "blog-center-02-olivia" },
+    author: { avatarUrl: agentFace("Olivia Rhye"), href: "#", name: "Olivia Rhye" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
     publishedAt: "20 Jan 2027",
     summary:
       "How do you create compelling presentations that wow your colleagues and impress your managers?",
-    thumbnailSeed: "blog-center-02-spirals",
+    thumbnailUrl: "https://www.untitledui.com/marketing/spirals.webp",
     title: "UX review presentations",
   },
   {
-    author: { href: "#", name: "Phoenix Baker", seed: "blog-center-02-phoenix" },
+    author: { avatarUrl: agentFace("Phoenix Baker"), href: "#", name: "Phoenix Baker" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
     publishedAt: "19 Jan 2027",
     summary:
       "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
-    thumbnailSeed: "blog-center-02-conversation",
+    thumbnailUrl: "https://www.untitledui.com/marketing/conversation.webp",
     title: "Migrating to Linear 101",
   },
   {
-    author: { href: "#", name: "Lana Steiner", seed: "blog-center-02-lana" },
+    author: { avatarUrl: agentFace("Lana Steiner"), href: "#", name: "Lana Steiner" },
     category: { href: "#", name: "Software Engineering" },
     href: "#",
     id: "article-3",
     publishedAt: "18 Jan 2027",
     summary:
       "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
-    thumbnailSeed: "blog-center-02-api-stack",
+    thumbnailUrl: "https://www.untitledui.com/blog/two-mobile-shapes-pattern.webp",
     title: "Building your API stack",
   },
   {
-    author: { href: "#", name: "Demi Wilkinson", seed: "blog-center-02-demi" },
+    author: { avatarUrl: agentFace("Demi Wilkinson"), href: "#", name: "Demi Wilkinson" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-3.5",
     publishedAt: "17 Jan 2027",
     summary: "Mental models are simple expressions of complex processes or relationships.",
-    thumbnailSeed: "blog-center-02-mental-models",
+    thumbnailUrl: "https://www.untitledui.com/blog/two-people.webp",
     title: "PM mental models",
   },
 ] as const;

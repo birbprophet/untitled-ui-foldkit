@@ -10,8 +10,8 @@ describe("header centered buttons brand", () => {
       description: "Learn more about the company.",
       eyebrow: "About us",
       heading: "About the company",
-      onPrimary: () => "primary",
-      onSecondary: () => "secondary",
+      onPrimary: "primary",
+      onSecondary: "secondary",
       primaryLabel: "Get started",
       secondaryLabel: "Chat to sales",
     } satisfies HeaderCenteredButtonsBrandProps<string>;

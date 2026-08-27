@@ -14,7 +14,7 @@ export type BlogHeaderSimple04TagColor =
   | "success";
 
 export interface BlogHeaderSimple04Article {
-  readonly author: { readonly href: string; readonly name: string; readonly seed: string };
+  readonly author: { readonly avatarUrl: string; readonly href: string; readonly name: string };
   readonly category: { readonly href: string; readonly name: string };
   readonly href: string;
   readonly id: string;
@@ -50,7 +50,11 @@ export interface BlogHeaderSimple04Props<Message> {
 
 export const blogHeaderSimple04Articles = [
   {
-    author: { href: "#", name: "Olivia Rhye", seed: "blog-simple-04-olivia-rhye" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80",
+      href: "#",
+      name: "Olivia Rhye",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
@@ -68,7 +72,11 @@ export const blogHeaderSimple04Articles = [
     title: "UX review presentations",
   },
   {
-    author: { href: "#", name: "Phoenix Baker", seed: "blog-simple-04-phoenix-baker" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80",
+      href: "#",
+      name: "Phoenix Baker",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
@@ -85,7 +93,11 @@ export const blogHeaderSimple04Articles = [
     title: "Migrating to Linear 101",
   },
   {
-    author: { href: "#", name: "Lana Steiner", seed: "blog-simple-04-lana-steiner" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80",
+      href: "#",
+      name: "Lana Steiner",
+    },
     category: { href: "#", name: "Software Engineering" },
     href: "#",
     id: "article-3",
@@ -101,7 +113,11 @@ export const blogHeaderSimple04Articles = [
     title: "Building your API stack",
   },
   {
-    author: { href: "#", name: "Alec Whitten", seed: "blog-simple-04-alec-whitten" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/alec-whitten?fm=webp&q=80",
+      href: "#",
+      name: "Alec Whitten",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-3.5",
@@ -117,7 +133,11 @@ export const blogHeaderSimple04Articles = [
     title: "Bill Walsh leadership lessons",
   },
   {
-    author: { href: "#", name: "Demi Wilkinson", seed: "blog-simple-04-demi-wilkinson" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80",
+      href: "#",
+      name: "Demi Wilkinson",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-4",
@@ -133,7 +153,11 @@ export const blogHeaderSimple04Articles = [
     title: "PM mental models",
   },
   {
-    author: { href: "#", name: "Candice Wu", seed: "blog-simple-04-candice-wu" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/candice-wu?fm=webp&q=80",
+      href: "#",
+      name: "Candice Wu",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-5",
@@ -148,7 +172,11 @@ export const blogHeaderSimple04Articles = [
     title: "What is wireframing?",
   },
   {
-    author: { href: "#", name: "Natali Craig", seed: "blog-simple-04-natali-craig" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80",
+      href: "#",
+      name: "Natali Craig",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-6",
@@ -163,7 +191,11 @@ export const blogHeaderSimple04Articles = [
     title: "How collaboration makes us better designers",
   },
   {
-    author: { href: "#", name: "Drew Cano", seed: "blog-simple-04-drew-cano" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/drew-cano?fm=webp&q=80",
+      href: "#",
+      name: "Drew Cano",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-7",
@@ -180,7 +212,11 @@ export const blogHeaderSimple04Articles = [
     title: "Our top 10 Javascript frameworks to use",
   },
   {
-    author: { href: "#", name: "Orlando Diggs", seed: "blog-simple-04-orlando-diggs" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/orlando-diggs?fm=webp&q=80",
+      href: "#",
+      name: "Orlando Diggs",
+    },
     category: { href: "#", name: "Customer Success" },
     href: "#",
     id: "article-8",

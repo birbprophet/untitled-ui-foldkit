@@ -1,12 +1,14 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noTernary -- The controlled renderer preserves the authenticated payment-details-with-image anatomy. */
-import { wordmarkHorizontal } from "brand";
+/* oxlint-disable effect/noReturnInArrow, effect/noTernary, effect/noSpread -- The controlled renderer preserves the authenticated payment-details-with-image anatomy. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
 import { paymentDetailsFields } from "./payment-details-modal.ts";
 import type { PaymentDetailsModalProps } from "./payment-details-modal.ts";
 
-export type PaymentDetailsWithImageModalProps<Message> = PaymentDetailsModalProps<Message>;
+export type PaymentDetailsWithImageModalProps<Message> = PaymentDetailsModalProps<Message> & {
+  readonly wordmarkAlt?: string;
+  readonly wordmarkSrc?: string;
+};
 
 const contactlessIcon = <Message>(h: HtmlBuilder<Message>): Html =>
   h.svg(
@@ -33,6 +35,20 @@ const whiteMastercard = <Message>(h: HtmlBuilder<Message>): Html =>
     ],
   );
 
+const creditCardWordmark = <Message>(
+  props: PaymentDetailsWithImageModalProps<Message>,
+  h: HtmlBuilder<Message>,
+): readonly Html[] =>
+  props.wordmarkSrc === undefined
+    ? []
+    : [
+        h.img([
+          h.Alt(props.wordmarkAlt ?? ""),
+          h.Class("h-5 w-auto rounded-sm"),
+          h.Src(props.wordmarkSrc),
+        ]),
+      ];
+
 const creditCard = <Message>(
   props: PaymentDetailsWithImageModalProps<Message>,
   h: HtmlBuilder<Message>,
@@ -46,14 +62,7 @@ const creditCard = <Message>(
     [
       h.div(
         [h.Class("flex items-start justify-between px-1 pt-1")],
-        [
-          h.img([
-            h.Alt("Siglata"),
-            h.Class("h-5 w-auto rounded-sm"),
-            h.Src(wordmarkHorizontal.url.href),
-          ]),
-          contactlessIcon(h),
-        ],
+        [...creditCardWordmark(props, h), contactlessIcon(h)],
       ),
       h.div(
         [h.Class("flex items-end justify-between gap-3")],

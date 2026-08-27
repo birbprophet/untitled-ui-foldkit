@@ -10,7 +10,10 @@ export interface ContentAlternative01Props {
   readonly heading: string;
 }
 
-export const contentAlternative01 = (props: ContentAlternative01Props, h: HtmlBuilder): Html =>
+export const contentAlternative01 = <Message>(
+  props: ContentAlternative01Props,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.div(
     [h.Class("bg-bg-primary"), h.Dir("ltr")],
     [

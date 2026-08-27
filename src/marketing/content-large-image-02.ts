@@ -58,7 +58,6 @@ export const contentLargeImage02 = <Message>(
                 [h.Class("mt-4 text-lg text-text-tertiary md:mt-6 md:text-xl")],
                 [props.description],
               ),
-              ,
               h.div(
                 [h.Class("mt-8 flex items-center gap-3 text-left")],
                 [

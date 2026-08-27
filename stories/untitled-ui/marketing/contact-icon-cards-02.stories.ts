@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   contactIconCards02,
   contactIconCards02Cards,
-} from "../../../../../packages/ui/src/marketing/contact-icon-cards-02.ts";
+} from "../../../src/marketing/contact-icon-cards-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Card = S.Struct({

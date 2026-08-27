@@ -4,14 +4,16 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { stackedWithTeamAndInvitesModal } from "ui/application";
+import { stackedWithTeamAndInvitesModal } from "../../../src/application.ts";
 import type {
   StackedWithTeamAndInvitesFeaturedMember,
   StackedWithTeamAndInvitesMember,
-} from "ui/application";
+} from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({});
 const Model = S.Struct({ isOpen: S.Boolean, selectedMemberIds: S.Array(S.String) });
@@ -42,34 +44,34 @@ const CloseTeamInvitesModal = Command.define("CloseTeamInvitesModal", {
 });
 
 const featuredMembers = [
-  { avatarSeed: "phoenix-baker", name: "Phoenix Baker" },
-  { avatarSeed: "olivia-rhye", name: "Olivia Rhye" },
-  { avatarSeed: "lana-steiner", name: "Lana Steiner" },
+  { avatarUrl: agentFace("Phoenix Baker"), name: "Phoenix Baker" },
+  { avatarUrl: agentFace("Olivia Rhye"), name: "Olivia Rhye" },
+  { avatarUrl: agentFace("Lana Steiner"), name: "Lana Steiner" },
 ] satisfies readonly StackedWithTeamAndInvitesFeaturedMember[];
 const members = [
   {
-    avatarSeed: "candice-wu",
+    avatarUrl: agentFace("Candice Wu"),
     id: "candice",
     name: "Candice Wu",
     role: "Admin",
     username: "@candice",
   },
   {
-    avatarSeed: "demi-wilkinson",
+    avatarUrl: agentFace("Demi Wilkinson"),
     id: "demi",
     name: "Demi Wilkinson",
     role: "Admin",
     username: "@demi",
   },
   {
-    avatarSeed: "drew-cano",
+    avatarUrl: agentFace("Drew Cano"),
     id: "drew",
     name: "Drew Cano",
     role: "Editor",
     username: "@drew",
   },
   {
-    avatarSeed: "natali-craig",
+    avatarUrl: agentFace("Natali Craig"),
     id: "natali",
     name: "Natali Crag",
     role: "Editor",
@@ -136,8 +138,6 @@ export default {
   parameters: { ...meta.parameters, controls: { disable: true } },
   title: "Untitled UI/Application/Stacked With Team And Invites Modal",
 };
-export const AllVariants = { ...liveCommandStory(allSelectedDefinition), args: {} };
-export const States = { ...liveCommandStory(definition(["candice", "drew"])), args: {} };
 export const Dark = {
   ...liveCommandStory({
     ...allSelectedDefinition,
@@ -149,7 +149,9 @@ export const Dark = {
   }),
   args: {},
 };
+
 export const Responsive = { ...liveCommandStory(allSelectedDefinition), args: {} };
+
 export const Interactions = {
   ...liveCommandStory(allSelectedDefinition),
   args: {},

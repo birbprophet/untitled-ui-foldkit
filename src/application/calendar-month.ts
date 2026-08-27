@@ -11,7 +11,7 @@ import {
 } from "./calendar-types.ts";
 import type { CalendarEvent, CalendarProps } from "./calendar-types.ts";
 
-const monthDates = (anchor: string, locale: "en-US" | "pt-BR"): readonly string[] => {
+export const monthDates = (anchor: string, locale: "en-US" | "pt-BR"): readonly string[] => {
   const date = calendarDate(anchor);
   const first = new Date(date.getFullYear(), date.getMonth(), 1, 12);
   const target = { "en-US": 0, "pt-BR": 0 }[locale];
@@ -25,7 +25,7 @@ const monthDates = (anchor: string, locale: "en-US" | "pt-BR"): readonly string[
   return dates;
 };
 
-const weekdays = (locale: "en-US" | "pt-BR"): readonly string[] => {
+export const weekdays = (locale: "en-US" | "pt-BR"): readonly string[] => {
   const start = new Date("2026-08-23T12:00:00");
   return Array.from({ length: 7 }, (_, index) => {
     const date = new Date(start);

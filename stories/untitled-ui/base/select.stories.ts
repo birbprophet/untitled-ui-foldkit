@@ -1,9 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and native popover play functions stay direct. */
 import * as S from "effect/Schema";
-import { select } from "ui/base";
+import { select } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ label: S.String });
 const Model = S.Struct({
@@ -23,7 +25,7 @@ const options = [
 ] as const;
 const items = options.map((option) => ({
   ...option,
-  avatarSeed: option.id,
+  avatarUrl: agentFace(option.label),
   onFocus: { _tag: "Focused", id: option.id } as const,
   onSelect: { _tag: "Selected", id: option.id } as const,
 }));

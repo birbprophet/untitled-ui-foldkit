@@ -14,7 +14,7 @@ export interface BlogHeaderFeaturedPost04Tag {
 
 export interface BlogHeaderFeaturedPost04Article {
   readonly author: {
-    readonly avatarSeed: string;
+    readonly avatarUrl: string;
     readonly href: string;
     readonly name: string;
   };

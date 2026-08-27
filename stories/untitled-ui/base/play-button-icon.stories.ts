@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread -- Storybook CSF composes the shared verified metadata and renderer. */
 import * as S from "effect/Schema";
-import { playButtonIcon } from "ui/base";
+import { playButtonIcon } from "../../../src/base.ts";
 
 import { componentMeta, staticStory } from "../story.ts";
 

@@ -1,9 +1,10 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook interactions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { dropdownSearchAdvanced } from "ui/base";
+import { dropdownSearchAdvanced } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({});
 const Model = S.Struct({
@@ -24,6 +25,12 @@ type Message =
 const specimen = (model: Model, h: Parameters<typeof dropdownSearchAdvanced<Message>>[1]) =>
   dropdownSearchAdvanced(
     {
+      avatars: {
+        demi: agentFace("Demi Wilkinson"),
+        lana: agentFace("Lana Steiner"),
+        olivia: agentFace("Olivia Rhye"),
+        phoenix: agentFace("Phoenix Baker"),
+      },
       focusedId: model.focusedId,
       isOpen: model.isOpen,
       isSiglataOpen: model.isSiglataOpen,

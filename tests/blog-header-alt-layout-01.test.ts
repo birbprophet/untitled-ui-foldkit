@@ -28,12 +28,14 @@ describe("blog-header-alt-layout-01", () => {
     expect(typeof blogHeaderAltLayout01).toBe("function");
   });
 
-  it("preserves the authenticated nine-article fixture and deterministic identity seeds", () => {
+  it("preserves the authenticated nine-article fixture and upstream avatar URLs", () => {
     expect(blogHeaderAltLayout01Articles).toHaveLength(9);
     expect(blogHeaderAltLayout01Articles[0]?.isFeatured).toBe(true);
     expect(new Set(blogHeaderAltLayout01Articles.map(({ id }) => id)).size).toBe(9);
     expect(
-      blogHeaderAltLayout01Articles.every(({ author }) => author.seed.startsWith("blog-")),
+      blogHeaderAltLayout01Articles.every(({ author }) =>
+        author.avatarUrl.startsWith("https://www.untitledui.com/images/avatars/"),
+      ),
     ).toBe(true);
   });
 });

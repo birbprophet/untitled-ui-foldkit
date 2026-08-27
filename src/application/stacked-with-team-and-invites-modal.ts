@@ -5,7 +5,7 @@ import { avatar } from "../base/avatar.ts";
 import { button } from "../base/button.ts";
 
 export interface StackedWithTeamAndInvitesMember {
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly id: string;
   readonly name: string;
   readonly role: string;
@@ -13,7 +13,7 @@ export interface StackedWithTeamAndInvitesMember {
 }
 
 export interface StackedWithTeamAndInvitesFeaturedMember {
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly name: string;
 }
 
@@ -71,17 +71,9 @@ const featuredAvatars = <Message>(
         index === 1
           ? h.span(
               [h.Class("relative z-10 inline-flex rounded-full ring-[1.5px] ring-bg-primary")],
-              [
-                avatar(
-                  { alt: member.name, entityKind: "agent", seed: member.avatarSeed, size: "lg" },
-                  h,
-                ),
-              ],
+              [avatar({ alt: member.name, size: "lg", src: member.avatarUrl }, h)],
             )
-          : avatar(
-              { alt: member.name, entityKind: "agent", seed: member.avatarSeed, size: "md" },
-              h,
-            ),
+          : avatar({ alt: member.name, size: "md", src: member.avatarUrl }, h),
       ),
   );
 
@@ -120,9 +112,8 @@ const memberRow = <Message>(
                 {
                   alt: member.name,
                   border: true,
-                  entityKind: "agent",
-                  seed: member.avatarSeed,
                   size: "md",
+                  src: member.avatarUrl,
                 },
                 h,
               ),

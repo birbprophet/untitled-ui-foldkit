@@ -1,4 +1,4 @@
-/* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/avoid-direct-tag-checks, unicorn/no-nested-ternary -- Storybook CSF and browser interactions use promise APIs. */
+/* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/avoid-direct-tag-checks, unicorn/no-nested-ternary -- Storybook CSF and browser interactions use promise APIs, and the play asserts the native placeholder of the authenticated phone field. */
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
@@ -6,7 +6,7 @@ import { expect, userEvent, within } from "storybook/test";
 import {
   contactSimpleForm,
   contactSimpleFormCountries,
-} from "../../../../../packages/ui/src/marketing/contact-simple-form.ts";
+} from "../../../src/marketing/contact-simple-form.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Country = S.Struct({ id: S.String, label: S.String, phoneMask: S.String });
@@ -170,10 +170,7 @@ export const Interactions = {
     const canvas = within(canvasElement);
     await userEvent.type(canvas.getByRole("textbox", { name: "First name" }), "Olivia");
     await userEvent.type(canvas.getByRole("textbox", { name: "Last name" }), "Rhye");
-    await userEvent.type(
-      canvas.getByRole("textbox", { name: "Email" }),
-      "olivia@example.com",
-    );
+    await userEvent.type(canvas.getByRole("textbox", { name: "Email" }), "olivia@example.com");
     const country = canvas.getByRole("combobox", { name: "Country code" });
     await userEvent.selectOptions(country, "BR");
     const phone = canvas.getByRole("textbox", { name: "Phone number" });

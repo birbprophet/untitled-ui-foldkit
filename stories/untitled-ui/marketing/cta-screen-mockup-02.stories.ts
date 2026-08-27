@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { ctaScreenMockup02 } from "../../../../../packages/ui/src/marketing/cta-screen-mockup-02.ts";
+import { ctaScreenMockup02 } from "../../../src/marketing/cta-screen-mockup-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

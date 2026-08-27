@@ -1,11 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises the controlled FoldKit contact section in Chromium. */
 import * as S from "effect/Schema";
-import { expect, userEvent, waitFor, within } from "storybook/test";
+import { expect, within } from "storybook/test";
 
 import {
   contactSimpleIcons02Brand,
   contactSimpleIcons02BrandItems,
-} from "../../../../../packages/ui/src/marketing/contact-simple-icons-02-brand.ts";
+} from "../../../src/marketing/contact-simple-icons-02-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Item = S.Struct({

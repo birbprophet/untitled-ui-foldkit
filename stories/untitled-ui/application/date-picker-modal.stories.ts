@@ -4,8 +4,8 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { datePickerModal } from "ui/application";
-import type { DateRangeValue } from "ui/application";
+import { datePickerModal } from "../../../src/application.ts";
+import type { DateRangeValue } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";

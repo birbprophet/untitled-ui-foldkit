@@ -6,13 +6,28 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import {
-  messagesMenu,
-  messagesMenuFixture,
-} from "../../../../../packages/ui/src/application/messages-menu.ts";
-import type { MessagesMenuTabId } from "../../../../../packages/ui/src/application/messages-menu.ts";
-
+import { messagesMenu, messagesMenuFixture } from "../../../src/application/messages-menu.ts";
+import type { MessagesMenuTabId } from "../../../src/application/messages-menu.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+const faces = {
+  "@andi": agentFace("Andi Lane"),
+  "@ava": agentFace("Ava Wright"),
+  "@candice": agentFace("Candice Wu"),
+  "@demi": agentFace("Demi Wilkinson"),
+  "@drew": agentFace("Drew Cano"),
+  "@eve": agentFace("Eve Leroy"),
+  "@joshua": agentFace("Joshua Wilson"),
+  "@kate": agentFace("Kate Morrison"),
+  "@koray": agentFace("Koray Okumus"),
+  "@lana": agentFace("Lana Steiner"),
+  "@natali": agentFace("Natali Craig"),
+  "@orlando": agentFace("Orlando Diggs"),
+  "@phoenix": agentFace("Phoenix Baker"),
+  "@rene": agentFace("Rene Wells"),
+  "@zahir": agentFace("Zahir Mays"),
+} as const;
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const TabId = S.Literals(["archive", "groups", "recent"]);
@@ -102,7 +117,7 @@ const definition = (initialTabId: MessagesMenuTabId, shouldReopen = false) => ({
         id: "messages-menu-story",
         isOpen: model.isOpen,
         locale: model.locale,
-        messages: messagesMenuFixture(model.locale),
+        messages: messagesMenuFixture(model.locale, faces),
         onDismiss: dismiss,
         onTabFocus: (tabId) => tabMessage("TabFocus", tabId),
         onTabSelect: (tabId) => tabMessage("TabSelect", tabId),

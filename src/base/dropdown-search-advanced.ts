@@ -1,5 +1,4 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, eslint/prefer-destructuring, unicorn/no-unreadable-array-destructuring -- Search is the authenticated input placeholder; the menu is a fixed controlled hierarchy. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
@@ -15,6 +14,7 @@ export interface DropdownSearchAdvancedProps<Message> {
   readonly onToggle: NoInfer<Message>;
   readonly onAgentToggle: (id: string) => NoInfer<Message>;
   readonly onTeamToggle: (id: string) => NoInfer<Message>;
+  readonly avatars: Readonly<Record<"demi" | "lana" | "olivia" | "phoenix", string>>;
   readonly query: string;
   readonly selectedAgentIds: readonly string[];
   readonly selectedTeamIds: readonly string[];
@@ -79,20 +79,13 @@ const checkBox = <Message>(
       : [],
   );
 
-const agentAvatar = <Message>(id: string, label: string, h: HtmlBuilder<Message>): Html =>
+const agentAvatar = <Message>(url: string, h: HtmlBuilder<Message>): Html =>
   h.img([
     h.Alt(""),
     h.Class(
       "mr-2 size-6 shrink-0 rounded-full object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16",
     ),
-    h.Src(
-      blobatarDataUri(`dropdown-search-advanced-${id}`, {
-        background: "circle",
-        kind: "agent",
-        size: 128,
-        title: label,
-      }),
-    ),
+    h.Src(url),
   ]);
 
 const focusTarget = (id: string) => `[data-dropdown-search-advanced-item="${id}"]`;
@@ -122,6 +115,7 @@ const menuItem = <Message>(
   selected: boolean,
   h: HtmlBuilder<Message>,
   kind: "agent" | "siglata" | "team",
+  avatarUrl?: string,
 ): Html =>
   h.button(
     [
@@ -159,7 +153,7 @@ const menuItem = <Message>(
         ],
         [
           checkBox(selected, kind === "siglata", h),
-          ...(kind === "agent" ? [agentAvatar(id, label, h)] : []),
+          ...(avatarUrl === undefined ? [] : [agentAvatar(avatarUrl, h)]),
           h.span([h.Class("grow truncate text-sm font-semibold text-text-secondary")], [label]),
           ...(kind === "siglata"
             ? [
@@ -280,6 +274,7 @@ export const dropdownSearchAdvanced = <Message>(
                 props.selectedAgentIds.includes(id),
                 h,
                 "agent",
+                props.avatars[id],
               ),
             ),
           ),

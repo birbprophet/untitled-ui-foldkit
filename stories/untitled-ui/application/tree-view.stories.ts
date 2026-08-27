@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Story state owns every interactive tree value while Args remain exact root component props. */
 import * as S from "effect/Schema";
-import { treeView } from "ui/application";
-import type { TreeViewNode } from "ui/application";
+import { treeView } from "../../../src/application.ts";
+import type { TreeViewNode } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

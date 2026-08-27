@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
-import { headerCenteredSearchBrand } from "../../../../../packages/ui/src/marketing/header-centered-search-brand.ts";
+import { headerCenteredSearchBrand } from "../../../src/marketing/header-centered-search-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

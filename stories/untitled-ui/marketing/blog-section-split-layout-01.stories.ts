@@ -4,13 +4,14 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogSectionSplitLayout01 } from "../../../../../packages/ui/src/marketing/blog-section-split-layout-01.ts";
+import { blogSectionSplitLayout01 } from "../../../src/marketing/blog-section-split-layout-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Article = S.Struct({
+  authorAvatarSrc: S.String,
   authorHref: S.String,
   authorName: S.String,
-  authorSeed: S.String,
   categoryHref: S.String,
   categoryName: S.String,
   href: S.String,
@@ -73,9 +74,9 @@ const definition = {
 const args = {
   articles: [
     {
+      authorAvatarSrc: agentFace("Olivia Rhye"),
       authorHref: "#olivia-rhye",
       authorName: "Olivia Rhye",
-      authorSeed: "blog-section-split-olivia",
       categoryHref: "#design",
       categoryName: "Design",
       href: "#ux-review-presentations",
@@ -88,9 +89,9 @@ const args = {
       title: "UX review presentations",
     },
     {
+      authorAvatarSrc: agentFace("Phoenix Baker"),
       authorHref: "#phoenix-baker",
       authorName: "Phoenix Baker",
-      authorSeed: "blog-section-split-phoenix",
       categoryHref: "#design",
       categoryName: "Design",
       href: "#migrating-to-linear",

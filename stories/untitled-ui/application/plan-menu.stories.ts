@@ -6,8 +6,8 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { planMenu } from "../../../../../packages/ui/src/application/plan-menu.ts";
-import type { PlanMenuPlan } from "../../../../../packages/ui/src/application/plan-menu.ts";
+import { planMenu } from "../../../src/application/plan-menu.ts";
+import type { PlanMenuPlan } from "../../../src/application/plan-menu.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 

@@ -1,9 +1,12 @@
 /* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI content section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
-export interface ContentSectionSimple05Props {}
+export type ContentSectionSimple05Props = Record<never, never>;
 
-export const contentSectionSimple05 = (props: ContentSectionSimple05Props, h: HtmlBuilder): Html =>
+export const contentSectionSimple05 = <Message>(
+  props: ContentSectionSimple05Props,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.section(
     [h.Class("bg-bg-primary py-16 md:py-24"), h.Dir("ltr")],
     [
@@ -22,7 +25,7 @@ export const contentSectionSimple05 = (props: ContentSectionSimple05Props, h: Ht
                       h.p(
                         [h.Class("text-center text-xl font-medium not-italic md:text-display-xs")],
                         [
-                          "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies.",
+                          "Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis.",
                         ],
                       ),
                     ],

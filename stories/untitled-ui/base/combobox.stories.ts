@@ -1,9 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and interaction functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { combobox } from "ui/base";
+import { combobox } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ placeholder: S.String });
 const Model = S.Struct({
@@ -26,7 +28,7 @@ const people = [
 ] as const;
 const items = people.map((option) => ({
   ...option,
-  avatarSeed: option.id,
+  avatarUrl: agentFace(option.label),
   onFocus: { _tag: "Focused", id: option.id } as const,
   onSelect: { _tag: "Selected", id: option.id } as const,
 }));

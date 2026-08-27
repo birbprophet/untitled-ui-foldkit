@@ -4,7 +4,7 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { dropdownContextMenuSimple } from "ui/base";
+import { dropdownContextMenuSimple } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory, liveStory, matrix } from "../story.ts";

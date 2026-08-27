@@ -6,8 +6,20 @@ import type { DropdownMenuSimpleTwoColumnsProps } from "../src/marketing/dropdow
 
 describe("dropdown menu simple two columns", () => {
   it("keeps the authenticated header navigation renderer controlled", () => {
-    const props = {} as unknown as DropdownMenuSimpleTwoColumnsProps<string>;
+    const props = {
+      items: [
+        {
+          badgeLabel: "New",
+          href: "#",
+          iconPath: "M6 6h18v18H6z",
+          id: "integrations",
+          subtitle: "Connect the tools you already use",
+          title: "Integrations",
+        },
+      ],
+      onItem: (id) => `item:${id}`,
+    } satisfies DropdownMenuSimpleTwoColumnsProps<string>;
     expect(dropdownMenuSimpleTwoColumns).toBeTypeOf("function");
-    expect(props).toBeDefined();
+    expect(props.onItem("abc")).toBe("item:abc");
   });
 });

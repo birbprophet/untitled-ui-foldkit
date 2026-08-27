@@ -4,11 +4,15 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { paymentDetailsWithImageModal } from "ui/application";
-import type { PaymentDetailsField } from "ui/application";
+import { paymentDetailsWithImageModal } from "../../../src/application.ts";
+import type { PaymentDetailsField } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+/** Stable demo card lockup: png-free inline SVG a host swaps for its own brand. */
+const demoWordmark =
+  "data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20100%2020'%3E%3Crect%20width%3D'20'%20height%3D'20'%20rx%3D'6'%20fill%3D'%23C7CEDA'%2F%3E%3Crect%20x%3D'28'%20y%3D'7'%20width%3D'72'%20height%3D'6'%20rx%3D'3'%20fill%3D'%23DDE2EA'%2F%3E%3C%2Fsvg%3E";
 
 const Args = S.Struct({});
 const Model = S.Struct({
@@ -132,6 +136,7 @@ const definition = {
         onDismiss: action("Dismiss"),
         onFieldInput: fieldInput,
         onUpdate: action("Update"),
+        wordmarkSrc: demoWordmark,
       },
       h,
     ),

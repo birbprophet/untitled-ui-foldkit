@@ -7,11 +7,14 @@ import type {
   AIAssistantIntroPrompt,
 } from "../src/application/ai-assistant-intro-menu.ts";
 
+import { demoBrand, agentFace } from "../stories/fixtures/brand.ts";
+
 describe("AI assistant intro menu", () => {
   it("keeps visibility, composer, prompts, and actions controlled", () => {
     const props: AIAssistantIntroMenuProps<string> = {
+      accountAvatarUrl: agentFace("Olivia"),
       accountName: "Olivia",
-      accountSeed: "olivia-ai-assistant-intro",
+      brandMark: demoBrand().mark,
       id: "assistant-intro",
       inputValue: "Help me make a plan.",
       isOpen: true,

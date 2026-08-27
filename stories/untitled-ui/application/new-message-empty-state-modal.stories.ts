@@ -4,27 +4,54 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { newMessageEmptyStateModal } from "ui/application";
+import { newMessageEmptyStateModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
 
+import { agentFace } from "../../fixtures/brand.ts";
+
 const contacts = [
   {
-    avatarSeed: "phoenix-baker",
+    avatarUrl: agentFace("Phoenix Baker"),
     id: "@phoenix",
     label: "Phoenix Baker",
     supportingText: "@phoenix",
   },
-  { avatarSeed: "olivia-rhye", id: "@olivia", label: "Olivia Rhye", supportingText: "@olivia" },
-  { avatarSeed: "lana-steiner", id: "@lana", label: "Lana Steiner", supportingText: "@lana" },
-  { avatarSeed: "demi-wilkinson", id: "@demi", label: "Demi Wilkinson", supportingText: "@demi" },
-  { avatarSeed: "candice-wu", id: "@candice", label: "Candice Wu", supportingText: "@candice" },
-  { avatarSeed: "natali-craig", id: "@natali", label: "Natali Craig", supportingText: "@natali" },
+  {
+    avatarUrl: agentFace("Olivia Rhye"),
+    id: "@olivia",
+    label: "Olivia Rhye",
+    supportingText: "@olivia",
+  },
+  {
+    avatarUrl: agentFace("Lana Steiner"),
+    id: "@lana",
+    label: "Lana Steiner",
+    supportingText: "@lana",
+  },
+  {
+    avatarUrl: agentFace("Demi Wilkinson"),
+    id: "@demi",
+    label: "Demi Wilkinson",
+    supportingText: "@demi",
+  },
+  {
+    avatarUrl: agentFace("Candice Wu"),
+    id: "@candice",
+    label: "Candice Wu",
+    supportingText: "@candice",
+  },
+  {
+    avatarUrl: agentFace("Natali Craig"),
+    id: "@natali",
+    label: "Natali Craig",
+    supportingText: "@natali",
+  },
 ] as const;
 const accounts = [
-  { avatarSeed: "olivia-rhye", id: "olivia", label: "Olivia Rhye" },
-  { avatarSeed: "sienna-hewitt", id: "sienna", label: "Sienna Hewitt" },
+  { avatarUrl: agentFace("Olivia Rhye"), id: "olivia", label: "Olivia Rhye" },
+  { avatarUrl: agentFace("Sienna Hewitt"), id: "sienna", label: "Sienna Hewitt" },
 ] as const;
 
 const Args = S.Struct({});

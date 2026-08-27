@@ -1,6 +1,7 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The authenticated source ID is a five-export foundation barrel, so this dedicated renderer presents those exact primitives as one specimen. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
+import type { BrandLockup } from "../internal/brand.ts";
 import {
   sidebarAccountCard,
   sidebarNavigationIcon,
@@ -11,7 +12,9 @@ import {
 import type { SidebarNavigationItem } from "./sidebar-navigation-base.ts";
 
 export interface SidebarNavigationBaseProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly activeUrl?: string;
+  readonly brand: BrandLockup;
   readonly expandedHrefs: readonly string[];
   readonly isAccountOpen: boolean;
   readonly isMobileOpen: boolean;
@@ -34,7 +37,7 @@ const mobileHeader = <Message>(
       ),
     ],
     [
-      sidebarNavigationLogo(h),
+      sidebarNavigationLogo(props.brand, h),
       h.button(
         [
           h.AriaExpanded(props.isMobileOpen),
@@ -104,7 +107,14 @@ export const sidebarNavigationBase = <Message>(
               ),
               h.section(
                 [h.AriaLabel("Navigation account card specimen")],
-                [sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, h)],
+                [
+                  sidebarAccountCard(
+                    props.isAccountOpen,
+                    props.onAccountToggle,
+                    props.accountAvatarUrl,
+                    h,
+                  ),
+                ],
               ),
             ],
           ),
@@ -131,7 +141,7 @@ export const sidebarNavigationBase = <Message>(
                     h.Open(true),
                   ],
                   [
-                    h.div([h.Class("px-4 pt-4")], [sidebarNavigationLogo(h)]),
+                    h.div([h.Class("px-4 pt-4")], [sidebarNavigationLogo(props.brand, h)]),
                     sidebarNavList(
                       {
                         activeUrl: props.activeUrl,
@@ -144,7 +154,14 @@ export const sidebarNavigationBase = <Message>(
                     ),
                     h.div(
                       [h.Class("mt-auto p-4")],
-                      [sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, h)],
+                      [
+                        sidebarAccountCard(
+                          props.isAccountOpen,
+                          props.onAccountToggle,
+                          props.accountAvatarUrl,
+                          h,
+                        ),
+                      ],
                     ),
                   ],
                 ),

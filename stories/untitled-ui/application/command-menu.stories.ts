@@ -1,8 +1,9 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Storybook exposes the upstream showFooter prop and exercises the exact controlled state through FoldKit messages. */
 import * as S from "effect/Schema";
-import { commandMenu } from "ui/application";
-import type { CommandMenuGroup, CommandMenuProps } from "ui/application";
+import { commandMenu } from "../../../src/application.ts";
+import type { CommandMenuGroup, CommandMenuProps } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
+import { agentFace } from "../../fixtures/brand.ts";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";
 
@@ -54,8 +55,20 @@ const groups: readonly CommandMenuGroup[] = [
   {
     id: "people",
     items: [
-      { id: "marina", label: "Marina Costa", shortcutKeys: ["↵"], type: "avatar" },
-      { id: "ravi", isDisabled: true, label: "Ravi Shah", type: "avatar" },
+      {
+        avatarUrl: agentFace("Marina Costa"),
+        id: "marina",
+        label: "Marina Costa",
+        shortcutKeys: ["↵"],
+        type: "avatar",
+      },
+      {
+        avatarUrl: agentFace("Ravi Shah"),
+        id: "ravi",
+        isDisabled: true,
+        label: "Ravi Shah",
+        type: "avatar",
+      },
     ],
     title: "People",
   },

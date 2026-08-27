@@ -1,12 +1,15 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Direct FoldKit transcription preserves authenticated blog anatomy and fixture order. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { pagination } from "../application/pagination.ts";
 import { tabs } from "../application/tabs.ts";
 
 export interface BlogHeaderFeaturedPost02Article {
-  readonly author: Readonly<{ readonly href: string; readonly name: string }>;
+  readonly author: Readonly<{
+    readonly avatarUrl: string;
+    readonly href: string;
+    readonly name: string;
+  }>;
   readonly category: Readonly<{ readonly href: string; readonly name: string }>;
   readonly href: string;
   readonly id: string;
@@ -47,7 +50,11 @@ export interface BlogHeaderFeaturedPost02Props<Message> {
 
 export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02Article[] = [
   {
-    author: { href: "#", name: "Olivia Rhye" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80",
+      href: "#",
+      name: "Olivia Rhye",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
@@ -59,7 +66,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "UX review presentations",
   },
   {
-    author: { href: "#", name: "Phoenix Baker" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80",
+      href: "#",
+      name: "Phoenix Baker",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
@@ -71,7 +82,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "Migrating to Linear 101",
   },
   {
-    author: { href: "#", name: "Lana Steiner" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80",
+      href: "#",
+      name: "Lana Steiner",
+    },
     category: { href: "#", name: "Software Engineering" },
     href: "#",
     id: "article-3",
@@ -83,7 +98,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "Building your API stack",
   },
   {
-    author: { href: "#", name: "Alec Whitten" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/alec-whitten?fm=webp&q=80",
+      href: "#",
+      name: "Alec Whitten",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-3.5",
@@ -95,7 +114,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "Bill Walsh leadership lessons",
   },
   {
-    author: { href: "#", name: "Demi Wilkinson" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80",
+      href: "#",
+      name: "Demi Wilkinson",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-4",
@@ -106,7 +129,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "PM mental models",
   },
   {
-    author: { href: "#", name: "Candice Wu" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/candice-wu?fm=webp&q=80",
+      href: "#",
+      name: "Candice Wu",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-5",
@@ -117,7 +144,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "What is wireframing?",
   },
   {
-    author: { href: "#", name: "Natali Craig" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80",
+      href: "#",
+      name: "Natali Craig",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-6",
@@ -128,7 +159,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
     title: "How collaboration makes us better designers",
   },
   {
-    author: { href: "#", name: "Drew Cano" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/drew-cano?fm=webp&q=80",
+      href: "#",
+      name: "Drew Cano",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-7",
@@ -142,7 +177,11 @@ export const blogHeaderFeaturedPost02Articles: readonly BlogHeaderFeaturedPost02
 ];
 
 export const blogHeaderFeaturedPost02FeaturedArticle: BlogHeaderFeaturedPost02Article = {
-  author: { href: "#", name: "Amélie Laurent" },
+  author: {
+    avatarUrl: "https://www.untitledui.com/images/avatars/amelie-laurent?fm=webp&q=80",
+    href: "#",
+    name: "Amélie Laurent",
+  },
   category: { href: "#", name: "Design" },
   href: "#",
   id: "article-001",
@@ -215,14 +254,7 @@ const authorAvatar = <Message>(article: BlogHeaderFeaturedPost02Article, h: Html
     h.Class(
       "size-10 rounded-full bg-bg-primary object-cover ring-0.75 ring-border-secondary ring-offset-2 ring-offset-bg-primary",
     ),
-    h.Src(
-      blobatarDataUri(`blog-featured-post-02-${article.author.name}`, {
-        background: "circle",
-        kind: "agent",
-        size: 80,
-        title: article.author.name,
-      }),
-    ),
+    h.Src(article.author.avatarUrl),
   ]);
 
 const mobileFeatured = <Message>(

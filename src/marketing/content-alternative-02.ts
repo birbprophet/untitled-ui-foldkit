@@ -13,7 +13,10 @@ export interface ContentAlternative02Props {
   readonly images: readonly ContentAlternative02Image[];
 }
 
-export const contentAlternative02 = (props: ContentAlternative02Props, h: HtmlBuilder): Html =>
+export const contentAlternative02 = <Message>(
+  props: ContentAlternative02Props,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.div(
     [h.Class("overflow-hidden bg-bg-primary"), h.Dir("ltr")],
     [

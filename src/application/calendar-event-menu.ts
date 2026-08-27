@@ -9,6 +9,7 @@ export type CalendarEventMenuLocale = "en-US" | "pt-BR";
 export type CalendarEventResponse = "maybe" | "no" | "yes";
 
 export interface CalendarEventMenuProps<Message> {
+  readonly avatars: Partial<Record<CalendarEventAttendeeKey, string>>;
   readonly id: string;
   readonly isOpen: boolean;
   readonly locale: CalendarEventMenuLocale;
@@ -148,13 +149,15 @@ const detail = <Message>(icon: Html, detailText: string, h: HtmlBuilder<Message>
     [icon, h.p([h.Class("text-sm text-text-tertiary")], [detailText])],
   );
 
-const attendeeNames = [
-  "Sienna Hewitt",
-  "Ammar Foley",
-  "Pippa Wilkinson",
-  "Olly Schroeder",
-  "Mathilde Lewis",
+const attendees = [
+  { key: "sienna-hewitt", name: "Sienna Hewitt" },
+  { key: "ammar-foley", name: "Ammar Foley" },
+  { key: "pippa-wilkinson", name: "Pippa Wilkinson" },
+  { key: "olly-schroeder", name: "Olly Schroeder" },
+  { key: "mathilde-lewis", name: "Mathilde Lewis" },
 ] as const;
+
+export type CalendarEventAttendeeKey = (typeof attendees)[number]["key"];
 
 const attendeeList = <Message>(
   props: CalendarEventMenuProps<Message>,
@@ -167,16 +170,15 @@ const attendeeList = <Message>(
       h.section(
         [h.Class("flex flex-row -space-x-3")],
         [
-          ...attendeeNames.map((name) =>
+          ...attendees.map(({ key, name }) =>
             h.span(
               [h.Class("flex size-10 rounded-full ring-[1.5px] ring-bg-primary")],
               [
                 avatar(
                   {
                     alt: `${name}, Siglata agent`,
-                    entityKind: "agent",
-                    seed: `calendar-event-${name.toLowerCase().replaceAll(" ", "-")}`,
                     size: "md",
+                    src: props.avatars[key],
                   },
                   h,
                 ),
@@ -205,7 +207,10 @@ const attendeeList = <Message>(
   );
 };
 
-const organizer = <Message>(h: HtmlBuilder<Message>): Html =>
+const organizer = <Message>(
+  props: CalendarEventMenuProps<Message>,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.figure(
     [h.Class("group flex min-w-0 flex-1 items-center gap-2")],
     [
@@ -213,9 +218,8 @@ const organizer = <Message>(h: HtmlBuilder<Message>): Html =>
         {
           alt: "Sienna Hewitt, Siglata agent",
           border: true,
-          entityKind: "agent",
-          seed: "calendar-event-sienna-hewitt",
           size: "md",
+          src: props.avatars["sienna-hewitt"],
         },
         h,
       ),
@@ -401,7 +405,7 @@ export const calendarEventMenu = <Message>(
                                 [h.Class("text-sm font-semibold text-text-primary")],
                                 [labels.organizer],
                               ),
-                              organizer(h),
+                              organizer(props, h),
                             ],
                           ),
                           h.div(

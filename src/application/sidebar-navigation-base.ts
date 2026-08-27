@@ -1,8 +1,8 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-negated-condition, eslint/no-nested-ternary, mps/no-length-comparison, mps/prefer-arr-match, mps/prefer-option-over-null, unicorn/no-nested-ternary -- The authenticated Untitled navigation anatomy is data-driven and preserves its optional badge, icon, identity, divider, input placeholder, and disclosure branches directly. */
-import { symbol } from "brand";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { avatar } from "../base/avatar.ts";
+import type { BrandLockup } from "../internal/brand.ts";
 
 export type SidebarNavigationIcon =
   | "browser"
@@ -28,7 +28,7 @@ export type SidebarNavigationIcon =
   | "users";
 
 export interface SidebarNavigationItem {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly badge?: string;
   readonly divider?: boolean;
   readonly href?: string;
@@ -39,7 +39,9 @@ export interface SidebarNavigationItem {
 }
 
 export interface SidebarNavigationBaseProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly activeUrl?: string;
+  readonly brand: BrandLockup;
   readonly expandedHrefs: readonly string[];
   readonly featureCard?: Html;
   readonly footerItems?: readonly SidebarNavigationItem[];
@@ -167,8 +169,10 @@ export const sidebarNavButton = <Message>(
   );
 };
 
-export const sidebarNavigationLogo = <Message>(h: HtmlBuilder<Message>): Html =>
-  h.img([h.Alt("Siglata logo"), h.Class("size-6 rounded-md"), h.Src(symbol.url.href)]);
+export const sidebarNavigationLogo = <Message>(
+  lockup: BrandLockup,
+  h: HtmlBuilder<Message>,
+): Html => h.img([h.Alt(lockup.mark.alt), h.Class("size-6 rounded-md"), h.Src(lockup.mark.src)]);
 
 export const sidebarSearch = <Message>(
   value: string,
@@ -240,7 +244,7 @@ export const sidebarNavItem = <Message>(
       h.OnClick(onNavigate(href)),
     ],
     [
-      ...(item.avatarSeed === undefined
+      ...(item.avatarUrl === undefined
         ? item.icon === undefined
           ? []
           : [
@@ -256,7 +260,7 @@ export const sidebarNavItem = <Message>(
         : [
             h.span(
               [h.AriaHidden(true), h.Class("mr-2 flex size-5 shrink-0 [&>*]:size-5")],
-              [avatar({ alt: "", entityKind: "robot", seed: item.avatarSeed, size: "xs" }, h)],
+              [avatar({ alt: "", size: "xs", src: item.avatarUrl }, h)],
             ),
           ]),
       h.span(
@@ -398,6 +402,7 @@ export const sidebarNavList = <Message>(
 export const sidebarAccountCard = <Message>(
   isOpen: boolean,
   onToggle: Message,
+  accountAvatarUrl: string,
   h: HtmlBuilder<Message>,
 ): Html =>
   h.div(
@@ -411,8 +416,8 @@ export const sidebarAccountCard = <Message>(
         {
           alt: "Caitlyn King",
           border: true,
-          seed: "sidebar-caitlyn-king",
           size: "md",
+          src: accountAvatarUrl,
           status: "online",
         },
         h,
@@ -478,7 +483,10 @@ const sidebarBody = <Message>(
     [
       h.div(
         [h.Class("flex flex-col gap-5 px-4 lg:px-5")],
-        [sidebarNavigationLogo(h), sidebarSearch(props.searchValue, props.onSearch, h)],
+        [
+          sidebarNavigationLogo(props.brand, h),
+          sidebarSearch(props.searchValue, props.onSearch, h),
+        ],
       ),
       sidebarNavList(props, h),
       h.div(
@@ -500,7 +508,14 @@ const sidebarBody = <Message>(
           ...(props.featureCard === undefined ? [] : [props.featureCard]),
           ...(props.showAccountCard === false
             ? []
-            : [sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, h)]),
+            : [
+                sidebarAccountCard(
+                  props.isAccountOpen,
+                  props.onAccountToggle,
+                  props.accountAvatarUrl,
+                  h,
+                ),
+              ]),
         ],
       ),
     ],
@@ -520,7 +535,7 @@ export const sidebarSimpleLayout = <Message>(
           ),
         ],
         [
-          sidebarNavigationLogo(h),
+          sidebarNavigationLogo(props.brand, h),
           h.button(
             [
               h.AriaExpanded(props.isMobileOpen),

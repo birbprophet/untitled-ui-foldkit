@@ -1,4 +1,4 @@
-/* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI features section. */
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/prefer-option-over-null -- Direct FoldKit transcription of the authenticated Untitled UI features section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface FeaturesIconCards02Item {
@@ -87,17 +87,17 @@ const featuredIcon = <Message>(
   );
 
 const featureItem = <Message>(
-  item: FeaturesIconCards02Item,
+  feature: FeaturesIconCards02Item,
   onItem: ((id: string) => NoInfer<Message>) | undefined,
   h: HtmlBuilder<Message>,
 ): Html =>
   h.li(
     [h.Class("flex max-w-sm flex-col items-center text-center")],
     [
-      featuredIcon(item.icon, "lg", "light", h),
-      featuredIcon(item.icon, "md", "light", h),
-      h.h3([h.Class("mt-4 text-lg font-semibold text-text-primary md:mt-5")], [item.title]),
-      h.p([h.Class("mt-1 text-md text-text-tertiary")], [item.subtitle]),
+      featuredIcon(feature.icon, "lg", "light", h),
+      featuredIcon(feature.icon, "md", "light", h),
+      h.h3([h.Class("mt-4 text-lg font-semibold text-text-primary md:mt-5")], [feature.title]),
+      h.p([h.Class("mt-1 text-md text-text-tertiary")], [feature.subtitle]),
       ...(onItem === undefined
         ? []
         : [
@@ -106,38 +106,12 @@ const featureItem = <Message>(
                 h.Class(
                   "mt-4 rounded-xs text-md font-semibold text-text-brand-secondary outline-focus-ring hover:text-text-brand-secondary-hover focus-visible:outline-2 focus-visible:outline-offset-2 md:mt-5",
                 ),
-                h.OnClick(onItem(item.id)),
+                h.OnClick(onItem(feature.id)),
                 h.Type("button"),
               ],
               ["Learn more"],
             ),
           ]),
-    ],
-  );
-
-const mockupImage = <Message>(
-  props: FeaturesIconCards02Props<Message>,
-  h: HtmlBuilder<Message>,
-): Html =>
-  h.div(
-    [h.Class("relative w-full flex-1")],
-    [
-      h.img([
-        h.Alt(props.imageAlt ?? "Product mockup"),
-        h.Class("size-full object-contain dark:hidden"),
-        h.Src(
-          props.mockupLightSrc ??
-            "https://www.untitledui.com/marketing/screen-mockups/dashboard-desktop-mockup-light-01.webp",
-        ),
-      ]),
-      h.img([
-        h.Alt(props.imageAlt ?? "Product mockup"),
-        h.Class("size-full object-contain not-dark:hidden"),
-        h.Src(
-          props.mockupDarkSrc ??
-            "https://www.untitledui.com/marketing/screen-mockups/dashboard-desktop-mockup-dark-01.webp",
-        ),
-      ]),
     ],
   );
 
@@ -185,22 +159,6 @@ export const featuresIconCards02 = <Message>(
                   h.keyed("li")(item.id, [], [featureItem(item, props.onItem, h)]),
                 ),
               ),
-              ...(false && props.imageSrc !== undefined
-                ? [
-                    h.div(
-                      [h.Class("h-60 md:h-140")],
-                      [
-                        h.img([
-                          h.Alt(props.imageAlt ?? "Feature image"),
-                          h.Class("size-full object-cover"),
-                          h.Src(props.imageSrc),
-                        ]),
-                      ],
-                    ),
-                  ]
-                : false
-                  ? [mockupImage(props, h)]
-                  : []),
             ],
           ),
         ],

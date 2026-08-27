@@ -5,7 +5,8 @@ import { expect, within } from "storybook/test";
 import {
   contactSimpleIcons04Brand,
   contactSimpleIcons04BrandLocations,
-} from "../../../../../packages/ui/src/marketing/contact-simple-icons-04-brand.ts";
+} from "../../../src/marketing/contact-simple-icons-04-brand.ts";
+import type { HtmlBuilder } from "foldkit/html";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Location = S.Struct({ address: S.String, name: S.String });
@@ -24,7 +25,7 @@ const args = {
   locations: [...contactSimpleIcons04BrandLocations],
 } satisfies Args;
 
-const specimen = (props: Args, h: Parameters<typeof contactSimpleIcons04Brand>[1]) =>
+const specimen = (props: Args, h: HtmlBuilder<{ readonly _tag: "Noop" }>) =>
   h.div([h.Class("-m-8")], [contactSimpleIcons04Brand(props, h)]);
 
 export default {

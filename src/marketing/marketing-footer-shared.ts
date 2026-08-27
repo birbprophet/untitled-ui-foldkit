@@ -1,5 +1,5 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Shared footer primitives for Untitled UI marketing footers. */
-import { symbol } from "brand";
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/prefer-option-over-null, unicorn/no-nested-ternary -- Shared footer primitives for Untitled UI marketing footers. */
+import type { BrandLockup } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { badge } from "../base/badges.ts";
@@ -162,13 +162,29 @@ const socialIconPaths: Record<MarketingFooterSocialIcon, string> = {
   x: "M15.9455 22L10.396 14.0901L3.44886 22H0.509766L9.09209 12.2311L0.509766 0H8.05571L13.286 7.45502L19.8393 0H22.7784L14.5943 9.31648L23.4914 22H15.9455ZM19.2185 19.77H17.2398L4.71811 2.23H6.6971L11.7121 9.25316L12.5793 10.4719L19.2185 19.77Z",
 };
 
-export const marketingFooterTheme = (brand: boolean) =>
+interface MarketingFooterThemeSpec {
+  readonly bg: string;
+  readonly border: string;
+  readonly buttonClass: string;
+  readonly buttonColor: "link-color" | "link-gray";
+  readonly copyright: string;
+  readonly description: string;
+  readonly heading: string;
+  readonly legalLink: string;
+  readonly logoText: string;
+  readonly navHeading: string;
+  readonly newsletterBand: string;
+  readonly socialIcon: string;
+  readonly subheading: string;
+}
+
+export const marketingFooterTheme = (brand: boolean): MarketingFooterThemeSpec =>
   brand
     ? {
         bg: "bg-brand-section",
         border: "border-brand_alt",
         buttonClass: "max-h-5 gap-1 text-footer-button-fg hover:text-footer-button-fg_hover",
-        buttonColor: "link-color" as const,
+        buttonColor: "link-color",
         copyright: "text-sm text-quaternary_on-brand",
         description: "text-md text-tertiary_on-brand",
         heading: "text-display-xs font-semibold text-primary_on-brand md:text-display-sm",
@@ -185,7 +201,7 @@ export const marketingFooterTheme = (brand: boolean) =>
         bg: "bg-bg-primary",
         border: "border-border-secondary",
         buttonClass: "max-h-5 gap-1",
-        buttonColor: "link-gray" as const,
+        buttonColor: "link-gray",
         copyright: "text-sm text-text-quaternary",
         description: "text-md text-text-tertiary",
         heading: "text-display-xs font-semibold text-text-primary md:text-display-sm",
@@ -199,21 +215,28 @@ export const marketingFooterTheme = (brand: boolean) =>
         subheading: "text-md text-text-tertiary md:text-xl",
       };
 
-export const marketingFooterLogo = <Message>(brand: boolean, h: HtmlBuilder<Message>): Html =>
+export const marketingFooterLogo = <Message>(
+  logo: BrandLockup,
+  brand: boolean,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.span(
     [h.Class("flex h-7 w-min shrink-0 items-center gap-2")],
     [
-      h.img([h.Alt("Siglata robot symbol"), h.Class("size-7 rounded-md"), h.Src(symbol.url.href)]),
-      h.span([h.Class(marketingFooterTheme(brand).logoText)], ["Siglata"]),
+      h.img([h.Alt(logo.mark.alt), h.Class("size-7 rounded-md"), h.Src(logo.mark.src)]),
+      ...(logo.wordmarkSrc === undefined
+        ? logo.text === undefined
+          ? []
+          : [h.span([h.Class(marketingFooterTheme(brand).logoText)], [logo.text])]
+        : [h.img([h.Class("h-4.5 w-auto"), h.Src(logo.wordmarkSrc)])]),
     ],
   );
 
-export const marketingFooterLogoMinimal = <Message>(h: HtmlBuilder<Message>): Html =>
-  h.img([
-    h.Alt("Siglata robot symbol"),
-    h.Class("size-10 rounded-md drop-shadow"),
-    h.Src(symbol.url.href),
-  ]);
+export const marketingFooterLogoMinimal = <Message>(
+  logo: BrandLockup,
+  h: HtmlBuilder<Message>,
+): Html =>
+  h.img([h.Alt(logo.mark.alt), h.Class("size-10 rounded-md drop-shadow"), h.Src(logo.mark.src)]);
 
 const socialSvg = <Message>(social: MarketingFooterSocial, h: HtmlBuilder<Message>): Html =>
   h.svg(
@@ -241,24 +264,22 @@ export const marketingFooterSocialList = <Message>(
   h.ul(
     [h.Class("flex gap-4")],
     socials.map((social) =>
-      h.li([
-        h.keyed("li")(
-          social.id,
-          [],
-          [
-            h.a(
-              [
-                h.Class(marketingFooterTheme(brand).socialIcon),
-                h.Href(social.href),
-                h.Rel("noopener noreferrer"),
-                h.Target("_blank"),
-                ...(onSocial === undefined ? [] : [h.OnClick(onSocial(social.id))]),
-              ],
-              [socialSvg(social, h)],
-            ),
-          ],
-        ),
-      ]),
+      h.keyed("li")(
+        social.id,
+        [],
+        [
+          h.a(
+            [
+              h.Class(marketingFooterTheme(brand).socialIcon),
+              h.Href(social.href),
+              h.Rel("noopener noreferrer"),
+              h.Target("_blank"),
+              ...(onSocial === undefined ? [] : [h.OnClick(onSocial(social.id))]),
+            ],
+            [socialSvg(social, h)],
+          ),
+        ],
+      ),
     ),
   );
 
@@ -271,22 +292,20 @@ export const marketingFooterLegalList = <Message>(
   h.ul(
     [h.Class("flex gap-3")],
     links.map((link) =>
-      h.li([
-        h.keyed("li")(
-          link.id,
-          [],
-          [
-            h.a(
-              [
-                h.Class(marketingFooterTheme(brand).legalLink),
-                h.Href(link.href),
-                ...(onLink === undefined ? [] : [h.OnClick(onLink(link.id))]),
-              ],
-              [link.label],
-            ),
-          ],
-        ),
-      ]),
+      h.keyed("li")(
+        link.id,
+        [],
+        [
+          h.a(
+            [
+              h.Class(marketingFooterTheme(brand).legalLink),
+              h.Href(link.href),
+              ...(onLink === undefined ? [] : [h.OnClick(onLink(link.id))]),
+            ],
+            [link.label],
+          ),
+        ],
+      ),
     ),
   );
 
@@ -303,25 +322,23 @@ export const marketingFooterQuickNav = <Message>(
       h.ul(
         [h.Class("grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-[repeat(6,max-content)]")],
         links.map((link) =>
-          h.li([
-            h.keyed("li")(
-              link.id,
-              [h.Class("flex")],
-              [
-                button(
-                  {
-                    className: theme.buttonClass,
-                    color: theme.buttonColor,
-                    href: link.href,
-                    label: link.label,
-                    onPress: onLink?.(link.id),
-                    size: "md",
-                  },
-                  h,
-                ),
-              ],
-            ),
-          ]),
+          h.keyed("li")(
+            link.id,
+            [h.Class("flex")],
+            [
+              button(
+                {
+                  className: theme.buttonClass,
+                  color: theme.buttonColor,
+                  href: link.href,
+                  label: link.label,
+                  onPress: onLink?.(link.id),
+                  size: "md",
+                },
+                h,
+              ),
+            ],
+          ),
         ),
       ),
     ],
@@ -346,59 +363,55 @@ export const marketingFooterNavGrid = <Message>(
           ),
         ],
         categories.map((category) =>
-          h.li([
-            h.keyed("li")(
-              category.id,
-              [],
-              [
-                h.h4([h.Class(theme.navHeading)], [category.label]),
-                h.ul(
-                  [h.Class("mt-4 flex flex-col gap-3")],
-                  category.items.map((item) =>
-                    h.li([
-                      h.keyed("li")(
-                        item.id,
-                        [h.Class("flex")],
-                        [
-                          item.badgeLabel === undefined
-                            ? button(
+          h.keyed("li")(
+            category.id,
+            [],
+            [
+              h.h4([h.Class(theme.navHeading)], [category.label]),
+              h.ul(
+                [h.Class("mt-4 flex flex-col gap-3")],
+                category.items.map((item) =>
+                  h.keyed("li")(
+                    item.id,
+                    [h.Class("flex")],
+                    [
+                      item.badgeLabel === undefined
+                        ? button(
+                            {
+                              className: theme.buttonClass,
+                              color: theme.buttonColor,
+                              href: item.href,
+                              label: item.label,
+                              onPress: onLink?.(item.id),
+                              size: "md",
+                            },
+                            h,
+                          )
+                        : h.a(
+                            [
+                              h.Class(`flex max-h-5 items-center gap-1 ${theme.buttonClass}`),
+                              h.Href(item.href),
+                              ...(onLink === undefined ? [] : [h.OnClick(onLink(item.id))]),
+                            ],
+                            [
+                              h.span([h.Class("text-sm font-semibold")], [item.label]),
+                              badge(
                                 {
-                                  className: theme.buttonClass,
-                                  color: theme.buttonColor,
-                                  href: item.href,
-                                  label: item.label,
-                                  onPress: onLink?.(item.id),
-                                  size: "md",
+                                  color: "gray",
+                                  label: item.badgeLabel,
+                                  size: "sm",
+                                  type: "modern",
                                 },
                                 h,
-                              )
-                            : h.a(
-                                [
-                                  h.Class(`flex max-h-5 items-center gap-1 ${theme.buttonClass}`),
-                                  h.Href(item.href),
-                                  ...(onLink === undefined ? [] : [h.OnClick(onLink(item.id))]),
-                                ],
-                                [
-                                  h.span([h.Class("text-sm font-semibold")], [item.label]),
-                                  badge(
-                                    {
-                                      color: "gray",
-                                      label: item.badgeLabel,
-                                      size: "sm",
-                                      type: "modern",
-                                    },
-                                    h,
-                                  ),
-                                ],
                               ),
-                        ],
-                      ),
-                    ]),
+                            ],
+                          ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ]),
+              ),
+            ],
+          ),
         ),
       ),
     ],

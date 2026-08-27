@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread, effect/noTernary -- Storybook CSF variant matrices stay direct. */
 import * as S from "effect/Schema";
-import { progressIndicator } from "ui/base";
+import { progressIndicator } from "../../../src/base.ts";
 
 import { componentMeta, matrix, staticStory } from "../story.ts";
 

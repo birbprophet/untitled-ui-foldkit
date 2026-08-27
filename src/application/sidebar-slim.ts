@@ -2,6 +2,7 @@
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { avatar } from "../base/avatar.ts";
+import type { BrandLockup } from "../internal/brand.ts";
 import {
   sidebarAccountCard,
   sidebarNavigationIcon,
@@ -13,7 +14,9 @@ import {
 import type { SidebarNavigationItem } from "./sidebar-navigation-base.ts";
 
 export interface SidebarSlimProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly activeUrl?: string;
+  readonly brand: BrandLockup;
   readonly currentHref: string;
   readonly expandedHrefs: readonly string[];
   readonly footerItems: readonly SidebarNavigationItem[];
@@ -36,6 +39,7 @@ export interface SidebarSlimProps<Message> {
 const compactAccount = <Message>(
   isOpen: boolean,
   onToggle: Message,
+  accountAvatarUrl: string,
   h: HtmlBuilder<Message>,
 ): Html =>
   h.div(
@@ -57,8 +61,8 @@ const compactAccount = <Message>(
             {
               alt: "Olivia Rhye",
               border: true,
-              seed: "sidebar-olivia-rhye",
               size: "md",
+              src: accountAvatarUrl,
               status: "online",
             },
             h,
@@ -118,7 +122,7 @@ const desktop = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder<Messa
               ),
             ],
             [
-              h.div([h.Class("flex justify-center px-3")], [sidebarNavigationLogo(h)]),
+              h.div([h.Class("flex justify-center px-3")], [sidebarNavigationLogo(props.brand, h)]),
               h.ul(
                 [h.Class("mt-5 flex flex-col gap-0.5 px-3.5")],
                 props.items.map((item) =>
@@ -147,7 +151,12 @@ const desktop = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder<Messa
                       ),
                     ),
                   ),
-                  compactAccount(props.isAccountOpen, props.onAccountToggle, h),
+                  compactAccount(
+                    props.isAccountOpen,
+                    props.onAccountToggle,
+                    props.accountAvatarUrl,
+                    h,
+                  ),
                 ],
               ),
             ],
@@ -231,7 +240,7 @@ const mobileContent = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder
       ),
     ],
     [
-      h.div([h.Class("px-4")], [sidebarNavigationLogo(h)]),
+      h.div([h.Class("px-4")], [sidebarNavigationLogo(props.brand, h)]),
       sidebarNavList(
         {
           activeUrl: props.activeUrl,
@@ -251,7 +260,7 @@ const mobileContent = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder
               sidebarNavItem(item, props.activeUrl === item.href, props.onNavigate, h),
             ),
           ),
-          sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, h),
+          sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, props.accountAvatarUrl, h),
         ],
       ),
     ],
@@ -276,7 +285,7 @@ export const sidebarSlim = <Message>(
           ),
         ],
         [
-          sidebarNavigationLogo(h),
+          sidebarNavigationLogo(props.brand, h),
           h.button(
             [
               h.AriaExpanded(props.isMobileOpen),

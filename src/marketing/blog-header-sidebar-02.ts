@@ -1,5 +1,4 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noTernary -- The placeholder is a real input attribute; the renderer directly transcribes the authenticated Untitled UI blog header sidebar. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { pagination } from "../application/pagination.ts";
@@ -10,9 +9,9 @@ export interface BlogHeaderSidebar02Category {
 }
 
 export interface BlogHeaderSidebar02Article {
+  readonly authorAvatarSrc: string;
   readonly authorHref: string;
   readonly authorName: string;
-  readonly authorSeed: string;
   readonly categoryHref: string;
   readonly categoryName: string;
   readonly href: string;
@@ -106,13 +105,7 @@ const avatar = <Message>(article: BlogHeaderSidebar02Article, h: HtmlBuilder<Mes
   h.img([
     h.Alt(article.authorName),
     h.Class("size-10 rounded-full object-cover ring-1 ring-border-secondary_alt"),
-    h.Src(
-      blobatarDataUri(article.authorSeed, {
-        kind: "agent",
-        size: 40,
-        title: article.authorName,
-      }),
-    ),
+    h.Src(article.authorAvatarSrc),
   ]);
 
 const featuredArticle = <Message>(

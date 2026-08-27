@@ -1,9 +1,9 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary -- The account switcher is a fixed controlled collection. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface DropdownAccountBreadcrumbProps<Message> {
+  readonly avatars: Readonly<Record<"caitlyn" | "sienna", string>>;
   readonly focusedAccountId: string;
   readonly isOpen: boolean;
   readonly onClose: NoInfer<Message>;
@@ -18,25 +18,13 @@ const accounts = [
   { email: "sienna@siglata.com", id: "sienna", name: "Sienna Hewitt" },
 ] as const;
 
-const accountAvatar = <Message>(
-  id: string,
-  label: string,
-  size: "sm" | "xs",
-  h: HtmlBuilder<Message>,
-): Html =>
+const accountAvatar = <Message>(url: string, size: "sm" | "xs", h: HtmlBuilder<Message>): Html =>
   h.img([
     h.Alt(""),
     h.Class(
       `${size === "sm" ? "size-8 rounded-lg" : "size-6 rounded-md"} shrink-0 object-cover shadow-md outline-[0.5px] -outline-offset-[0.5px] outline-black/16`,
     ),
-    h.Src(
-      blobatarDataUri(`dropdown-account-${id}`, {
-        background: "circle",
-        kind: "agent",
-        size: 128,
-        title: label,
-      }),
-    ),
+    h.Src(url),
   ]);
 
 const selector = <Message>(h: HtmlBuilder<Message>): Html =>
@@ -103,7 +91,7 @@ export const dropdownAccountBreadcrumb = <Message>(
                 "flex rounded-lg bg-bg-primary p-0.5 ring-[0.5px] ring-border-secondary ring-inset",
               ),
             ],
-            [accountAvatar(selectedAccount.id, selectedAccount.name, "xs", h)],
+            [accountAvatar(props.avatars[selectedAccount.id], "xs", h)],
           ),
           h.span([h.Class("text-sm font-semibold text-text-primary")], [selectedAccount.name]),
           selector(h),
@@ -148,7 +136,7 @@ export const dropdownAccountBreadcrumb = <Message>(
                             "flex rounded-[10px] bg-bg-primary p-0.5 ring-[0.5px] ring-border-secondary ring-inset",
                           ),
                         ],
-                        [accountAvatar(account.id, account.name, "sm", h)],
+                        [accountAvatar(props.avatars[account.id], "sm", h)],
                       ),
                       h.figcaption(
                         [h.Class("min-w-0 flex-1")],

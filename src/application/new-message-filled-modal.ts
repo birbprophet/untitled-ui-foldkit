@@ -259,7 +259,7 @@ const accountPicker = <Message>(
                 h.Type("button"),
               ],
               [
-                composeAgent(account.avatarSeed, account.label, h),
+                composeAgent(account.avatarUrl, h),
                 h.p([h.Class("text-sm font-semibold text-text-primary")], [account.label]),
                 h.span(
                   [
@@ -299,7 +299,7 @@ const accountPicker = <Message>(
                             h.Role("option"),
                             h.Type("button"),
                           ],
-                          [composeAgent(item.avatarSeed, item.label, h), item.label],
+                          [composeAgent(item.avatarUrl, h), item.label],
                         ),
                       ),
                       h.button(

@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noSpread, effect/noTernary -- Storybook CSF variant matrices stay direct. */
 import * as S from "effect/Schema";
-import { progressCircle } from "ui/base";
+import { progressCircle } from "../../../src/base.ts";
 
 import { componentMeta, matrix, staticStory } from "../story.ts";
 
@@ -23,6 +23,51 @@ export const AllVariants = {
           (["xxs", "xs", "sm", "md", "lg"] as const).map((size) =>
             progressCircle({ kind: "half-circle", label: "Completed", size, value: args.value }, h),
           ),
+        ],
+      ],
+      h,
+    ),
+  ),
+  args: { value: 40 },
+};
+export const States = {
+  ...staticStory(Args, (_args, h) =>
+    matrix(
+      [
+        [
+          "Values",
+          [
+            progressCircle({ label: "Completed", size: "md", value: 0 }, h),
+            progressCircle({ label: "Completed", size: "md", value: 40 }, h),
+            progressCircle({ label: "Completed", size: "md", value: 100 }, h),
+            progressCircle(
+              {
+                kind: "half-circle",
+                label: "Completed",
+                size: "md",
+                value: 0,
+              },
+              h,
+            ),
+            progressCircle(
+              {
+                kind: "half-circle",
+                label: "Completed",
+                size: "md",
+                value: 40,
+              },
+              h,
+            ),
+            progressCircle(
+              {
+                kind: "half-circle",
+                label: "Completed",
+                size: "md",
+                value: 100,
+              },
+              h,
+            ),
+          ],
         ],
       ],
       h,

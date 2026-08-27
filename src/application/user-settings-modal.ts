@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled renderer preserves the authenticated user-settings dialog anatomy. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -20,6 +19,7 @@ export interface UserSettingsCountry {
 }
 
 export interface UserSettingsModalProps<Message> {
+  readonly avatarUrl: string;
   readonly countries: readonly UserSettingsCountry[];
   readonly email: string;
   readonly firstName: string;
@@ -183,17 +183,11 @@ const divider = <Message>(h: HtmlBuilder<Message>): Html =>
 
 const profilePhoto = <Message>(
   name: string,
-  seed: string,
+  src: string,
   size: "mobile" | "desktop",
   h: HtmlBuilder<Message>,
-): Html => {
-  const profileImage = blobatarDataUri(seed, {
-    background: "circle",
-    kind: "agent",
-    size: 192,
-    title: name,
-  });
-  return h.div(
+): Html =>
+  h.div(
     [
       h.Class(
         `relative shrink-0 items-center justify-center rounded-full bg-bg-primary ring-1 ring-border-secondary-alt ${size === "mobile" ? "flex size-18 p-0.75 md:hidden" : "hidden size-24 p-1 md:flex"}`,
@@ -206,11 +200,10 @@ const profilePhoto = <Message>(
             `relative size-full overflow-hidden rounded-full outline-black/16 before:absolute before:inset-0 before:rounded-full before:border-white/32 before:mask-[linear-gradient(to_bottom,black_0%,transparent_25%,transparent_75%,black_100%)] ${size === "desktop" ? "shadow-xl outline-[0.75px] -outline-offset-[0.75px] before:border-[1.5px]" : "outline-[0.5px] -outline-offset-[0.5px] before:border"}`,
           ),
         ],
-        [h.img([h.Alt(name), h.Class("size-full object-cover"), h.Src(profileImage)])],
+        [h.img([h.Alt(name), h.Class("size-full object-cover"), h.Src(src)])],
       ),
     ],
   );
-};
 
 const stat = <Message>(label: string, statValue: string, h: HtmlBuilder<Message>): Html =>
   h.div(
@@ -521,8 +514,8 @@ export const userSettingsModal = <Message>(
                   h.div(
                     [h.Class("relative -mt-12 flex flex-col gap-3 px-4 pb-6 md:gap-4 md:px-6")],
                     [
-                      profilePhoto(profileName, `user-settings-${props.username}`, "mobile", h),
-                      profilePhoto(profileName, `user-settings-${props.username}`, "desktop", h),
+                      profilePhoto(profileName, props.avatarUrl, "mobile", h),
+                      profilePhoto(profileName, props.avatarUrl, "desktop", h),
                       h.div(
                         [h.Class("absolute top-14 right-4 flex gap-0.5 md:top-15 md:right-6")],
                         [

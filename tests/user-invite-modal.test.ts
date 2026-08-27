@@ -7,9 +7,12 @@ import type {
   UserInviteModalProps,
 } from "../src/application/user-invite-modal.ts";
 
+const personAvatar = (fill: string): string =>
+  `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect width='96' height='96' fill='%23${fill}'/%3E%3C/svg%3E`;
+
 const members: readonly UserInviteMember[] = [
   {
-    avatarSeed: "candice-wu-user-invite",
+    avatarUrl: personAvatar("7f56d9"),
     email: "candice@siglata.com",
     id: "candice",
     name: "Candice Wu",
@@ -21,11 +24,16 @@ const members: readonly UserInviteMember[] = [
     name: "Demi Wilkinson",
   },
   {
-    avatarSeed: "drew-cano-user-invite",
+    avatarUrl: personAvatar("9e77ed"),
     email: "drew@siglata.com",
     id: "drew",
     name: "Drew Cano",
   },
+];
+const people = [
+  { avatarUrl: personAvatar("b692f6"), id: "@phoenix", label: "Phoenix Baker" },
+  { avatarUrl: personAvatar("d6bbfb"), id: "@olivia", label: "Olivia Rhye" },
+  { avatarUrl: personAvatar("444ce0"), id: "@lana", label: "Lana Steiner" },
 ];
 
 describe("user invite modal", () => {
@@ -42,15 +50,16 @@ describe("user invite modal", () => {
       onRemoveMember: (id) => `remove:${id}`,
       onSelectOpenChanged: (isOpen) => `select:${String(isOpen)}`,
       onSelectPerson: (id) => `select:${id}`,
+      people,
       selectedPersonId: "@olivia",
     };
     expect(props.onRemoveMember("candice")).toBe("remove:candice");
     expect(props.onSelectPerson("@phoenix")).toBe("select:@phoenix");
     expect(props.members).toEqual(members);
-    expect(props.members.map((member) => member.avatarSeed)).toEqual([
-      "candice-wu-user-invite",
+    expect(props.members.map((member) => member.avatarUrl)).toEqual([
+      personAvatar("7f56d9"),
       undefined,
-      "drew-cano-user-invite",
+      personAvatar("9e77ed"),
     ]);
     expect(props.members[1]?.initials).toBe("DW");
   });
@@ -68,6 +77,7 @@ describe("user invite modal", () => {
       onRemoveMember: (id) => id,
       onSelectOpenChanged: String,
       onSelectPerson: (id) => id,
+      people,
     };
     expect(props.selectedPersonId).toBeUndefined();
     expect(props.members).toHaveLength(3);

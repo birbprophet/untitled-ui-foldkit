@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled renderer preserves the authenticated integration dialog anatomy and responsive permission copy. */
-import { symbol } from "brand";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -23,6 +22,8 @@ export interface IntegrationModalProps<Message> {
   readonly onDismiss: NoInfer<Message>;
   readonly onDocumentation: NoInfer<Message>;
   readonly permissions: readonly IntegrationPermission[];
+  readonly wordmarkAlt: string;
+  readonly wordmarkSrc: string;
 }
 
 const lineIcon = <Message>(
@@ -109,7 +110,7 @@ export const integrationModal = <Message>(
                   h.div(
                     [h.Class("flex items-center justify-center gap-3 px-4 pt-6 sm:pt-8")],
                     [
-                      appIcon(symbol.url.href, "Siglata", h),
+                      appIcon(props.wordmarkSrc, props.wordmarkAlt, h),
                       lineIcon("switch", "size-5 text-fg-quaternary", h),
                       appIcon(props.integrationIconUrl, props.integrationName, h),
                     ],

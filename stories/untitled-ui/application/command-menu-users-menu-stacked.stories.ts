@@ -1,5 +1,5 @@
 /* oxlint-disable effect/noSpread -- Static CSF exports extend the exact controlled preview-menu fixture. */
-import { commandMenuUsersMenuStacked } from "ui/application";
+import { commandMenuUsersMenuStacked } from "../../../src/application.ts";
 
 import { componentMeta } from "../story.ts";
 import { commandMenuPreviewStories } from "./command-menu-preview.story.ts";

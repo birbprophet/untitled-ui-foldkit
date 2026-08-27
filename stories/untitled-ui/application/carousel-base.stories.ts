@@ -1,8 +1,12 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook exercises the controlled FoldKit carousel through exact public props. */
 import * as S from "effect/Schema";
 import type { HtmlBuilder } from "foldkit/html";
-import { carouselBase, nextCarouselIndex } from "ui/application";
-import type { CarouselBaseProps, CarouselOrientation, CarouselSlide } from "ui/application";
+import { carouselBase, nextCarouselIndex } from "../../../src/application.ts";
+import type {
+  CarouselBaseProps,
+  CarouselOrientation,
+  CarouselSlide,
+} from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

@@ -3,8 +3,9 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderFeaturedPost04 } from "../../../../../packages/ui/src/marketing/blog-header-featured-post-04.ts";
+import { blogHeaderFeaturedPost04 } from "../../../src/marketing/blog-header-featured-post-04.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const BadgeColor = S.Union([
   S.Literal("brand"),
@@ -17,7 +18,7 @@ const BadgeColor = S.Union([
 ]);
 const Tag = S.Struct({ color: BadgeColor, href: S.String, name: S.String });
 const Article = S.Struct({
-  author: S.Struct({ avatarSeed: S.String, href: S.String, name: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,
@@ -109,7 +110,7 @@ const definition = {
 } as const;
 
 const featuredArticle = {
-  author: { avatarSeed: "olivia-rhye", href: "#", name: "Olivia Rhye" },
+  author: { avatarUrl: agentFace("Olivia Rhye"), href: "#", name: "Olivia Rhye" },
   category: { href: "#", name: "Design" },
   href: "#",
   id: "article-1",
@@ -129,7 +130,7 @@ const featuredArticle = {
 
 const articles = [
   {
-    author: { avatarSeed: "phoenix-baker", href: "#", name: "Phoenix Baker" },
+    author: { avatarUrl: agentFace("Phoenix Baker"), href: "#", name: "Phoenix Baker" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
@@ -146,7 +147,7 @@ const articles = [
     title: "Migrating to Linear 101",
   },
   {
-    author: { avatarSeed: "lana-steiner", href: "#", name: "Lana Steiner" },
+    author: { avatarUrl: agentFace("Lana Steiner"), href: "#", name: "Lana Steiner" },
     category: { href: "#", name: "Software Engineering" },
     href: "#",
     id: "article-3",
@@ -162,7 +163,7 @@ const articles = [
     title: "Building your API stack",
   },
   {
-    author: { avatarSeed: "alec-whitten", href: "#", name: "Alec Whitten" },
+    author: { avatarUrl: agentFace("Alec Whitten"), href: "#", name: "Alec Whitten" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-3.5",
@@ -178,7 +179,7 @@ const articles = [
     title: "Bill Walsh leadership lessons",
   },
   {
-    author: { avatarSeed: "demi-wilkinson", href: "#", name: "Demi Wilkinson" },
+    author: { avatarUrl: agentFace("Demi Wilkinson"), href: "#", name: "Demi Wilkinson" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-4",
@@ -194,7 +195,7 @@ const articles = [
     title: "PM mental models",
   },
   {
-    author: { avatarSeed: "candice-wu", href: "#", name: "Candice Wu" },
+    author: { avatarUrl: agentFace("Candice Wu"), href: "#", name: "Candice Wu" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-5",
@@ -209,7 +210,7 @@ const articles = [
     title: "What is wireframing?",
   },
   {
-    author: { avatarSeed: "natali-craig", href: "#", name: "Natali Craig" },
+    author: { avatarUrl: agentFace("Natali Craig"), href: "#", name: "Natali Craig" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-6",

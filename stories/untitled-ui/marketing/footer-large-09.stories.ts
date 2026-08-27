@@ -3,7 +3,8 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { footerLarge09 } from "../../../../../packages/ui/src/marketing/footer-large-09.ts";
+import { footerLarge09 } from "../../../src/marketing/footer-large-09.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const NavItem = S.Struct({
@@ -36,7 +37,10 @@ const definition = {
   Model: Args,
   init: (args: Model): Model => args,
   update: (model: Model, message: Message): Model => {
-    if (message._tag === "LinkPressed") {
+    if (message._tag === "FooterLarge09HomePressed") {
+      return { ...model, homeHref: "#home-opened" };
+    }
+    if (message._tag === "FooterLarge09LinkPressed") {
       return {
         ...model,
         navGroups: model.navGroups.map((group) => ({
@@ -47,7 +51,15 @@ const definition = {
         })),
       };
     }
-    return { ...model, homeHref: "#home-opened" };
+    if (message._tag === "FooterLarge09SocialPressed") {
+      return {
+        ...model,
+        socials: model.socials.map((social) =>
+          social.id === message.id ? { ...social, href: `#${social.id}-opened` } : social,
+        ),
+      };
+    }
+    return model;
   },
   view: (model: Model, h: Parameters<typeof footerLarge09<Message>>[1]) =>
     h.div(
@@ -56,6 +68,7 @@ const definition = {
         footerLarge09(
           {
             ...model,
+            logo: demoBrand(),
             onHome: HomePressed(),
             onLink: (id) => LinkPressed({ id }),
             onSocial: (id) => SocialPressed({ id }),
@@ -75,25 +88,25 @@ const args = {
       id: "product",
       items: [
         {
+          href: "#",
           id: "overview",
           label: "Overview",
-          href: "#",
         },
         {
+          href: "#",
           id: "features",
           label: "Features",
-          href: "#",
         },
         {
+          badge: "New",
+          href: "#",
           id: "solutions",
           label: "Solutions",
-          href: "#",
-          badge: "New",
         },
         {
+          href: "#",
           id: "pricing",
           label: "Pricing",
-          href: "#",
         },
       ],
       label: "Product",
@@ -102,19 +115,19 @@ const args = {
       id: "company",
       items: [
         {
+          href: "#",
           id: "about",
           label: "About us",
-          href: "#",
         },
         {
+          href: "#",
           id: "careers",
           label: "Careers",
-          href: "#",
         },
         {
+          href: "#",
           id: "contact",
           label: "Contact",
-          href: "#",
         },
       ],
       label: "Company",
@@ -123,19 +136,19 @@ const args = {
       id: "resources",
       items: [
         {
+          href: "#",
           id: "blog",
           label: "Blog",
-          href: "#",
         },
         {
+          href: "#",
           id: "newsletter",
           label: "Newsletter",
-          href: "#",
         },
         {
+          href: "#",
           id: "help",
           label: "Help centre",
-          href: "#",
         },
       ],
       label: "Resources",

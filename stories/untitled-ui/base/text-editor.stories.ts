@@ -3,8 +3,12 @@ import * as Match from "effect/Match";
 import * as S from "effect/Schema";
 import type { Command } from "foldkit/command";
 import * as FoldkitCommand from "foldkit/command";
-import { runTextEditorCommand, textEditor } from "ui/base";
-import type { TextEditorChange, TextEditorCommandRequest, TextEditorSelection } from "ui/base";
+import { runTextEditorCommand, textEditor } from "../../../src/base.ts";
+import type {
+  TextEditorChange,
+  TextEditorCommandRequest,
+  TextEditorSelection,
+} from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory, matrix } from "../story.ts";

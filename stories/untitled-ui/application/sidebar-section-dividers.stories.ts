@@ -1,9 +1,10 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Controls expose the upstream activeUrl prop; interaction state remains in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { sidebarSectionDividers } from "ui/application";
+import { sidebarSectionDividers } from "../../../src/application.ts";
 import { userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";
+import { agentFace, demoBrand } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ activeUrl: S.String });
 const Model = S.Struct({
@@ -93,7 +94,9 @@ const definition = {
   view: (model: Model, h: Parameters<typeof sidebarSectionDividers<Message>>[1]) =>
     sidebarSectionDividers(
       {
+        accountAvatarUrl: agentFace("Olivia Rhye"),
         activeUrl: model.activeUrl,
+        brand: demoBrand(),
         expandedHrefs: model.expandedHrefs,
         isAccountOpen: model.isAccountOpen,
         isMobileOpen: model.isMobileOpen,

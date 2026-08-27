@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor -- Storybook CSF and play functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { socialButton } from "ui/base";
-import type { SocialButtonNetwork, SocialButtonTheme } from "ui/base";
+import { socialButton } from "../../../src/base.ts";
+import type { SocialButtonNetwork, SocialButtonTheme } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

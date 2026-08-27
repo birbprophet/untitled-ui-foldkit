@@ -7,7 +7,7 @@ import {
   contactIconsAndImageBrand,
   contactIconsAndImageBrandImageUrl,
   contactIconsAndImageBrandLocations,
-} from "../../../../../packages/ui/src/marketing/contact-icons-and-image-brand.ts";
+} from "../../../src/marketing/contact-icons-and-image-brand.ts";
 
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 

@@ -1,9 +1,10 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Controls expose only authenticated component props; navigation, search, and disclosure remain in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { headerNavigation } from "ui/application";
+import { headerNavigation } from "../../../src/application.ts";
 import { userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({
   centered: S.Boolean,
@@ -71,6 +72,7 @@ const view = (model: Model, h: Parameters<typeof headerNavigation<Message>>[1]) 
   headerNavigation(
     {
       activeUrl: model.activeUrl,
+      brand: demoBrand(),
       centered: model.centered,
       hideBorder: model.hideBorder,
       isMobileOpen: model.isMobileOpen,

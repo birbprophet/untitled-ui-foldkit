@@ -1,10 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises the controlled FoldKit hero in the browser. */
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
-import { headerNavigation } from "ui/application";
+import { headerNavigation } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
-import { heroColorCard01 } from "../../../../../packages/ui/src/marketing/hero-color-card-01.ts";
+import { heroColorCard01 } from "../../../src/marketing/hero-color-card-01.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -55,6 +56,7 @@ const navigation = (model: Model, h: Parameters<typeof headerNavigation<Message>
   headerNavigation(
     {
       activeUrl: "#pricing",
+      brand: demoBrand(),
       hideBorder: false,
       isMobileOpen: model.isMobileOpen,
       items: navItems,

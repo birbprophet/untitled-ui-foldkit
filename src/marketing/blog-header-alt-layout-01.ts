@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noTernary, eslint/prefer-destructuring, foldkit/keyed-required-for-mapped-rows -- This full-width section mirrors the authenticated Untitled UI layout. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { pagination as applicationPagination } from "../application/pagination.ts";
@@ -7,7 +6,7 @@ import { button } from "../base/button.ts";
 import { input } from "../base/fields.ts";
 
 export interface BlogHeaderAltLayout01Article {
-  readonly author: { readonly href: string; readonly name: string; readonly seed: string };
+  readonly author: { readonly avatarUrl: string; readonly href: string; readonly name: string };
   readonly category: { readonly href: string; readonly name: string };
   readonly href: string;
   readonly id: string;
@@ -26,7 +25,11 @@ export type BlogHeaderAltLayout01Action = Readonly<{
 
 export const blogHeaderAltLayout01Articles = [
   {
-    author: { href: "#", name: "Olivia Rhye", seed: "blog-olivia-rhye" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80",
+      href: "#",
+      name: "Olivia Rhye",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
@@ -39,7 +42,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "UX review presentations",
   },
   {
-    author: { href: "#", name: "Phoenix Baker", seed: "blog-phoenix-baker" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80",
+      href: "#",
+      name: "Phoenix Baker",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
@@ -51,7 +58,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "Migrating to Linear 101",
   },
   {
-    author: { href: "#", name: "Lana Steiner", seed: "blog-lana-steiner" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80",
+      href: "#",
+      name: "Lana Steiner",
+    },
     category: { href: "#", name: "Software Engineering" },
     href: "#",
     id: "article-3",
@@ -63,7 +74,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "Building your API stack",
   },
   {
-    author: { href: "#", name: "Alec Whitten", seed: "blog-alec-whitten" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/alec-whitten?fm=webp&q=80",
+      href: "#",
+      name: "Alec Whitten",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-3.5",
@@ -75,7 +90,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "Bill Walsh leadership lessons",
   },
   {
-    author: { href: "#", name: "Demi Wilkinson", seed: "blog-demi-wilkinson" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80",
+      href: "#",
+      name: "Demi Wilkinson",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-4",
@@ -86,7 +105,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "PM mental models",
   },
   {
-    author: { href: "#", name: "Candice Wu", seed: "blog-candice-wu" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/candice-wu?fm=webp&q=80",
+      href: "#",
+      name: "Candice Wu",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-5",
@@ -97,7 +120,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "What is wireframing?",
   },
   {
-    author: { href: "#", name: "Natali Craig", seed: "blog-natali-craig" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80",
+      href: "#",
+      name: "Natali Craig",
+    },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-6",
@@ -108,7 +135,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "How collaboration makes us better designers",
   },
   {
-    author: { href: "#", name: "Drew Cano", seed: "blog-drew-cano" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/drew-cano?fm=webp&q=80",
+      href: "#",
+      name: "Drew Cano",
+    },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-7",
@@ -120,7 +151,11 @@ export const blogHeaderAltLayout01Articles = [
     title: "Our top 10 Javascript frameworks to use",
   },
   {
-    author: { href: "#", name: "Orlando Diggs", seed: "blog-orlando-diggs" },
+    author: {
+      avatarUrl: "https://www.untitledui.com/images/avatars/orlando-diggs?fm=webp&q=80",
+      href: "#",
+      name: "Orlando Diggs",
+    },
     category: { href: "#", name: "Customer Success" },
     href: "#",
     id: "article-8",
@@ -221,14 +256,7 @@ const author = <Message>(
             h.Class(
               "size-10 rounded-full bg-bg-primary object-cover ring-0.75 ring-border-secondary ring-offset-2 ring-offset-bg-primary",
             ),
-            h.Src(
-              blobatarDataUri(article.author.seed, {
-                background: "circle",
-                kind: "agent",
-                size: 80,
-                title: article.author.name,
-              }),
-            ),
+            h.Src(article.author.avatarUrl),
           ]),
         ],
       ),

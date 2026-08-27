@@ -1,6 +1,8 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import { blogCards } from "../src/marketing/blog-cards.ts";
 import type { BlogCardsProps, BlogCardsVariant } from "../src/marketing/blog-cards.ts";
 
@@ -27,7 +29,7 @@ describe("blog cards", () => {
   it("exposes every authenticated card variant and controlled destinations", () => {
     const props = {
       article: {
-        author: { avatarSeed: "olivia-rhye", href: "#author", name: "Olivia Rhye" },
+        author: { avatarUrl: agentFace("Olivia Rhye"), href: "#author", name: "Olivia Rhye" },
         category: { href: "#design", name: "Design" },
         href: "#article",
         id: "article-1",

@@ -4,8 +4,8 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import type { DropdownContextMenuAdvancedSubmenu } from "ui/base";
-import { dropdownContextMenuAdvanced } from "ui/base";
+import type { DropdownContextMenuAdvancedSubmenu } from "../../../src/base.ts";
+import { dropdownContextMenuAdvanced } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory, liveStory, matrix } from "../story.ts";

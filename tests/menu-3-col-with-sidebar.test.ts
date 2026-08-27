@@ -6,8 +6,34 @@ import type { Menu3ColWithSidebarProps } from "../src/marketing/menu-3-col-with-
 
 describe("menu 3 col with sidebar", () => {
   it("keeps the authenticated header navigation renderer controlled", () => {
-    const props = {} as unknown as Menu3ColWithSidebarProps<string>;
+    const props = {
+      cardDescription: "Automate busywork",
+      cardDismissLabel: "Dismiss",
+      cardHref: "#",
+      cardImageAlt: "Changelog cover",
+      cardImageSrc: "https://www.untitledui.com/images/changelog",
+      cardTitle: "Meeting automations",
+      columns: [
+        {
+          id: "col-1",
+          items: [
+            {
+              badgeLabel: "New",
+              href: "#",
+              iconPath: "M6 6h18v18H6z",
+              id: "integrations",
+              subtitle: "Connect the tools you already use",
+              title: "Integrations",
+            },
+          ],
+          title: "Platform",
+        },
+      ],
+      onChangelog: "changelog",
+      onDismiss: "dismiss",
+      onItem: (id) => `item:${id}`,
+    } satisfies Menu3ColWithSidebarProps<string>;
     expect(menu3ColWithSidebar).toBeTypeOf("function");
-    expect(props).toBeDefined();
+    expect(props.onItem("abc")).toBe("item:abc");
   });
 });

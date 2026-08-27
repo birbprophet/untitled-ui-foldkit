@@ -1,13 +1,15 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import { blogHeaderFeaturedPost01 } from "../src/marketing/blog-header-featured-post-01.ts";
 import type { BlogHeaderFeaturedPost01Props } from "../src/marketing/blog-header-featured-post-01.ts";
 
 describe("blog header featured post 01", () => {
   it("keeps filtering, sorting, paging, and article navigation controlled", () => {
     const article = {
-      author: { avatarSeed: "amelie-laurent", href: "#author", name: "Amélie Laurent" },
+      author: { avatarUrl: agentFace("Amélie Laurent"), href: "#author", name: "Amélie Laurent" },
       category: { href: "#design", name: "Design" },
       href: "#article",
       id: "article-001",

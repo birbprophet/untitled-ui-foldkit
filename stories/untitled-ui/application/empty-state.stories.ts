@@ -1,8 +1,9 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and its keyboard play function use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { emptyState } from "ui/application";
-import type { EmptyStateDecoration, EmptyStateSize } from "ui/application";
+import { emptyState } from "../../../src/application.ts";
+import type { EmptyStateDecoration, EmptyStateSize } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
+import { agentFace } from "../../fixtures/brand.ts";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
 
@@ -30,6 +31,34 @@ type Model = typeof Model.Type;
 type Message = Readonly<{ _tag: "Confirmed" | "Dismissed" }>;
 const confirmed: Message = { _tag: "Confirmed" };
 const dismissed: Message = { _tag: "Dismissed" };
+const radiusFaces = ["Ada Lovelace", "Grace Hopper", "Alan Turing"].map((name) => agentFace(name));
+const rowFaces = [
+  "Phoenix Baker",
+  "Olivia Rhye",
+  "Lana Steiner",
+  "Demi Wilkinson",
+  "Candice Wu",
+  "Natali Craig",
+].map((name) => agentFace(name));
+const gridFaces = [
+  ...rowFaces,
+  "Drew Cano",
+  "Kari Rasmussen",
+  "Orlando Diggs",
+  "Andi Lane",
+  "Kate Morrison",
+  "Koray Okumus",
+].map((name) => agentFace(name));
+
+const facesByDecoration: Record<EmptyStateDecoration, readonly string[]> = {
+  "avatar-grid": gridFaces,
+  "avatar-radius": radiusFaces,
+  "avatar-row": rowFaces,
+  "featured-icon": radiusFaces,
+  "file-type": radiusFaces,
+  illustration: radiusFaces,
+};
+
 const definition = {
   Args,
   Model,
@@ -41,9 +70,15 @@ const definition = {
   view: (model: Model, h: Parameters<typeof emptyState<Message>>[1]) =>
     emptyState(
       model.action === "idle"
-        ? { ...model, confirmMessage: confirmed, dismissMessage: dismissed }
+        ? {
+            ...model,
+            avatarUrls: facesByDecoration[model.decoration],
+            confirmMessage: confirmed,
+            dismissMessage: dismissed,
+          }
         : {
             ...model,
+            avatarUrls: facesByDecoration[model.decoration],
             description:
               model.action === "confirmed"
                 ? "Your project is ready to configure."
@@ -63,9 +98,7 @@ const specimen = (
   emptyState(
     {
       ...model,
-      confirmMessage: confirmed,
-      decoration,
-      dismissMessage: dismissed,
+      avatarUrls: facesByDecoration[decoration],
       size,
     },
     h,
@@ -113,7 +146,20 @@ export const States = {
           ["Small", [specimen(model, h, model.decoration, "sm")]],
           ["Medium", [specimen(model, h, model.decoration, "md")]],
           ["Large", [specimen(model, h, model.decoration, "lg")]],
-          ["No actions or pattern", [emptyState({ ...model, pattern: "none", size: "md" }, h)]],
+          [
+            "No actions or pattern",
+            [
+              emptyState(
+                {
+                  ...model,
+                  avatarUrls: facesByDecoration[model.decoration],
+                  pattern: "none",
+                  size: "md",
+                },
+                h,
+              ),
+            ],
+          ],
         ],
         h,
       ),

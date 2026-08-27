@@ -7,9 +7,9 @@ export type MessagingStatus = "sent" | "read" | "failed";
 export type MessagingAction = "ai" | "edit" | "download" | "reply" | "copy" | "play";
 
 export interface MessagingUser {
+  readonly avatarUrl?: string;
   readonly me?: boolean;
   readonly name?: string;
-  readonly seed?: string;
   readonly status?: "online" | "offline";
 }
 
@@ -346,9 +346,8 @@ export const messaging = <Message>(
             avatar(
               {
                 alt: message.user.name ?? "Agent",
-                entityKind: "agent",
-                seed: message.user.seed ?? message.id,
                 size: "sm",
+                src: message.user.avatarUrl,
                 status: message.user.status,
               },
               h,

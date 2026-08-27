@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { bannerSlimBrandFullWidth } from "../../../../../packages/ui/src/marketing/banner-slim-brand-full-width.ts";
+import { bannerSlimBrandFullWidth } from "../../../src/marketing/banner-slim-brand-full-width.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

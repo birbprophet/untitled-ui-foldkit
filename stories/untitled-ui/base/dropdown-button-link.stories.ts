@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and interaction functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { dropdownButtonLink } from "ui/base";
-import type { DropdownButtonLinkPermission } from "ui/base";
+import { dropdownButtonLink } from "../../../src/base.ts";
+import type { DropdownButtonLinkPermission } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

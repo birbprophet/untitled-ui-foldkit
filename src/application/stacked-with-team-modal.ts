@@ -4,51 +4,36 @@ import type { Html, HtmlBuilder } from "foldkit/html";
 import { avatar } from "../base/avatar.ts";
 import { button } from "../base/button.ts";
 
+export interface StackedWithTeamMember {
+  readonly avatarUrl: string;
+  readonly name: string;
+}
+
 export interface StackedWithTeamModalProps<Message> {
   readonly id: string;
   readonly isOpen: boolean;
   readonly onCancel: NoInfer<Message>;
   readonly onDismiss: NoInfer<Message>;
   readonly onGetStarted: NoInfer<Message>;
+  readonly teamMembers: readonly StackedWithTeamMember[];
 }
 
-const teamAvatars = <Message>(h: HtmlBuilder<Message>): Html =>
+const teamAvatars = <Message>(
+  members: readonly StackedWithTeamMember[],
+  h: HtmlBuilder<Message>,
+): Html =>
   h.div(
     [h.Class("flex flex-row items-end justify-center -space-x-2 px-4 pt-5 sm:px-6 sm:pt-6")],
-    [
-      avatar(
-        {
-          alt: "Caitlyn King",
-          entityKind: "agent",
-          seed: "stacked-team-caitlyn-king",
-          size: "md",
-        },
-        h,
+    members
+      .slice(0, 3)
+      .map((member, index) =>
+        index === 1
+          ? h.div(
+              [h.Class("z-10 inline-flex rounded-full ring-[1.5px] ring-bg-primary")],
+              [avatar({ alt: member.name, size: "lg", src: member.avatarUrl }, h)],
+            )
+          : avatar({ alt: member.name, size: "md", src: member.avatarUrl }, h),
       ),
-      h.div(
-        [h.Class("z-10 inline-flex rounded-full ring-[1.5px] ring-bg-primary")],
-        [
-          avatar(
-            {
-              alt: "Sienna Hewitt",
-              entityKind: "agent",
-              seed: "stacked-team-sienna-hewitt",
-              size: "lg",
-            },
-            h,
-          ),
-        ],
-      ),
-      avatar(
-        {
-          alt: "Olly Schroeder",
-          entityKind: "agent",
-          seed: "stacked-team-olly-schroeder",
-          size: "md",
-        },
-        h,
-      ),
-    ],
   );
 
 export const stackedWithTeamModal = <Message>(
@@ -81,7 +66,7 @@ export const stackedWithTeamModal = <Message>(
                   h.OnCancel(props.onDismiss),
                 ],
                 [
-                  teamAvatars(h),
+                  teamAvatars(props.teamMembers, h),
                   h.div(
                     [
                       h.Class(

@@ -20,6 +20,7 @@ export interface ShareProjectMenuMemberPermissions {
 }
 
 export interface ShareProjectMenuProps<Message> {
+  readonly avatars: Partial<Record<ShareProjectMenuMemberId, string>>;
   readonly copied: boolean;
   readonly focusedPermission: ShareProjectMenuPermission;
   readonly id: string;
@@ -90,7 +91,6 @@ const members = [
     initials: undefined,
     isOnline: true,
     name: "Sienna Hewitt",
-    seed: "share-project-menu-sienna-hewitt",
   },
   {
     email: "ammar@siglata.com",
@@ -98,7 +98,6 @@ const members = [
     initials: undefined,
     isOnline: false,
     name: "Ammar Foley",
-    seed: "share-project-menu-ammar-foley",
   },
   {
     email: "mathilde@siglata.com",
@@ -106,7 +105,6 @@ const members = [
     initials: undefined,
     isOnline: false,
     name: "Mathilde Lewis",
-    seed: "share-project-menu-mathilde-lewis",
   },
   {
     email: "julius@siglata.com",
@@ -114,7 +112,6 @@ const members = [
     initials: undefined,
     isOnline: false,
     name: "Julius Vaughan",
-    seed: "share-project-menu-julius-vaughan",
   },
   {
     email: "fleur@siglata.com",
@@ -122,7 +119,6 @@ const members = [
     initials: "FC",
     isOnline: false,
     name: "Fleur Cook",
-    seed: undefined,
   },
 ] as const;
 
@@ -301,7 +297,11 @@ const permissionMenu = <Message>(
   );
 };
 
-const avatarLabel = <Message>(member: (typeof members)[number], h: HtmlBuilder<Message>): Html =>
+const avatarLabel = <Message>(
+  member: (typeof members)[number],
+  memberAvatar: string | undefined,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.figure(
     [h.Class("group flex min-w-0 flex-1 items-center gap-2")],
     [
@@ -309,9 +309,7 @@ const avatarLabel = <Message>(member: (typeof members)[number], h: HtmlBuilder<M
         {
           alt: member.name,
           border: true,
-          ...(member.seed === undefined
-            ? { initials: member.initials }
-            : { entityKind: "agent", seed: member.seed }),
+          ...(memberAvatar === undefined ? { initials: member.initials } : { src: memberAvatar }),
           size: "md",
           status: member.isOnline ? "online" : undefined,
         },
@@ -517,7 +515,7 @@ export const shareProjectMenu = <Message>(
                                     member.id,
                                     [h.Class("flex items-start gap-3")],
                                     [
-                                      avatarLabel(member, h),
+                                      avatarLabel(member, props.avatars[member.id], h),
                                       permissionMenu(
                                         props,
                                         member.id,

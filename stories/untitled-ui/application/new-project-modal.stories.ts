@@ -4,8 +4,9 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { newProjectModal } from "ui/application";
-import type { FileUploadResult } from "ui/application";
+import { agentFace } from "../../fixtures/brand.ts";
+import { newProjectModal } from "../../../src/application.ts";
+import type { FileUploadResult } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
@@ -21,6 +22,13 @@ const Model = S.Struct({
   tagInput: S.String,
   upload: S.optional(Upload),
 });
+
+const teamLogos = {
+  ephemeral: agentFace("Ephemeral"),
+  leapyear: agentFace("Leapyear"),
+  watchtower: agentFace("Watchtower"),
+} as const;
+
 type Model = typeof Model.Type;
 const Shown = m("NewProjectModalShown");
 const Closed = m("NewProjectModalClosed");
@@ -141,6 +149,7 @@ const definition = {
         onTeamSelect: (value) => valueMessage("TeamSelect", value),
         selectedTeamId: model.selectedTeamId,
         tagInput: model.tagInput,
+        teamLogos,
         upload: model.upload,
       },
       h,

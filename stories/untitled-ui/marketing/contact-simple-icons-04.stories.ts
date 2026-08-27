@@ -2,7 +2,11 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { contactSimpleIcons04,contactSimpleIcons04Locations } from "../../../../../packages/ui/src/marketing/contact-simple-icons-04.ts";
+import {
+  contactSimpleIcons04,
+  contactSimpleIcons04Locations,
+} from "../../../src/marketing/contact-simple-icons-04.ts";
+import type { HtmlBuilder } from "foldkit/html";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -13,7 +17,6 @@ const Args = S.Struct({
 });
 type Args = typeof Args.Type;
 
-
 const args = {
   description: "Find us at these locations.",
   eyebrow: "Our locations",
@@ -21,7 +24,7 @@ const args = {
   locations: [...contactSimpleIcons04Locations],
 } satisfies Args;
 
-const specimen = (props: Args, h: Parameters<typeof contactSimpleIcons04>[1]) =>
+const specimen = (props: Args, h: HtmlBuilder<{ readonly _tag: "Noop" }>) =>
   h.div([h.Class("-m-8")], [contactSimpleIcons04(props, h)]);
 
 export default {

@@ -1,12 +1,11 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, mps/imperative-loops, mps/no-length-comparison, mps/prefer-arr-match, typescript/prefer-for-of -- Controlled collection rendering keeps upstream tag and listbox anatomy together. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export type TagSelectSize = "sm" | "md" | "lg";
 
 export interface TagSelectItem<Message> {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly id: string;
   readonly isDisabled?: boolean;
   readonly label: string;
@@ -102,27 +101,14 @@ const moveFocus = <Message>(
   return Option.none();
 };
 
-const avatar = <Message>(item: TagSelectItem<Message>, h: HtmlBuilder<Message>): Html =>
+const avatar = <Message>(src: string, h: HtmlBuilder<Message>): Html =>
   h.span(
     [
       h.Class(
         "relative inline-flex size-4 shrink-0 items-center justify-center overflow-hidden rounded-full bg-bg-tertiary outline-[0.5px] -outline-offset-[0.5px] outline-black/16",
       ),
     ],
-    [
-      h.img([
-        h.Alt(""),
-        h.Class("size-full object-cover"),
-        h.Src(
-          blobatarDataUri(item.avatarSeed ?? item.id, {
-            background: "circle",
-            kind: "agent",
-            size: 32,
-            title: item.label,
-          }),
-        ),
-      ]),
-    ],
+    [h.img([h.Alt(""), h.Class("size-full object-cover"), h.Src(src)])],
   );
 
 export const tagSelect = <Message>(
@@ -194,7 +180,7 @@ export const tagSelect = <Message>(
                     ),
                   ],
                   [
-                    avatar(item, h),
+                    ...(item.avatarUrl === undefined ? [] : [avatar(item.avatarUrl, h)]),
                     ...(props.useSupportingTextOnMobile === true
                       ? [
                           h.span(
@@ -332,7 +318,7 @@ export const tagSelect = <Message>(
               ),
             ],
             [
-              avatar(item, h),
+              ...(item.avatarUrl === undefined ? [] : [avatar(item.avatarUrl, h)]),
               h.span([h.Class("truncate font-medium text-text-primary")], [item.label]),
               ...(item.supportingText === undefined
                 ? []

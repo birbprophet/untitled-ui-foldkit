@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled renderer preserves the authenticated signup dialog anatomy. */
-import { symbol } from "brand";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -16,6 +15,8 @@ export interface Signup02ModalProps<Message> {
   readonly onFacebookSignup: NoInfer<Message>;
   readonly onGoogleSignup: NoInfer<Message>;
   readonly onSubmit: NoInfer<Message>;
+  readonly wordmarkAlt: string;
+  readonly wordmarkSrc: string;
 }
 
 const closeIcon = <Message>(h: HtmlBuilder<Message>): Html =>
@@ -91,9 +92,9 @@ export const signup02Modal = <Message>(
                     ],
                     [
                       h.img([
-                        h.Alt("Siglata"),
+                        h.Alt(props.wordmarkAlt),
                         h.Class("size-8 rounded-lg object-cover"),
-                        h.Src(symbol.url.href),
+                        h.Src(props.wordmarkSrc),
                       ]),
                       h.div(
                         [h.Class("flex flex-col items-center justify-center gap-0.5")],

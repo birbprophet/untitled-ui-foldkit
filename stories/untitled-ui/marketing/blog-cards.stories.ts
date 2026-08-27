@@ -2,9 +2,10 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogCards } from "../../../../../packages/ui/src/marketing/blog-cards.ts";
-import type { BlogCardsVariant } from "../../../../../packages/ui/src/marketing/blog-cards.ts";
+import { blogCards } from "../../../src/marketing/blog-cards.ts";
+import type { BlogCardsVariant } from "../../../src/marketing/blog-cards.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const BadgeColor = S.Union([
   S.Literal("gray"),
@@ -41,7 +42,7 @@ const variants = [
 const Variant = S.Union(variants.map((variant) => S.Literal(variant)));
 const Tag = S.Struct({ color: BadgeColor, href: S.String, name: S.String });
 const Article = S.Struct({
-  author: S.Struct({ avatarSeed: S.String, href: S.String, name: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,
@@ -130,7 +131,7 @@ const definition = {
 } as const;
 
 const article = {
-  author: { avatarSeed: "olivia-rhye", href: "#author", name: "Olivia Rhye" },
+  author: { avatarUrl: agentFace("Olivia Rhye"), href: "#author", name: "Olivia Rhye" },
   category: { href: "#design", name: "Design" },
   href: "#article",
   id: "article-1",

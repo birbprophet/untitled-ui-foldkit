@@ -8,7 +8,14 @@ import type {
 } from "../src/application/project-details-menu.ts";
 import { projectDetailsMembers } from "../src/application/project-details-menu.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 const propsFor = (locale: ProjectDetailsMenuLocale): ProjectDetailsMenuProps<string> => ({
+  avatars: {
+    "candice-wu": agentFace("Candice Wu"),
+    "demi-wilkinson": agentFace("Demi Wilkinson"),
+    "drew-cano": agentFace("Drew Cano"),
+  },
   copied: false,
   description: "A little about the company and the team that you'll be working with.",
   heading: "Marketing site redesign",

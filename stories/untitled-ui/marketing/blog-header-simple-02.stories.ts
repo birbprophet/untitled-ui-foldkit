@@ -3,12 +3,13 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderSimple02 } from "../../../../../packages/ui/src/marketing/blog-header-simple-02.ts";
+import { blogHeaderSimple02 } from "../../../src/marketing/blog-header-simple-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const LinkLabel = S.Struct({ href: S.String, name: S.String });
 const Article = S.Struct({
-  author: S.Struct({ avatarSeed: S.String, href: S.String, name: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: LinkLabel,
   href: S.String,
   id: S.String,
@@ -87,7 +88,7 @@ const article = (
   date: string,
   author: string,
 ) => ({
-  author: { avatarSeed: author.toLowerCase().replaceAll(" ", "-"), href: "#author", name: author },
+  author: { avatarUrl: agentFace(author), href: "#author", name: author },
   category: { href: "#category", name: category },
   href: "#",
   id,

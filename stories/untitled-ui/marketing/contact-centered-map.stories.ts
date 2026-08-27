@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, within } from "storybook/test";
 
-import { contactCenteredMap } from "../../../../../packages/ui/src/marketing/contact-centered-map.ts";
+import { contactCenteredMap } from "../../../src/marketing/contact-centered-map.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Location = S.Struct({ address: S.String, name: S.String });

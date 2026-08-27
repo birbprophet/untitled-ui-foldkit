@@ -30,13 +30,15 @@ describe("blog-header-simple-04", () => {
     expect(typeof blogHeaderSimple04).toBe("function");
   });
 
-  it("preserves every authenticated article field and identity seed", () => {
+  it("preserves every authenticated article field and upstream avatar URL", () => {
     expect(blogHeaderSimple04Articles).toHaveLength(9);
     expect(blogHeaderSimple04Articles[0]?.tags).toHaveLength(3);
     expect(blogHeaderSimple04Articles[0]?.isFeatured).toBe(true);
     expect(new Set(blogHeaderSimple04Articles.map(({ id }) => id)).size).toBe(9);
     expect(
-      blogHeaderSimple04Articles.every(({ author }) => author.seed.startsWith("blog-simple-04-")),
+      blogHeaderSimple04Articles.every(({ author }) =>
+        author.avatarUrl.startsWith("https://www.untitledui.com/images/avatars/"),
+      ),
     ).toBe(true);
   });
 });

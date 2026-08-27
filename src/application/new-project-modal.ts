@@ -14,6 +14,8 @@ export interface NewProjectUpload {
   readonly progress: number;
 }
 
+export type NewProjectModalTeamId = "ephemeral" | "leapyear" | "watchtower";
+
 export interface NewProjectModalProps<Message> {
   readonly id: string;
   readonly isDraggingOver: boolean;
@@ -33,6 +35,7 @@ export interface NewProjectModalProps<Message> {
   readonly onTeamSelect: (id: string) => NoInfer<Message>;
   readonly selectedTeamId: string;
   readonly tagInput: string;
+  readonly teamLogos: Partial<Record<NewProjectModalTeamId, string>>;
   readonly upload?: NewProjectUpload;
 }
 
@@ -155,9 +158,9 @@ export const newProjectModal = <Message>(
   const titleId = `${props.id}-title`;
   const descriptionId = `${props.id}-description`;
   const teams = [
-    ["ephemeral", "Ephemeral", "ephemeral-company"],
-    ["watchtower", "Watchtower", "watchtower-company"],
-    ["leapyear", "Leapyear", "leapyear-company"],
+    ["ephemeral", "Ephemeral"],
+    ["watchtower", "Watchtower"],
+    ["leapyear", "Leapyear"],
   ] as const;
   return h.div(
     [],
@@ -247,8 +250,8 @@ export const newProjectModal = <Message>(
                           ),
                           select(
                             {
-                              items: teams.map(([id, label, avatarSeed]) => ({
-                                avatarSeed,
+                              items: teams.map(([id, label]) => ({
+                                avatarUrl: props.teamLogos[id],
                                 id,
                                 label,
                                 onFocus: props.onTeamFocus(id),

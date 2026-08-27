@@ -6,10 +6,14 @@ import type { Command as CommandValue } from "foldkit/command";
 import * as FoldkitCommand from "foldkit/command";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { textEditorModal } from "../../../../../packages/ui/src/application/text-editor-modal.ts";
-import type { TextEditorModalEditor } from "../../../../../packages/ui/src/application/text-editor-modal.ts";
-import { runTextEditorCommand } from "ui/base";
-import type { TextEditorChange, TextEditorCommandRequest, TextEditorSelection } from "ui/base";
+import { textEditorModal } from "../../../src/application/text-editor-modal.ts";
+import type { TextEditorModalEditor } from "../../../src/application/text-editor-modal.ts";
+import { runTextEditorCommand } from "../../../src/base.ts";
+import type {
+  TextEditorChange,
+  TextEditorCommandRequest,
+  TextEditorSelection,
+} from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";

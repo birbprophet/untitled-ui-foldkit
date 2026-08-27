@@ -1,5 +1,5 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Placeholder copy and the controlled native slideout preserve the authenticated assistant-intro anatomy. */
-import { blobatarDataUri } from "avatar";
+import type { BrandMark } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { badge } from "../base/badges.ts";
@@ -14,8 +14,9 @@ export type AIAssistantIntroPrompt =
   | "more";
 
 export interface AIAssistantIntroMenuProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly accountName: string;
-  readonly accountSeed: string;
+  readonly brandMark: BrandMark;
   readonly id: string;
   readonly inputValue: string;
   readonly isOpen: boolean;
@@ -253,18 +254,6 @@ export const aiAssistantIntroMenu = <Message>(
   const text = copy[props.locale];
   const titleId = `${props.id}-title`;
   const descriptionId = `${props.id}-description`;
-  const robotLogo = blobatarDataUri("siglata-ai-assistant-intro-logo", {
-    background: "squircle",
-    kind: "robot",
-    size: 112,
-    title: "Siglata robot logo",
-  });
-  const accountImage = blobatarDataUri(props.accountSeed, {
-    background: "circle",
-    kind: "agent",
-    size: 64,
-    title: `${props.accountName}, Siglata agent`,
-  });
   return h.div(
     [],
     props.isOpen
@@ -312,9 +301,9 @@ export const aiAssistantIntroMenu = <Message>(
                         ],
                         [
                           h.img([
-                            h.Alt("Siglata robot logo"),
+                            h.Alt(props.brandMark.alt),
                             h.Class("size-14 rounded-xl shadow-lg"),
-                            h.Src(robotLogo),
+                            h.Src(props.brandMark.src),
                           ]),
                           h.div(
                             [h.Class("w-full")],
@@ -415,7 +404,7 @@ export const aiAssistantIntroMenu = <Message>(
                                           h.img([
                                             h.Alt(""),
                                             h.Class("size-4 rounded-full"),
-                                            h.Src(accountImage),
+                                            h.Src(props.accountAvatarUrl),
                                           ]),
                                           h.span(
                                             [h.Class("flex items-center gap-0.5")],

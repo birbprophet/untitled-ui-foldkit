@@ -2,21 +2,39 @@
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { footerLarge13 } from "../../../../../packages/ui/src/marketing/footer-large-13.ts";
+import { footerLarge13 } from "../../../src/marketing/footer-large-13.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({});
-const Model = Args;
-type Model = typeof Model.Type;
+const NavItem = S.Struct({
+  badge: S.optional(S.String),
+  href: S.String,
+  id: S.String,
+  label: S.String,
+});
+const NavGroup = S.Struct({
+  id: S.String,
+  items: S.Array(NavItem),
+  label: S.String,
+});
+const Social = S.Struct({ href: S.String, id: S.String, label: S.String });
+const Args = S.Struct({
+  copyright: S.String,
+  description: S.String,
+  homeHref: S.String,
+  navGroups: S.Array(NavGroup),
+  socials: S.Array(Social),
+});
+type Model = typeof Args.Type;
 
 const Action = m("FooterLarge13Action", { id: S.String });
 type Message = typeof Action.Type;
 
 const definition = {
   Args,
-  Model,
+  Model: Args,
   init: (args: Model): Model => args,
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof footerLarge13<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],
@@ -24,9 +42,10 @@ const definition = {
         footerLarge13(
           {
             ...model,
+            logo: demoBrand(),
+            onHome: Action({ id: "home" }),
             onLink: (linkId) => Action({ id: linkId }),
-            onPrimary: Action({ id: "primary" }),
-            onSecondary: Action({ id: "secondary" }),
+            onSocial: (socialId) => Action({ id: socialId }),
           },
           h,
         ),
@@ -36,10 +55,96 @@ const definition = {
 
 const args = {
   copyright: "© 2026 Siglata. All rights reserved.",
-  ctaDescription: "Join over 4,000+ startups already growing with Siglata.",
-  ctaHeading: "Let's get started on something great",
-  primaryLabel: "Get started",
-  secondaryLabel: "View demo",
+  description: "Design amazing digital experiences that create more happy in the world.",
+  homeHref: "#",
+  navGroups: [
+    {
+      id: "product",
+      items: [
+        {
+          href: "#",
+          id: "overview",
+          label: "Overview",
+        },
+        {
+          href: "#",
+          id: "features",
+          label: "Features",
+        },
+        {
+          badge: "New",
+          href: "#",
+          id: "solutions",
+          label: "Solutions",
+        },
+        {
+          href: "#",
+          id: "pricing",
+          label: "Pricing",
+        },
+      ],
+      label: "Product",
+    },
+    {
+      id: "company",
+      items: [
+        {
+          href: "#",
+          id: "about",
+          label: "About us",
+        },
+        {
+          href: "#",
+          id: "careers",
+          label: "Careers",
+        },
+        {
+          href: "#",
+          id: "contact",
+          label: "Contact",
+        },
+      ],
+      label: "Company",
+    },
+    {
+      id: "resources",
+      items: [
+        {
+          href: "#",
+          id: "blog",
+          label: "Blog",
+        },
+        {
+          href: "#",
+          id: "newsletter",
+          label: "Newsletter",
+        },
+        {
+          href: "#",
+          id: "help",
+          label: "Help centre",
+        },
+      ],
+      label: "Resources",
+    },
+  ],
+  socials: [
+    {
+      href: "https://x.com/",
+      id: "x",
+      label: "X",
+    },
+    {
+      href: "https://www.linkedin.com/",
+      id: "linkedin",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://github.com/",
+      id: "github",
+      label: "GitHub",
+    },
+  ],
 } as const;
 
 export default {
@@ -69,10 +174,8 @@ export const Interactions = {
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
     const canvas = within(canvasElement);
-    const link = canvas.queryByRole("link");
-    if (link !== null) {
-      await userEvent.click(link);
-      await waitFor(() => expect(link).toBeVisible());
-    }
+    const link = canvas.getByRole("link");
+    await userEvent.click(link);
+    await waitFor(() => expect(link).toBeVisible());
   },
 };

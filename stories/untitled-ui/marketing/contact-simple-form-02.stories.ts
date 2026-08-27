@@ -2,11 +2,12 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
+import { blobatarUri } from "blobatar/uri";
+
 import {
   contactSimpleForm02,
   contactSimpleForm02Countries,
-  contactSimpleForm02Image,
-} from "../../../../../packages/ui/src/marketing/contact-simple-form-02.ts";
+} from "../../../src/marketing/contact-simple-form-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Country = S.Struct({ id: S.String, label: S.String, phoneMask: S.String });
@@ -121,12 +122,18 @@ const definition = {
     ),
 } as const;
 
+const imageSrc = blobatarUri("contact-simple-form-02-lana-steiner", {
+  background: "square",
+  size: 1024,
+  title: "Lana Steiner",
+});
+
 const args = {
   countries: [...contactSimpleForm02Countries],
   description: "Our friendly team would love to hear from you.",
   heading: "Contact us",
-  imageAlt: contactSimpleForm02Image.alt,
-  imageSrc: contactSimpleForm02Image.src,
+  imageAlt: "Lana Steiner",
+  imageSrc,
   privacyHref: "#",
   privacyLabel: "privacy policy.",
   privacyPrefix: "You agree to our friendly",
@@ -135,7 +142,6 @@ const args = {
 
 export default {
   ...componentMeta("contact-simple-form-02"),
-  parameters: { layout: "fullscreen" },
   title: "Untitled UI/Marketing/Contact/Contact Simple Form 02",
 };
 

@@ -27,6 +27,8 @@ const fieldInput = (field: UserSettingsField, fieldValue: string): string =>
 describe("user settings modal", () => {
   it("keeps profile fields, country selection, and modal actions controlled", () => {
     const props: UserSettingsModalProps<string> = {
+      avatarUrl:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect width='192' height='192' fill='%23c2b5a3'/%3E%3C/svg%3E",
       countries,
       email: "hi@siennahewitt.com",
       firstName: "Sienna",

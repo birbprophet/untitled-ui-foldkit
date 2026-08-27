@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor -- Storybook CSF and controlled notification state remain direct. */
-import { blobatarDataUri } from "avatar";
+import { agentFace } from "../../fixtures/brand.ts";
 import * as S from "effect/Schema";
-import { notification } from "ui/application";
+import { notification } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
@@ -12,12 +12,7 @@ type Model = typeof Model.Type;
 type Message = Readonly<{ _tag: "Close" | "Confirm" }>;
 const close: Message = { _tag: "Close" };
 const confirm: Message = { _tag: "Confirm" };
-const avatar = blobatarDataUri("Olivia Rhye", {
-  background: "circle",
-  kind: "agent",
-  size: 128,
-  title: "Olivia Rhye",
-});
+const avatar = agentFace("Olivia Rhye");
 const image =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='496' height='240' viewBox='0 0 496 240'%3E%3Crect width='496' height='240' fill='%23d5faf3'/%3E%3Ccircle cx='248' cy='120' r='72' fill='%23008f7a'/%3E%3C/svg%3E";
 

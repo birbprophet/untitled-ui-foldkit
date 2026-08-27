@@ -3,7 +3,10 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactSimpleLinks02,contactSimpleLinks02Cards } from "../../../../../packages/ui/src/marketing/contact-simple-links-02.ts";
+import {
+  contactSimpleLinks02,
+  contactSimpleLinks02Cards,
+} from "../../../src/marketing/contact-simple-links-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -11,7 +14,12 @@ const Args = S.Struct({
     S.Struct({
       cta: S.String,
       href: S.String,
-      icon: S.String,
+      icon: S.Union([
+        S.Literal("chat"),
+        S.Literal("location"),
+        S.Literal("phone"),
+        S.Literal("smile"),
+      ]),
       id: S.String,
       subtitle: S.String,
       title: S.String,
@@ -35,7 +43,6 @@ const definition = {
   view: (model: Model, h: Parameters<typeof contactSimpleLinks02<Message>>[1]) =>
     h.div([h.Class("-m-8")], [contactSimpleLinks02({ ...model, ...actions }, h)]),
 } as const;
-
 
 const args = {
   cards: [...contactSimpleLinks02Cards],
@@ -69,10 +76,8 @@ export const Interactions = {
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
     const canvas = within(canvasElement);
-    const button = canvas.queryByRole("button");
-    if (button !== null) {
-      await userEvent.click(button);
-      await waitFor(() => expect(button).toBeInTheDocument());
-    }
+    const button = canvas.getByRole("button");
+    await userEvent.click(button);
+    await waitFor(() => expect(button).toBeInTheDocument());
   },
 };

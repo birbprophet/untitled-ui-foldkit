@@ -6,8 +6,22 @@ import type { DropdownMenuSimpleWithFooterProps } from "../src/marketing/dropdow
 
 describe("dropdown menu simple with footer", () => {
   it("keeps the authenticated header navigation renderer controlled", () => {
-    const props = {} as unknown as DropdownMenuSimpleWithFooterProps<string>;
+    const props = {
+      allResourcesLabel: "All resources",
+      items: [
+        {
+          badgeLabel: "New",
+          href: "#",
+          iconPath: "M6 6h18v18H6z",
+          id: "integrations",
+          subtitle: "Connect the tools you already use",
+          title: "Integrations",
+        },
+      ],
+      onAllResources: "resources",
+      onItem: (id) => `item:${id}`,
+    } satisfies DropdownMenuSimpleWithFooterProps<string>;
     expect(dropdownMenuSimpleWithFooter).toBeTypeOf("function");
-    expect(props).toBeDefined();
+    expect(props.onItem("abc")).toBe("item:abc");
   });
 });

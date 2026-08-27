@@ -1,5 +1,4 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The authenticated slideout, grouped member fixture, and controlled combobox stay explicit. */
-import type { AvatarKind } from "avatar";
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/prefer-option-over-null -- The authenticated slideout, grouped member fixture, and controlled combobox stay explicit. */
 import * as HashSet from "effect/HashSet";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
@@ -10,17 +9,29 @@ import { combobox } from "../base/combobox.ts";
 export type TeamMembersMenuLocale = "en-US" | "pt-BR";
 export type TeamMembersMenuGroup = "design" | "product" | "marketing";
 
+export type TeamMembersMenuMemberId =
+  | "andi-lane"
+  | "candice-wu"
+  | "demi-wilkinson"
+  | "drew-cano"
+  | "kate-morrison"
+  | "kelly-williams"
+  | "lana-steiner"
+  | "natali-craig"
+  | "olivia-rhye"
+  | "orlando-diggs"
+  | "phoenix-baker";
+
 export interface TeamMembersMenuMember {
-  readonly avatarKind: AvatarKind;
-  readonly avatarSeed: string;
   readonly group: TeamMembersMenuGroup;
-  readonly id: string;
+  readonly id: TeamMembersMenuMemberId;
   readonly name: string;
   readonly role: string;
   readonly searchable: boolean;
 }
 
 export interface TeamMembersMenuProps<Message> {
+  readonly avatars: Partial<Record<TeamMembersMenuMemberId, string>>;
   readonly focusedMemberId?: string;
   readonly id: string;
   readonly isOpen: boolean;
@@ -89,67 +100,24 @@ const copy = {
 } as const;
 
 interface SourceMember {
-  readonly avatarKind: AvatarKind;
   readonly group: TeamMembersMenuGroup;
-  readonly id: string;
+  readonly id: TeamMembersMenuMemberId;
   readonly name: string;
   readonly role: keyof (typeof copy)["en-US"]["roles"];
 }
 
 const sourceMembers: readonly SourceMember[] = [
-  {
-    avatarKind: "agent",
-    group: "design",
-    id: "olivia-rhye",
-    name: "Olivia Rhye",
-    role: "productDesigner",
-  },
-  { avatarKind: "robot", group: "design", id: "natali-craig", name: "Natali Craig", role: "ux" },
-  { avatarKind: "agent", group: "design", id: "drew-cano", name: "Drew Cano", role: "ux" },
-  { avatarKind: "robot", group: "design", id: "orlando-diggs", name: "Orlando Diggs", role: "ui" },
-  {
-    avatarKind: "agent",
-    group: "product",
-    id: "phoenix-baker",
-    name: "Phoenix Baker",
-    role: "productManager",
-  },
-  {
-    avatarKind: "robot",
-    group: "product",
-    id: "lana-steiner",
-    name: "Lana Steiner",
-    role: "frontend",
-  },
-  {
-    avatarKind: "agent",
-    group: "product",
-    id: "demi-wilkinson",
-    name: "Demi Wilkinson",
-    role: "backend",
-  },
-  {
-    avatarKind: "robot",
-    group: "product",
-    id: "candice-wu",
-    name: "Candice Wu",
-    role: "fullstack",
-  },
-  {
-    avatarKind: "agent",
-    group: "product",
-    id: "andi-lane",
-    name: "Andi Lane",
-    role: "productManager",
-  },
-  { avatarKind: "robot", group: "product", id: "kate-morrison", name: "Kate Morrison", role: "qa" },
-  {
-    avatarKind: "agent",
-    group: "marketing",
-    id: "kelly-williams",
-    name: "Kelly Wiliams",
-    role: "growth",
-  },
+  { group: "design", id: "olivia-rhye", name: "Olivia Rhye", role: "productDesigner" },
+  { group: "design", id: "natali-craig", name: "Natali Craig", role: "ux" },
+  { group: "design", id: "drew-cano", name: "Drew Cano", role: "ux" },
+  { group: "design", id: "orlando-diggs", name: "Orlando Diggs", role: "ui" },
+  { group: "product", id: "phoenix-baker", name: "Phoenix Baker", role: "productManager" },
+  { group: "product", id: "lana-steiner", name: "Lana Steiner", role: "frontend" },
+  { group: "product", id: "demi-wilkinson", name: "Demi Wilkinson", role: "backend" },
+  { group: "product", id: "candice-wu", name: "Candice Wu", role: "fullstack" },
+  { group: "product", id: "andi-lane", name: "Andi Lane", role: "productManager" },
+  { group: "product", id: "kate-morrison", name: "Kate Morrison", role: "qa" },
+  { group: "marketing", id: "kelly-williams", name: "Kelly Wiliams", role: "growth" },
 ];
 
 const searchableMemberIds = HashSet.make(
@@ -169,8 +137,6 @@ export const teamMembersMenuFixture = (
 ): readonly TeamMembersMenuMember[] => {
   const { roles } = copy[locale];
   return sourceMembers.map((member) => ({
-    avatarKind: member.avatarKind,
-    avatarSeed: `team-members-menu-${member.id}`,
     group: member.group,
     id: member.id,
     name: member.name,
@@ -214,7 +180,11 @@ const mailIcon = <Message>(h: HtmlBuilder<Message>): Html =>
     ],
   );
 
-const memberIdentity = <Message>(member: TeamMembersMenuMember, h: HtmlBuilder<Message>): Html =>
+const memberIdentity = <Message>(
+  member: TeamMembersMenuMember,
+  memberAvatar: string | undefined,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.figure(
     [h.Class("group flex min-w-0 flex-1 items-center gap-2")],
     [
@@ -222,9 +192,8 @@ const memberIdentity = <Message>(member: TeamMembersMenuMember, h: HtmlBuilder<M
         {
           alt: member.name,
           border: true,
-          entityKind: member.avatarKind,
-          seed: member.avatarSeed,
           size: "md",
+          src: memberAvatar,
         },
         h,
       ),
@@ -257,7 +226,7 @@ const memberGroup = <Message>(
               member.id,
               [h.Class("flex items-center justify-between gap-3")],
               [
-                memberIdentity(member, h),
+                memberIdentity(member, props.avatars[member.id], h),
                 button(
                   {
                     color: "tertiary",

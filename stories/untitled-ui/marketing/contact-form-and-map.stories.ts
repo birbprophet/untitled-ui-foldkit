@@ -4,7 +4,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactFormAndMap } from "../../../../../packages/ui/src/marketing/contact-form-and-map.ts";
+import { contactFormAndMap } from "../../../src/marketing/contact-form-and-map.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const PhoneOption = S.Struct({ code: S.String, label: S.String, placeholder: S.String });

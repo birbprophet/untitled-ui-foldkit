@@ -4,11 +4,13 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { profileSettingsModal } from "ui/application";
-import type { ProfileSettingsField } from "ui/application";
+import { profileSettingsModal } from "../../../src/application.ts";
+import type { ProfileSettingsField } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({});
 const Model = S.Struct({
@@ -99,6 +101,7 @@ const definition = {
   view: (model: Model, h: Parameters<typeof profileSettingsModal<Message>>[1]) =>
     profileSettingsModal(
       {
+        avatarUrl: agentFace("Olivia Rhye"),
         consent: model.isConsent,
         copied: model.isCopied,
         id: "profile-settings-modal-story",

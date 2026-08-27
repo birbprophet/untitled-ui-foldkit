@@ -19,6 +19,8 @@ describe("signup 01 modal", () => {
       onPasswordVisibilityToggle: "toggle-password",
       onSubmit: "submit",
       password: "short",
+      wordmarkAlt: "/brand/logo.svg",
+      wordmarkSrc: "/brand/logo.svg",
     };
     const fields: readonly Signup01ModalField[] = ["name", "email", "password"];
     expect(fields).toEqual(["name", "email", "password"]);

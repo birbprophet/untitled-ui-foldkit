@@ -1,6 +1,4 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The upstream fixture includes its Lorem description; the authenticated menu is a fixed composition of shared tabs and activity-feed anatomy. */
-import { blobatarDataUri } from "avatar";
-import type { AvatarKind } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { activityFeed } from "./activity-feed.ts";
@@ -10,14 +8,30 @@ import { tabs } from "./tabs.ts";
 export type MessagesMenuLocale = "en-US" | "pt-BR";
 export type MessagesMenuTabId = "archive" | "groups" | "recent";
 
+export type MessagesMenuPersonKey =
+  | "@andi"
+  | "@ava"
+  | "@candice"
+  | "@demi"
+  | "@drew"
+  | "@eve"
+  | "@joshua"
+  | "@kate"
+  | "@koray"
+  | "@lana"
+  | "@natali"
+  | "@orlando"
+  | "@phoenix"
+  | "@rene"
+  | "@zahir";
+
 export interface MessagesMenuMessage {
   readonly attachment?: Readonly<{
     readonly name: string;
     readonly size: string;
     readonly type: "jpg" | "pdf";
   }>;
-  readonly avatarKind: AvatarKind;
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly date: string;
   readonly id: string;
   readonly message?: string;
@@ -72,19 +86,17 @@ interface LocalizedMessage {
     readonly size: string;
     readonly type: "jpg" | "pdf";
   }>;
-  readonly avatarKind: AvatarKind;
   readonly date: Readonly<{ readonly en: string; readonly pt: string }>;
   readonly id: string;
   readonly message?: Readonly<{ readonly en: string; readonly pt: string }>;
   readonly name: string;
   readonly status: "online" | "offline";
   readonly unseen?: boolean;
-  readonly username: string;
+  readonly username: MessagesMenuPersonKey;
 }
 
 const sourceMessages: readonly LocalizedMessage[] = [
   {
-    avatarKind: "agent",
     date: { en: "Just now", pt: "Agora" },
     id: "message-001",
     message: { en: "Looks good!", pt: "Parece ótimo!" },
@@ -94,7 +106,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@phoenix",
   },
   {
-    avatarKind: "robot",
     date: { en: "2 mins ago", pt: "Há 2 min" },
     id: "message-002",
     message: { en: "Thanks so much, happy with that.", pt: "Muito obrigada, ficou ótimo." },
@@ -104,7 +115,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@lana",
   },
   {
-    avatarKind: "agent",
     date: { en: "2 mins ago", pt: "Há 2 min" },
     id: "message-003",
     message: { en: "Got you a coffee", pt: "Trouxe um café para você" },
@@ -114,7 +124,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@demi",
   },
   {
-    avatarKind: "robot",
     date: { en: "3 hours ago", pt: "Há 3 horas" },
     id: "message-004",
     message: { en: "Great to see you again!", pt: "Que bom ver você de novo!" },
@@ -123,7 +132,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@candice",
   },
   {
-    avatarKind: "agent",
     date: { en: "6 hours ago", pt: "Há 6 horas" },
     id: "message-005",
     message: {
@@ -135,7 +143,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@natali",
   },
   {
-    avatarKind: "robot",
     date: { en: "12 hours ago", pt: "Há 12 horas" },
     id: "message-006",
     message: { en: "Okay, see you then.", pt: "Certo, vejo você lá." },
@@ -150,7 +157,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
       size: "720 KB",
       type: "pdf",
     },
-    avatarKind: "agent",
     date: { en: "3:42pm 20 Jan 2027", pt: "15h42, 20 jan 2027" },
     id: "message-007",
     name: "Orlando Diggs",
@@ -158,7 +164,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@orlando",
   },
   {
-    avatarKind: "robot",
     date: { en: "3:42pm 20 Jan 2027", pt: "15h42, 20 jan 2027" },
     id: "message-008",
     message: {
@@ -170,7 +175,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@andi",
   },
   {
-    avatarKind: "agent",
     date: { en: "2:12pm 20 Jan 2027", pt: "14h12, 20 jan 2027" },
     id: "message-009",
     message: { en: "That sounds like a good plan!", pt: "Parece um bom plano!" },
@@ -179,7 +183,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@kate",
   },
   {
-    avatarKind: "robot",
     date: { en: "12:10pm 20 Jan 2027", pt: "12h10, 20 jan 2027" },
     id: "message-010",
     message: { en: "Yep! That checks out.", pt: "Sim! Está tudo certo." },
@@ -188,7 +191,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@koray",
   },
   {
-    avatarKind: "agent",
     date: { en: "11:38am 20 Jan 2027", pt: "11h38, 20 jan 2027" },
     id: "message-011",
     message: {
@@ -206,7 +208,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
       size: "720 KB",
       type: "jpg",
     },
-    avatarKind: "robot",
     date: { en: "11:30am 20 Jan 2027", pt: "11h30, 20 jan 2027" },
     id: "message-012",
     name: "Eve Leroy",
@@ -214,7 +215,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@eve",
   },
   {
-    avatarKind: "agent",
     date: { en: "10:02am 20 Jan 2027", pt: "10h02, 20 jan 2027" },
     id: "message-013",
     message: { en: "Thanks for helping out with that!", pt: "Obrigada por ajudar com isso!" },
@@ -223,7 +223,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@zahir",
   },
   {
-    avatarKind: "robot",
     date: { en: "9:40am 20 Jan 2027", pt: "9h40, 20 jan 2027" },
     id: "message-014",
     message: {
@@ -235,7 +234,6 @@ const sourceMessages: readonly LocalizedMessage[] = [
     username: "@joshua",
   },
   {
-    avatarKind: "agent",
     date: { en: "9:24am 20 Jan 2027", pt: "9h24, 20 jan 2027" },
     id: "message-015",
     message: {
@@ -248,7 +246,10 @@ const sourceMessages: readonly LocalizedMessage[] = [
   },
 ];
 
-export const messagesMenuFixture = (locale: MessagesMenuLocale): readonly MessagesMenuMessage[] =>
+export const messagesMenuFixture = (
+  locale: MessagesMenuLocale,
+  avatars: Readonly<Record<MessagesMenuPersonKey, string>>,
+): readonly MessagesMenuMessage[] =>
   sourceMessages.map((item) => ({
     ...(item.attachment === undefined
       ? {}
@@ -259,8 +260,7 @@ export const messagesMenuFixture = (locale: MessagesMenuLocale): readonly Messag
             type: item.attachment.type,
           },
         }),
-    avatarKind: item.avatarKind,
-    avatarSeed: `messages-menu-${item.id}`,
+    avatarUrl: avatars[item.username],
     date: locale === "pt-BR" ? item.date.pt : item.date.en,
     id: item.id,
     ...(item.message === undefined
@@ -295,12 +295,7 @@ const feedItem = (message: MessagesMenuMessage): ActivityFeedItem => ({
   message: message.message,
   unseen: message.unseen,
   user: {
-    avatarUrl: blobatarDataUri(message.avatarSeed, {
-      background: "circle",
-      kind: message.avatarKind,
-      size: 128,
-      title: message.user.name,
-    }),
+    avatarUrl: message.avatarUrl,
     href: message.user.href,
     name: message.user.name,
     status: message.user.status,

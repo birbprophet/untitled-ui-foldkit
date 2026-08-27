@@ -8,7 +8,10 @@ export interface CtaAbstractImagesProps {
   readonly heading: string;
 }
 
-export const ctaAbstractImages = (props: CtaAbstractImagesProps, h: HtmlBuilder): Html =>
+export const ctaAbstractImages = <Message>(
+  props: CtaAbstractImagesProps,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.section(
     [h.Class("bg-bg-primary py-16 md:py-24"), h.Dir("ltr")],
     [

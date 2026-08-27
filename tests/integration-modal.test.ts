@@ -18,6 +18,8 @@ describe("integration modal", () => {
       onDismiss: "dismiss",
       onDocumentation: "documentation",
       permissions: [{ long: "Long permission", short: "Short permission" }],
+      wordmarkAlt: "/brand/logo.svg",
+      wordmarkSrc: "/brand/logo.svg",
     };
     expect(props.onCopy).toBe("copy");
     expect(props.permissions[0]?.short).toBe("Short permission");

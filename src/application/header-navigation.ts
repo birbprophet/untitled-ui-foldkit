@@ -1,6 +1,7 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, foldkit/no-hardcoded-route-strings, mps/prefer-arr-match, mps/prefer-option-over-null -- The upstream item vocabulary, homepage link, and optional controlled props are part of the authenticated desktop, secondary, and mobile navigation anatomy. */
-import { symbol } from "brand";
 import type { Html, HtmlBuilder } from "foldkit/html";
+
+import type { BrandLockup } from "../internal/brand.ts";
 
 export interface HeaderNavigationItem {
   readonly badge?: string;
@@ -11,6 +12,7 @@ export interface HeaderNavigationItem {
 
 export interface HeaderNavigationProps<Message> {
   readonly activeUrl?: string;
+  readonly brand: BrandLockup;
   readonly centered?: boolean;
   readonly hideBorder?: boolean;
   readonly isMobileOpen: boolean;
@@ -109,10 +111,10 @@ const searchInput = <Message>(
     ],
   );
 
-const logo = <Message>(h: HtmlBuilder<Message>): Html =>
+const logo = <Message>(lockup: BrandLockup, h: HtmlBuilder<Message>): Html =>
   h.span(
     [h.Class("flex w-[103px] items-center xl:w-26")],
-    [h.img([h.Alt("Siglata logo"), h.Class("size-6 rounded-md"), h.Src(symbol.url.href)])],
+    [h.img([h.Alt(lockup.mark.alt), h.Class("size-6 rounded-md"), h.Src(lockup.mark.src)])],
   );
 
 const isActive = (href: string, activeUrl: string | undefined): boolean =>
@@ -303,7 +305,7 @@ const mobileHeader = <Message>(props: HeaderNavigationProps<Message>, h: HtmlBui
           ),
         ],
         [
-          logo(h),
+          logo(props.brand, h),
           h.button(
             [
               h.AriaExpanded(props.isMobileOpen),
@@ -337,7 +339,7 @@ const mobileHeader = <Message>(props: HeaderNavigationProps<Message>, h: HtmlBui
                     ),
                   ],
                   [
-                    h.div([h.Class("px-4")], [logo(h)]),
+                    h.div([h.Class("px-4")], [logo(props.brand, h)]),
                     h.div([h.Class("mt-5 px-4")], [searchInput(props, "md", h)]),
                     h.nav(
                       [h.AriaLabel("Mobile primary navigation"), h.Class("mt-5 px-4")],
@@ -432,7 +434,7 @@ export const headerNavigation = <Message>(
                           h.Href("/"),
                           h.OnClick(props.onNavigate("/")),
                         ],
-                        [logo(h)],
+                        [logo(props.brand, h)],
                       ),
                     ],
                   ),

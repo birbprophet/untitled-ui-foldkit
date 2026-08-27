@@ -1,9 +1,9 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary -- The account menu is a fixed controlled hierarchy. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface DropdownAccountButtonProps<Message> {
+  readonly avatars: Readonly<Record<"olivia" | "sienna", string>>;
   readonly focusedId: string;
   readonly isDarkMode: boolean;
   readonly isOpen: boolean;
@@ -45,7 +45,7 @@ const icon = <Message>(name: MenuIcon, h: HtmlBuilder<Message>, withMargin = tru
     [h.path([h.D(paths[name])])],
   );
 
-const accountAvatar = <Message>(id: string, label: string, h: HtmlBuilder<Message>): Html =>
+const accountAvatar = <Message>(url: string, h: HtmlBuilder<Message>): Html =>
   h.span(
     [h.Class("mr-2 flex size-4 shrink-0 items-center justify-center")],
     [
@@ -54,14 +54,7 @@ const accountAvatar = <Message>(id: string, label: string, h: HtmlBuilder<Messag
         h.Class(
           "size-5 max-w-none shrink-0 rounded-full object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16",
         ),
-        h.Src(
-          blobatarDataUri(`dropdown-account-button-${id}`, {
-            background: "circle",
-            kind: "agent",
-            size: 128,
-            title: label,
-          }),
-        ),
+        h.Src(url),
       ]),
     ],
   );
@@ -76,7 +69,7 @@ const menuItem = <Message>(
   h: HtmlBuilder<Message>,
   options?: {
     readonly addon?: string;
-    readonly avatar?: boolean;
+    readonly avatarUrl?: string;
     readonly icon?: MenuIcon;
     readonly radio?: boolean;
     readonly submenu?: boolean;
@@ -125,7 +118,7 @@ const menuItem = <Message>(
         ],
         [
           ...(options?.icon === undefined ? [] : [icon(options.icon, h)]),
-          ...(options?.avatar === true ? [accountAvatar(id, label, h)] : []),
+          ...(options?.avatarUrl === undefined ? [] : [accountAvatar(options.avatarUrl, h)]),
           h.span([h.Class("grow truncate text-sm font-semibold text-text-secondary")], [label]),
           ...(options?.addon === undefined
             ? []
@@ -254,8 +247,14 @@ export const dropdownAccountButton = <Message>(
                 [h.Class("px-4 pt-1.5 pb-0.5 text-xs font-semibold text-text-brand-secondary")],
                 ["Switch Account"],
               ),
-              menuItem(props, "olivia", "Olivia Rhye", h, { avatar: true, radio: true }),
-              menuItem(props, "sienna", "Sienna Hewitt", h, { avatar: true, radio: true }),
+              menuItem(props, "olivia", "Olivia Rhye", h, {
+                avatarUrl: props.avatars.olivia,
+                radio: true,
+              }),
+              menuItem(props, "sienna", "Sienna Hewitt", h, {
+                avatarUrl: props.avatars.sienna,
+                radio: true,
+              }),
               menuItem(props, "add-account", "Add account", h, { icon: "plus" }),
             ],
           ),

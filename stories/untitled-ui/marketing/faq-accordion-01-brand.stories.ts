@@ -1,4 +1,4 @@
-/* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, mps/avoid-direct-tag-checks -- Storybook CSF exercises FoldKit in Chromium. */
+/* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises FoldKit in Chromium. */
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
@@ -6,7 +6,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   faqAccordion01Brand,
   faqAccordion01BrandDefaultItems,
-} from "../../../../../packages/ui/src/marketing/faq-accordion-01-brand.ts";
+} from "../../../src/marketing/faq-accordion-01-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

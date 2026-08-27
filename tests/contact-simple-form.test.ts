@@ -6,11 +6,12 @@ import {
   contactSimpleFormCountries,
 } from "../src/marketing/contact-simple-form.ts";
 
+const onFieldInput = (field: string, value: string) => `${field}:${value}`;
+
 describe("contact simple form", () => {
   it("retains source phone formatting and controlled form events", () => {
     const us = contactSimpleFormCountries.find(({ id }) => id === "US");
     const brazil = contactSimpleFormCountries.find(({ id }) => id === "BR");
-    const onFieldInput = (field: string, value: string) => `${field}:${value}`;
 
     expect(us?.phoneMask.replaceAll("#", "0")).toBe("+1 (000) 000-0000");
     expect(brazil?.phoneMask.replaceAll("#", "0")).toBe("+55 (00) 90000-0000");

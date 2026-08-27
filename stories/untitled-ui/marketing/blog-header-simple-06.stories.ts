@@ -6,11 +6,11 @@ import {
   blogHeaderSimple06,
   blogHeaderSimple06Articles,
   blogHeaderSimple06Categories,
-} from "../../../../../packages/ui/src/marketing/blog-header-simple-06.ts";
+} from "../../../src/marketing/blog-header-simple-06.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,

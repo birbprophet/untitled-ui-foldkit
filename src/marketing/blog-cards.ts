@@ -31,7 +31,7 @@ export interface BlogCardsTag {
 
 export interface BlogCardsArticle {
   readonly author: {
-    readonly avatarSeed: string;
+    readonly avatarUrl: string;
     readonly href: string;
     readonly name: string;
   };
@@ -94,10 +94,9 @@ const authorRow = <Message>(props: BlogCardsProps<Message>, h: HtmlBuilder<Messa
             {
               alt: article.author.name,
               border: true,
-              entityKind: "agent",
               focusable: true,
-              seed: article.author.avatarSeed,
               size: "md",
+              src: article.author.avatarUrl,
             },
             h,
           ),

@@ -6,12 +6,13 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { shareProjectMenu } from "../../../../../packages/ui/src/application/share-project-menu.ts";
+import { shareProjectMenu } from "../../../src/application/share-project-menu.ts";
 import type {
   ShareProjectMenuControl,
   ShareProjectMenuPermission,
-} from "../../../../../packages/ui/src/application/share-project-menu.ts";
+} from "../../../src/application/share-project-menu.ts";
 
+import { agentFace } from "../../fixtures/brand.ts";
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
@@ -237,6 +238,12 @@ const definition = (showTrigger = false) => ({
           : []),
         shareProjectMenu(
           {
+            avatars: {
+              ammar: agentFace("Ammar Foley"),
+              julius: agentFace("Julius Vaughan"),
+              mathilde: agentFace("Mathilde Lewis"),
+              sienna: agentFace("Sienna Hewitt"),
+            },
             copied: model.isCopied,
             focusedPermission: model.focusedPermission,
             id: "share-project-menu-story",

@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread -- Storybook CSF matrices are declarative fixture data. */
 import * as S from "effect/Schema";
-import { contentDivider } from "ui/application";
+import { contentDivider } from "../../../src/application.ts";
 
 import { componentMeta, staticStory, matrix } from "../story.ts";
 

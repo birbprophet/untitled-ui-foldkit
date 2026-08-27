@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
-import { headerLeftTabs } from "../../../../../packages/ui/src/marketing/header-left-tabs.ts";
+import { headerLeftTabs } from "../../../src/marketing/header-left-tabs.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

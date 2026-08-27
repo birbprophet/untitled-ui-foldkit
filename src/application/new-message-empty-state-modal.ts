@@ -1,5 +1,4 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled renderer preserves the authenticated compose-dialog anatomy. */
-import { blobatarDataUri } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -7,14 +6,14 @@ import { buttonUtility } from "../base/button-utility.ts";
 import { tagSelect } from "../base/tag-select.ts";
 
 export interface NewMessageContact {
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly id: string;
   readonly label: string;
   readonly supportingText: string;
 }
 
 export interface NewMessageAccount {
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly id: string;
   readonly label: string;
 }
@@ -97,12 +96,8 @@ export const composeIconPaths = {
     "M16 6v-.8c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C14.48 2 13.92 2 12.8 2h-1.6c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C8 3.52 8 4.08 8 5.2V6m2 5.5v5m4-5v5M3 6h18m-2 0v11.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C16.72 22 15.88 22 14.2 22H9.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C5 19.72 5 18.88 5 17.2V6",
 } as const;
 
-export const composeAgent = <Message>(seed: string, label: string, h: HtmlBuilder<Message>): Html =>
-  h.img([
-    h.Alt(""),
-    h.Class("size-5 shrink-0 rounded-full object-cover"),
-    h.Src(blobatarDataUri(seed, { background: "circle", kind: "agent", size: 40, title: label })),
-  ]);
+export const composeAgent = <Message>(src: string, h: HtmlBuilder<Message>): Html =>
+  h.img([h.Alt(""), h.Class("size-5 shrink-0 rounded-full object-cover"), h.Src(src)]);
 
 const recipient = <Message>(
   field: NewMessageRecipientField,
@@ -281,7 +276,7 @@ export const newMessageEmptyStateModal = <Message>(
                                     h.Type("button"),
                                   ],
                                   [
-                                    composeAgent(account.avatarSeed, account.label, h),
+                                    composeAgent(account.avatarUrl, h),
                                     h.p(
                                       [h.Class("text-sm font-semibold text-text-primary")],
                                       [account.label],
@@ -324,10 +319,7 @@ export const newMessageEmptyStateModal = <Message>(
                                                 h.Role("option"),
                                                 h.Type("button"),
                                               ],
-                                              [
-                                                composeAgent(item.avatarSeed, item.label, h),
-                                                item.label,
-                                              ],
+                                              [composeAgent(item.avatarUrl, h), item.label],
                                             ),
                                           ),
                                           h.button(

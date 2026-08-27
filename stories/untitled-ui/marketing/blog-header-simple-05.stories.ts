@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderSimple05 } from "../../../../../packages/ui/src/marketing/blog-header-simple-05.ts";
+import { blogHeaderSimple05 } from "../../../src/marketing/blog-header-simple-05.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Article = S.Struct({

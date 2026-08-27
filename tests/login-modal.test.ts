@@ -19,6 +19,8 @@ describe("login modal", () => {
       onRememberToggle: "remember",
       onSubmit: "submit",
       password: "typed-password",
+      wordmarkAlt: "/brand/logo.svg",
+      wordmarkSrc: "/brand/logo.svg",
     };
     expect(props.onEmailInput("hello@example.com")).toBe("email:hello@example.com");
     expect(props.onRememberToggle).toBe("remember");

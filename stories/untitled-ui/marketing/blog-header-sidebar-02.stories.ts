@@ -4,13 +4,14 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderSidebar02 } from "../../../../../packages/ui/src/marketing/blog-header-sidebar-02.ts";
+import { blogHeaderSidebar02 } from "../../../src/marketing/blog-header-sidebar-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Article = S.Struct({
+  authorAvatarSrc: S.String,
   authorHref: S.String,
   authorName: S.String,
-  authorSeed: S.String,
   categoryHref: S.String,
   categoryName: S.String,
   href: S.String,
@@ -94,9 +95,9 @@ const definition = {
 
 const articles = [
   {
+    authorAvatarSrc: agentFace("Olivia Rhye"),
     authorHref: "#olivia-rhye",
     authorName: "Olivia Rhye",
-    authorSeed: "blog-sidebar-olivia",
     categoryHref: "#design",
     categoryName: "Design",
     href: "#ux-review-presentations",
@@ -110,9 +111,9 @@ const articles = [
     title: "UX review presentations",
   },
   {
+    authorAvatarSrc: agentFace("Phoenix Baker"),
     authorHref: "#phoenix-baker",
     authorName: "Phoenix Baker",
-    authorSeed: "blog-sidebar-phoenix",
     categoryHref: "#product",
     categoryName: "Product",
     href: "#migrating-to-linear",
@@ -125,9 +126,9 @@ const articles = [
     title: "Migrating to Linear 101",
   },
   {
+    authorAvatarSrc: agentFace("Lana Steiner"),
     authorHref: "#lana-steiner",
     authorName: "Lana Steiner",
-    authorSeed: "blog-sidebar-lana",
     categoryHref: "#software-engineering",
     categoryName: "Software Engineering",
     href: "#api-stack",
@@ -140,9 +141,9 @@ const articles = [
     title: "Building your API stack",
   },
   {
+    authorAvatarSrc: agentFace("Alec Whitten"),
     authorHref: "#alec-whitten",
     authorName: "Alec Whitten",
-    authorSeed: "blog-sidebar-alec",
     categoryHref: "#product",
     categoryName: "Product",
     href: "#leadership-lessons",
@@ -155,9 +156,9 @@ const articles = [
     title: "Bill Walsh leadership lessons",
   },
   {
+    authorAvatarSrc: agentFace("Demi Wilkinson"),
     authorHref: "#demi-wilkinson",
     authorName: "Demi Wilkinson",
-    authorSeed: "blog-sidebar-demi",
     categoryHref: "#product",
     categoryName: "Product",
     href: "#mental-models",
@@ -169,9 +170,9 @@ const articles = [
     title: "PM mental models",
   },
   {
+    authorAvatarSrc: agentFace("Candice Wu"),
     authorHref: "#candice-wu",
     authorName: "Candice Wu",
-    authorSeed: "blog-sidebar-candice",
     categoryHref: "#design",
     categoryName: "Design",
     href: "#wireframing",
@@ -183,9 +184,9 @@ const articles = [
     title: "What is wireframing?",
   },
   {
+    authorAvatarSrc: agentFace("Natali Craig"),
     authorHref: "#natali-craig",
     authorName: "Natali Craig",
-    authorSeed: "blog-sidebar-natali",
     categoryHref: "#design",
     categoryName: "Design",
     href: "#collaboration",
@@ -197,9 +198,9 @@ const articles = [
     title: "How collaboration makes us better designers",
   },
   {
+    authorAvatarSrc: agentFace("Drew Cano"),
     authorHref: "#drew-cano",
     authorName: "Drew Cano",
-    authorSeed: "blog-sidebar-drew",
     categoryHref: "#product",
     categoryName: "Product",
     href: "#javascript-frameworks",
@@ -212,9 +213,9 @@ const articles = [
     title: "Our top 10 Javascript frameworks to use",
   },
   {
+    authorAvatarSrc: agentFace("Orlando Diggs"),
     authorHref: "#orlando-diggs",
     authorName: "Orlando Diggs",
-    authorSeed: "blog-sidebar-orlando",
     categoryHref: "#customer-success",
     categoryName: "Customer Success",
     href: "#cx-community",

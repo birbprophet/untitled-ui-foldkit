@@ -2,8 +2,8 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactFormAndImage02 } from "../../../../../packages/ui/src/marketing/contact-form-and-image-02.ts";
-import type { ContactFormAndImage02Errors } from "../../../../../packages/ui/src/marketing/contact-form-and-image-02.ts";
+import { contactFormAndImage02 } from "../../../src/marketing/contact-form-and-image-02.ts";
+import type { ContactFormAndImage02Errors } from "../../../src/marketing/contact-form-and-image-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Country = S.Struct({ code: S.String, phoneMask: S.String });

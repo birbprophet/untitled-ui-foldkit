@@ -3,11 +3,13 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import {
-  faqSimple03,
-  faqSimple03DefaultItems,
-} from "../../../../../packages/ui/src/marketing/faq-simple-03.ts";
+import { faqSimple03, faqSimple03DefaultItems } from "../../../src/marketing/faq-simple-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
+
+const marcoKelly = agentFace("Marco Kelly");
+const amelieLaurent = agentFace("Amelie Laurent");
+const jayaWillis = agentFace("Jaya Willis");
 
 const Args = S.Struct({
   avatars: S.Array(
@@ -15,7 +17,7 @@ const Args = S.Struct({
       alt: S.String,
       emphasis: S.optional(S.Boolean),
       id: S.String,
-      size: S.Union(S.Literal("lg"), S.Literal("xl")),
+      size: S.Union([S.Literal("lg"), S.Literal("xl")]),
       src: S.String,
     }),
   ),
@@ -29,14 +31,14 @@ const Args = S.Struct({
   items: S.Array(
     S.Struct({
       answer: S.String,
-      icon: S.Union(
+      icon: S.Union([
         S.Literal("credit-card"),
         S.Literal("file"),
         S.Literal("heart"),
         S.Literal("mail"),
         S.Literal("slash"),
         S.Literal("switch"),
-      ),
+      ]),
       id: S.String,
       question: S.String,
     }),
@@ -72,20 +74,20 @@ const args = {
       alt: "Marco Kelly",
       id: "marco",
       size: "lg",
-      src: "https://www.untitledui.com/images/avatars/marco-kelly?fm=webp&q=80",
+      src: marcoKelly,
     },
     {
       alt: "Amelie Laurent",
       emphasis: true,
       id: "amelie",
       size: "xl",
-      src: "https://www.untitledui.com/images/avatars/amelie-laurent?fm=webp&q=80",
+      src: amelieLaurent,
     },
     {
       alt: "Jaya Willis",
       id: "jaya",
       size: "lg",
-      src: "https://www.untitledui.com/images/avatars/jaya-willis?fm=webp&q=80",
+      src: jayaWillis,
     },
   ],
   ctaDescription: "Can't find the answer you're looking for? Please chat to our friendly team.",

@@ -56,10 +56,7 @@ it("marketing entries use their exact public family documentation route", () => 
 it("every verified story declares the catalog title for static CSF indexing", () => {
   for (const entry of verifiedCatalog) {
     const story = readFileSync(
-      new URL(
-        `../../stories/untitled-ui/${entry.category}/${entry.id}.stories.ts`,
-        import.meta.url,
-      ),
+      new URL(`../stories/untitled-ui/${entry.category}/${entry.id}.stories.ts`, import.meta.url),
       "utf-8",
     );
     expect(story).toContain(`title: "${entry.storybookTitle}"`);

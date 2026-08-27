@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF and play functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { tabs } from "ui/application";
-import type { TabType } from "ui/application";
+import { tabs } from "../../../src/application.ts";
+import type { TabType } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

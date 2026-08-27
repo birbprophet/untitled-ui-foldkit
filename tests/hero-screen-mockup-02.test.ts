@@ -1,3 +1,4 @@
+import { inertHtml } from "foldkit/html";
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
@@ -11,8 +12,9 @@ describe("hero screen mockup 02", () => {
       heading: "Beautiful analytics to grow smarter",
       imageAlt: "Hero image",
       imageUrl: "https://www.untitledui.com/marketing/smiling-girl-3.webp",
-      onPrimary: () => "primary",
-      onSecondary: () => "secondary",
+      navigation: inertHtml.span([]),
+      onPrimary: "primary",
+      onSecondary: "secondary",
       primaryLabel: "Sign up",
       secondaryLabel: "Demo",
     } satisfies HeroScreenMockup02Props<string>;

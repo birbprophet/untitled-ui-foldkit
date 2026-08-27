@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
-import { headerCenteredEmail } from "../../../../../packages/ui/src/marketing/header-centered-email.ts";
+import { headerCenteredEmail } from "../../../src/marketing/header-centered-email.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

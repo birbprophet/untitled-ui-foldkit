@@ -7,9 +7,13 @@ import type {
   AIAssistantMessageMenuProps,
 } from "../src/application/ai-assistant-message-menu.ts";
 
+import { demoBrand, agentFace } from "../stories/fixtures/brand.ts";
+
 describe("AI assistant message menu", () => {
   it("keeps visibility, composer text, and every interaction controlled", () => {
     const props: AIAssistantMessageMenuProps<string> = {
+      accountAvatarUrl: agentFace("Olivia Rhye"),
+      brandMark: demoBrand().mark,
       id: "assistant-menu",
       inputValue: "Move the meeting to Friday",
       isOpen: true,

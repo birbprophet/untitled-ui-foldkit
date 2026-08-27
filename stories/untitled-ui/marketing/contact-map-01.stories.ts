@@ -6,7 +6,7 @@ import {
   contactMap01,
   contactMap01Locations,
   contactMap01MapSrc,
-} from "../../../../../packages/ui/src/marketing/contact-map-01.ts";
+} from "../../../src/marketing/contact-map-01.ts";
 
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 

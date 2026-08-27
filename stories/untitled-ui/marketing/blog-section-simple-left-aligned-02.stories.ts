@@ -3,8 +3,9 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogSectionSimpleLeftAligned02 } from "../../../../../packages/ui/src/marketing/blog-section-simple-left-aligned-02.ts";
+import { blogSectionSimpleLeftAligned02 } from "../../../src/marketing/blog-section-simple-left-aligned-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Tag = S.Struct({
   color: S.Union([
@@ -19,7 +20,7 @@ const Tag = S.Struct({
   name: S.String,
 });
 const Article = S.Struct({
-  author: S.Struct({ avatarSeed: S.String, href: S.String, name: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,
@@ -106,7 +107,7 @@ const definition = {
 
 const articles = [
   {
-    author: { avatarSeed: "olivia-rhye", href: "#", name: "Olivia Rhye" },
+    author: { avatarUrl: agentFace("Olivia Rhye"), href: "#", name: "Olivia Rhye" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
@@ -124,7 +125,7 @@ const articles = [
     title: "UX review presentations",
   },
   {
-    author: { avatarSeed: "phoenix-baker", href: "#", name: "Phoenix Baker" },
+    author: { avatarUrl: agentFace("Phoenix Baker"), href: "#", name: "Phoenix Baker" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-2",
@@ -141,7 +142,7 @@ const articles = [
     title: "Migrating to Linear 101",
   },
   {
-    author: { avatarSeed: "lana-steiner", href: "#", name: "Lana Steiner" },
+    author: { avatarUrl: agentFace("Lana Steiner"), href: "#", name: "Lana Steiner" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-3",
@@ -157,7 +158,7 @@ const articles = [
     title: "Building your API stack",
   },
   {
-    author: { avatarSeed: "alec-whitten", href: "#", name: "Alec Whitten" },
+    author: { avatarUrl: agentFace("Alec Whitten"), href: "#", name: "Alec Whitten" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-3.5",

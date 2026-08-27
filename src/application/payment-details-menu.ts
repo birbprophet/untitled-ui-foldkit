@@ -1,5 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noTernary, effect/noSpread -- The controlled renderer mirrors the authenticated Untitled UI slideout anatomy. */
-import { wordmarkHorizontal } from "brand";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -40,6 +39,8 @@ export interface PaymentDetailsMenuProps<Message> {
   readonly onDismiss: NoInfer<Message>;
   readonly onFieldInput: (field: PaymentDetailsMenuField, value: string) => NoInfer<Message>;
   readonly onToggleCvv: NoInfer<Message>;
+  readonly wordmarkAlt?: string;
+  readonly wordmarkSrc?: string;
 }
 
 const copy = {
@@ -223,6 +224,20 @@ const paymentInputIcon = <Message>(cardNumber: string, h: HtmlBuilder<Message>):
   ]);
 };
 
+const cardWordmark = <Message>(
+  props: PaymentDetailsMenuProps<Message>,
+  h: HtmlBuilder<Message>,
+): readonly Html[] =>
+  props.wordmarkSrc === undefined
+    ? []
+    : [
+        h.img([
+          h.Alt(props.wordmarkAlt ?? ""),
+          h.Class("h-5 w-auto rounded-sm"),
+          h.Src(props.wordmarkSrc),
+        ]),
+      ];
+
 const creditCard = <Message>(
   props: PaymentDetailsMenuProps<Message>,
   h: HtmlBuilder<Message>,
@@ -239,14 +254,7 @@ const creditCard = <Message>(
         [
           h.div(
             [h.Class("relative flex items-start justify-between px-1 pt-1")],
-            [
-              h.img([
-                h.Alt("Siglata"),
-                h.Class("h-5 w-auto rounded-sm"),
-                h.Src(wordmarkHorizontal.url.href),
-              ]),
-              contactlessIcon(h),
-            ],
+            [...cardWordmark(props, h), contactlessIcon(h)],
           ),
           h.div(
             [h.Class("relative flex items-end justify-between gap-3")],

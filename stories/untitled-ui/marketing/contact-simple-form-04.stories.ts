@@ -1,4 +1,4 @@
-/* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, mps/avoid-direct-tag-checks -- Storybook CSF exercises native form validation and controlled FoldKit interactions. */
+/* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises native form validation and controlled FoldKit interactions. */
 import * as Match from "effect/Match";
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
@@ -9,14 +9,10 @@ import {
   contactSimpleForm04Contacts,
   contactSimpleForm04Countries,
   contactSimpleForm04Socials,
-} from "../../../../../packages/ui/src/marketing/contact-simple-form-04.ts";
+} from "../../../src/marketing/contact-simple-form-04.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const ContactIcon = S.Union([
-  S.Literal("chat"),
-  S.Literal("office"),
-  S.Literal("phone"),
-]);
+const ContactIcon = S.Union([S.Literal("chat"), S.Literal("office"), S.Literal("phone")]);
 const SocialIcon = S.Union([
   S.Literal("dribbble"),
   S.Literal("facebook"),
@@ -92,10 +88,7 @@ type Message =
   | typeof SocialOpened.Type
   | typeof Submitted.Type;
 
-const view = (
-  model: Model,
-  h: Parameters<typeof contactSimpleForm04<Message>>[1],
-) =>
+const view = (model: Model, h: Parameters<typeof contactSimpleForm04<Message>>[1]) =>
   contactSimpleForm04(
     {
       ...model,

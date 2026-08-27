@@ -89,37 +89,37 @@ const featuredIcon = <Message>(
   );
 
 const contactItem = <Message>(
-  item: ContactSimpleIcons01BrandItem,
+  contact: ContactSimpleIcons01BrandItem,
   onContact: (id: string) => NoInfer<Message>,
   h: HtmlBuilder<Message>,
 ): Html =>
   h.keyed("li")(
-    item.id,
+    contact.id,
     [h.Class("flex max-w-sm flex-col items-center text-center")],
     [
       featuredIcon(
-        item.icon,
+        contact.icon,
         "flex size-10 rounded-lg before:rounded-[7px] md:hidden",
         "size-5",
         h,
       ),
       featuredIcon(
-        item.icon,
+        contact.icon,
         "hidden size-12 rounded-[10px] before:rounded-[9px] md:flex",
         "size-6",
         h,
       ),
-      h.h3([h.Class("mt-4 text-lg font-semibold text-primary_on-brand md:mt-5")], [item.title]),
-      h.p([h.Class("mt-1 text-md text-tertiary_on-brand")], [item.subtitle]),
+      h.h3([h.Class("mt-4 text-lg font-semibold text-primary_on-brand md:mt-5")], [contact.title]),
+      h.p([h.Class("mt-1 text-md text-tertiary_on-brand")], [contact.subtitle]),
       h.a(
         [
           h.Class(
             "group relative mt-4 inline-flex h-max cursor-pointer items-center justify-normal gap-1.5 rounded p-0! text-md font-semibold whitespace-pre text-primary_on-brand outline-focus-ring transition duration-100 ease-linear before:absolute before:rounded-[7px] hover:text-text-tertiary-hover focus-visible:outline-2 focus-visible:outline-offset-2 *:data-text:underline *:data-text:decoration-transparent *:data-text:underline-offset-4 hover:*:data-text:decoration-fg-quaternary md:mt-5",
           ),
-          h.Href(item.href),
-          h.OnClick(onContact(item.id)),
+          h.Href(contact.href),
+          h.OnClick(onContact(contact.id)),
         ],
-        [h.span([h.DataAttribute("text", "")], [item.cta])],
+        [h.span([h.DataAttribute("text", "")], [contact.cta])],
       ),
     ],
   );

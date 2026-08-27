@@ -6,6 +6,7 @@ import type { CommandMenuGroup, CommandMenuItem } from "./command-menu.ts";
 import { emptyState } from "./empty-state.ts";
 
 interface ControlledUsersProps<Message> {
+  readonly avatars: Partial<Record<CommandMenuUsersPersonId, string>>;
   readonly focusedId?: string;
   readonly id: string;
   readonly isOpen: boolean;
@@ -20,6 +21,15 @@ interface ControlledUsersProps<Message> {
 
 export type CommandMenuUsersProps<Message> = ControlledUsersProps<Message>;
 export type CommandMenuUsersStackedProps<Message> = ControlledUsersProps<Message>;
+export type CommandMenuUsersPersonId =
+  | "user-01"
+  | "user-02"
+  | "user-03"
+  | "user-04"
+  | "user-05"
+  | "user-06"
+  | "user-07"
+  | "user-08";
 
 const people = [
   ["user-01", "Phoenix Baker", "@phoenix"],
@@ -32,9 +42,12 @@ const people = [
   ["user-08", "Kari Rasmussen", "@kari"],
 ] as const;
 
-const userItems = (stacked: boolean): readonly CommandMenuItem[] =>
+const userItems = (
+  stacked: boolean,
+  avatars: Partial<Record<CommandMenuUsersPersonId, string>>,
+): readonly CommandMenuItem[] =>
   people.map(([id, label, description]) => ({
-    avatarSeed: `command-user-${id}`,
+    avatarUrl: avatars[id],
     description,
     id,
     label,
@@ -42,8 +55,11 @@ const userItems = (stacked: boolean): readonly CommandMenuItem[] =>
     type: "avatar",
   }));
 
-const userGroups = (stacked: boolean): readonly CommandMenuGroup[] => {
-  const items = userItems(stacked);
+const userGroups = (
+  stacked: boolean,
+  avatars: Partial<Record<CommandMenuUsersPersonId, string>>,
+): readonly CommandMenuGroup[] => {
+  const items = userItems(stacked, avatars);
   const recentCount = stacked ? 3 : 2;
   return [
     {
@@ -85,7 +101,7 @@ const renderUsers = <Message>(
     {
       emptyContent: emptyContent(h),
       focusedId: props.focusedId,
-      groups: userGroups(stacked),
+      groups: userGroups(stacked, props.avatars),
       id: props.id,
       isOpen: props.isOpen,
       messageForFocus: props.messageForFocus,

@@ -4,57 +4,78 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { newMessageFilledModal } from "ui/application";
-import type { NewMessageRecipientField } from "ui/application";
-import type { TextEditorChange, TextEditorCommandRequest, TextEditorSelection } from "ui/base";
+import { newMessageFilledModal } from "../../../src/application.ts";
+import type { NewMessageRecipientField } from "../../../src/application.ts";
+import type {
+  TextEditorChange,
+  TextEditorCommandRequest,
+  TextEditorSelection,
+} from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
 
+import { agentFace } from "../../fixtures/brand.ts";
+
 const contacts = [
   {
-    avatarSeed: "mathilde-lewis",
+    avatarUrl: agentFace("Mathilde Lewis"),
     id: "mathilde",
     label: "mathilde@siglata.com",
     supportingText: "Mathilde",
   },
   {
-    avatarSeed: "caitlyn-king",
+    avatarUrl: agentFace("Caitlyn King"),
     id: "caitlyn",
     label: "caitlyn@siglata.com",
     supportingText: "Caitlyn",
   },
-  { avatarSeed: "ammar-foley", id: "ammar", label: "ammar@siglata.com", supportingText: "Ammar" },
   {
-    avatarSeed: "phoenix-baker",
+    avatarUrl: agentFace("Ammar Foley"),
+    id: "ammar",
+    label: "ammar@siglata.com",
+    supportingText: "Ammar",
+  },
+  {
+    avatarUrl: agentFace("Phoenix Baker"),
     id: "phoenix",
     label: "phoenix@siglata.com",
     supportingText: "Phoenix",
   },
   {
-    avatarSeed: "olivia-rhye",
+    avatarUrl: agentFace("Olivia Rhye"),
     id: "olivia",
     label: "olivia@siglata.com",
     supportingText: "Olivia",
   },
-  { avatarSeed: "lana-steiner", id: "lana", label: "lana@siglata.com", supportingText: "Lana" },
-  { avatarSeed: "demi-wilkinson", id: "demi", label: "demi@siglata.com", supportingText: "Demi" },
   {
-    avatarSeed: "candice-wu",
+    avatarUrl: agentFace("Lana Steiner"),
+    id: "lana",
+    label: "lana@siglata.com",
+    supportingText: "Lana",
+  },
+  {
+    avatarUrl: agentFace("Demi Wilkinson"),
+    id: "demi",
+    label: "demi@siglata.com",
+    supportingText: "Demi",
+  },
+  {
+    avatarUrl: agentFace("Candice Wu"),
     id: "candice",
     label: "candice@siglata.com",
     supportingText: "Candice",
   },
   {
-    avatarSeed: "natali-craig",
+    avatarUrl: agentFace("Natali Craig"),
     id: "natali",
     label: "natali@siglata.com",
     supportingText: "Natali",
   },
 ] as const;
 const accounts = [
-  { avatarSeed: "olivia-rhye", id: "olivia", label: "Olivia Rhye" },
-  { avatarSeed: "sienna-hewitt", id: "sienna", label: "Sienna Hewitt" },
+  { avatarUrl: agentFace("Olivia Rhye"), id: "olivia", label: "Olivia Rhye" },
+  { avatarUrl: agentFace("Sienna Hewitt"), id: "sienna", label: "Sienna Hewitt" },
 ] as const;
 const initialHtml =
   "<p>Hi all,</p><p>I've just wrapped up the first round of copy edits for the launch landing page. Next step is to review the staging link and confirm the timings before we hand everything over to development.</p><p>If you spot anything that feels off or missing, just drop me a note!</p><p>Thanks,<br>Sienna</p>";

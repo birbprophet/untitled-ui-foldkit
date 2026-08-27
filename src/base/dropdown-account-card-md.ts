@@ -1,9 +1,9 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary -- The medium account card is a fixed controlled hierarchy. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface DropdownAccountCardMDProps<Message> {
+  readonly avatarUrl: string;
   readonly focusedId: string;
   readonly isDarkMode: boolean;
   readonly isOpen: boolean;
@@ -60,25 +60,13 @@ const icon = <Message>(name: IconName, className: string, h: HtmlBuilder<Message
     [h.path([h.D(iconPaths[name])])],
   );
 
-const agent = <Message>(
-  id: string,
-  label: string,
-  size: 20 | 24 | 32 | 40,
-  h: HtmlBuilder<Message>,
-): Html =>
+const agent = <Message>(url: string, size: 20 | 24 | 32 | 40, h: HtmlBuilder<Message>): Html =>
   h.img([
     h.Alt(""),
     h.Class(
       `${size === 20 ? "size-5" : size === 24 ? "size-6" : size === 32 ? "size-8" : "size-10"} max-w-none shrink-0 rounded-full object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16`,
     ),
-    h.Src(
-      blobatarDataUri(`dropdown-account-card-md-${id}`, {
-        background: "circle",
-        kind: "agent",
-        size: 128,
-        title: label,
-      }),
-    ),
+    h.Src(url),
   ]);
 
 const moveFocus = <Message>(
@@ -240,7 +228,7 @@ export const dropdownAccountCardMD = <Message>(
               h.span(
                 [h.Class("relative shrink-0 rounded-full p-px ring-1 ring-border-secondary-alt")],
                 [
-                  agent("olivia", "Olivia Rhye", 40, h),
+                  agent(props.avatarUrl, 40, h),
                   h.span([
                     h.AriaLabel("Online"),
                     h.Class(

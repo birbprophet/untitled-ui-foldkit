@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { contentSplitImage03 } from "../../../../../packages/ui/src/marketing/content-split-image-03.ts";
+import { contentSplitImage03 } from "../../../src/marketing/content-split-image-03.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -21,8 +21,10 @@ const args = {
   heading: "Beautiful analytics to grow smarter",
 };
 
-const specimen = (props: Args, h: Parameters<typeof contentSplitImage03>[1]) =>
-  h.div([h.Class("-m-8")], [contentSplitImage03(props, h)]);
+const specimen = (
+  props: Args,
+  h: Parameters<typeof contentSplitImage03<{ readonly _tag: "Noop" }>>[1],
+) => h.div([h.Class("-m-8")], [contentSplitImage03(props, h)]);
 
 export default {
   ...componentMeta("content-split-image-03"),

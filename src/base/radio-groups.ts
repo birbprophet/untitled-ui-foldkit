@@ -13,7 +13,7 @@ export type RadioGroupVariant =
   | "checkbox";
 
 export interface RadioGroupItem<Message> {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly badge?: string;
   readonly description: string;
   readonly disabled?: boolean;
@@ -201,9 +201,8 @@ const itemMain = <Message>(
           avatar(
             {
               alt: item.title,
-              entityKind: "agent",
-              seed: item.avatarSeed ?? item.value,
               size: size === "md" ? "md" : "sm",
+              src: item.avatarUrl,
             },
             h,
           ),

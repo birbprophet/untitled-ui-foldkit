@@ -1,12 +1,11 @@
 /* oxlint-disable @rikalabs/no-low-signal-variable-names, @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, mps/imperative-loops, mps/no-length-comparison, mps/prefer-arr-match, typescript/prefer-for-of -- Controlled filtering and roving focus preserve the upstream combobox anatomy in one renderer. */
-import { blobatarDataUri } from "avatar";
 import * as Option from "effect/Option";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export type ComboboxSize = "sm" | "md" | "lg";
 
 export interface ComboboxItem<Message> {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly id: string;
   readonly isDisabled?: boolean;
   readonly label: string;
@@ -70,31 +69,14 @@ const check = <Message>(size: ComboboxSize, h: HtmlBuilder<Message>): Html =>
     [h.path([h.D("M20 6 9 17l-5-5")])],
   );
 
-const avatar = <Message>(
-  item: ComboboxItem<Message>,
-  size: ComboboxSize,
-  h: HtmlBuilder<Message>,
-): Html =>
+const avatar = <Message>(src: string, size: ComboboxSize, h: HtmlBuilder<Message>): Html =>
   h.span(
     [
       h.Class(
         `relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-bg-tertiary outline-[0.5px] -outline-offset-[0.5px] outline-black/16 ${size === "sm" ? "size-5" : "size-6"}`,
       ),
     ],
-    [
-      h.img([
-        h.Alt(""),
-        h.Class("size-full object-cover"),
-        h.Src(
-          blobatarDataUri(item.avatarSeed ?? item.id, {
-            background: "circle",
-            kind: "agent",
-            size: 48,
-            title: item.label,
-          }),
-        ),
-      ]),
-    ],
+    [h.img([h.Alt(""), h.Class("size-full object-cover"), h.Src(src)])],
   );
 
 const selectorFor = (name: string, id: string): string =>
@@ -301,7 +283,7 @@ export const combobox = <Message>(props: ComboboxProps<Message>, h: HtmlBuilder<
                   ),
                 ],
                 [
-                  ...(item.avatarSeed === undefined ? [] : [avatar(item, size, h)]),
+                  ...(item.avatarUrl === undefined ? [] : [avatar(item.avatarUrl, size, h)]),
                   h.span(
                     [
                       h.Class(

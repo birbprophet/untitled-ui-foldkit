@@ -4,20 +4,24 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import type { AssistantPrompt } from "ui/application";
-import { aiAssistantModal } from "ui/application";
+import type { AssistantPrompt } from "../../../src/application.ts";
+import { aiAssistantModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
+
+/** Stable demo identity slot: png-free inline SVG rounded square a host swaps for its own mark. */
+const demoMark =
+  "data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2048%2048'%3E%3Crect%20width%3D'48'%20height%3D'48'%20rx%3D'12'%20fill%3D'%23C7CEDA'%2F%3E%3C%2Fsvg%3E";
+const demoMarkAlt = "Product logo";
 
 const Args = S.Struct({
   accountName: S.String,
-  accountSeed: S.String,
   userName: S.String,
 });
 const Model = S.Struct({
   accountName: S.String,
-  accountSeed: S.String,
   inputValue: S.String,
   isOpen: S.Boolean,
   selectedPrompt: S.optional(S.String),
@@ -44,7 +48,7 @@ const simple = (
 const ShowAIAssistantDialog = Command.define("ShowAIAssistantDialog", {
   args: { selector: S.String },
   execute: ({ selector }) =>
-    Dom.showDialog(selector, { focusSelector: '[alt="Siglata logo"]' }).pipe(
+    Dom.showDialog(selector, { focusSelector: '[alt="Product logo"]' }).pipe(
       Effect.match({ onFailure: () => DialogShown(), onSuccess: () => DialogShown() }),
     ),
   messages: [DialogShown],
@@ -61,7 +65,6 @@ const CloseAIAssistantDialog = Command.define("CloseAIAssistantDialog", {
 
 const fixture = {
   accountName: "Olivia",
-  accountSeed: "olivia-ai-assistant",
   userName: "Olivia",
 } satisfies Args;
 
@@ -88,8 +91,9 @@ const definition = {
   view: (model: Model, h: Parameters<typeof aiAssistantModal<Message>>[1]) =>
     aiAssistantModal(
       {
+        accountAvatarUrl: agentFace(model.accountName),
         accountName: model.accountName,
-        accountSeed: model.accountSeed,
+        brand: { mark: { alt: demoMarkAlt, src: demoMark } },
         id: "ai-assistant-modal-story",
         inputValue: model.inputValue,
         isOpen: model.isOpen,
@@ -138,7 +142,7 @@ export const Interactions = {
       name: "Welcome back! How can I help?",
     });
     await expect(dialog).toBeVisible();
-    await expect(await canvas.findByAltText("Siglata logo")).toHaveFocus();
+    await expect(await canvas.findByAltText("Product logo")).toHaveFocus();
     await userEvent.click(await canvas.findByRole("button", { name: "Make a plan" }));
     const message = await canvas.findByRole("textbox", { name: "Message" });
     await userEvent.type(message, "Build a launch checklist");

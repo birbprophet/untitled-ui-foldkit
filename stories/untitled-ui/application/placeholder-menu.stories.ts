@@ -6,7 +6,7 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { placeholderMenu } from "../../../../../packages/ui/src/application/placeholder-menu.ts";
+import { placeholderMenu } from "../../../src/application/placeholder-menu.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 

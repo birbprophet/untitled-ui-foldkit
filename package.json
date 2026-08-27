@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Verified Untitled UI v8 components ported to FoldKit. Brand-neutral renderers; consumers inject theme and identity at the host boundary.",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "files": [
     "src",
     "default-brand.css",
@@ -28,9 +31,23 @@
   },
   "devDependencies": {
     "@effect/vitest": "4.0.0-rc.112",
+    "@foldkit/oxlint-plugin": "0.8.0",
+    "@foldkit/vite-plugin": "0.19.0",
+    "@mpsuesser/oxlint-plugin-effect": "0.4.3",
+    "@rikalabs/oxlint-standards": "0.8.1",
+    "@storybook/html-vite": "10.5.10",
+    "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.3.0",
+    "blobatar": "2.5.0",
+    "oxlint": "1.79.0",
+    "oxlint-plugin": "workspace:*",
+    "storybook": "10.5.10",
+    "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#8aa6d28948b4f9813415cbdee9fd3997a55d5498",
+    "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
+    "ultracite": "7.10.6",
     "untitledui": "0.1.64",
+    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.0",
     "vite-plus": "0.3.0"
   },
   "peerDependencies": {

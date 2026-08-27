@@ -24,19 +24,6 @@ export interface HeroCardMockup08Props<Message> {
   readonly submitLabel: string;
 }
 
-const playIcon = <Message>(h: HtmlBuilder<Message>): Html =>
-  h.svg(
-    [h.AriaHidden(true), h.Class("size-5"), h.Fill("none"), h.ViewBox("0 0 24 24")],
-    [
-      h.path([
-        h.D(
-          "M2.2 2.863c0-1.251 1.372-2.018 2.438-1.362l8.348 5.136c1.015.625 1.015 2.101 0 2.726l-8.348 5.136C3.572 15.155 2.2 14.388 2.2 13.137V2.863Z",
-        ),
-        h.Fill("currentColor"),
-      ]),
-    ],
-  );
-
 export const heroCardMockup08 = <Message>(
   props: HeroCardMockup08Props<Message>,
   h: HtmlBuilder<Message>,

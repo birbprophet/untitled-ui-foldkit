@@ -6,10 +6,12 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { profileMenu } from "ui/application";
-import type { ProfileMenuExperience, ProfileMenuLocale } from "ui/application";
+import { profileMenu } from "../../../src/application.ts";
+import type { ProfileMenuExperience, ProfileMenuLocale } from "../../../src/application.ts";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace, robotFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: Locale });
@@ -54,19 +56,19 @@ const experiences = (locale: ProfileMenuLocale): readonly ProfileMenuExperience[
     ? [
         {
           company: "Layers Studio™",
-          companySeed: "layers-studio",
+          companyLogoUrl: robotFace("Layers Studio"),
           dateRange: "mai. 2020 – presente",
           role: "Fundadora",
         },
         {
           company: "Sisyphus",
-          companySeed: "sisyphus",
+          companyLogoUrl: robotFace("Sisyphus"),
           dateRange: "jan. 2018 – mai. 2020",
           role: "Designer de UX",
         },
         {
           company: "Catalog",
-          companySeed: "catalog",
+          companyLogoUrl: robotFace("Catalog"),
           dateRange: "mar. 2017 – jan. 2018",
           role: "Designer visual",
         },
@@ -74,19 +76,19 @@ const experiences = (locale: ProfileMenuLocale): readonly ProfileMenuExperience[
     : [
         {
           company: "Layers Studio™",
-          companySeed: "layers-studio",
+          companyLogoUrl: robotFace("Layers Studio"),
           dateRange: "May 2020 – Present",
           role: "Founder",
         },
         {
           company: "Sisyphus",
-          companySeed: "sisyphus",
+          companyLogoUrl: robotFace("Sisyphus"),
           dateRange: "Jan 2018 – May 2020",
           role: "UX Designer",
         },
         {
           company: "Catalog",
-          companySeed: "catalog",
+          companyLogoUrl: robotFace("Catalog"),
           dateRange: "Mar 2017 – Jan 2018",
           role: "Visual Designer",
         },
@@ -142,6 +144,7 @@ const makeDefinition = (initiallyOpen = true) => ({
         ),
         profileMenu(
           {
+            avatarUrl: agentFace("Olivia Rhye"),
             email: "olivia@siglata.com",
             experiences: experiences(model.locale),
             id: "profile-menu-story",
@@ -154,7 +157,6 @@ const makeDefinition = (initiallyOpen = true) => ({
             onDismiss: action("Dismiss"),
             onNewProject: action("NewProject"),
             onStudio: action("Studio"),
-            profileSeed: "olivia-rhye",
             tags: model.tags,
             website: "layers.studio",
           },

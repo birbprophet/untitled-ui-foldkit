@@ -8,7 +8,7 @@ import { input } from "../base/fields.ts";
 export type StackedWithTeamAndLinkModalLocale = "en-US" | "pt-BR";
 
 export interface StackedWithTeamAndLinkMember {
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly name: string;
 }
 
@@ -121,9 +121,8 @@ export const stackedWithTeamAndLinkModal = <Message>(
                               avatar(
                                 {
                                   alt: member.name,
-                                  entityKind: "agent",
-                                  seed: member.avatarSeed,
                                   size: "lg",
+                                  src: member.avatarUrl,
                                 },
                                 h,
                               ),
@@ -132,9 +131,8 @@ export const stackedWithTeamAndLinkModal = <Message>(
                         : avatar(
                             {
                               alt: member.name,
-                              entityKind: "agent",
-                              seed: member.avatarSeed,
                               size: "md",
+                              src: member.avatarUrl,
                             },
                             h,
                           ),

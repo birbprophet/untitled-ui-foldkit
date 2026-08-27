@@ -290,6 +290,7 @@ export interface BadgeGroupProps {
   readonly addonText: string;
   readonly align?: "leading" | "trailing";
   readonly color?: BadgeGroupColor;
+  readonly iconTrailing?: boolean;
   readonly label?: string;
   readonly size?: BadgeGroupSize;
   readonly theme?: "light" | "modern";
@@ -342,6 +343,7 @@ export const badgeGroup = <Message>(props: BadgeGroupProps, h: HtmlBuilder<Messa
   const color = props.color ?? "brand";
   const theme = props.theme ?? "light";
   const align = props.align ?? "leading";
+  const showIcon = props.iconTrailing ?? true;
   const palette = groupPalette[color];
   const root =
     theme === "modern"
@@ -375,7 +377,7 @@ export const badgeGroup = <Message>(props: BadgeGroupProps, h: HtmlBuilder<Messa
     [
       ...(theme === "modern" && align === "leading" ? [dot] : []),
       props.addonText,
-      ...(align === "trailing" ? [arrow(h)] : []),
+      ...(align === "trailing" && showIcon ? [arrow(h)] : []),
     ],
   );
   return h.div(
@@ -388,7 +390,7 @@ export const badgeGroup = <Message>(props: BadgeGroupProps, h: HtmlBuilder<Messa
       ? [
           addonNode,
           ...(props.label === undefined ? [] : [h.span([], [props.label])]),
-          h.span([h.Class("ml-1")], [arrow(h)]),
+          ...(showIcon ? [h.span([h.Class("ml-1")], [arrow(h)])] : []),
         ]
       : [
           ...(theme === "modern" ? [dot] : []),

@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { ctaSimpleCenteredBrand } from "../../../../../packages/ui/src/marketing/cta-simple-centered-brand.ts";
+import { ctaSimpleCenteredBrand } from "../../../src/marketing/cta-simple-centered-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -24,7 +24,7 @@ const definition = {
   init: (args: typeof Args.Type): Model => ({
     ...args,
   }),
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof ctaSimpleCenteredBrand<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],

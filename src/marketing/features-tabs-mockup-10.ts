@@ -1,4 +1,4 @@
-/* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI features section. */
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Direct FoldKit transcription of the authenticated Untitled UI features section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export interface FeaturesTabsMockup10Tab {

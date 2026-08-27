@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noSpread, effect/noTernary -- Storybook CSF and HTML placeholder fixtures are direct. */
 import * as S from "effect/Schema";
-import { textarea } from "ui/base";
+import { textarea } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

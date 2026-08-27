@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { ctaSimpleLogos01Brand } from "../../../../../packages/ui/src/marketing/cta-simple-logos-01-brand.ts";
+import { ctaSimpleLogos01Brand } from "../../../src/marketing/cta-simple-logos-01-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -24,9 +24,10 @@ const definition = {
   init: (args: typeof Args.Type): Model => ({ ...args }),
   update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof ctaSimpleLogos01Brand<Message>>[1]) =>
-    h.div([h.Class("-m-8")], [
-      ctaSimpleLogos01Brand({ ...model, onPrimary: Primary(), onSecondary: Secondary() }, h),
-    ]),
+    h.div(
+      [h.Class("-m-8")],
+      [ctaSimpleLogos01Brand({ ...model, onPrimary: Primary(), onSecondary: Secondary() }, h)],
+    ),
 } as const;
 
 const args = {
@@ -36,14 +37,21 @@ const args = {
   secondaryLabel: "Learn more",
 } as const;
 
-export default { ...componentMeta("cta-simple-logos-01-brand"), parameters: { layout: "fullscreen" }, title: "Untitled UI/Marketing/Cta/Cta Simple Logos 01 Brand" };
+export default {
+  ...componentMeta("cta-simple-logos-01-brand"),
+  parameters: { layout: "fullscreen" },
+  title: "Untitled UI/Marketing/Cta/Cta Simple Logos 01 Brand",
+};
 export const AllVariants = { ...liveStory(definition), args };
 export const States = { ...liveStory(definition), args };
 export const Dark = {
   ...liveStory({
     ...definition,
     view: (model, h) =>
-      h.div([h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")], [definition.view(model, h)]),
+      h.div(
+        [h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")],
+        [definition.view(model, h)],
+      ),
   }),
   args,
 };

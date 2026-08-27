@@ -2,29 +2,57 @@
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { footerSmall03Brand } from "../../../../../packages/ui/src/marketing/footer-small-03-brand.ts";
+
+import { footerSmall03Brand } from "../../../src/marketing/footer-small-03-brand.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({});
+const Link = S.Struct({ href: S.String, id: S.String, label: S.String });
+const Args = S.Struct({
+  copyright: S.String,
+  homeHref: S.String,
+  links: S.Array(Link),
+});
 const Model = Args;
 type Model = typeof Model.Type;
-
-const Action = m("FooterSmall03BrandAction", { id: S.String });
-type Message = typeof Action.Type;
+const HomePressed = m("FooterSmall03BrandHomePressed");
+const LinkPressed = m("FooterSmall03BrandLinkPressed", { id: S.String });
+type Message = typeof HomePressed.Type | typeof LinkPressed.Type;
 
 const definition = {
   Args,
   Model,
   init: (args: Model): Model => args,
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model): Model => model,
   view: (model: Model, h: Parameters<typeof footerSmall03Brand<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],
-      [footerSmall03Brand({ ...model, onSocial: (socialId) => Action({ id: socialId }) }, h)],
+      [
+        footerSmall03Brand(
+          {
+            ...model,
+            logo: demoBrand(),
+            onHome: HomePressed(),
+            onLink: (id) => LinkPressed({ id }),
+          },
+          h,
+        ),
+      ],
     ),
 } as const;
 
-const args = { copyright: "© 2026 Siglata. All rights reserved." } as const;
+const args = {
+  copyright: "© 2026 Siglata. All rights reserved.",
+  homeHref: "#",
+  links: [
+    { href: "#", id: "overview", label: "Overview" },
+    { href: "#", id: "features", label: "Features" },
+    { href: "#", id: "pricing", label: "Pricing" },
+    { href: "#", id: "careers", label: "Careers" },
+    { href: "#", id: "help", label: "Help" },
+    { href: "#", id: "privacy", label: "Privacy" },
+  ],
+} as const;
 
 export default {
   ...componentMeta("footer-small-03-brand"),
@@ -53,10 +81,8 @@ export const Interactions = {
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
     const canvas = within(canvasElement);
-    const link = canvas.queryByRole("link");
-    if (link !== null) {
-      await userEvent.click(link);
-      await waitFor(() => expect(link).toBeVisible());
-    }
+    const link = canvas.getByRole("link");
+    await userEvent.click(link);
+    await waitFor(() => expect(link).toBeVisible());
   },
 };

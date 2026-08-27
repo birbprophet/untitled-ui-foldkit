@@ -4,10 +4,12 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { stackedWithTeamModal } from "ui/application";
+import { stackedWithTeamModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({});
 const Model = S.Struct({ isOpen: S.Boolean });
@@ -37,6 +39,12 @@ const CloseStackedWithTeamModal = Command.define("CloseStackedWithTeamModal", {
 });
 
 const action = (tag: "Cancel" | "Dismiss" | "GetStarted"): Message => ({ _tag: tag });
+
+const teamMembers = [
+  { avatarUrl: agentFace("Caitlyn King"), name: "Caitlyn King" },
+  { avatarUrl: agentFace("Sienna Hewitt"), name: "Sienna Hewitt" },
+  { avatarUrl: agentFace("Olly Schroeder"), name: "Olly Schroeder" },
+] as const;
 
 const definition = (focusSelector: string) => ({
   Args,
@@ -71,6 +79,7 @@ const definition = (focusSelector: string) => ({
         onCancel: action("Cancel"),
         onDismiss: action("Dismiss"),
         onGetStarted: action("GetStarted"),
+        teamMembers,
       },
       h,
     ),

@@ -1,5 +1,5 @@
 /* oxlint-disable @rikalabs/no-placeholder-implementation, effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Placeholder styles are part of the authenticated empty composer state; the fixed fixture and controlled native dialog preserve the upstream message-menu branches directly. */
-import { blobatarDataUri } from "avatar";
+import type { BrandMark } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -10,6 +10,8 @@ export type AIAssistantMessageMenuLocale = "en-US" | "pt-BR";
 export type AIAssistantMessageMenuDecision = "cancel" | "update";
 
 export interface AIAssistantMessageMenuProps<Message> {
+  readonly accountAvatarUrl: string;
+  readonly brandMark: BrandMark;
   readonly id: string;
   readonly inputValue: string;
   readonly isOpen: boolean;
@@ -312,18 +314,6 @@ export const aiAssistantMessageMenu = <Message>(
     welcomeAssistant: { id: "message-001", text: copy.welcome },
     welcomeSelf: { id: "message-002", text: copy.welcome, user: { me: true } },
   } satisfies Record<string, MessagingMessage>;
-  const accountImage = blobatarDataUri("ai-assistant-message-menu-olivia", {
-    background: "circle",
-    kind: "agent",
-    size: 64,
-    title: "Olivia, Siglata agent",
-  });
-  const robotLogo = blobatarDataUri("siglata-ai-assistant-message-logo", {
-    background: "circle",
-    kind: "robot",
-    size: 112,
-    title: "Siglata robot logo",
-  });
   return h.div(
     [],
     props.isOpen
@@ -369,9 +359,9 @@ export const aiAssistantMessageMenu = <Message>(
                         ],
                         [
                           h.img([
-                            h.Alt("Siglata robot logo"),
+                            h.Alt(props.brandMark.alt),
                             h.Class("size-14 rounded-full shadow-lg"),
-                            h.Src(robotLogo),
+                            h.Src(props.brandMark.src),
                           ]),
                           h.button(
                             [
@@ -546,7 +536,7 @@ export const aiAssistantMessageMenu = <Message>(
                                           h.img([
                                             h.Alt(""),
                                             h.Class("size-4 rounded-full"),
-                                            h.Src(accountImage),
+                                            h.Src(props.accountAvatarUrl),
                                           ]),
                                           h.span(
                                             [h.Class("flex items-center gap-0.5")],

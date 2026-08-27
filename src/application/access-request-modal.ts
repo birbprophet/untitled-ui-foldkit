@@ -5,7 +5,7 @@ import { avatar } from "../base/avatar.ts";
 import { button } from "../base/button.ts";
 
 export interface AccessRequestModalProps<Message> {
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly id: string;
   readonly isOpen: boolean;
   readonly onCancel: NoInfer<Message>;
@@ -127,11 +127,10 @@ export const accessRequestModal = <Message>(
                         [
                           avatar(
                             {
-                              alt: `${props.requesterName}, Siglata agent`,
+                              alt: props.requesterName,
                               border: true,
-                              entityKind: "agent",
-                              seed: props.avatarSeed,
                               size: "md",
+                              src: props.avatarUrl,
                             },
                             h,
                           ),

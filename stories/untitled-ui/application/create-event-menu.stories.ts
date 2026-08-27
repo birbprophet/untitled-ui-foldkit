@@ -10,7 +10,7 @@ import {
   createEventDateTimeNavigationTarget,
   createEventMenu,
   inputCreateEventDateTimeSegment,
-} from "ui/application";
+} from "../../../src/application.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
 

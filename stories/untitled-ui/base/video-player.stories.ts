@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/require-is-prefix-for-boolean-schema-field -- Storybook CSF exposes the exact upstream boolean prop and its play function is promise-based. */
 import * as Match from "effect/Match";
 import * as S from "effect/Schema";
-import { videoPlayer } from "ui/base";
+import { videoPlayer } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

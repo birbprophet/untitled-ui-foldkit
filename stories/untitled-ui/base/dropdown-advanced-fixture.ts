@@ -1,7 +1,7 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- The two upstream advanced dropdowns share one controlled fixture. */
 import * as S from "effect/Schema";
 import type { Html, HtmlBuilder } from "foldkit/html";
-import type { DropdownAdvancedProps, DropdownAdvancedSubmenu } from "ui/base";
+import type { DropdownAdvancedProps, DropdownAdvancedSubmenu } from "../../../src/base.ts";
 
 const Args = S.Struct({});
 const Submenu = S.Union([

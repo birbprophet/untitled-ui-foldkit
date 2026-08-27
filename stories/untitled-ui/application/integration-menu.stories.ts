@@ -5,9 +5,11 @@ import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { integrationMenu } from "ui/application";
+import { integrationMenu } from "../../../src/application.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
+
+import { demoBrand } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Args = S.Struct({ locale: Locale });
@@ -83,6 +85,7 @@ const definitionWith = (copied: boolean, initiallyOpen = true) => ({
   view: (model: Model, h: Parameters<typeof integrationMenu<Message>>[1]) =>
     integrationMenu(
       {
+        brandMark: demoBrand().mark,
         copied: model.isCopied,
         id: "integration-menu-story",
         isOpen: model.isOpen,

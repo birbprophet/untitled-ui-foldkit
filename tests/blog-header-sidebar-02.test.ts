@@ -1,6 +1,8 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import { blogHeaderSidebar02 } from "../src/marketing/blog-header-sidebar-02.ts";
 import type { BlogHeaderSidebar02Props } from "../src/marketing/blog-header-sidebar-02.ts";
 
@@ -9,9 +11,9 @@ describe("blog header sidebar 02", () => {
     const props = {
       articles: [
         {
+          authorAvatarSrc: agentFace("Olivia Rhye"),
           authorHref: "#author",
           authorName: "Olivia Rhye",
-          authorSeed: "blog-olivia",
           categoryHref: "#design",
           categoryName: "Design",
           href: "#article",

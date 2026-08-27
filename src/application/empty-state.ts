@@ -1,5 +1,4 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary -- The authenticated empty-state source exposes one closed composition with six header treatments. */
-import { blobatarDataUri } from "avatar";
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary, mps/no-length-comparison, mps/prefer-arr-match, mps/prefer-option-over-null -- The authenticated empty-state source exposes one closed composition with six header treatments; optional face supplies fall back to neutral placeholders. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -18,6 +17,7 @@ export type EmptyStateSize = "sm" | "md" | "lg";
 
 export interface EmptyStateProps<Message> {
   readonly actionSize?: ButtonSize;
+  readonly avatarUrls?: readonly string[];
   readonly confirmLabel?: string;
   readonly confirmIcon?: Html;
   readonly confirmMessage?: NoInfer<Message>;
@@ -131,26 +131,45 @@ const illustration = <Message>(size: EmptyStateSize, h: HtmlBuilder<Message>): H
   );
 };
 
-const agentImage = <Message>(seed: string, size: string, h: HtmlBuilder<Message>): Html =>
-  h.img([
-    h.Alt(""),
-    h.Class(
-      `${size} shrink-0 rounded-lg object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16`,
-    ),
-    h.Src(blobatarDataUri(seed, { background: "circle", kind: "agent", size: 128, title: seed })),
-  ]);
+const avatarUrlAt = (urls: readonly string[] | undefined, index: number): string | undefined =>
+  urls === undefined || urls.length === 0 ? undefined : urls[index % urls.length];
 
-const avatarRow = <Message>(size: EmptyStateSize, h: HtmlBuilder<Message>): Html => {
+const agentImage = <Message>(
+  src: string | undefined,
+  size: string,
+  h: HtmlBuilder<Message>,
+): Html =>
+  src === undefined
+    ? h.div([
+        h.Class(
+          `${size} shrink-0 rounded-lg bg-bg-tertiary outline-[0.5px] -outline-offset-[0.5px] outline-black/16`,
+        ),
+      ])
+    : h.img([
+        h.Alt(""),
+        h.Class(
+          `${size} shrink-0 rounded-lg object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16`,
+        ),
+        h.Src(src),
+      ]);
+
+const avatarRow = <Message>(
+  size: EmptyStateSize,
+  urls: readonly string[] | undefined,
+  h: HtmlBuilder<Message>,
+): Html => {
   const avatarSize = size === "sm" ? "size-9" : size === "md" ? "size-11" : "size-12";
   return h.div(
     [h.AriaHidden(true), h.Class("relative z-10 flex items-center justify-center gap-4")],
-    ["one", "two", "three", "four", "five", "six"].map((seed) =>
-      agentImage(`empty-row-${seed}`, avatarSize, h),
-    ),
+    Array.from({ length: 6 }, (_, index) => agentImage(avatarUrlAt(urls, index), avatarSize, h)),
   );
 };
 
-const avatarGrid = <Message>(size: EmptyStateSize, h: HtmlBuilder<Message>): Html => {
+const avatarGrid = <Message>(
+  size: EmptyStateSize,
+  urls: readonly string[] | undefined,
+  h: HtmlBuilder<Message>,
+): Html => {
   const avatarSize = size === "sm" ? "size-8" : size === "md" ? "size-10" : "size-12";
   return h.div(
     [
@@ -159,13 +178,14 @@ const avatarGrid = <Message>(size: EmptyStateSize, h: HtmlBuilder<Message>): Htm
         "relative z-10 -m-1 grid grid-cols-6 gap-3 overflow-hidden p-1 [mask-image:radial-gradient(circle,black_10%,transparent_100%)]",
       ),
     ],
-    Array.from({ length: 12 }, (_, index) =>
-      agentImage(`empty-grid-${String(index)}`, avatarSize, h),
-    ),
+    Array.from({ length: 12 }, (_, index) => agentImage(avatarUrlAt(urls, index), avatarSize, h)),
   );
 };
 
-const avatarRadius = <Message>(h: HtmlBuilder<Message>): Html =>
+const avatarRadius = <Message>(
+  urls: readonly string[] | undefined,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.div(
     [h.AriaHidden(true), h.Class("relative z-10 size-24")],
     [
@@ -179,15 +199,15 @@ const avatarRadius = <Message>(h: HtmlBuilder<Message>): Html =>
       ),
       h.div(
         [h.Class("absolute -top-1 left-1/2 -translate-x-1/2")],
-        [agentImage("empty-radius-one", "size-8 rounded-full", h)],
+        [agentImage(avatarUrlAt(urls, 0), "size-8 rounded-full", h)],
       ),
       h.div(
         [h.Class("absolute right-0 bottom-0")],
-        [agentImage("empty-radius-two", "size-8 rounded-full", h)],
+        [agentImage(avatarUrlAt(urls, 1), "size-8 rounded-full", h)],
       ),
       h.div(
         [h.Class("absolute bottom-0 left-0")],
-        [agentImage("empty-radius-three", "size-8 rounded-full", h)],
+        [agentImage(avatarUrlAt(urls, 2), "size-8 rounded-full", h)],
       ),
     ],
   );
@@ -195,6 +215,7 @@ const avatarRadius = <Message>(h: HtmlBuilder<Message>): Html =>
 const decoration = <Message>(
   kind: EmptyStateDecoration,
   size: EmptyStateSize,
+  urls: readonly string[] | undefined,
   h: HtmlBuilder<Message>,
 ): Html =>
   kind === "featured-icon"
@@ -204,10 +225,10 @@ const decoration = <Message>(
       : kind === "illustration"
         ? illustration(size, h)
         : kind === "avatar-row"
-          ? avatarRow(size, h)
+          ? avatarRow(size, urls, h)
           : kind === "avatar-grid"
-            ? avatarGrid(size, h)
-            : avatarRadius(h);
+            ? avatarGrid(size, urls, h)
+            : avatarRadius(urls, h);
 
 export const emptyState = <Message>(
   props: EmptyStateProps<Message>,
@@ -216,7 +237,7 @@ export const emptyState = <Message>(
   const size = props.size ?? "lg";
   const decorationType = props.decoration ?? "featured-icon";
   const hasActions = props.confirmMessage !== undefined || props.dismissMessage !== undefined;
-  const icon = decoration(decorationType, size, h);
+  const icon = decoration(decorationType, size, props.avatarUrls, h);
   return h.div(
     [h.Class("relative mx-auto flex w-full max-w-lg flex-col items-center justify-center")],
     [

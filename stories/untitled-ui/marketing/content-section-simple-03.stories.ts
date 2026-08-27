@@ -2,16 +2,18 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { contentSectionSimple03 } from "../../../../../packages/ui/src/marketing/content-section-simple-03.ts";
+import { contentSectionSimple03 } from "../../../src/marketing/content-section-simple-03.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({  });
+const Args = S.Struct({});
 type Args = typeof Args.Type;
 
 const args = {} satisfies Args;
 
-const specimen = (props: Args, h: Parameters<typeof contentSectionSimple03>[1]) =>
-  h.div([h.Class("-m-8")], [contentSectionSimple03(props, h)]);
+const specimen = (
+  props: Args,
+  h: Parameters<typeof contentSectionSimple03<{ readonly _tag: "Noop" }>>[1],
+) => h.div([h.Class("-m-8")], [contentSectionSimple03(props, h)]);
 
 export default {
   ...componentMeta("content-section-simple-03"),
@@ -23,7 +25,10 @@ export const AllVariants = { ...staticStory(Args, specimen), args };
 export const States = { ...staticStory(Args, specimen), args };
 export const Dark = {
   ...staticStory(Args, (props, h) =>
-    h.div([h.Class("-m-8 min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")], [contentSectionSimple03(props, h)]),
+    h.div(
+      [h.Class("-m-8 min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")],
+      [contentSectionSimple03(props, h)],
+    ),
   ),
   args,
 };

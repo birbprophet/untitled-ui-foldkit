@@ -1,5 +1,5 @@
 /* oxlint-disable effect/noSpread -- Static CSF exports extend the exact controlled stacked integration-menu fixture. */
-import { commandMenuIntegrationsMenuStacked } from "ui/application";
+import { commandMenuIntegrationsMenuStacked } from "../../../src/application.ts";
 
 import { componentMeta } from "../story.ts";
 import { commandMenuIntegrationsPreviewStories } from "./command-menu-integrations-preview.story.ts";

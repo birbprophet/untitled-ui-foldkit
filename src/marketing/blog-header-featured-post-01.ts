@@ -5,7 +5,7 @@ import { pagination } from "../application/pagination.ts";
 import { avatar } from "../base/avatar.ts";
 
 export interface BlogHeaderFeaturedPost01Article {
-  readonly author: { readonly avatarSeed: string; readonly href: string; readonly name: string };
+  readonly author: { readonly avatarUrl: string; readonly href: string; readonly name: string };
   readonly category: { readonly href: string; readonly name: string };
   readonly href: string;
   readonly id: string;
@@ -125,10 +125,9 @@ const articleCard = <Message>(
                     {
                       alt: article.author.name,
                       border: true,
-                      entityKind: "agent",
                       focusable: true,
-                      seed: article.author.avatarSeed,
                       size: "md",
+                      src: article.author.avatarUrl,
                     },
                     h,
                   ),
@@ -220,10 +219,9 @@ const featured = <Message>(
                                 {
                                   alt: article.author.name,
                                   border: true,
-                                  entityKind: "agent",
                                   focusable: true,
-                                  seed: article.author.avatarSeed,
                                   size: "md",
+                                  src: article.author.avatarUrl,
                                 },
                                 h,
                               ),

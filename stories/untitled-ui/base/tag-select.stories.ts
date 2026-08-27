@@ -1,9 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and interaction functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { tagSelect } from "ui/base";
+import { tagSelect } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ placeholder: S.String });
 const Model = S.Struct({
@@ -29,7 +31,7 @@ const items = [
 ] as const;
 const messages = items.map((item) => ({
   ...item,
-  avatarSeed: item.id,
+  avatarUrl: agentFace(item.label),
   onFocus: { _tag: "Focused", id: item.id } as const,
   onRemove: { _tag: "Removed", id: item.id } as const,
   onSelect: { _tag: "Selected", id: item.id } as const,

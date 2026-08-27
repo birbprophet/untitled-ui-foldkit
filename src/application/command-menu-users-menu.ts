@@ -1,5 +1,4 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/no-length-comparison, mps/prefer-arr-match -- The authenticated menu and stacked menu share the same people fixture and exact preview anatomy. */
-import { blobatarDataUri } from "avatar";
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/no-length-comparison, mps/prefer-arr-match, mps/prefer-option-over-null -- The authenticated menu and stacked menu share the same people fixture and exact preview anatomy. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -8,6 +7,7 @@ import type { CommandMenuGroup, CommandMenuItem } from "./command-menu.ts";
 import { emptyState } from "./empty-state.ts";
 
 interface ControlledUsersMenuProps<Message> {
+  readonly avatars: Partial<Record<CommandMenuUsersMenuPersonId, string>>;
   readonly focusedId?: string;
   readonly id: string;
   readonly isOpen: boolean;
@@ -25,6 +25,16 @@ interface ControlledUsersMenuProps<Message> {
 export type CommandMenuUsersMenuProps<Message> = ControlledUsersMenuProps<Message>;
 export type CommandMenuUsersMenuStackedProps<Message> = ControlledUsersMenuProps<Message>;
 
+export type CommandMenuUsersMenuPersonId =
+  | "user-01"
+  | "user-02"
+  | "user-03"
+  | "user-04"
+  | "user-05"
+  | "user-06"
+  | "user-07"
+  | "user-08";
+
 const people = [
   ["user-01", "Phoenix Baker", "@phoenix"],
   ["user-02", "Olivia Rhye", "@olivia"],
@@ -34,7 +44,7 @@ const people = [
   ["user-06", "Natali Craig", "@natali"],
   ["user-07", "Drew Cano", "@drew"],
   ["user-08", "Kari Rasmussen", "@kari"],
-] as const;
+] as const satisfies readonly (readonly [CommandMenuUsersMenuPersonId, string, string])[];
 
 type SocialIcon = "dribbble" | "linkedin" | "x";
 
@@ -71,7 +81,7 @@ const plusIcon = <Message>(h: HtmlBuilder<Message>): Html =>
     [h.path([h.D("M12 5v14m-7-7h14")])],
   );
 
-const profilePhoto = <Message>(personId: string, name: string, h: HtmlBuilder<Message>): Html =>
+const profilePhoto = <Message>(avatarSrc: string | undefined, h: HtmlBuilder<Message>): Html =>
   h.div(
     [
       h.Class(
@@ -79,20 +89,15 @@ const profilePhoto = <Message>(personId: string, name: string, h: HtmlBuilder<Me
       ),
     ],
     [
-      h.img([
-        h.Alt(""),
-        h.Class(
-          "size-full rounded-full object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16",
-        ),
-        h.Src(
-          blobatarDataUri(`command-user-${personId}`, {
-            background: "circle",
-            kind: "agent",
-            size: 96,
-            title: name,
-          }),
-        ),
-      ]),
+      avatarSrc === undefined
+        ? h.div([h.Class("size-full rounded-full bg-bg-tertiary")])
+        : h.img([
+            h.Alt(""),
+            h.Class(
+              "size-full rounded-full object-cover outline-[0.5px] -outline-offset-[0.5px] outline-black/16",
+            ),
+            h.Src(avatarSrc),
+          ]),
       h.svg(
         [
           h.AriaHidden(true),
@@ -121,6 +126,7 @@ const profilePhoto = <Message>(personId: string, name: string, h: HtmlBuilder<Me
 const profilePreview = <Message>(
   selectedId: string,
   stacked: boolean,
+  avatars: Readonly<Partial<Record<CommandMenuUsersMenuPersonId, string>>>,
   onViewPortfolio: Message,
   onFollow: Message,
   h: HtmlBuilder<Message>,
@@ -129,6 +135,7 @@ const profilePreview = <Message>(
   const description = stacked
     ? "I'm a Product Designer based in Melbourne, Australia."
     : "I'm a Product Designer and Webflow Developer based in Melbourne, Australia.";
+  const avatarUrl = avatars[person[0]];
   return h.div(
     [
       h.Class(
@@ -152,7 +159,7 @@ const profilePreview = <Message>(
           h.div(
             [h.Class("relative flex flex-col items-center gap-4")],
             [
-              profilePhoto(person[0], person[1], h),
+              profilePhoto(avatarUrl, h),
               h.div(
                 [h.Class("flex w-full flex-col items-center gap-4")],
                 [
@@ -243,7 +250,7 @@ const renderMenu = <Message>(
   h: HtmlBuilder<Message>,
 ): Html => {
   const items: readonly CommandMenuItem[] = people.map(([id, label, description]) => ({
-    avatarSeed: `command-user-${id}`,
+    avatarUrl: props.avatars[id],
     description,
     id,
     label,
@@ -277,6 +284,7 @@ const renderMenu = <Message>(
       previewContent: profilePreview(
         props.selectedId,
         stacked,
+        props.avatars,
         props.onViewPortfolio,
         props.onFollow,
         h,

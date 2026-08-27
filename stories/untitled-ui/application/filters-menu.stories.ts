@@ -6,12 +6,12 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { filtersMenu } from "../../../../../packages/ui/src/application/filters-menu.ts";
+import { filtersMenu } from "../../../src/application/filters-menu.ts";
 import type {
   FiltersMenuRoleId,
   FiltersMenuSavedFilterId,
   FiltersMenuTeamId,
-} from "../../../../../packages/ui/src/application/filters-menu.ts";
+} from "../../../src/application/filters-menu.ts";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
 

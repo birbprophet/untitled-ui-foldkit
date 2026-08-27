@@ -4,17 +4,18 @@ import * as Match from "effect/Match";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogHeaderAltLayout04 } from "../../../../../packages/ui/src/marketing/blog-header-alt-layout-04.ts";
+import { blogHeaderAltLayout04 } from "../../../src/marketing/blog-header-alt-layout-04.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String, seed: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,
   publishedAt: S.String,
   summary: S.String,
-  thumbnailSeed: S.String,
+  thumbnailUrl: S.String,
   title: S.String,
 });
 const Args = S.Struct({
@@ -115,98 +116,98 @@ const definition = {
 
 const articles = [
   {
-    author: { href: "#", name: "Olivia Rhye", seed: "blog-alt-04-olivia" },
+    author: { avatarUrl: agentFace("Olivia Rhye"), href: "#", name: "Olivia Rhye" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-1",
     publishedAt: "20 Jan 2027",
     summary:
       "How do you create compelling presentations that wow your colleagues and impress your managers?",
-    thumbnailSeed: "blog-alt-04-spirals",
+    thumbnailUrl: "https://www.untitledui.com/marketing/spirals.webp",
     title: "UX review presentations",
   },
   {
-    author: { href: "#", name: "Phoenix Baker", seed: "blog-alt-04-phoenix" },
+    author: { avatarUrl: agentFace("Phoenix Baker"), href: "#", name: "Phoenix Baker" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-2",
     publishedAt: "19 Jan 2027",
     summary:
       "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
-    thumbnailSeed: "blog-alt-04-conversation",
+    thumbnailUrl: "https://www.untitledui.com/marketing/conversation.webp",
     title: "Migrating to Linear 101",
   },
   {
-    author: { href: "#", name: "Lana Steiner", seed: "blog-alt-04-lana" },
+    author: { avatarUrl: agentFace("Lana Steiner"), href: "#", name: "Lana Steiner" },
     category: { href: "#", name: "Software Engineering" },
     href: "#",
     id: "article-3",
     publishedAt: "18 Jan 2027",
     summary:
       "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
-    thumbnailSeed: "blog-alt-04-api-stack",
+    thumbnailUrl: "https://www.untitledui.com/blog/two-mobile-shapes-pattern.webp",
     title: "Building your API stack",
   },
   {
-    author: { href: "#", name: "Alec Whitten", seed: "blog-alt-04-alec" },
+    author: { avatarUrl: agentFace("Alec Whitten"), href: "#", name: "Alec Whitten" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-3.5",
     publishedAt: "17 Jan 2027",
     summary:
       "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
-    thumbnailSeed: "blog-alt-04-leadership",
+    thumbnailUrl: "https://www.untitledui.com/blog/two-people.webp",
     title: "Bill Walsh leadership lessons",
   },
   {
-    author: { href: "#", name: "Demi Wilkinson", seed: "blog-alt-04-demi" },
+    author: { avatarUrl: agentFace("Demi Wilkinson"), href: "#", name: "Demi Wilkinson" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-4",
     publishedAt: "16 Jan 2027",
     summary: "Mental models are simple expressions of complex processes or relationships.",
-    thumbnailSeed: "blog-alt-04-mental-models",
+    thumbnailUrl: "https://www.untitledui.com/marketing/smiling-girl-6.webp",
     title: "PM mental models",
   },
   {
-    author: { href: "#", name: "Candice Wu", seed: "blog-alt-04-candice" },
+    author: { avatarUrl: agentFace("Candice Wu"), href: "#", name: "Candice Wu" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-5",
     publishedAt: "15 Jan 2027",
     summary: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
-    thumbnailSeed: "blog-alt-04-wireframing",
+    thumbnailUrl: "https://www.untitledui.com/marketing/wireframing-layout.webp",
     title: "What is wireframing?",
   },
   {
-    author: { href: "#", name: "Natali Craig", seed: "blog-alt-04-natali" },
+    author: { avatarUrl: agentFace("Natali Craig"), href: "#", name: "Natali Craig" },
     category: { href: "#", name: "Design" },
     href: "#",
     id: "article-6",
     publishedAt: "14 Jan 2027",
     summary: "Collaboration can make our teams stronger, and our individual designs better.",
-    thumbnailSeed: "blog-alt-04-collaboration",
+    thumbnailUrl: "https://www.untitledui.com/marketing/two-people.webp",
     title: "How collaboration makes us better designers",
   },
   {
-    author: { href: "#", name: "Drew Cano", seed: "blog-alt-04-drew" },
+    author: { avatarUrl: agentFace("Drew Cano"), href: "#", name: "Drew Cano" },
     category: { href: "#", name: "Product" },
     href: "#",
     id: "article-7",
     publishedAt: "13 Jan 2027",
     summary:
       "JavaScript frameworks make development easy with extensive features and functionalities.",
-    thumbnailSeed: "blog-alt-04-frameworks",
+    thumbnailUrl: "https://www.untitledui.com/marketing/workspace-5.webp",
     title: "Our top 10 Javascript frameworks to use",
   },
   {
-    author: { href: "#", name: "Orlando Diggs", seed: "blog-alt-04-orlando" },
+    author: { avatarUrl: agentFace("Orlando Diggs"), href: "#", name: "Orlando Diggs" },
     category: { href: "#", name: "Customer Success" },
     href: "#",
     id: "article-8",
     publishedAt: "12 Jan 2027",
     summary: "Starting a community doesn't need to be complicated, but how do you get started?",
-    thumbnailSeed: "blog-alt-04-community",
+    thumbnailUrl: "https://www.untitledui.com/marketing/sythesize.webp",
     title: "Podcast: Creating a better CX Community",
   },
 ] as const;

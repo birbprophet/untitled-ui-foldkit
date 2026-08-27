@@ -5,12 +5,12 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   blogHeaderAltLayout01,
   blogHeaderAltLayout01Articles,
-} from "../../../../../packages/ui/src/marketing/blog-header-alt-layout-01.ts";
+} from "../../../src/marketing/blog-header-alt-layout-01.ts";
 
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Article = S.Struct({
-  author: S.Struct({ href: S.String, name: S.String, seed: S.String }),
+  author: S.Struct({ avatarUrl: S.String, href: S.String, name: S.String }),
   category: S.Struct({ href: S.String, name: S.String }),
   href: S.String,
   id: S.String,

@@ -6,7 +6,7 @@ import {
   careersCard02,
   careersCard02Jobs,
   careersCard02Locations,
-} from "../../../../../packages/ui/src/marketing/careers-card-02.ts";
+} from "../../../src/marketing/careers-card-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const BadgeColor = S.Literals([

@@ -1,8 +1,8 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook exercises the controlled FoldKit model through real component props. */
 import * as S from "effect/Schema";
 import type { Html, HtmlBuilder } from "foldkit/html";
-import { colorPicker } from "ui/application";
-import type { ColorPickerFormat, ColorPickerProps } from "ui/application";
+import { colorPicker } from "../../../src/application.ts";
+import type { ColorPickerFormat, ColorPickerProps } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

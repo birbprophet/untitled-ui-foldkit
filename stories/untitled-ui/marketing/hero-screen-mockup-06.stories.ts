@@ -1,13 +1,17 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises the controlled FoldKit hero in the browser. */
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
-import { headerNavigation } from "ui/application";
+import { headerNavigation } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
-import { heroScreenMockup06 } from "../../../../../packages/ui/src/marketing/hero-screen-mockup-06.ts";
+import { heroScreenMockup06 } from "../../../src/marketing/hero-screen-mockup-06.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
+  badgeAddon: S.String,
+  badgeHref: S.String,
+  badgeLabel: S.String,
   description: S.String,
   heading: S.String,
   imageAlt: S.String,
@@ -24,6 +28,7 @@ const MobileOpened = m("HeroScreenMockup06MobileOpened");
 const MobileClosed = m("HeroScreenMockup06MobileClosed");
 const AccountPressed = m("HeroScreenMockup06AccountPressed");
 const SearchChanged = m("HeroScreenMockup06SearchChanged", { value: S.String });
+const Badge = m("HeroScreenMockup06Badge");
 type Message =
   | typeof Primary.Type
   | typeof Secondary.Type
@@ -31,6 +36,7 @@ type Message =
   | typeof MobileOpened.Type
   | typeof MobileClosed.Type
   | typeof AccountPressed.Type
+  | typeof Badge.Type
   | typeof SearchChanged.Type;
 
 const navItems = [
@@ -44,6 +50,7 @@ const navigation = (model: Model, h: Parameters<typeof headerNavigation<Message>
   headerNavigation(
     {
       activeUrl: "#pricing",
+      brand: demoBrand(),
       hideBorder: false,
       isMobileOpen: model.isMobileOpen,
       items: navItems,
@@ -81,6 +88,7 @@ const definition = {
           {
             ...model,
             navigation: navigation(model, h),
+            onBadge: Badge(),
             onPrimary: Primary(),
             onSecondary: Secondary(),
           },
@@ -91,6 +99,9 @@ const definition = {
 } as const;
 
 const args = {
+  badgeAddon: "New",
+  badgeHref: "#",
+  badgeLabel: "Dashboards that turn data into decisions",
   description:
     "Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users.",
   heading: "Beautiful analytics to grow smarter",

@@ -1,9 +1,11 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor -- Storybook CSF and native radio play functions stay direct. */
 import * as S from "effect/Schema";
-import { radioGroups } from "ui/base";
+import { radioGroups } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Args = S.Struct({ label: S.String });
 const Model = S.Struct({ label: S.String, selectedValue: S.String });
@@ -11,7 +13,7 @@ type Model = typeof Model.Type;
 type Message = Readonly<{ _tag: "Selected"; value: string }>;
 const plans = (label: string) => [
   {
-    avatarSeed: "basic",
+    avatarUrl: agentFace(label),
     description: "Includes up to 10 users and 20 GB storage.",
     editMessage: { _tag: "Selected", value: "basic" } as const,
     message: { _tag: "Selected", value: "basic" } as const,
@@ -22,7 +24,7 @@ const plans = (label: string) => [
     value: "basic",
   },
   {
-    avatarSeed: "business",
+    avatarUrl: agentFace("Business plan"),
     badge: "Popular",
     description: "Includes up to 20 users and 40 GB storage.",
     editMessage: { _tag: "Selected", value: "business" } as const,

@@ -112,7 +112,7 @@ export const faqAccordion04 = <Message>(
             [
               h.div(
                 [h.Class("flex flex-col gap-8")],
-                props.items.map((item, index) => {
+                props.items.map((item) => {
                   const open = props.openIds.includes(item.id);
                   return h.keyed("div")(
                     item.id,
@@ -127,7 +127,7 @@ export const faqAccordion04 = <Message>(
                         [
                           h.button(
                             [
-                              h.AriaExpanded(String(open)),
+                              h.AriaExpanded(open),
                               h.Class(
                                 "flex w-full cursor-pointer gap-2 rounded-md text-left outline-focus-ring select-none focus-visible:outline-2 focus-visible:outline-offset-2 md:flex-row-reverse md:gap-4",
                               ),
@@ -149,7 +149,7 @@ export const faqAccordion04 = <Message>(
                             [h.Class("overflow-hidden pt-1 pr-8 md:pr-12")],
                             [h.p([h.Class("text-md text-text-tertiary")], [item.answer])],
                           )
-                        : h.div([], []),
+                        : h.div([]),
                     ],
                   );
                 }),

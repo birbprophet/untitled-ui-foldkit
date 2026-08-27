@@ -6,7 +6,7 @@ import { button } from "../base/button.ts";
 import { select } from "../base/select.ts";
 
 export interface UserInviteMember {
-  readonly avatarSeed?: string;
+  readonly avatarUrl?: string;
   readonly email: string;
   readonly id: string;
   readonly initials?: string;
@@ -14,6 +14,13 @@ export interface UserInviteMember {
 }
 
 export type UserInviteLocale = "en-US" | "pt-BR";
+
+/** A selectable person option whose identity comes entirely from the host. */
+export interface UserInvitePersonOption {
+  readonly avatarUrl: string;
+  readonly id: string;
+  readonly label: string;
+}
 
 export interface UserInviteModalProps<Message> {
   readonly id: string;
@@ -27,21 +34,9 @@ export interface UserInviteModalProps<Message> {
   readonly onRemoveMember: (id: string) => NoInfer<Message>;
   readonly onSelectOpenChanged: (isOpen: boolean) => NoInfer<Message>;
   readonly onSelectPerson: (id: string) => NoInfer<Message>;
+  readonly people: readonly UserInvitePersonOption[];
   readonly selectedPersonId?: string;
 }
-
-const people = [
-  { id: "@phoenix", label: "Phoenix Baker", seed: "phoenix-baker-user-invite" },
-  { id: "@olivia", label: "Olivia Rhye", seed: "olivia-rhye-user-invite" },
-  { id: "@lana", label: "Lana Steiner", seed: "lana-steiner-user-invite" },
-  { id: "@demi", label: "Demi Wilkinson", seed: "demi-wilkinson-user-invite" },
-  { id: "@candice", label: "Candice Wu", seed: "candice-wu-user-invite" },
-  { id: "@natali", label: "Natali Craig", seed: "natali-craig-user-invite" },
-  { id: "@abraham", label: "Abraham Baker", seed: "abraham-baker-user-invite" },
-  { id: "@adem", label: "Adem Lane", seed: "adem-lane-user-invite" },
-  { id: "@jackson", label: "Jackson Reed", seed: "jackson-reed-user-invite" },
-  { id: "@jessie", label: "Jessie Meyton", seed: "jessie-meyton-user-invite" },
-] as const;
 
 const copy = {
   "en-US": {
@@ -134,10 +129,9 @@ const memberRow = <Message>(
             {
               alt: member.name,
               border: true,
-              entityKind: "agent",
               initials: member.initials,
-              seed: member.avatarSeed,
               size: "md",
+              src: member.avatarUrl,
             },
             h,
           ),
@@ -169,16 +163,8 @@ export const userInviteModal = <Message>(
   const text = copy[props.locale];
   const titleId = `${props.id}-title`;
   const descriptionId = `${props.id}-description`;
-  const personItems = people.map((person) => ({
-    iconElement: avatar(
-      {
-        alt: "",
-        entityKind: "agent",
-        seed: person.seed,
-        size: "xs",
-      },
-      h,
-    ),
+  const personItems = props.people.map((person) => ({
+    iconElement: avatar({ alt: "", size: "xs", src: person.avatarUrl }, h),
     id: person.id,
     label: person.label,
     onFocus: props.onFocusPerson(person.id),

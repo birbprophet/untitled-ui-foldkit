@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-await-in-loop, mps/avoid-direct-tag-checks, mps/imperative-loops, mps/require-is-prefix-for-boolean-schema-field -- Storybook CSF and sequential play functions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { pinInput } from "ui/base";
+import { pinInput } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

@@ -1,8 +1,8 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/keyed-required-for-mapped-rows, mps/prefer-option-over-null -- Direct FoldKit transcription of the authenticated Untitled UI marketing header. */
-import { symbol } from "brand";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
+import type { BrandLockup } from "../internal/brand.ts";
 
 export interface HeaderNavItem {
   readonly hasMenu?: boolean;
@@ -18,6 +18,7 @@ export interface HeaderFooterLink {
 }
 
 export interface HeaderProps<Message> {
+  readonly brand: BrandLockup;
   readonly footerLinks: readonly HeaderFooterLink[];
   readonly isFloating?: boolean;
   readonly isFullWidth?: boolean;
@@ -56,19 +57,28 @@ const chevronDown = <Message>(expanded: boolean, h: HtmlBuilder<Message>): Html 
     ],
   );
 
-const logo = <Message>(h: HtmlBuilder<Message>): Html =>
-  h.span(
+const logo = <Message>(lockup: BrandLockup, h: HtmlBuilder<Message>): Html => {
+  const wordmark: Html[] = [];
+  if (lockup.wordmarkSrc !== undefined) {
+    wordmark.push(
+      h.img([h.Alt(lockup.mark.alt), h.Class("h-7 w-auto"), h.Src(lockup.wordmarkSrc)]),
+    );
+  } else if (lockup.text !== undefined) {
+    wordmark.push(h.span([h.Class("text-lg font-semibold text-text-primary")], [lockup.text]));
+  }
+  return h.span(
     [h.Class("flex h-7 items-center gap-2 md:max-lg:hidden")],
     [
-      h.img([h.Alt("Siglata robot symbol"), h.Class("size-7 rounded-md"), h.Src(symbol.url.href)]),
-      h.span([h.Class("text-lg font-semibold text-text-primary")], ["Siglata"]),
+      h.img([h.Alt(lockup.mark.alt), h.Class("size-7 rounded-md"), h.Src(lockup.mark.src)]),
+      ...wordmark,
     ],
   );
+};
 
-const logoMinimal = <Message>(h: HtmlBuilder<Message>): Html =>
+const logoMinimal = <Message>(lockup: BrandLockup, h: HtmlBuilder<Message>): Html =>
   h.span(
     [h.Class("hidden h-7 items-center md:inline-flex lg:hidden")],
-    [h.img([h.Alt("Siglata robot symbol"), h.Class("size-7 rounded-md"), h.Src(symbol.url.href)])],
+    [h.img([h.Alt(lockup.mark.alt), h.Class("size-7 rounded-md"), h.Src(lockup.mark.src)])],
   );
 
 const desktopNavItem = <Message>(
@@ -230,8 +240,8 @@ export const header = <Message>(props: HeaderProps<Message>, h: HtmlBuilder<Mess
               h.div(
                 [h.Class("flex flex-1 items-center gap-5")],
                 [
-                  logo(h),
-                  logoMinimal(h),
+                  logo(props.brand, h),
+                  logoMinimal(props.brand, h),
                   h.nav(
                     [h.Class("max-md:hidden")],
                     [

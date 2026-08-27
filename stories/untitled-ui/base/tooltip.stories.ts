@@ -1,8 +1,8 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook CSF and play functions use the browser promise API directly. */
 import * as S from "effect/Schema";
 import type { Html } from "foldkit/html";
-import { tooltip } from "ui/base";
-import type { TooltipPlacement } from "ui/base";
+import { tooltip } from "../../../src/base.ts";
+import type { TooltipPlacement } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

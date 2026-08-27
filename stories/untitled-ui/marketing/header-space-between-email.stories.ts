@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
-import { headerSpaceBetweenEmail } from "../../../../../packages/ui/src/marketing/header-space-between-email.ts";
+import { headerSpaceBetweenEmail } from "../../../src/marketing/header-space-between-email.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

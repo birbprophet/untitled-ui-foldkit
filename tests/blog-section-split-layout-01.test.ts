@@ -1,6 +1,8 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
+
 import { blogSectionSplitLayout01 } from "../src/marketing/blog-section-split-layout-01.ts";
 import type { BlogSectionSplitLayout01Props } from "../src/marketing/blog-section-split-layout-01.ts";
 
@@ -9,9 +11,9 @@ describe("blog section split layout 01", () => {
     const props = {
       articles: [
         {
+          authorAvatarSrc: agentFace("Olivia Rhye"),
           authorHref: "#olivia",
           authorName: "Olivia Rhye",
-          authorSeed: "blog-split-olivia",
           categoryHref: "#design",
           categoryName: "Design",
           href: "#article",

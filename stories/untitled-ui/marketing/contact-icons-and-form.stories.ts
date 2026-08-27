@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactIconsAndForm } from "../../../../../packages/ui/src/marketing/contact-icons-and-form.ts";
+import { contactIconsAndForm } from "../../../src/marketing/contact-icons-and-form.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const ContactMethod = S.Struct({

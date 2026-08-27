@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary -- Storybook CSF variant matrices and play functions stay direct. */
 import * as S from "effect/Schema";
-import { badge } from "ui/base";
+import { badge } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix, staticStory } from "../story.ts";

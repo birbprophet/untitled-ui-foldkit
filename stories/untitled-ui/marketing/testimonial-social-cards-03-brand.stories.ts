@@ -1,23 +1,34 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises the controlled FoldKit section in the browser. */
 import * as S from "effect/Schema";
-import { testimonialSocialCards03Brand } from "../../../../../packages/ui/src/marketing/testimonial-social-cards-03-brand.ts";
-import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
+import { expect, within } from "storybook/test";
 
-const Args = S.Struct({ description: S.String, heading: S.String });
-const Model = Args;
-type Model = typeof Model.Type;
+import { testimonialSocialCards03Brand } from "../../../src/marketing/testimonial-social-cards-03-brand.ts";
+import type { HtmlBuilder } from "foldkit/html";
+import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
-const definition = {
-  Args,
-  Model,
-  init: (args: typeof Args.Type): Model => args,
-  view: (model: Model, h: Parameters<typeof testimonialSocialCards03Brand>[1]) =>
-    h.div([h.Class("-m-8")], [testimonialSocialCards03Brand({ ...model, description: model.description, heading: model.heading }, h)]),
-} as const;
+const Args = S.Struct({
+  ctaLabel: S.String,
+  description: S.String,
+  eyebrow: S.String,
+  heading: S.String,
+});
+
+type SectionArgs = typeof Args.Type;
+
+const section = (args: SectionArgs, h: HtmlBuilder<{ readonly _tag: "Noop" }>) =>
+  h.div([h.Class("-m-8")], [testimonialSocialCards03Brand(args, h)]);
+
+const darkSection = (args: SectionArgs, h: HtmlBuilder<{ readonly _tag: "Noop" }>) =>
+  h.div(
+    [h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")],
+    [section(args, h)],
+  );
 
 const args = {
-  description: "Everything you need to build modern UI and great products.",
-  heading: "Build something great",
+  ctaLabel: "Read customer stories",
+  description: "Hear how teams of every size ship faster with Siglata.",
+  eyebrow: "Testimonials",
+  heading: "Loved by teams worldwide",
 } as const;
 
 export default {
@@ -25,16 +36,18 @@ export default {
   parameters: { layout: "fullscreen" },
   title: "Untitled UI/Marketing/Testimonials/Testimonial Social Cards 03 Brand",
 };
-export const AllVariants = { ...liveStory(definition), args };
-export const States = { ...liveStory(definition), args };
-export const Dark = {
-  ...liveStory({
-    ...definition,
-    view: (model: Model, h: Parameters<typeof testimonialSocialCards03Brand>[1]) =>
-      h.div([h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")], [definition.view(model, h)]),
-  }),
-  args,
-};
-export const Responsive = { ...liveStory(definition), args };
 
-export const Interactions = { ...liveStory(definition), args };
+export const AllVariants = { ...staticStory(Args, section), args };
+export const States = { ...staticStory(Args, section), args };
+export const Dark = { ...staticStory(Args, darkSection), args };
+export const Responsive = { ...staticStory(Args, section), args };
+
+export const Interactions = {
+  ...staticStory(Args, section),
+  args,
+  play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
+    await waitForStoryReady(canvasElement);
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole("heading")).toHaveTextContent("Loved by teams worldwide");
+  },
+};

@@ -1,0 +1,29 @@
+{
+  "name": "oxlint-plugin",
+  "version": "0.0.0",
+  "description": "The untitled-ui-foldkit house Oxlint plugin — vendored Effect rule presets.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./copy": "./src/copy-lint/scan.ts",
+    "./design": "./src/design-lint/scan.ts",
+    "./package.json": "./package.json",
+    "./effect": "./src/effect/plugin.ts",
+    "./effect-presets": "./src/effect/presets.ts"
+  },
+  "scripts": {
+    "check": "vp check"
+  },
+  "dependencies": {
+    "effect": "4.0.0-rc.112",
+    "effect-oxlint": "0.3.3"
+  },
+  "devDependencies": {
+    "@effect/vitest": "4.0.0-rc.112",
+    "@oxlint/plugins": "1.73.0",
+    "@types/node": "26.3.0",
+    "typescript": "7.0.2",
+    "vite-plus": "0.3.0"
+  }
+}

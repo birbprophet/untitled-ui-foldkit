@@ -6,11 +6,11 @@ import {
   contactSimpleForm03,
   contactSimpleForm03Countries,
   contactSimpleForm03Services,
-} from "../../../../../packages/ui/src/marketing/contact-simple-form-03.ts";
+} from "../../../src/marketing/contact-simple-form-03.ts";
 import type {
   ContactSimpleForm03Errors,
   ContactSimpleForm03Field,
-} from "../../../../../packages/ui/src/marketing/contact-simple-form-03.ts";
+} from "../../../src/marketing/contact-simple-form-03.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

@@ -13,7 +13,7 @@ describe("careers card 03", () => {
       onJob: (id: string) => `job:${id}`,
     } satisfies CareersCard03Props<string>;
     expect(careersCard03Categories).toHaveLength(3);
-    const jobs = careersCard03Categories.flatMap(({ jobs }) => jobs);
+    const jobs = careersCard03Categories.flatMap(({ jobs: categoryJobs }) => categoryJobs);
     expect(jobs).toHaveLength(6);
     expect(new Set(jobs.map(({ id }) => id)).size).toBe(6);
     expect(jobs.every(({ href, location }) => href === "#" && location.countryCode === "AU")).toBe(

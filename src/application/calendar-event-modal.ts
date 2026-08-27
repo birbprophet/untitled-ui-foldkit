@@ -6,7 +6,14 @@ import { button } from "../base/button.ts";
 
 export type CalendarEventLocale = "en-US" | "pt-BR";
 
+/** A person rendered through a host-supplied avatar image and display name. */
+export interface CalendarEventPerson {
+  readonly avatarUrl: string;
+  readonly name: string;
+}
+
 export interface CalendarEventModalProps<Message> {
+  readonly attendees: readonly CalendarEventPerson[];
   readonly id: string;
   readonly isOpen: boolean;
   readonly locale: CalendarEventLocale;
@@ -15,6 +22,8 @@ export interface CalendarEventModalProps<Message> {
   readonly onDecline: NoInfer<Message>;
   readonly onDismiss: NoInfer<Message>;
   readonly onMaybe: NoInfer<Message>;
+  readonly organizer: CalendarEventPerson;
+  readonly organizerEmail: string;
 }
 
 const copy = {
@@ -133,21 +142,6 @@ const plusIcon = <Message>(h: HtmlBuilder<Message>): Html =>
 const detail = <Message>(icon: Html, label: string, h: HtmlBuilder<Message>): Html =>
   h.span([h.Class("flex gap-2")], [icon, h.p([h.Class("text-sm text-text-tertiary")], [label])]);
 
-const attendeeSeeds = [
-  "sienna-hewitt",
-  "ammar-foley",
-  "pippa-wilkinson",
-  "olly-schroeder",
-  "mathilde-lewis",
-] as const;
-const attendeeNames = [
-  "Sienna Hewitt",
-  "Ammar Foley",
-  "Pippa Wilkinson",
-  "Olly Schroeder",
-  "Mathilde Lewis",
-] as const;
-
 const attendees = <Message>(
   props: CalendarEventModalProps<Message>,
   h: HtmlBuilder<Message>,
@@ -159,20 +153,10 @@ const attendees = <Message>(
       h.div(
         [h.Class("flex flex-row -space-x-3")],
         [
-          ...attendeeSeeds.map((seed, index) =>
+          ...props.attendees.map((person) =>
             h.span(
               [h.Class("flex size-10 rounded-full ring-[1.5px] ring-bg-primary")],
-              [
-                avatar(
-                  {
-                    alt: `${attendeeNames[index]}, Siglata agent`,
-                    entityKind: "agent",
-                    seed,
-                    size: "md",
-                  },
-                  h,
-                ),
-              ],
+              [avatar({ alt: person.name, size: "md", src: person.avatarUrl }, h)],
             ),
           ),
           h.span(
@@ -308,11 +292,10 @@ export const calendarEventModal = <Message>(
                             [
                               avatar(
                                 {
-                                  alt: "Sienna Hewitt, Siglata agent",
+                                  alt: props.organizer.name,
                                   border: true,
-                                  entityKind: "agent",
-                                  seed: "sienna-hewitt",
                                   size: "md",
+                                  src: props.organizer.avatarUrl,
                                 },
                                 h,
                               ),
@@ -321,11 +304,11 @@ export const calendarEventModal = <Message>(
                                 [
                                   h.p(
                                     [h.Class("text-sm font-semibold text-text-primary")],
-                                    ["Sienna Hewitt"],
+                                    [props.organizer.name],
                                   ),
                                   h.p(
                                     [h.Class("truncate text-sm text-text-tertiary")],
-                                    ["sienna@siglata.com"],
+                                    [props.organizerEmail],
                                   ),
                                 ],
                               ),

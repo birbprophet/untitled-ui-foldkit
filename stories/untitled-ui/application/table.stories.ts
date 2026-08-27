@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Story state stays in the FoldKit Model while the fixture exercises the authenticated table anatomy. */
 import * as S from "effect/Schema";
-import { table } from "ui/application";
-import type { TableRow, TableSortDirection } from "ui/application";
+import { table } from "../../../src/application.ts";
+import type { TableRow, TableSortDirection } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";

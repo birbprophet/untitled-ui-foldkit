@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contactSimpleIcons02 } from "../../../../../packages/ui/src/marketing/contact-simple-icons-02.ts";
+import { contactSimpleIcons02 } from "../../../src/marketing/contact-simple-icons-02.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Method = S.Struct({
@@ -37,12 +37,7 @@ const definition = {
   view: (model: Model, h: Parameters<typeof contactSimpleIcons02<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],
-      [
-        contactSimpleIcons02(
-          { ...model, onContact: (id) => ContactSelected({ id }) },
-          h,
-        ),
-      ],
+      [contactSimpleIcons02({ ...model, onContact: (id) => ContactSelected({ id }) }, h)],
     ),
 } as const;
 

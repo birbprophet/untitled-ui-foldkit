@@ -6,7 +6,7 @@ import {
   contactIconsAndMap02Brand,
   contactIconsAndMap02BrandLocations,
   contactIconsAndMap02BrandMap,
-} from "../../../../../packages/ui/src/marketing/contact-icons-and-map-02-brand.ts";
+} from "../../../src/marketing/contact-icons-and-map-02-brand.ts";
 import { componentMeta, staticStory, waitForStoryReady } from "../story.ts";
 
 const Location = S.Struct({ id: S.String, subtitle: S.String, title: S.String });

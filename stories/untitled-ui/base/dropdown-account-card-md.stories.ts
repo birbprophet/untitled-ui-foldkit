@@ -1,9 +1,10 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook interactions use the browser promise API directly. */
 import * as S from "effect/Schema";
-import { dropdownAccountCardMD } from "ui/base";
+import { dropdownAccountCardMD } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const CompanyId = S.Literals(["siglata", "sisyphus"]);
 const Args = S.Struct({});
@@ -26,6 +27,7 @@ type Message =
 const specimen = (model: Model, h: Parameters<typeof dropdownAccountCardMD<Message>>[1]) =>
   dropdownAccountCardMD(
     {
+      avatarUrl: agentFace("Olivia Rhye"),
       focusedId: model.focusedId,
       isDarkMode: model.isDarkMode,
       isOpen: model.isOpen,

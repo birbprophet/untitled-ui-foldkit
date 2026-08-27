@@ -1,13 +1,22 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
+import { agentFace } from "../stories/fixtures/brand.ts";
 import type {
   MessageChatMenuProps,
   MessageChatMenuTab,
 } from "../src/application/message-chat-menu.ts";
 import { messageChatMenuFixture } from "../src/application/message-chat-menu.ts";
 
+const faces = {
+  demi: agentFace("Demi Wilkinson"),
+  lana: agentFace("Lana Steiner"),
+  olivia: agentFace("Olivia Rhye"),
+  phoenix: agentFace("Phoenix Baker"),
+};
+
 const propsFor = (locale: "en-US" | "pt-BR"): MessageChatMenuProps<string> => ({
+  avatars: faces,
   draft: "",
   focusedTab: "recent",
   id: "message-chat-menu",
@@ -36,7 +45,8 @@ describe("message chat menu", () => {
     expect(messages[0]?.text).toBe("Hey team, I've finished with the requirements doc!");
     expect(messages[1]?.attachment).toEqual({ name: "Tech requirements.pdf", size: "1.2 MB" });
     expect(messages[2]?.isSelf).toBe(true);
-    expect(messages[3]?.avatarKind).toBe("robot");
+    expect(messages[3]?.name).toBe("Demi Wilkinson");
+    expect(faces.lana).toBeTypeOf("string");
   });
 
   it("supports the Portuguese LTR branch and all authenticated tabs", () => {
@@ -51,6 +61,6 @@ describe("message chat menu", () => {
     const messages = messageChatMenuFixture("pt-BR");
     expect(messages[0]?.sentAt).toBe("quinta-feira, 11:40");
     expect(messages[1]?.attachment?.name).toBe("Requisitos técnicos.pdf");
-    expect(messages[0]?.seed).toBe(messageChatMenuFixture("en-US")[0]?.seed);
+    expect(messages[0]?.name).toBe(messageChatMenuFixture("en-US")[0]?.name);
   });
 });

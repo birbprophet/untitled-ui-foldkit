@@ -22,12 +22,22 @@ export const newsletterScreenMockup03 = <Message>(
           h.div(
             [h.Class("mx-auto flex max-w-3xl flex-col items-center text-center")],
             [
-              h.p([h.Class("text-sm font-semibold text-text-brand-secondary md:text-md")], [props.eyebrow]),
+              h.p(
+                [h.Class("text-sm font-semibold text-text-brand-secondary md:text-md")],
+                [props.eyebrow],
+              ),
               h.h2(
-                [h.Class("mt-3 text-display-sm font-semibold text-text-primary md:text-display-md")],
+                [
+                  h.Class(
+                    "mt-3 text-display-sm font-semibold text-text-primary md:text-display-md",
+                  ),
+                ],
                 [props.heading],
               ),
-              h.p([h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")], [props.description]),
+              h.p(
+                [h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")],
+                [props.description],
+              ),
               h.button(
                 [
                   h.Class(

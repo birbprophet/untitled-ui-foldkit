@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { headerCentered } from "../../../../../packages/ui/src/marketing/header-centered.ts";
+import { headerCentered } from "../../../src/marketing/header-centered.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

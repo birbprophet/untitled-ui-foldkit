@@ -17,7 +17,7 @@ export interface BlogHeaderAltLayout03Tag extends BlogHeaderAltLayout03Link {
 }
 
 export interface BlogHeaderAltLayout03Author extends BlogHeaderAltLayout03Link {
-  readonly seed: string;
+  readonly avatarUrl: string;
 }
 
 export interface BlogHeaderAltLayout03Article {
@@ -88,7 +88,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/spirals.webp",
     publishedAt: "20 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Olivia Rhye", href: "#", seed: "olivia-rhye" },
+    author: {
+      name: "Olivia Rhye",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80",
+    },
     tags: [
       { name: "Design", color: "brand", href: "#" },
       { name: "Research", color: "indigo", href: "#" },
@@ -106,7 +110,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/conversation.webp",
     publishedAt: "19 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Phoenix Baker", href: "#", seed: "phoenix-baker" },
+    author: {
+      name: "Phoenix Baker",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80",
+    },
     tags: [
       { name: "Product", color: "sky", href: "#" },
       { name: "Tools", color: "pink", href: "#" },
@@ -123,7 +131,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/blog/two-mobile-shapes-pattern.webp",
     publishedAt: "18 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Lana Steiner", href: "#", seed: "lana-steiner" },
+    author: {
+      name: "Lana Steiner",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80",
+    },
     tags: [
       { name: "Software Development", color: "success", href: "#" },
       { name: "Tools", color: "pink", href: "#" },
@@ -139,7 +151,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/blog/two-people.webp",
     publishedAt: "17 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Alec Whitten", href: "#", seed: "alec-whitten" },
+    author: {
+      name: "Alec Whitten",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/alec-whitten?fm=webp&q=80",
+    },
     tags: [
       { name: "Leadership", color: "brand", href: "#" },
       { name: "Management", color: "slate", href: "#" },
@@ -154,7 +170,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/smiling-girl-6.webp",
     publishedAt: "16 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Demi Wilkinson", href: "#", seed: "demi-wilkinson" },
+    author: {
+      name: "Demi Wilkinson",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80",
+    },
     tags: [
       { name: "Product", color: "sky", href: "#" },
       { name: "Research", color: "indigo", href: "#" },
@@ -170,7 +190,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/wireframing-layout.webp",
     publishedAt: "15 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Candice Wu", href: "#", seed: "candice-wu" },
+    author: {
+      name: "Candice Wu",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/candice-wu?fm=webp&q=80",
+    },
     tags: [
       { name: "Design", color: "brand", href: "#" },
       { name: "Research", color: "indigo", href: "#" },
@@ -185,7 +209,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/two-people.webp",
     publishedAt: "14 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Natali Craig", href: "#", seed: "natali-craig" },
+    author: {
+      name: "Natali Craig",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80",
+    },
     tags: [
       { name: "Design", color: "brand", href: "#" },
       { name: "Research", color: "indigo", href: "#" },
@@ -201,7 +229,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/workspace-5.webp",
     publishedAt: "13 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Drew Cano", href: "#", seed: "drew-cano" },
+    author: {
+      name: "Drew Cano",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/drew-cano?fm=webp&q=80",
+    },
     tags: [
       { name: "Software Development", color: "success", href: "#" },
       { name: "Tools", color: "pink", href: "#" },
@@ -217,7 +249,11 @@ export const blogHeaderAltLayout03Articles: readonly BlogHeaderAltLayout03Articl
     thumbnailUrl: "https://www.untitledui.com/marketing/sythesize.webp",
     publishedAt: "12 Jan 2027",
     readingTime: "8 min read",
-    author: { name: "Orlando Diggs", href: "#", seed: "orlando-diggs" },
+    author: {
+      name: "Orlando Diggs",
+      href: "#",
+      avatarUrl: "https://www.untitledui.com/images/avatars/orlando-diggs?fm=webp&q=80",
+    },
     tags: [
       { name: "Podcasts", color: "brand", href: "#" },
       { name: "Customer Success", color: "slate", href: "#" },
@@ -425,7 +461,7 @@ const featuredArticle = <Message>(
                         {
                           alt: article.author.name,
                           focusable: true,
-                          seed: article.author.seed,
+                          src: article.author.avatarUrl,
                           size: "md",
                         },
                         h,

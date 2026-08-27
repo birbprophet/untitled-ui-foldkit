@@ -3,10 +3,14 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { contentLargeImage04 } from "../../../../../packages/ui/src/marketing/content-large-image-04.ts";
+import {
+  contentLargeImage04,
+  contentLargeImage04Defaults,
+} from "../../../src/marketing/content-large-image-04.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({ authorAvatarSrc: S.String,
+const Args = S.Struct({
+  authorAvatarSrc: S.String,
   authorDate: S.String,
   authorName: S.String,
   authorRole: S.String,
@@ -15,7 +19,8 @@ const Args = S.Struct({ authorAvatarSrc: S.String,
   eyebrow: S.String,
   heading: S.String,
   heroAlt: S.String,
-  heroSrc: S.String });
+  heroSrc: S.String,
+});
 const Model = Args;
 type Model = typeof Model.Type;
 const CopyLink = m("ContentLargeImage04CopyLink");
@@ -31,13 +36,35 @@ const definition = {
     h.div([h.Class("-m-8")], [contentLargeImage04({ ...model, ...actions }, h)]),
 } as const;
 
-import { contentLargeImage04Defaults } from "../../../../../packages/ui/src/marketing/content-large-image-04.ts";
-
 const args = { ...contentLargeImage04Defaults } as const;
 
-export default { ...componentMeta("content-large-image-04"), parameters: { layout: "fullscreen" }, title: "Untitled UI/Marketing/Content/Content Large Image 04" };
+export default {
+  ...componentMeta("content-large-image-04"),
+  parameters: { layout: "fullscreen" },
+  title: "Untitled UI/Marketing/Content/Content Large Image 04",
+};
 export const AllVariants = { ...liveStory(definition), args };
 export const States = { ...liveStory(definition), args };
-export const Dark = { ...liveStory({ ...definition, view: (model, h) => h.div([h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")], [definition.view(model, h)]) }), args };
+export const Dark = {
+  ...liveStory({
+    ...definition,
+    view: (model, h) =>
+      h.div(
+        [h.Class("min-h-screen bg-bg-primary"), h.DataAttribute("theme", "dark")],
+        [definition.view(model, h)],
+      ),
+  }),
+  args,
+};
 export const Responsive = { ...liveStory(definition), args };
-export const Interactions = { ...liveStory(definition), args, play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => { await waitForStoryReady(canvasElement); const canvas = within(canvasElement); const button = canvas.queryByRole("button"); if (button !== null) { await userEvent.click(button); await waitFor(() => expect(button).toBeInTheDocument()); } } };
+export const Interactions = {
+  ...liveStory(definition),
+  args,
+  play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
+    await waitForStoryReady(canvasElement);
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button");
+    await userEvent.click(button);
+    await waitFor(() => expect(button).toBeInTheDocument());
+  },
+};

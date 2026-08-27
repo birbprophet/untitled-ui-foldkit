@@ -6,8 +6,23 @@ import type { MenuBlogPostsWithSidebarProps } from "../src/marketing/menu-blog-p
 
 describe("menu blog posts with sidebar", () => {
   it("keeps the authenticated header navigation renderer controlled", () => {
-    const props = {} as unknown as MenuBlogPostsWithSidebarProps<string>;
+    const props = {
+      categoriesTitle: "Categories",
+      categoryItems: [{ href: "#", id: "engineering", title: "Engineering" }],
+      onCategory: (id) => `category:${id}`,
+      onPost: (id) => `post:${id}`,
+      posts: [
+        {
+          href: "#",
+          id: "design-system",
+          imageAlt: "Cover",
+          imageSrc: "https://www.untitledui.com/images/blog/design-system",
+          subtitle: "Level up your product craft",
+          title: "Building a design system",
+        },
+      ],
+    } satisfies MenuBlogPostsWithSidebarProps<string>;
     expect(menuBlogPostsWithSidebar).toBeTypeOf("function");
-    expect(props).toBeDefined();
+    expect(props.onCategory("abc")).toBe("category:abc");
   });
 });

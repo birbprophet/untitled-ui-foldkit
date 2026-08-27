@@ -1,6 +1,6 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, mps/prefer-option-over-null -- Storybook CSF matrices are declarative fixture data and undefined exercises the optional label prop. */
 import * as S from "effect/Schema";
-import { loadingIndicator } from "ui/application";
+import { loadingIndicator } from "../../../src/application.ts";
 
 import { componentMeta, staticStory, matrix } from "../story.ts";
 

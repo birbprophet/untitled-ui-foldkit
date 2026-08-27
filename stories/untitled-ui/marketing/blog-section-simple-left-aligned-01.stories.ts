@@ -4,7 +4,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { blogSectionSimpleLeftAligned01 } from "../../../../../packages/ui/src/marketing/blog-section-simple-left-aligned-01.ts";
+import { blogSectionSimpleLeftAligned01 } from "../../../src/marketing/blog-section-simple-left-aligned-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Article = S.Struct({

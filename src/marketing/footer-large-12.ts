@@ -1,8 +1,9 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
 import { input } from "../base/fields.ts";
+import type { BrandLockup } from "../internal/brand.ts";
 import {
   marketingFooterLogo,
   marketingFooterNavCategories,
@@ -26,6 +27,7 @@ export interface FooterLarge12Props<Message> {
   readonly emailLabel: string;
   readonly emailPlaceholder: string;
   readonly formId: string;
+  readonly logo: BrandLockup;
   readonly newsletterDescription: string;
   readonly newsletterTitle: string;
   readonly onEmailInput: (value: string) => NoInfer<Message>;
@@ -175,7 +177,7 @@ export const footerLarge12 = <Message>(
               h.div(
                 [h.Class("flex flex-col gap-6 md:w-80")],
                 [
-                  marketingFooterLogo(false, h),
+                  marketingFooterLogo(props.logo, false, h),
                   h.p([h.Class(theme.description)], [props.description]),
                   socialProofBadge(props, h),
                 ],

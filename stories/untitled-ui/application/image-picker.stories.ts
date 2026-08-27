@@ -1,8 +1,12 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-low-signal-variable-names, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook exercises the controlled FoldKit model through exact Image Picker props. */
 import * as S from "effect/Schema";
 import type { Html, HtmlBuilder } from "foldkit/html";
-import { defaultImageAdjustments, imagePicker } from "ui/application";
-import type { ImageAdjustments, ImageFillMode, ImagePickerProps } from "ui/application";
+import { defaultImageAdjustments, imagePicker } from "../../../src/application.ts";
+import type {
+  ImageAdjustments,
+  ImageFillMode,
+  ImagePickerProps,
+} from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

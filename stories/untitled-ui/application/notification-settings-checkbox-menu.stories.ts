@@ -6,8 +6,11 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { notificationSettingsCheckboxMenu } from "ui/application";
-import type { NotificationSettingsCheckbox, NotificationSettingsInterval } from "ui/application";
+import { notificationSettingsCheckboxMenu } from "../../../src/application.ts";
+import type {
+  NotificationSettingsCheckbox,
+  NotificationSettingsInterval,
+} from "../../../src/application.ts";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
 

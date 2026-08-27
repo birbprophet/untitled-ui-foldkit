@@ -1,5 +1,5 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled native slideout preserves the authenticated fixed integration fixture and icon branches directly. */
-import { blobatarDataUri } from "avatar";
+import type { BrandMark } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -8,6 +8,7 @@ import { buttonUtility } from "../base/button-utility.ts";
 export type IntegrationMenuLocale = "en-US" | "pt-BR";
 
 export interface IntegrationMenuProps<Message> {
+  readonly brandMark: BrandMark;
   readonly copied: boolean;
   readonly id: string;
   readonly isOpen: boolean;
@@ -137,12 +138,6 @@ export const integrationMenu = <Message>(
   const copy = copyByLocale[props.locale];
   const titleId = `${props.id}-title`;
   const descriptionId = `${props.id}-description`;
-  const robotLogo = blobatarDataUri("siglata-integration-menu-logo", {
-    background: "squircle",
-    kind: "robot",
-    size: 112,
-    title: "Siglata robot logo",
-  });
   return h.div(
     [],
     props.isOpen
@@ -205,7 +200,7 @@ export const integrationMenu = <Message>(
                           h.div(
                             [h.Class("flex items-center gap-3")],
                             [
-                              appIcon(robotLogo, "Siglata robot logo", h),
+                              appIcon(props.brandMark.src, props.brandMark.alt, h),
                               lineIcon("switch", "size-5 text-fg-quaternary", h),
                               appIcon(linearIconUrl, "Linear", h),
                             ],

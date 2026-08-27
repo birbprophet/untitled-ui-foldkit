@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks -- Storybook Controls expose only upstream props; open, range, focus, and preset state remain in the FoldKit Model. */
 import * as S from "effect/Schema";
-import { dateRangePicker } from "ui/application";
-import type { DateRangeValue } from "ui/application";
+import { dateRangePicker } from "../../../src/application.ts";
+import type { DateRangeValue } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory } from "../story.ts";

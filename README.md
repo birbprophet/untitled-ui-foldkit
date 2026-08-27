@@ -1,49 +1,112 @@
-# untitled-ui-foldkit
+# @birbprophet/untitled-ui-foldkit
 
-FoldKit ports of authenticated Untitled UI v8 components for cross-project reuse.
-
-Siglata consumes this package as `packages/ui` for Storybook verification and product surfaces. Tokens, brand overrides, and the visual capture harness stay in `siglata/siglata`.
+Brand-neutral FoldKit ports of the authenticated Untitled UI v8 component catalog for
+reuse across FoldKit applications. Ports transcribe upstream anatomy, spacing,
+typography, responsive behavior, and interactions; consuming applications inject their
+identity (logos, avatars) and brand ramp at the host boundary.
 
 ## Status
 
-**619 / 619** authenticated component IDs verified (excluding RTL-only `rtl-demo`).
+**619 / 619** authenticated component IDs ported and verified (the 620th inventory id,
+RTL-only `rtl-demo`, is excluded — all supported locales are left-to-right).
 
-| Category | Verified | Total |
-| -------- | -------- | ----- |
-| Base | 48 | 48 |
-| Application | 128 | 128 |
-| Marketing | 443 | 443 |
+| Category    | Verified | Total |
+| ----------- | -------- | ----- |
+| Base        | 48       | 48    |
+| Application | 128      | 128   |
+| Marketing   | 443      | 443   |
 
-Synced from `siglata/siglata` at commit `a17df2fc`.
+Quality gates (identical toolchain to Siglata/Harnessful: vite-plus `vp check`/`vp test`
+over the house Oxlint stack — ultracite core, vendored Effect presets, `@rikalabs`,
+`@mpsuesser`, `@foldkit` plugins):
+
+- TypeScript: zero errors across `src/`, `tests/`, `stories/`.
+- Tests: **546 files / 625 tests green**, including catalog↔registry↔evidence
+  reconciliation.
+- Localized behavior: date components accept `"en-US" | "pt-BR"` (`Intl` weekday/date
+  formatting, e.g. `Sun/Sat` vs `dom./sáb.`); calendar parity is under
+  `tests/calendar-month.test.ts`.
+- Interaction parity: every component ships All variants / States / Dark / Responsive /
+  Interactions stories; base controls cover unfilled, partially-filled, activated,
+  disabled, and loading states.
 
 ## Consumption
 
-```json
-"ui": "github:birbprophet/untitled-ui-foldkit#<commit-sha>"
+```jsonc
+// package.json of the consuming app/repo
+"@birbprophet/untitled-ui-foldkit": "github:birbprophet/untitled-ui-foldkit#<commit-sha>"
 ```
 
 ```ts
-import { button } from "ui/base";
-import { careersSimple02 } from "ui/marketing";
+import { button } from "@birbprophet/untitled-ui-foldkit/base";
+import { careersSimple02 } from "@birbprophet/untitled-ui-foldkit/marketing";
+import { catalog } from "@birbprophet/untitled-ui-foldkit/catalog";
 ```
 
-Peer dependencies: `foldkit`, `effect`, Siglata tokens at the app boundary.
+Peer dependencies: `foldkit` and `effect`. There are no other runtime dependencies — no
+React, no icon runtime, no avatar generator inside the library.
 
-## Theme
+### Theme (brand colors)
+
+Ports style through CSS custom properties. Import your token register first, then the
+library theme:
 
 ```css
-@import "tokens/console.css";
-@import "ui/theme.css";
+@import "your-tokens/register.css"; /* defines --brand-50 … --brand-900 etc.   */
+@import "@birbprophet/untitled-ui-foldkit/theme.css";
 ```
 
-## Sync from Siglata
+Without a project register, import `default-brand.css` first to get the upstream purple
+ramp. Every brand hue, neutral surface, focus ring, and `_on-brand` text role resolves
+through these variables, so a host re-brand never forks component code.
+
+### Identity injection (logos & avatars)
+
+The library ships NO product artwork. Slots that upstream fills with its own logo or
+people photos are plain data props:
+
+```ts
+interface BrandMark {
+  readonly alt: string;
+  readonly src: string;
+}
+interface BrandLockup {
+  readonly mark: BrandMark;
+  readonly text?: string;
+  readonly wordmarkSrc?: string;
+}
+```
+
+- Header/footer/nav sections take a required `brand: BrandLockup`; renderers never emit
+  hardcoded product names or marks.
+- People avatars are `src` URL props on data items (`avatarUrl`, `authorAvatarSrc`,
+  …). Provide any deterministic avatar source you like — e.g. self-hosted
+  [blobatar](https://github.com/Alain00/blobatar) with `?gen=1` URLs pinned per name for
+  Gravatar-style stability.
+- Story fixtures demonstrating the pattern live in `stories/fixtures/brand.ts`
+  (dev-only; never imported by library code).
+
+## Repository layout
+
+```text
+src/       ports + catalog + evidence (published)
+tests/     house vitest suites, one per id (published)
+stories/   Storybook CSF corpus, five stories per id (dev only)
+theme.css / default-brand.css   token boundary styles (published)
+packages/oxlint-plugin          vendored house lint plugin (dev)
+```
+
+Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.152,
+vite-plus 0.3, oxlint 1.79, pnpm workspaces (`pnpm-workspace.yaml`). `pnpm install`,
+then `pnpm exec vp check` / `pnpm exec vp test`.
+
+## Sync bridge
+
+This repo is authoritative. To mirror the published surface into Siglata's workspace:
 
 ```bash
-cp -R siglata/packages/ui/src ./src
-cp -R siglata/packages/ui/tests ./tests
-cp siglata/packages/ui/theme.css ./
-cp -R siglata/apps/storybook/stories/untitled-ui ./stories/untitled-ui
-sed -i '' 's|../../../apps/storybook/stories/untitled-ui/|../../stories/untitled-ui/|g' tests/catalog.test.ts
+cp -R src packages/ui/src && cp -R tests packages/ui/tests && cp theme.css packages/ui/
 ```
 
-Keep this repo's `package.json` exports and peer dependency block; do not copy Siglata's workspace dependency pins wholesale.
+Story files map to `apps/storybook/stories/untitled-ui/**` with import specifiers already
+pointing at local sources.

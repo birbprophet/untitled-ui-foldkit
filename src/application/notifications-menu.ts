@@ -1,12 +1,23 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The authenticated notifications menu is a fixed localized feed with optional attachment and message anatomy. */
-import { blobatarDataUri } from "avatar";
-import type { AvatarKind } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { activityFeed } from "./activity-feed.ts";
 import type { ActivityFeedItem } from "./activity-feed.ts";
 
 export type NotificationsMenuLocale = "en-US" | "pt-BR";
+
+export type NotificationsMenuPersonKey =
+  | "Ava Wright"
+  | "Candice Wu"
+  | "Demi Wilkinson"
+  | "Drew Cano"
+  | "Eve Leroy"
+  | "Kate Morrison"
+  | "Koray Okumus"
+  | "Lana Steiner"
+  | "Natali Craig"
+  | "Orlando Diggs"
+  | "Phoenix Baker";
 
 export interface NotificationsMenuItem {
   readonly action: Readonly<{ content: string; href?: string; target?: string }>;
@@ -15,8 +26,7 @@ export interface NotificationsMenuItem {
     readonly size: string;
     readonly type: "mp4" | "pdf" | "txt";
   }>;
-  readonly avatarKind: AvatarKind;
-  readonly avatarSeed: string;
+  readonly avatarUrl: string;
   readonly date: string;
   readonly id: string;
   readonly message?: string;
@@ -48,11 +58,10 @@ interface SourceItem {
     readonly size: string;
     readonly type: "mp4" | "pdf" | "txt";
   }>;
-  readonly avatarKind: AvatarKind;
   readonly date: LocalizedText;
   readonly id: string;
   readonly message?: LocalizedText;
-  readonly name: string;
+  readonly name: NotificationsMenuPersonKey;
   readonly status: "online" | "offline";
   readonly unseen?: boolean;
 }
@@ -68,7 +77,6 @@ const sourceItems: readonly SourceItem[] = [
       size: "720 KB",
       type: "pdf",
     },
-    avatarKind: "agent",
     date: { en: "Just now", pt: "Agora" },
     id: "user-1",
     name: "Phoenix Baker",
@@ -80,7 +88,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Was invited to the team by", pt: "Recebeu convite para a equipe de" },
       target: { en: "Alina Hester", pt: "Alina Hester" },
     },
-    avatarKind: "robot",
     date: { en: "2 mins ago", pt: "Há 2 min" },
     id: "user-2",
     name: "Lana Steiner",
@@ -92,7 +99,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Was invited to the team by", pt: "Recebeu convite para a equipe de" },
       target: { en: "Alina Hester", pt: "Alina Hester" },
     },
-    avatarKind: "agent",
     date: { en: "2 mins ago", pt: "Há 2 min" },
     id: "user-3",
     name: "Demi Wilkinson",
@@ -104,7 +110,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Commented in", pt: "Comentou em" },
       target: { en: "Marketing site redesign", pt: "Redesign do site de marketing" },
     },
-    avatarKind: "robot",
     date: { en: "3 hours ago", pt: "Há 3 horas" },
     id: "user-4",
     name: "Candice Wu",
@@ -116,7 +121,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Was added to", pt: "Foi adicionado a" },
       target: { en: "Marketing site redesign", pt: "Redesign do site de marketing" },
     },
-    avatarKind: "robot",
     date: { en: "3 hours ago", pt: "Há 3 horas" },
     id: "user-41",
     name: "Candice Wu",
@@ -127,7 +131,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Added 3 labels to the project", pt: "Adicionou 3 rótulos ao projeto" },
       target: { en: "Marketing site redesign", pt: "Redesign do site de marketing" },
     },
-    avatarKind: "agent",
     date: { en: "6 hours ago", pt: "Há 6 horas" },
     id: "user-5",
     name: "Natali Craig",
@@ -138,7 +141,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Invited to the team", pt: "Convidou para a equipe" },
       target: { en: "Lana Steiner", pt: "Lana Steiner" },
     },
-    avatarKind: "agent",
     date: { en: "6 hours ago", pt: "Há 6 horas" },
     id: "user-511",
     name: "Natali Craig",
@@ -149,7 +151,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Created 7 tasks in", pt: "Criou 7 tarefas em" },
       target: { en: "Marketing site redesign", pt: "Redesign do site de marketing" },
     },
-    avatarKind: "robot",
     date: { en: "11 hours ago", pt: "Há 11 horas" },
     id: "user-512",
     name: "Orlando Diggs",
@@ -168,7 +169,6 @@ const sourceItems: readonly SourceItem[] = [
       size: "2.2 MB",
       type: "txt",
     },
-    avatarKind: "agent",
     date: { en: "12 hours ago", pt: "Há 12 horas" },
     id: "user-7",
     name: "Drew Cano",
@@ -179,7 +179,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Created the project", pt: "Criou o projeto" },
       target: { en: "Marketing site redesign", pt: "Redesign do site de marketing" },
     },
-    avatarKind: "agent",
     date: { en: "12 hours ago", pt: "Há 12 horas" },
     id: "user-70",
     name: "Drew Cano",
@@ -187,7 +186,6 @@ const sourceItems: readonly SourceItem[] = [
   },
   {
     action: { content: { en: "Sent you a message", pt: "Enviou uma mensagem para você" } },
-    avatarKind: "robot",
     date: { en: "5:20pm 20 Jan 2027", pt: "17h20, 20 jan 2027" },
     id: "user-6",
     message: {
@@ -204,7 +202,6 @@ const sourceItems: readonly SourceItem[] = [
       size: "6.6 MB",
       type: "mp4",
     },
-    avatarKind: "robot",
     date: { en: "4:16pm 20 Jan 2027", pt: "16h16, 20 jan 2027" },
     id: "user-78",
     name: "Koray Okumus",
@@ -212,7 +209,6 @@ const sourceItems: readonly SourceItem[] = [
   },
   {
     action: { content: { en: "Sent you a message", pt: "Enviou uma mensagem para você" } },
-    avatarKind: "robot",
     date: { en: "4:16pm 20 Jan 2027", pt: "16h16, 20 jan 2027" },
     id: "user-71",
     message: {
@@ -227,7 +223,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Invited to the team", pt: "Convidou para a equipe" },
       target: { en: "Alisa Hester", pt: "Alisa Hester" },
     },
-    avatarKind: "agent",
     date: { en: "2 mins ago", pt: "Há 2 min" },
     id: "user-72",
     name: "Ava Wright",
@@ -238,7 +233,6 @@ const sourceItems: readonly SourceItem[] = [
       content: { en: "Invited to the team", pt: "Convidou para a equipe" },
       target: { en: "Ava Wright", pt: "Ava Wright" },
     },
-    avatarKind: "robot",
     date: { en: "2 mins ago", pt: "Há 2 min" },
     id: "user-73",
     name: "Eve Leroy",
@@ -252,6 +246,7 @@ const localized = (text: LocalizedText, locale: NotificationsMenuLocale): string
 
 export const notificationsMenuFixture = (
   locale: NotificationsMenuLocale,
+  avatars: Readonly<Record<NotificationsMenuPersonKey, string>>,
 ): readonly NotificationsMenuItem[] =>
   sourceItems.map((item) => ({
     action: {
@@ -269,8 +264,7 @@ export const notificationsMenuFixture = (
             type: item.attachment.type,
           },
         }),
-    avatarKind: item.avatarKind,
-    avatarSeed: `notifications-menu-${item.name.toLowerCase().replaceAll(" ", "-")}`,
+    avatarUrl: avatars[item.name],
     date: localized(item.date, locale),
     id: item.id,
     ...(item.message === undefined ? {} : { message: localized(item.message, locale) }),
@@ -308,12 +302,7 @@ const feedItem = (notification: NotificationsMenuItem): ActivityFeedItem => ({
   message: notification.message,
   unseen: notification.unseen,
   user: {
-    avatarUrl: blobatarDataUri(notification.avatarSeed, {
-      background: "circle",
-      kind: notification.avatarKind,
-      size: 128,
-      title: notification.user.name,
-    }),
+    avatarUrl: notification.avatarUrl,
     href: notification.user.href,
     name: notification.user.name,
     status: notification.user.status,

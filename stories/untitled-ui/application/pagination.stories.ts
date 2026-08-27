@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noSpread, effect/noTernary, foldkit/prefer-callable-message-constructor, mps/avoid-direct-tag-checks, mps/require-is-prefix-for-boolean-schema-field -- Storybook exposes the upstream rounded prop and its play function uses the browser promise API. */
 import * as S from "effect/Schema";
-import { pagination } from "ui/application";
-import type { PaginationProps, PaginationVariant } from "ui/application";
+import { pagination } from "../../../src/application.ts";
+import type { PaginationProps, PaginationVariant } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

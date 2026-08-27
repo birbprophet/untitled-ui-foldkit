@@ -1,6 +1,7 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary -- The controlled mobile dialog mirrors the authenticated sidebar component branches directly. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
+import type { BrandLockup } from "../internal/brand.ts";
 import {
   sidebarAccountCard,
   sidebarNavigationIcon,
@@ -14,7 +15,9 @@ import type {
 } from "./sidebar-navigation-base.ts";
 
 export interface SidebarSectionDividersProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly activeUrl?: string;
+  readonly brand: BrandLockup;
   readonly expandedHrefs: readonly string[];
   readonly isAccountOpen: boolean;
   readonly isMobileOpen: boolean;
@@ -46,12 +49,15 @@ const content = <Message>(
     [
       h.div(
         [h.Class("flex flex-col gap-5 px-4 lg:px-5")],
-        [sidebarNavigationLogo(h), sidebarSearch(props.searchValue, props.onSearch, h)],
+        [
+          sidebarNavigationLogo(props.brand, h),
+          sidebarSearch(props.searchValue, props.onSearch, h),
+        ],
       ),
       sidebarNavList(navigationProps, h),
       h.div(
         [h.Class("mt-auto flex flex-col gap-5 px-2 py-4 lg:gap-6 lg:px-4")],
-        [sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, h)],
+        [sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, props.accountAvatarUrl, h)],
       ),
     ],
   );
@@ -71,7 +77,7 @@ export const sidebarSectionDividers = <Message>(
           ),
         ],
         [
-          sidebarNavigationLogo(h),
+          sidebarNavigationLogo(props.brand, h),
           h.button(
             [
               h.AriaExpanded(props.isMobileOpen),

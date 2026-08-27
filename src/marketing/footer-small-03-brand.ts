@@ -1,5 +1,5 @@
-/* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
-import { symbol } from "brand";
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, unicorn/no-nested-ternary -- Direct FoldKit transcription of the authenticated Untitled UI footer. */
+import type { BrandLockup } from "../internal/brand.ts";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
@@ -14,11 +14,17 @@ export interface FooterSmall03BrandProps<Message> {
   readonly copyright: string;
   readonly homeHref: string;
   readonly links: readonly FooterSmall03BrandLink[];
+  readonly logo: BrandLockup;
   readonly onHome: NoInfer<Message>;
   readonly onLink: (id: string) => NoInfer<Message>;
 }
 
-const logo = <Message>(homeHref: string, onHome: NoInfer<Message>, h: HtmlBuilder<Message>): Html =>
+const logo = <Message>(
+  homeHref: string,
+  onHome: NoInfer<Message>,
+  lockup: BrandLockup,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.a(
     [
       h.Class(
@@ -28,8 +34,12 @@ const logo = <Message>(homeHref: string, onHome: NoInfer<Message>, h: HtmlBuilde
       h.OnClick(onHome),
     ],
     [
-      h.img([h.Alt("Siglata"), h.Class("size-8 rounded-lg"), h.Src(symbol.url.href)]),
-      h.span([h.Class("text-lg font-semibold text-primary_on-brand")], ["Siglata"]),
+      h.img([h.Alt(lockup.mark.alt), h.Class("size-8 rounded-lg"), h.Src(lockup.mark.src)]),
+      ...(lockup.wordmarkSrc === undefined
+        ? lockup.text === undefined
+          ? []
+          : [h.span([h.Class("text-lg font-semibold text-primary_on-brand")], [lockup.text])]
+        : [h.img([h.Class("h-4.5 w-auto"), h.Src(lockup.wordmarkSrc)])]),
     ],
   );
 
@@ -46,7 +56,7 @@ export const footerSmall03Brand = <Message>(
           h.div(
             [h.Class("flex flex-col justify-between lg:flex-row lg:items-center")],
             [
-              h.div([h.Class("lg:w-40")], [logo(props.homeHref, props.onHome, h)]),
+              h.div([h.Class("lg:w-40")], [logo(props.homeHref, props.onHome, props.logo, h)]),
               h.ul(
                 [
                   h.Class(

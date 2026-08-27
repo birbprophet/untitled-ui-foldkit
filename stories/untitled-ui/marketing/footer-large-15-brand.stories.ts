@@ -2,25 +2,30 @@
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { footerLarge15Brand } from "../../../../../packages/ui/src/marketing/footer-large-15-brand.ts";
+import { footerLarge15Brand } from "../../../src/marketing/footer-large-15-brand.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({});
-const Model = Args;
-type Model = typeof Model.Type;
+const Args = S.Struct({ copyright: S.String });
+type Model = typeof Args.Type;
 
 const Action = m("FooterLarge15BrandAction", { id: S.String });
 type Message = typeof Action.Type;
 
 const definition = {
   Args,
-  Model,
+  Model: Args,
   init: (args: Model): Model => args,
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof footerLarge15Brand<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],
-      [footerLarge15Brand({ ...model, onLink: (linkId) => Action({ id: linkId }) }, h)],
+      [
+        footerLarge15Brand(
+          { ...model, logo: demoBrand(), onLink: (linkId) => Action({ id: linkId }) },
+          h,
+        ),
+      ],
     ),
 } as const;
 
@@ -53,10 +58,8 @@ export const Interactions = {
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
     const canvas = within(canvasElement);
-    const link = canvas.queryByRole("link");
-    if (link !== null) {
-      await userEvent.click(link);
-      await waitFor(() => expect(link).toBeVisible());
-    }
+    const link = canvas.getByRole("link");
+    await userEvent.click(link);
+    await waitFor(() => expect(link).toBeVisible());
   },
 };

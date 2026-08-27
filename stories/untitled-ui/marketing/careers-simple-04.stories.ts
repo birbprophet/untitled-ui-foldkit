@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { careersSimple04 } from "../../../../../packages/ui/src/marketing/careers-simple-04.ts";
+import { careersSimple04 } from "../../../src/marketing/careers-simple-04.ts";
 
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 

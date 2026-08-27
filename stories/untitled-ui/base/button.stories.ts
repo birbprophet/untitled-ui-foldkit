@@ -1,5 +1,5 @@
 /* oxlint-disable effect/noAsyncFunction, effect/noSpread -- Storybook CSF and play functions use Storybook's promise API directly. */
-import { button } from "ui/base";
+import { button } from "../../../src/base.ts";
 import { expect, userEvent, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveStory, matrix } from "../story.ts";

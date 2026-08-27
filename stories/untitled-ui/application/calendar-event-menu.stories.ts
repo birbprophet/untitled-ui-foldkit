@@ -6,10 +6,11 @@ import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
-import { calendarEventMenu } from "ui/application";
-import type { CalendarEventResponse } from "ui/application";
+import { calendarEventMenu } from "../../../src/application.ts";
+import type { CalendarEventResponse } from "../../../src/application.ts";
 
 import { componentMeta, liveCommandStory, waitForStoryReady } from "../story.ts";
+import { agentFace } from "../../fixtures/brand.ts";
 
 const Locale = S.Literals(["en-US", "pt-BR"]);
 const Response = S.Literals(["maybe", "no", "yes"]);
@@ -164,6 +165,13 @@ const definition = (showTrigger = false) => ({
           : []),
         calendarEventMenu(
           {
+            avatars: {
+              "ammar-foley": agentFace("Ammar Foley"),
+              "mathilde-lewis": agentFace("Mathilde Lewis"),
+              "olly-schroeder": agentFace("Olly Schroeder"),
+              "pippa-wilkinson": agentFace("Pippa Wilkinson"),
+              "sienna-hewitt": agentFace("Sienna Hewitt"),
+            },
             id: "calendar-event-menu-story",
             isOpen: model.isOpen,
             locale: model.locale,

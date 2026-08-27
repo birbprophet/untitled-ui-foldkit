@@ -2,7 +2,7 @@
 import * as S from "effect/Schema";
 import { expect, within } from "storybook/test";
 
-import { headerSpaceBetweenBrand } from "../../../../../packages/ui/src/marketing/header-space-between-brand.ts";
+import { headerSpaceBetweenBrand } from "../../../src/marketing/header-space-between-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({

@@ -25,6 +25,7 @@ export interface TabItem<Message> {
 
 export interface TabsProps<Message> {
   readonly ariaLabel: string;
+  readonly className?: string;
   readonly focusedId?: string;
   readonly fullWidth?: boolean;
   readonly id: string;
@@ -143,7 +144,9 @@ export const tabs = <Message>(props: TabsProps<Message>, h: HtmlBuilder<Message>
     [
       h.AriaLabel(props.ariaLabel),
       h.Attribute("aria-orientation", orientation),
-      h.Class(listClass(type, size, orientation, fullWidth)),
+      h.Class(
+        `${listClass(type, size, orientation, fullWidth)}${props.className === undefined ? "" : ` ${props.className}`}`,
+      ),
       h.Role("tablist"),
     ],
     props.items.map((item, index) => {

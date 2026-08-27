@@ -8,7 +8,7 @@ export interface ContentSimpleProps {
   readonly heading: string;
 }
 
-export const contentSimple = (props: ContentSimpleProps, h: HtmlBuilder): Html =>
+export const contentSimple = <Message>(props: ContentSimpleProps, h: HtmlBuilder<Message>): Html =>
   h.section(
     [h.Class("bg-bg-primary py-16 md:py-24"), h.Dir("ltr")],
     [

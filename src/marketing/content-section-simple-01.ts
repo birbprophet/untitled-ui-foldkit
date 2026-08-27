@@ -1,9 +1,12 @@
 /* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI content section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
-export interface ContentSectionSimple01Props {}
+export type ContentSectionSimple01Props = Record<never, never>;
 
-export const contentSectionSimple01 = (props: ContentSectionSimple01Props, h: HtmlBuilder): Html =>
+export const contentSectionSimple01 = <Message>(
+  props: ContentSectionSimple01Props,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.section(
     [h.Class("bg-bg-primary py-16 md:py-24"), h.Dir("ltr")],
     [
@@ -38,26 +41,24 @@ export const contentSectionSimple01 = (props: ContentSectionSimple01Props, h: Ht
                       ),
                     ],
                   ),
-                  [
-                    h.span(
-                      [h.Class("text-sm font-semibold text-text-brand-secondary md:text-md")],
-                      ["Features"],
-                    ),
-                    h.h2(
-                      [
-                        h.Class(
-                          "mt-3 text-display-sm font-semibold text-text-primary md:text-display-md",
-                        ),
-                      ],
-                      ["Beautiful analytics to grow smarter"],
-                    ),
-                    h.p(
-                      [h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")],
-                      [
-                        "Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users.",
-                      ],
-                    ),
-                  ],
+                  h.span(
+                    [h.Class("text-sm font-semibold text-text-brand-secondary md:text-md")],
+                    ["Features"],
+                  ),
+                  h.h2(
+                    [
+                      h.Class(
+                        "mt-3 text-display-sm font-semibold text-text-primary md:text-display-md",
+                      ),
+                    ],
+                    ["Beautiful analytics to grow smarter"],
+                  ),
+                  h.p(
+                    [h.Class("mt-4 text-lg text-text-tertiary md:mt-5 md:text-xl")],
+                    [
+                      "Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users.",
+                    ],
+                  ),
                 ],
               ),
               h.div(

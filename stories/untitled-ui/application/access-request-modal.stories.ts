@@ -4,20 +4,22 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { accessRequestModal } from "ui/application";
+import { accessRequestModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
 
+import { agentFace } from "../../fixtures/brand.ts";
+
 const Args = S.Struct({
-  avatarSeed: S.String,
+  avatarUrl: S.String,
   projectName: S.String,
   requesterEmail: S.String,
   requesterFirstName: S.String,
   requesterName: S.String,
 });
 const Model = S.Struct({
-  avatarSeed: S.String,
+  avatarUrl: S.String,
   isOpen: S.Boolean,
   projectName: S.String,
   requesterEmail: S.String,
@@ -54,7 +56,7 @@ const CloseAccessRequestDialog = Command.define("CloseAccessRequestDialog", {
 });
 
 const fixture = {
-  avatarSeed: "candice-wu-access-request",
+  avatarUrl: agentFace("Candice Wu"),
   projectName: "Marketing Website Design",
   requesterEmail: "candice@siglata.com",
   requesterFirstName: "Candice",
@@ -72,7 +74,7 @@ const definition = (initiallyOpen: boolean) => ({
   view: (model: Model, h: Parameters<typeof accessRequestModal<Message>>[1]) =>
     accessRequestModal(
       {
-        avatarSeed: model.avatarSeed,
+        avatarUrl: model.avatarUrl,
         id: "access-request-modal-story",
         isOpen: model.isOpen,
         onCancel: cancel,

@@ -1,7 +1,6 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noTernary -- Direct FoldKit transcription of the authenticated Untitled UI FAQ section. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
-import { avatar } from "../base/avatar.ts";
 import { button } from "../base/button.ts";
 
 export type FaqSimple02BrandIcon = "credit-card" | "file" | "heart" | "mail" | "slash" | "switch";
@@ -92,11 +91,9 @@ const featuredIcon = <Message>(
   h.div(
     [
       h.Class(
-        `${size === "lg" ? "hidden size-12 md:flex" : "flex size-10 md:hidden" 
-          } items-center justify-center rounded-lg ${ 
-          true
-            ? "bg-bg-brand-solid text-fg-white shadow-xs-skeuomorphic"
-            : "bg-bg-secondary text-fg-quaternary ring-1 ring-border-secondary ring-inset"}`,
+        `${
+          size === "lg" ? "hidden size-12 md:flex" : "flex size-10 md:hidden"
+        } items-center justify-center rounded-lg bg-bg-brand-solid text-fg-white shadow-xs-skeuomorphic`,
       ),
       h.DataAttribute("featured-icon", kind),
     ],
@@ -116,9 +113,6 @@ const featuredIcon = <Message>(
       ),
     ],
   );
-
-const avatarNode = <Message>(entry: FaqSimple02BrandAvatar, h: HtmlBuilder<Message>): Html =>
-  avatar({ alt: entry.alt, size: entry.size, src: entry.src }, h);
 
 export const faqSimple02Brand = <Message>(
   props: FaqSimple02BrandProps<Message>,

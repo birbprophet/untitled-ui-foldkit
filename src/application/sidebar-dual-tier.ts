@@ -1,6 +1,7 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, mps/prefer-arr-match -- The renderer follows the authenticated responsive and controlled-hover branches directly. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
+import type { BrandLockup } from "../internal/brand.ts";
 import {
   sidebarAccountCard,
   sidebarNavigationIcon,
@@ -12,7 +13,9 @@ import {
 import type { SidebarNavigationItem } from "./sidebar-navigation-base.ts";
 
 export interface SidebarDualTierProps<Message> {
+  readonly accountAvatarUrl: string;
   readonly activeUrl?: string;
+  readonly brand: BrandLockup;
   readonly currentHref: string;
   readonly expandedHrefs: readonly string[];
   readonly featureCard?: Html;
@@ -59,7 +62,10 @@ const mainSidebar = <Message>(
         [
           h.div(
             [h.Class("flex flex-col gap-5 px-4 lg:px-5")],
-            [sidebarNavigationLogo(h), sidebarSearch(props.searchValue, props.onSearch, h)],
+            [
+              sidebarNavigationLogo(props.brand, h),
+              sidebarSearch(props.searchValue, props.onSearch, h),
+            ],
           ),
           ...(mobile
             ? [
@@ -98,7 +104,12 @@ const mainSidebar = <Message>(
                 ),
               ),
               ...(props.featureCard === undefined ? [] : [props.featureCard]),
-              sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, h),
+              sidebarAccountCard(
+                props.isAccountOpen,
+                props.onAccountToggle,
+                props.accountAvatarUrl,
+                h,
+              ),
             ],
           ),
         ],
@@ -151,7 +162,7 @@ export const sidebarDualTier = <Message>(
           ),
         ],
         [
-          sidebarNavigationLogo(h),
+          sidebarNavigationLogo(props.brand, h),
           h.button(
             [
               h.AriaExpanded(props.isMobileOpen),

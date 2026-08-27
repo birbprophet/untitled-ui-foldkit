@@ -2,21 +2,35 @@
 import * as S from "effect/Schema";
 import { ts as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
-import { footerLarge12 } from "../../../../../packages/ui/src/marketing/footer-large-12.ts";
+import { footerLarge12 } from "../../../src/marketing/footer-large-12.ts";
+import { demoBrand } from "../../fixtures/brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
-const Args = S.Struct({});
-const Model = Args;
-type Model = typeof Model.Type;
+const SocialProofAvatar = S.Struct({ alt: S.String, id: S.String, src: S.String });
+const Args = S.Struct({
+  copyright: S.String,
+  description: S.String,
+  email: S.String,
+  emailHint: S.String,
+  emailLabel: S.String,
+  emailPlaceholder: S.String,
+  formId: S.String,
+  newsletterDescription: S.String,
+  newsletterTitle: S.String,
+  socialProofAvatars: S.Array(SocialProofAvatar),
+  socialProofLabel: S.String,
+  subscribeLabel: S.String,
+});
+type Model = typeof Args.Type;
 
 const Action = m("FooterLarge12Action", { id: S.String });
 type Message = typeof Action.Type;
 
 const definition = {
   Args,
-  Model,
+  Model: Args,
   init: (args: Model): Model => args,
-  update: (model: Model, message: Message): Model => model,
+  update: (model: Model, _message: Message): Model => model,
   view: (model: Model, h: Parameters<typeof footerLarge12<Message>>[1]) =>
     h.div(
       [h.Class("-m-8")],
@@ -24,6 +38,7 @@ const definition = {
         footerLarge12(
           {
             ...model,
+            logo: demoBrand(),
             onEmailInput: (email) => Action({ id: `email:${email}` }),
             onLink: (linkId) => Action({ id: linkId }),
             onSocial: (socialId) => Action({ id: socialId }),
@@ -40,7 +55,7 @@ const args = {
   copyright: "© 2026 Siglata. All rights reserved.",
   description: "Design amazing digital experiences that create more happy in the world.",
   email: "",
-  emailHint: "newsletter-hint",
+  emailHint: "We care about your data in our privacy policy.",
   emailLabel: "Email",
   emailPlaceholder: "Enter your email",
   formId: "footer-large-12-form",
@@ -89,10 +104,8 @@ export const Interactions = {
   play: async ({ canvasElement }: { readonly canvasElement: HTMLElement }) => {
     await waitForStoryReady(canvasElement);
     const canvas = within(canvasElement);
-    const link = canvas.queryByRole("link");
-    if (link !== null) {
-      await userEvent.click(link);
-      await waitFor(() => expect(link).toBeVisible());
-    }
+    const link = canvas.getByRole("link");
+    await userEvent.click(link);
+    await waitFor(() => expect(link).toBeVisible());
   },
 };

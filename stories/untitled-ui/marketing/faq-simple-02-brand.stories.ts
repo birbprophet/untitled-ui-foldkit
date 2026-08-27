@@ -6,7 +6,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   faqSimple02Brand,
   faqSimple02BrandDefaultItems,
-} from "../../../../../packages/ui/src/marketing/faq-simple-02-brand.ts";
+} from "../../../src/marketing/faq-simple-02-brand.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Args = S.Struct({
@@ -18,14 +18,14 @@ const Args = S.Struct({
   items: S.Array(
     S.Struct({
       answer: S.String,
-      icon: S.Union(
+      icon: S.Union([
         S.Literal("credit-card"),
         S.Literal("file"),
         S.Literal("heart"),
         S.Literal("mail"),
         S.Literal("slash"),
         S.Literal("switch"),
-      ),
+      ]),
       id: S.String,
       question: S.String,
     }),

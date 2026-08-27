@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   contactIconCards01,
   contactIconCards01Cards,
-} from "../../../../../packages/ui/src/marketing/contact-icon-cards-01.ts";
+} from "../../../src/marketing/contact-icon-cards-01.ts";
 
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 

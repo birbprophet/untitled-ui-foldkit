@@ -1,5 +1,5 @@
 /* oxlint-disable effect/noSpread -- Storybook component metadata is extended with the exact authenticated title. */
-import { commandMenuActionsStacked } from "ui/application";
+import { commandMenuActionsStacked } from "../../../src/application.ts";
 
 import { componentMeta } from "../story.ts";
 import { commandMenuActionStories } from "./command-menu-actions.story.ts";

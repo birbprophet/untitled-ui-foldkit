@@ -4,7 +4,7 @@ import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
 import { ts as m } from "foldkit/schema";
-import { emailInviteModal } from "ui/application";
+import { emailInviteModal } from "../../../src/application.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { componentMeta, waitForStoryReady, liveCommandStory } from "../story.ts";
@@ -117,8 +117,8 @@ export const Interactions = {
     const canvas = within(canvasElement.ownerDocument.body);
     const dialog = await canvas.findByRole("dialog", { name: "Invite collaborators" });
     const firstField = within(dialog).getByRole("textbox", { name: /Email address/u });
-    await userEvent.type(firstField, "olivia@example.com");
-    await expect(firstField).toHaveValue("olivia@example.com");
+    await userEvent.type(firstField, "olivia@siglata.com");
+    await expect(firstField).toHaveValue("olivia@siglata.com");
     await userEvent.click(within(dialog).getByRole("button", { name: "Add another" }));
     await waitFor(() => expect(within(dialog).getAllByRole("textbox")).toHaveLength(3));
     await userEvent.keyboard("{Escape}");

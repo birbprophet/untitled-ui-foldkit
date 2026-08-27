@@ -1,6 +1,4 @@
 /* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/no-nested-ternary -- Avatar fallback and adornment precedence mirror upstream. */
-import { blobatarDataUri } from "avatar";
-import type { AvatarKind } from "avatar";
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
@@ -9,13 +7,11 @@ export interface AvatarProps<Message> {
   readonly alt?: string;
   readonly border?: boolean;
   readonly count?: number;
-  readonly entityKind?: AvatarKind;
   readonly focusable?: boolean;
   readonly initials?: string;
   readonly isImageFailed?: boolean;
   readonly onImageError?: NoInfer<Message>;
   readonly rounded?: boolean;
-  readonly seed?: string;
   readonly size?: AvatarSize;
   readonly src?: string;
   readonly status?: "online" | "offline";
@@ -175,23 +171,13 @@ const avatarAdornment = <Message>(
 export const avatar = <Message>(props: AvatarProps<Message>, h: HtmlBuilder<Message>): Html => {
   const size = props.size ?? "md";
   const rounded = props.rounded !== false;
-  const generated =
-    props.seed === undefined
-      ? undefined
-      : blobatarDataUri(props.seed, {
-          background: "circle",
-          kind: props.entityKind ?? "agent",
-          size: 128,
-          title: props.alt ?? props.seed,
-        });
-  const imageSource = props.src ?? generated;
-  const canShowImage = imageSource !== undefined && props.isImageFailed !== true;
+  const canShowImage = props.src !== undefined && props.isImageFailed !== true;
   const imageError = props.onImageError;
   const main = canShowImage
     ? h.img([
         h.DataAttribute("avatar-img", ""),
         h.Class("size-full object-cover"),
-        h.Src(imageSource),
+        h.Src(props.src),
         h.Alt(props.alt ?? ""),
         ...(imageError === undefined ? [] : [h.OnError(imageError)]),
       ])

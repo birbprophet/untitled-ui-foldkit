@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import {
   contactFormAndImage01,
   contactFormAndImage01Countries,
-} from "../../../../../packages/ui/src/marketing/contact-form-and-image-01.ts";
+} from "../../../src/marketing/contact-form-and-image-01.ts";
 import { componentMeta, liveStory, waitForStoryReady } from "../story.ts";
 
 const Errors = S.Struct({
