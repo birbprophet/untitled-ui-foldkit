@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: pnpm install --frozen-lockfile=false
+      - name: Types
+        run: pnpm exec tsc --noEmit
+      - name: Lint
+        run: pnpm exec vp lint
+      - name: Test
+        run: pnpm exec vp test
