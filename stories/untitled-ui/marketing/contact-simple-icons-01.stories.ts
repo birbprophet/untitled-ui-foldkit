@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF uses the browser promise API. */
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { contactSimpleIcons01 } from "../../../src/marketing/contact-simple-icons-01.ts";

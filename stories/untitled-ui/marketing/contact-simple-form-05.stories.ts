@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook CSF exercises controlled FoldKit form interactions. */
 import * as Match from "effect/Match";
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
 import { contactSimpleForm05 } from "../../../src/marketing/contact-simple-form-05.ts";

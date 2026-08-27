@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, mps/avoid-direct-tag-checks -- Storybook CSF and browser interactions use promise APIs and direct event tags. */
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { bannerSlimDefaultFullWidth } from "../../../src/marketing/banner-slim-default-full-width.ts";

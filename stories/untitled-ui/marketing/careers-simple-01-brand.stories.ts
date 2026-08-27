@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, mps/avoid-direct-tag-checks -- Storybook exercises the controlled FoldKit section in Chromium. */
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { careersSimple01Brand } from "../../../src/marketing/careers-simple-01-brand.ts";

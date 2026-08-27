@@ -3,7 +3,7 @@ import * as Arr from "effect/Array";
 import * as Match from "effect/Match";
 import * as Option from "effect/Option";
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { blogSectionSimpleCenterAligned02 } from "../../../src/marketing/blog-section-simple-center-aligned-02.ts";

@@ -93,8 +93,6 @@ export { radioGroups } from "./base/radio-groups.ts";
 export type { RadioGroupsProps } from "./base/radio-groups.ts";
 export { select } from "./base/select.ts";
 export type { SelectProps } from "./base/select.ts";
-export { selectShared } from "./base/select-shared.ts";
-export type { SelectSharedItem, SelectSharedProps } from "./base/select-shared.ts";
 export { socialButton } from "./base/social-button.ts";
 export type {
   SocialButtonNetwork,

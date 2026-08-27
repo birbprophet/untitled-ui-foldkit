@@ -31,7 +31,6 @@ import { playButtonIcon } from "./base/play-button-icon.ts";
 import { pinInput } from "./base/pin-input.ts";
 import { radioGroups } from "./base/radio-groups.ts";
 import { select } from "./base/select.ts";
-import { selectShared } from "./base/select-shared.ts";
 import { socialButton } from "./base/social-button.ts";
 import { tags } from "./base/tags.ts";
 import { tagSelect } from "./base/tag-select.ts";
@@ -650,7 +649,6 @@ export const verifiedBaseComponents = {
   "radio-buttons": radioButtons,
   "radio-groups": radioGroups,
   select,
-  "select-shared": selectShared,
   "simple-circle": simpleCircle,
   slider,
   "social-button": socialButton,
@@ -1239,6 +1237,8 @@ export const verifiedMarketingComponents = {
   "testimonial-split-image-02": testimonialSplitImage02,
   "testimonial-split-image-03": testimonialSplitImage03,
 } as const;
+
+export type MarketingComponentId = keyof typeof verifiedMarketingComponents;
 
 export const verifiedComponents = {
   ...verifiedApplicationComponents,

@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/prefer-destructuring, mps/avoid-direct-tag-checks -- Storybook exercises controlled tab and link behavior in Chromium. */
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { contactFeaturesTabsMap02 } from "../../../src/marketing/contact-features-tabs-map-02.ts";

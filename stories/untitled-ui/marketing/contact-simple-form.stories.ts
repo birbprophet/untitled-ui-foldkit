@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, @rikalabs/no-placeholder-implementation, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/avoid-direct-tag-checks, unicorn/no-nested-ternary -- Storybook CSF and browser interactions use promise APIs, and the play asserts the native placeholder of the authenticated phone field. */
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, within } from "storybook/test";
 
 import {

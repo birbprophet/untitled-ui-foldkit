@@ -1,7 +1,7 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/complexity, eslint/prefer-destructuring, mps/avoid-direct-tag-checks -- Storybook exercises controlled form validation and contact actions in Chromium. */
 import * as Arr from "effect/Array";
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { contactIconsAndFormBrand } from "../../../src/marketing/contact-icons-and-form-brand.ts";

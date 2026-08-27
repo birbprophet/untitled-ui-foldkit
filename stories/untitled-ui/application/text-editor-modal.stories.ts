@@ -5,7 +5,7 @@ import { Command } from "foldkit";
 import type { Command as CommandValue } from "foldkit/command";
 import * as FoldkitCommand from "foldkit/command";
 import * as Dom from "foldkit/dom";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { textEditorModal } from "../../../src/application/text-editor-modal.ts";
 import type { TextEditorModalEditor } from "../../../src/application/text-editor-modal.ts";
 import { runTextEditorCommand } from "../../../src/base.ts";

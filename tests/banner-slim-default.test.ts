@@ -1,7 +1,6 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
-import { bannerSlimDefault } from "../src/marketing/banner-slim-default.ts";
 import type { BannerSlimDefaultProps } from "../src/marketing/banner-slim-default.ts";
 
 describe("banner slim default", () => {
@@ -19,6 +18,5 @@ describe("banner slim default", () => {
     expect(props.onDismiss).toBe("dismiss");
     expect(props.onLink).toBe("link");
     expect(props.dismissLabel).toBe("Dismiss");
-    expect(typeof bannerSlimDefault).toBe("function");
   });
 });

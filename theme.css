@@ -1,3 +1,10 @@
+/*
+ * Semantic Untitled UI theme layer. Maps Tailwind `@theme` roles to CSS custom
+ * properties. Brand colour is never hardcoded here: `--color-brand-*` and
+ * `--color-focus-ring` resolve through `--brand-*`, which consumers define in
+ * `default-brand.css` (Untitled purple) or override before this import (Siglata
+ * teal via `tokens/console.css`).
+ */
 @theme {
   --breakpoint-xs: 30rem;
   --font-body: var(--font-family);

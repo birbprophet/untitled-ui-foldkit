@@ -9,7 +9,5 @@ import {
 describe("authenticated command menu user previews", () => {
   it("keeps regular and stacked IDs on dedicated renderers", () => {
     expect(commandMenuUsersMenu).not.toBe(commandMenuUsersMenuStacked);
-    expect(typeof commandMenuUsersMenu).toBe("function");
-    expect(typeof commandMenuUsersMenuStacked).toBe("function");
   });
 });

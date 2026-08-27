@@ -16,8 +16,10 @@
   "exports": {
     "./application": "./src/application.ts",
     "./base": "./src/base.ts",
+    "./brand-context": "./src/brand-context.ts",
     "./catalog": "./src/catalog.ts",
     "./marketing": "./src/marketing.ts",
+    "./theme": "./src/theme.ts",
     "./theme.css": "./theme.css",
     "./package.json": "./package.json",
     "./application/*": "./src/application/*",
@@ -29,9 +31,15 @@
     "check": "vp check",
     "test": "vp test"
   },
+  "overrides": {
+    "@effect/vitest": "4.0.0-rc.112",
+    "effect": "4.0.0-rc.112",
+    "foldkit": "0.153.0",
+    "oxlint": "1.79.0"
+  },
   "dependencies": {
     "effect": "4.0.0-rc.112",
-    "foldkit": "0.152.0"
+    "foldkit": "0.153.0"
   },
   "devDependencies": {
     "@effect/vitest": "4.0.0-rc.112",

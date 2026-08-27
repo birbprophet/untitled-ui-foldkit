@@ -3,7 +3,7 @@ import * as S from "effect/Schema";
 import * as Effect from "effect/Effect";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import type { DropdownItemSpec, DropdownSelectionIndicator } from "../../../src/base.ts";
 import { dropdown } from "../../../src/base.ts";
 import { expect, userEvent, waitFor, within } from "storybook/test";

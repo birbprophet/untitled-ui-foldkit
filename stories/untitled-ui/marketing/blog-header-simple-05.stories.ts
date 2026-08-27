@@ -1,6 +1,6 @@
 /* oxlint-disable @rikalabs/effect-no-async-await, effect/noAsyncFunction, effect/noReturnInArrow, effect/noSpread, effect/noTernary, eslint/no-nested-ternary, mps/avoid-direct-tag-checks, unicorn/no-nested-ternary -- Storybook CSF and browser interactions use promise APIs. */
 import * as S from "effect/Schema";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import { blogHeaderSimple05 } from "../../../src/marketing/blog-header-simple-05.ts";

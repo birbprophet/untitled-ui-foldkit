@@ -9,7 +9,34 @@ import {
   verifiedBaseComponents,
   verifiedMarketingComponents,
 } from "../src/registry.ts";
-import { verifiedEvidence } from "../src/verification.ts";
+import { interactionVerifiedIds, verifiedEvidence } from "../src/verification.ts";
+
+const storyRoot = new URL("../stories/untitled-ui/", import.meta.url);
+
+const sourceFilesUnder = function sourceFilesUnder(root: URL, relative = ""): readonly string[] {
+  const directory = new URL(relative, root);
+  const entries = readdirSync(directory, { withFileTypes: true });
+  const fromSubdirs = entries
+    .filter((entry) => entry.isDirectory())
+    .flatMap((entry) => sourceFilesUnder(root, `${relative}${entry.name}/`));
+  const fromFiles = entries
+    .filter((entry) => entry.isFile() && `${relative}${entry.name}`.endsWith(".stories.ts"))
+    .map((entry) => `${relative}${entry.name}`);
+  return fromSubdirs.concat(fromFiles);
+};
+
+const componentId = (source: string): string =>
+  /componentMeta\("(?<id>[^"]+)"\)/u.exec(source)?.groups?.id ?? "";
+
+const interactionPlayStoryIds = (): readonly string[] =>
+  sourceFilesUnder(storyRoot)
+    .filter((relative) => {
+      const source = readFileSync(new URL(relative, storyRoot), "utf-8");
+      return source.includes("export const Interactions") && source.includes("play: async");
+    })
+    .map((relative) => componentId(readFileSync(new URL(relative, storyRoot), "utf-8")))
+    .filter((id) => id !== "")
+    .toSorted();
 
 it("the supported catalog excludes the authenticated RTL-only demonstration", () => {
   expect(catalog).toHaveLength(619);
@@ -24,6 +51,21 @@ it("every visible component has verification evidence", () => {
   expect(verifiedCatalog.map((entry) => entry.id).toSorted()).toEqual(
     Object.keys(verifiedEvidence).toSorted(),
   );
+});
+
+it("marks interaction verified only for ids whose stories ship an Interactions play function", () => {
+  const playStorySet = new Set(interactionPlayStoryIds());
+  const verifiedInteractionSet = new Set<string>(interactionVerifiedIds);
+  for (const id of interactionVerifiedIds) {
+    expect(playStorySet.has(id)).toBe(true);
+    expect(verifiedEvidence[id]?.interaction).toBe("verified");
+  }
+  for (const [id, evidence] of Object.entries(verifiedEvidence)) {
+    if (verifiedInteractionSet.has(id)) {
+      continue;
+    }
+    expect(evidence.interaction).toBe("not gated: no Interactions play story");
+  }
 });
 
 it("every catalog entry records its public catalog metadata", () => {

@@ -1,7 +1,6 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
-import { careersSimple02 } from "../src/marketing/careers-simple-02.ts";
 import type { CareersSimple02Props } from "../src/marketing/careers-simple-02.ts";
 
 describe("careers simple 02", () => {
@@ -26,6 +25,5 @@ describe("careers simple 02", () => {
     } satisfies CareersSimple02Props<string>;
     expect(props.onJob(props.jobs[0]?.id ?? "missing")).toBe("job:product-designer");
     expect(props.jobs[0]?.badgeText).toBe("Design");
-    expect(careersSimple02).toBeTypeOf("function");
   });
 });

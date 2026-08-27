@@ -3,7 +3,7 @@ import * as Effect from "effect/Effect";
 import * as S from "effect/Schema";
 import { Command } from "foldkit";
 import * as Dom from "foldkit/dom";
-import { ts as m } from "foldkit/schema";
+import { taggedStruct as m } from "foldkit/schema";
 import { userSelectionModal } from "../../../src/application.ts";
 import { expect, userEvent, within } from "storybook/test";
 

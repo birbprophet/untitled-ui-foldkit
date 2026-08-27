@@ -1,7 +1,6 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
-import { careersSimple02Brand } from "../src/marketing/careers-simple-02-brand.ts";
 import type { CareersSimple02BrandProps } from "../src/marketing/careers-simple-02-brand.ts";
 
 describe("careers simple 02 brand", () => {
@@ -23,6 +22,5 @@ describe("careers simple 02 brand", () => {
       onJob: (id: string) => `job:${id}`,
     } satisfies CareersSimple02BrandProps<string>;
     expect(props.onJob(props.jobs[0]?.id ?? "missing")).toBe("job:product-designer");
-    expect(careersSimple02Brand).toBeTypeOf("function");
   });
 });

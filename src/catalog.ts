@@ -22,7 +22,12 @@ export interface CatalogEntry {
 
 type CatalogSourceEntry = Omit<
   CatalogEntry,
-  "accessLevel" | "dependencies" | "documentedVariants" | "storybookTitle" | "verification"
+  | "accessLevel"
+  | "dependencies"
+  | "documentedVariants"
+  | "storybookTitle"
+  | "status"
+  | "verification"
 >;
 
 const catalogSource = [
@@ -33,7 +38,6 @@ const catalogSource = [
     id: "app-store-buttons",
     sourcePath: "src/components/base/buttons/app-store-buttons.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -42,7 +46,6 @@ const catalogSource = [
     id: "avatar",
     sourcePath: "src/components/base/avatar/avatar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -51,7 +54,6 @@ const catalogSource = [
     id: "badge-groups",
     sourcePath: "src/components/base/badges/badge-groups.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -60,7 +62,6 @@ const catalogSource = [
     id: "badges",
     sourcePath: "src/components/base/badges/badges.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -69,7 +70,6 @@ const catalogSource = [
     id: "button-group",
     sourcePath: "src/components/base/button-group/button-group.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -78,7 +78,6 @@ const catalogSource = [
     id: "button-utility",
     sourcePath: "src/components/base/buttons/button-utility.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -87,7 +86,6 @@ const catalogSource = [
     id: "button",
     sourcePath: "src/components/base/buttons/button.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "base",
@@ -96,7 +94,6 @@ const catalogSource = [
     id: "checkbox",
     sourcePath: "src/components/base/checkbox/checkbox.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -105,7 +102,6 @@ const catalogSource = [
     id: "combobox",
     sourcePath: "src/components/base/select/combobox.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -114,7 +110,6 @@ const catalogSource = [
     id: "dropdown-account-breadcrumb",
     sourcePath: "src/components/base/dropdown/dropdown-account-breadcrumb.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -123,7 +118,6 @@ const catalogSource = [
     id: "dropdown-account-button",
     sourcePath: "src/components/base/dropdown/dropdown-account-button.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -132,7 +126,6 @@ const catalogSource = [
     id: "dropdown-account-card-md",
     sourcePath: "src/components/base/dropdown/dropdown-account-card-md.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -141,7 +134,6 @@ const catalogSource = [
     id: "dropdown-account-card-sm",
     sourcePath: "src/components/base/dropdown/dropdown-account-card-sm.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -150,7 +142,6 @@ const catalogSource = [
     id: "dropdown-account-card-xs",
     sourcePath: "src/components/base/dropdown/dropdown-account-card-xs.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -159,7 +150,6 @@ const catalogSource = [
     id: "dropdown-avatar",
     sourcePath: "src/components/base/dropdown/dropdown-avatar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -168,7 +158,6 @@ const catalogSource = [
     id: "dropdown-button-advanced",
     sourcePath: "src/components/base/dropdown/dropdown-button-advanced.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -177,7 +166,6 @@ const catalogSource = [
     id: "dropdown-button-link",
     sourcePath: "src/components/base/dropdown/dropdown-button-link.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -186,7 +174,6 @@ const catalogSource = [
     id: "dropdown-button-simple",
     sourcePath: "src/components/base/dropdown/dropdown-button-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -195,7 +182,6 @@ const catalogSource = [
     id: "dropdown-context-menu-advanced",
     sourcePath: "src/components/base/dropdown/dropdown-context-menu-advanced.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -204,7 +190,6 @@ const catalogSource = [
     id: "dropdown-context-menu-simple",
     sourcePath: "src/components/base/dropdown/dropdown-context-menu-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -213,7 +198,6 @@ const catalogSource = [
     id: "dropdown-icon-advanced",
     sourcePath: "src/components/base/dropdown/dropdown-icon-advanced.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -222,7 +206,6 @@ const catalogSource = [
     id: "dropdown-icon-simple",
     sourcePath: "src/components/base/dropdown/dropdown-icon-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -231,7 +214,6 @@ const catalogSource = [
     id: "dropdown-integration",
     sourcePath: "src/components/base/dropdown/dropdown-integration.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -240,7 +222,6 @@ const catalogSource = [
     id: "dropdown-search-advanced",
     sourcePath: "src/components/base/dropdown/dropdown-search-advanced.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -249,7 +230,6 @@ const catalogSource = [
     id: "dropdown-search-simple",
     sourcePath: "src/components/base/dropdown/dropdown-search-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -258,7 +238,6 @@ const catalogSource = [
     id: "dropdown",
     sourcePath: "src/components/base/dropdown/dropdown.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -267,7 +246,6 @@ const catalogSource = [
     id: "file-upload-trigger",
     sourcePath: "src/components/base/file-upload-trigger/file-upload-trigger.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -276,7 +254,6 @@ const catalogSource = [
     id: "form",
     sourcePath: "src/components/base/form/form.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -285,7 +262,6 @@ const catalogSource = [
     id: "hook-form",
     sourcePath: "src/components/base/form/hook-form.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -294,7 +270,6 @@ const catalogSource = [
     id: "input",
     sourcePath: "src/components/base/input/input.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -303,7 +278,6 @@ const catalogSource = [
     id: "pin-input",
     sourcePath: "src/components/base/input/pin-input.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -312,7 +286,6 @@ const catalogSource = [
     id: "play-button-icon",
     sourcePath: "src/components/base/video-player/play-button-icon.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -321,7 +294,6 @@ const catalogSource = [
     id: "progress-circles",
     sourcePath: "src/components/base/progress-indicators/progress-circles.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -330,7 +302,6 @@ const catalogSource = [
     id: "progress-indicators",
     sourcePath: "src/components/base/progress-indicators/progress-indicators.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -339,7 +310,6 @@ const catalogSource = [
     id: "radio-buttons",
     sourcePath: "src/components/base/radio-buttons/radio-buttons.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -348,7 +318,6 @@ const catalogSource = [
     id: "radio-groups",
     sourcePath: "src/components/base/radio-groups/radio-groups.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -357,7 +326,6 @@ const catalogSource = [
     id: "select-shared",
     sourcePath: "src/components/base/select/select-shared.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -366,7 +334,6 @@ const catalogSource = [
     id: "select",
     sourcePath: "src/components/base/select/select.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -375,7 +342,6 @@ const catalogSource = [
     id: "simple-circle",
     sourcePath: "src/components/base/progress-indicators/simple-circle.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -384,7 +350,6 @@ const catalogSource = [
     id: "slider",
     sourcePath: "src/components/base/slider/slider.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -393,7 +358,6 @@ const catalogSource = [
     id: "social-button",
     sourcePath: "src/components/base/buttons/social-button.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -402,7 +366,6 @@ const catalogSource = [
     id: "tag-select",
     sourcePath: "src/components/base/select/tag-select.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -411,7 +374,6 @@ const catalogSource = [
     id: "tags",
     sourcePath: "src/components/base/tags/tags.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -420,7 +382,6 @@ const catalogSource = [
     id: "text-editor",
     sourcePath: "src/components/base/text-editor/text-editor.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -429,7 +390,6 @@ const catalogSource = [
     id: "textarea",
     sourcePath: "src/components/base/textarea/textarea.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -438,7 +398,6 @@ const catalogSource = [
     id: "toggle",
     sourcePath: "src/components/base/toggle/toggle.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -447,7 +406,6 @@ const catalogSource = [
     id: "tooltip",
     sourcePath: "src/components/base/tooltip/tooltip.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "base",
@@ -456,7 +414,6 @@ const catalogSource = [
     id: "video-player",
     sourcePath: "src/components/base/video-player/video-player.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -465,7 +422,6 @@ const catalogSource = [
     id: "activity-feed",
     sourcePath: "src/components/application/activity-feed/activity-feed.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -474,7 +430,6 @@ const catalogSource = [
     id: "alerts",
     sourcePath: "src/components/application/alerts/alerts.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -483,7 +438,6 @@ const catalogSource = [
     id: "breadcrumbs",
     sourcePath: "src/components/application/breadcrumbs/breadcrumbs.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -492,7 +446,6 @@ const catalogSource = [
     id: "calendar",
     sourcePath: "src/components/application/calendar/calendar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -501,7 +454,6 @@ const catalogSource = [
     id: "carousel-base",
     sourcePath: "src/components/application/carousel/carousel-base.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -510,7 +462,6 @@ const catalogSource = [
     id: "charts-base",
     sourcePath: "src/components/application/charts/charts-base.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -519,7 +470,6 @@ const catalogSource = [
     id: "code-snippet",
     sourcePath: "src/components/application/code-snippet/code-snippet.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -528,7 +478,6 @@ const catalogSource = [
     id: "color-picker",
     sourcePath: "src/components/application/color-picker/color-picker.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -537,7 +486,6 @@ const catalogSource = [
     id: "command-menu",
     sourcePath: "src/components/application/command-menus/command-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -546,7 +494,6 @@ const catalogSource = [
     id: "content-divider",
     sourcePath: "src/components/application/content-divider/content-divider.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -555,7 +502,6 @@ const catalogSource = [
     id: "date-picker-calendar",
     sourcePath: "src/components/application/date-picker/calendar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -564,7 +510,6 @@ const catalogSource = [
     id: "date-picker",
     sourcePath: "src/components/application/date-picker/date-picker.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -573,7 +518,6 @@ const catalogSource = [
     id: "date-range-picker",
     sourcePath: "src/components/application/date-picker/date-range-picker.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -582,7 +526,6 @@ const catalogSource = [
     id: "empty-state",
     sourcePath: "src/components/application/empty-state/empty-state.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -591,7 +534,6 @@ const catalogSource = [
     id: "file-upload-base",
     sourcePath: "src/components/application/file-upload/file-upload-base.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -600,7 +542,6 @@ const catalogSource = [
     id: "filter-bar",
     sourcePath: "src/components/application/filter-bar/filter-bar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -609,7 +550,6 @@ const catalogSource = [
     id: "filter-dropdown-menu",
     sourcePath: "src/components/application/filter-bar/filter-dropdown-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -618,7 +558,6 @@ const catalogSource = [
     id: "gradient-picker",
     sourcePath: "src/components/application/gradient-picker/gradient-picker.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -627,7 +566,6 @@ const catalogSource = [
     id: "header-navigation",
     sourcePath: "src/components/application/app-navigation/header-navigation.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -636,7 +574,6 @@ const catalogSource = [
     id: "image-picker",
     sourcePath: "src/components/application/image-picker/image-picker.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -645,7 +582,6 @@ const catalogSource = [
     id: "loading-indicator",
     sourcePath: "src/components/application/loading-indicator/loading-indicator.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -654,7 +590,6 @@ const catalogSource = [
     id: "messaging",
     sourcePath: "src/components/application/messaging/messaging.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -663,7 +598,6 @@ const catalogSource = [
     id: "metrics",
     sourcePath: "src/components/application/metrics/metrics.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -672,7 +606,6 @@ const catalogSource = [
     id: "modal",
     sourcePath: "src/components/application/modals/modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -681,7 +614,6 @@ const catalogSource = [
     id: "notifications",
     sourcePath: "src/components/application/notifications/notifications.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -690,7 +622,6 @@ const catalogSource = [
     id: "pagination-dot",
     sourcePath: "src/components/application/pagination/pagination-dot.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -699,7 +630,6 @@ const catalogSource = [
     id: "pagination-line",
     sourcePath: "src/components/application/pagination/pagination-line.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -708,7 +638,6 @@ const catalogSource = [
     id: "pagination",
     sourcePath: "src/components/application/pagination/pagination.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -717,7 +646,6 @@ const catalogSource = [
     id: "progress-steps",
     sourcePath: "src/components/application/progress-steps/progress-steps.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -726,7 +654,6 @@ const catalogSource = [
     id: "range-calendar",
     sourcePath: "src/components/application/date-picker/range-calendar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -735,7 +662,6 @@ const catalogSource = [
     id: "range-preset",
     sourcePath: "src/components/application/date-picker/range-preset.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -744,7 +670,6 @@ const catalogSource = [
     id: "section-footer",
     sourcePath: "src/components/application/section-footers/section-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -753,7 +678,6 @@ const catalogSource = [
     id: "section-headers",
     sourcePath: "src/components/application/section-headers/section-headers.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -762,7 +686,6 @@ const catalogSource = [
     id: "section-label",
     sourcePath: "src/components/application/section-headers/section-label.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -772,7 +695,6 @@ const catalogSource = [
     sourcePath:
       "src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -781,7 +703,6 @@ const catalogSource = [
     id: "sidebar-navigation-base",
     sourcePath: "src/components/application/app-navigation/sidebar-navigation-base.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -791,7 +712,6 @@ const catalogSource = [
     sourcePath:
       "src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -801,7 +721,6 @@ const catalogSource = [
     sourcePath:
       "src/components/application/app-navigation/sidebar-navigation/sidebar-sections-subheadings.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -810,7 +729,6 @@ const catalogSource = [
     id: "sidebar-simple",
     sourcePath: "src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -819,7 +737,6 @@ const catalogSource = [
     id: "sidebar-slim",
     sourcePath: "src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -828,7 +745,6 @@ const catalogSource = [
     id: "slideout-menu",
     sourcePath: "src/components/application/slideout-menus/slideout-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -837,7 +753,6 @@ const catalogSource = [
     id: "table",
     sourcePath: "src/components/application/table/table.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -846,7 +761,6 @@ const catalogSource = [
     id: "tabs",
     sourcePath: "src/components/application/tabs/tabs.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -855,7 +769,6 @@ const catalogSource = [
     id: "tree-view",
     sourcePath: "src/components/application/tree-view/tree-view.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -864,7 +777,6 @@ const catalogSource = [
     id: "command-menu-actions-stacked",
     sourcePath: "src/components/application/command-menus/command-menu-actions-stacked.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -873,7 +785,6 @@ const catalogSource = [
     id: "command-menu-actions",
     sourcePath: "src/components/application/command-menus/command-menu-actions.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -882,7 +793,6 @@ const catalogSource = [
     id: "command-menu-empty-state",
     sourcePath: "src/components/application/command-menus/command-menu-empty-state.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -893,7 +803,6 @@ const catalogSource = [
     sourcePath:
       "src/components/application/command-menus/command-menu-integrations-menu-stacked.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -902,7 +811,6 @@ const catalogSource = [
     id: "command-menu-integrations-menu",
     sourcePath: "src/components/application/command-menus/command-menu-integrations-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -911,7 +819,6 @@ const catalogSource = [
     id: "command-menu-users-menu-stacked",
     sourcePath: "src/components/application/command-menus/command-menu-users-menu-stacked.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -920,7 +827,6 @@ const catalogSource = [
     id: "command-menu-users-menu",
     sourcePath: "src/components/application/command-menus/command-menu-users-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -929,7 +835,6 @@ const catalogSource = [
     id: "command-menu-users-stacked",
     sourcePath: "src/components/application/command-menus/command-menu-users-stacked.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -938,7 +843,6 @@ const catalogSource = [
     id: "command-menu-users",
     sourcePath: "src/components/application/command-menus/command-menu-users.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -947,7 +851,6 @@ const catalogSource = [
     id: "access-request-modal",
     sourcePath: "src/components/application/modals/access-request-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -956,7 +859,6 @@ const catalogSource = [
     id: "ai-assistant-modal",
     sourcePath: "src/components/application/modals/ai-assistant-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -965,7 +867,6 @@ const catalogSource = [
     id: "appearance-settings-modal",
     sourcePath: "src/components/application/modals/appearance-settings-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -974,7 +875,6 @@ const catalogSource = [
     id: "banner-appearance-modal",
     sourcePath: "src/components/application/modals/banner-appearance-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -983,7 +883,6 @@ const catalogSource = [
     id: "calendar-event-modal",
     sourcePath: "src/components/application/modals/calendar-event-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -992,7 +891,6 @@ const catalogSource = [
     id: "centered-photo-carousel-modal",
     sourcePath: "src/components/application/modals/centered-photo-carousel-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1001,7 +899,6 @@ const catalogSource = [
     id: "centered-photo-modal",
     sourcePath: "src/components/application/modals/centered-photo-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1010,7 +907,6 @@ const catalogSource = [
     id: "centered-video-carousel-modal",
     sourcePath: "src/components/application/modals/centered-video-carousel-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1019,7 +915,6 @@ const catalogSource = [
     id: "checkboxes-modal",
     sourcePath: "src/components/application/modals/checkboxes-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1028,7 +923,6 @@ const catalogSource = [
     id: "create-event-modal",
     sourcePath: "src/components/application/modals/create-event-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1037,7 +931,6 @@ const catalogSource = [
     id: "date-picker-modal",
     sourcePath: "src/components/application/modals/date-picker-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1046,7 +939,6 @@ const catalogSource = [
     id: "destructive-horizontal-modal",
     sourcePath: "src/components/application/modals/destructive-horizontal-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1056,7 +948,6 @@ const catalogSource = [
     id: "destructive-stacked-left-aligned-modal",
     sourcePath: "src/components/application/modals/destructive-stacked-left-aligned-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1065,7 +956,6 @@ const catalogSource = [
     id: "dropdown-modal",
     sourcePath: "src/components/application/modals/dropdown-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1074,7 +964,6 @@ const catalogSource = [
     id: "email-invite-modal",
     sourcePath: "src/components/application/modals/email-invite-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1083,7 +972,6 @@ const catalogSource = [
     id: "file-upload-modal",
     sourcePath: "src/components/application/modals/file-upload-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1092,7 +980,6 @@ const catalogSource = [
     id: "form-01-modal",
     sourcePath: "src/components/application/modals/form-01-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1101,7 +988,6 @@ const catalogSource = [
     id: "form-02-modal",
     sourcePath: "src/components/application/modals/form-02-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1110,7 +996,6 @@ const catalogSource = [
     id: "horizontal-modal",
     sourcePath: "src/components/application/modals/horizontal-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1119,7 +1004,6 @@ const catalogSource = [
     id: "image-crop-modal",
     sourcePath: "src/components/application/modals/image-crop-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1128,7 +1012,6 @@ const catalogSource = [
     id: "input-field-modal",
     sourcePath: "src/components/application/modals/input-field-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1137,7 +1020,6 @@ const catalogSource = [
     id: "integration-modal",
     sourcePath: "src/components/application/modals/integration-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1146,7 +1028,6 @@ const catalogSource = [
     id: "labels-modal",
     sourcePath: "src/components/application/modals/labels-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1155,7 +1036,6 @@ const catalogSource = [
     id: "link-field-modal",
     sourcePath: "src/components/application/modals/link-field-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1164,7 +1044,6 @@ const catalogSource = [
     id: "login-modal",
     sourcePath: "src/components/application/modals/login-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1173,7 +1052,6 @@ const catalogSource = [
     id: "new-message-empty-state-modal",
     sourcePath: "src/components/application/modals/new-message-empty-state-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1182,7 +1060,6 @@ const catalogSource = [
     id: "new-message-filled-modal",
     sourcePath: "src/components/application/modals/new-message-filled-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1191,7 +1068,6 @@ const catalogSource = [
     id: "new-project-modal",
     sourcePath: "src/components/application/modals/new-project-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1200,7 +1076,6 @@ const catalogSource = [
     id: "password-prompt-modal",
     sourcePath: "src/components/application/modals/password-prompt-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1209,7 +1084,6 @@ const catalogSource = [
     id: "payment-details-modal",
     sourcePath: "src/components/application/modals/payment-details-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1219,7 +1093,6 @@ const catalogSource = [
     id: "payment-details-with-image-modal",
     sourcePath: "src/components/application/modals/payment-details-with-image-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1228,7 +1101,6 @@ const catalogSource = [
     id: "payment-method-modal",
     sourcePath: "src/components/application/modals/payment-method-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1237,7 +1109,6 @@ const catalogSource = [
     id: "plan-01-modal",
     sourcePath: "src/components/application/modals/plan-01-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1246,7 +1117,6 @@ const catalogSource = [
     id: "plan-02-modal",
     sourcePath: "src/components/application/modals/plan-02-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1255,7 +1125,6 @@ const catalogSource = [
     id: "profile-settings-modal",
     sourcePath: "src/components/application/modals/profile-settings-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1264,7 +1133,6 @@ const catalogSource = [
     id: "share-project-modal",
     sourcePath: "src/components/application/modals/share-project-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1273,7 +1141,6 @@ const catalogSource = [
     id: "signup-01-modal",
     sourcePath: "src/components/application/modals/signup-01-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1282,7 +1149,6 @@ const catalogSource = [
     id: "signup-02-modal",
     sourcePath: "src/components/application/modals/signup-02-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1291,7 +1157,6 @@ const catalogSource = [
     id: "stacked-left-aligned-modal",
     sourcePath: "src/components/application/modals/stacked-left-aligned-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1301,7 +1166,6 @@ const catalogSource = [
     id: "stacked-with-team-and-invites-modal",
     sourcePath: "src/components/application/modals/stacked-with-team-and-invites-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1311,7 +1175,6 @@ const catalogSource = [
     id: "stacked-with-team-and-link-modal",
     sourcePath: "src/components/application/modals/stacked-with-team-and-link-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1320,7 +1183,6 @@ const catalogSource = [
     id: "stacked-with-team-modal",
     sourcePath: "src/components/application/modals/stacked-with-team-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1329,7 +1191,6 @@ const catalogSource = [
     id: "text-editor-modal",
     sourcePath: "src/components/application/modals/text-editor-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1338,7 +1199,6 @@ const catalogSource = [
     id: "toggles-modal",
     sourcePath: "src/components/application/modals/toggles-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1347,7 +1207,6 @@ const catalogSource = [
     id: "twofa-code-modal",
     sourcePath: "src/components/application/modals/twofa-code-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1356,7 +1215,6 @@ const catalogSource = [
     id: "user-invite-modal",
     sourcePath: "src/components/application/modals/user-invite-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1365,7 +1223,6 @@ const catalogSource = [
     id: "user-selection-modal",
     sourcePath: "src/components/application/modals/user-selection-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1374,7 +1231,6 @@ const catalogSource = [
     id: "user-settings-modal",
     sourcePath: "src/components/application/modals/user-settings-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1383,7 +1239,6 @@ const catalogSource = [
     id: "verification-code-modal",
     sourcePath: "src/components/application/modals/verification-code-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1392,7 +1247,6 @@ const catalogSource = [
     id: "warning-horizontal-modal",
     sourcePath: "src/components/application/modals/warning-horizontal-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1402,7 +1256,6 @@ const catalogSource = [
     id: "warning-stacked-left-aligned-modal",
     sourcePath: "src/components/application/modals/warning-stacked-left-aligned-modal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1411,7 +1264,6 @@ const catalogSource = [
     id: "ai-assistant-intro-menu",
     sourcePath: "src/components/application/slideout-menus/ai-assistant-intro-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1420,7 +1272,6 @@ const catalogSource = [
     id: "ai-assistant-message-menu",
     sourcePath: "src/components/application/slideout-menus/ai-assistant-message-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1429,7 +1280,6 @@ const catalogSource = [
     id: "calendar-event-menu",
     sourcePath: "src/components/application/slideout-menus/calendar-event-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1438,7 +1288,6 @@ const catalogSource = [
     id: "create-event-menu",
     sourcePath: "src/components/application/slideout-menus/create-event-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1447,7 +1296,6 @@ const catalogSource = [
     id: "file-upload-menu",
     sourcePath: "src/components/application/slideout-menus/file-upload-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1456,7 +1304,6 @@ const catalogSource = [
     id: "filters-advanced-menu",
     sourcePath: "src/components/application/slideout-menus/filters-advanced-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1465,7 +1312,6 @@ const catalogSource = [
     id: "filters-menu",
     sourcePath: "src/components/application/slideout-menus/filters-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1474,7 +1320,6 @@ const catalogSource = [
     id: "integration-menu",
     sourcePath: "src/components/application/slideout-menus/integration-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1483,7 +1328,6 @@ const catalogSource = [
     id: "labels-menu",
     sourcePath: "src/components/application/slideout-menus/labels-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1492,7 +1336,6 @@ const catalogSource = [
     id: "message-chat-menu",
     sourcePath: "src/components/application/slideout-menus/message-chat-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1501,7 +1344,6 @@ const catalogSource = [
     id: "messages-menu",
     sourcePath: "src/components/application/slideout-menus/messages-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1511,7 +1353,6 @@ const catalogSource = [
     id: "notification-settings-button-menu",
     sourcePath: "src/components/application/slideout-menus/notification-settings-button-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1521,7 +1362,6 @@ const catalogSource = [
     id: "notification-settings-checkbox-menu",
     sourcePath: "src/components/application/slideout-menus/notification-settings-checkbox-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1530,7 +1370,6 @@ const catalogSource = [
     id: "notifications-menu",
     sourcePath: "src/components/application/slideout-menus/notifications-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1539,7 +1378,6 @@ const catalogSource = [
     id: "order-summary-menu",
     sourcePath: "src/components/application/slideout-menus/order-summary-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1548,7 +1386,6 @@ const catalogSource = [
     id: "payment-details-menu",
     sourcePath: "src/components/application/slideout-menus/payment-details-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1557,7 +1394,6 @@ const catalogSource = [
     id: "payment-method-menu",
     sourcePath: "src/components/application/slideout-menus/payment-method-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1566,7 +1402,6 @@ const catalogSource = [
     id: "placeholder-menu",
     sourcePath: "src/components/application/slideout-menus/placeholder-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1575,7 +1410,6 @@ const catalogSource = [
     id: "plan-menu",
     sourcePath: "src/components/application/slideout-menus/plan-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1584,7 +1418,6 @@ const catalogSource = [
     id: "project-details-menu",
     sourcePath: "src/components/application/slideout-menus/project-details-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1593,7 +1426,6 @@ const catalogSource = [
     id: "share-project-menu",
     sourcePath: "src/components/application/slideout-menus/share-project-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1602,7 +1434,6 @@ const catalogSource = [
     id: "team-members-menu",
     sourcePath: "src/components/application/slideout-menus/team-members-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "application",
@@ -1611,7 +1442,6 @@ const catalogSource = [
     id: "user-profile-menu",
     sourcePath: "src/components/application/slideout-menus/user-profile-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "application",
@@ -1620,7 +1450,6 @@ const catalogSource = [
     id: "user-settings-menu",
     sourcePath: "src/components/application/slideout-menus/user-settings-menu.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1630,7 +1459,6 @@ const catalogSource = [
     id: "banner-countdown-brand-full-width",
     sourcePath: "src/components/shared-assets/banners/banner-countdown-brand-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1639,7 +1467,6 @@ const catalogSource = [
     id: "banner-countdown-brand",
     sourcePath: "src/components/shared-assets/banners/banner-countdown-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1649,7 +1476,6 @@ const catalogSource = [
     id: "banner-countdown-default-full-width",
     sourcePath: "src/components/shared-assets/banners/banner-countdown-default-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1658,7 +1484,6 @@ const catalogSource = [
     id: "banner-countdown-default",
     sourcePath: "src/components/shared-assets/banners/banner-countdown-default.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1668,7 +1493,6 @@ const catalogSource = [
     id: "banner-dual-action-brand-full-width",
     sourcePath: "src/components/shared-assets/banners/banner-dual-action-brand-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1677,7 +1501,6 @@ const catalogSource = [
     id: "banner-dual-action-brand",
     sourcePath: "src/components/shared-assets/banners/banner-dual-action-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1687,7 +1510,6 @@ const catalogSource = [
     id: "banner-dual-action-default-full-width",
     sourcePath: "src/components/shared-assets/banners/banner-dual-action-default-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1696,7 +1518,6 @@ const catalogSource = [
     id: "banner-dual-action-default",
     sourcePath: "src/components/shared-assets/banners/banner-dual-action-default.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1706,7 +1527,6 @@ const catalogSource = [
     id: "banner-single-action-brand-full-width",
     sourcePath: "src/components/marketing/banners/banner-single-action-brand-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1715,7 +1535,6 @@ const catalogSource = [
     id: "banner-single-action-brand",
     sourcePath: "src/components/marketing/banners/banner-single-action-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1725,7 +1544,6 @@ const catalogSource = [
     id: "banner-single-action-default-full-width",
     sourcePath: "src/components/marketing/banners/banner-single-action-default-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1734,7 +1552,6 @@ const catalogSource = [
     id: "banner-single-action-default",
     sourcePath: "src/components/marketing/banners/banner-single-action-default.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1743,7 +1560,6 @@ const catalogSource = [
     id: "banner-slim-brand-full-width",
     sourcePath: "src/components/marketing/banners/banner-slim-brand-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1752,7 +1568,6 @@ const catalogSource = [
     id: "banner-slim-brand",
     sourcePath: "src/components/marketing/banners/banner-slim-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1761,7 +1576,6 @@ const catalogSource = [
     id: "banner-slim-default-full-width",
     sourcePath: "src/components/marketing/banners/banner-slim-default-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1770,7 +1584,6 @@ const catalogSource = [
     id: "banner-slim-default",
     sourcePath: "src/components/marketing/banners/banner-slim-default.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -1780,7 +1593,6 @@ const catalogSource = [
     id: "banner-text-field-brand-full-width",
     sourcePath: "src/components/shared-assets/banners/banner-text-field-brand-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1789,7 +1601,6 @@ const catalogSource = [
     id: "banner-text-field-brand",
     sourcePath: "src/components/shared-assets/banners/banner-text-field-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1799,7 +1610,6 @@ const catalogSource = [
     id: "banner-text-field-default-full-width",
     sourcePath: "src/components/shared-assets/banners/banner-text-field-default-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1808,7 +1618,6 @@ const catalogSource = [
     id: "banner-text-field-default",
     sourcePath: "src/components/shared-assets/banners/banner-text-field-default.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1817,7 +1626,6 @@ const catalogSource = [
     id: "blog-cards",
     sourcePath: "src/components/marketing/blog/base-components/blog-cards.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1826,7 +1634,6 @@ const catalogSource = [
     id: "blog-header-alt-layout-01",
     sourcePath: "src/components/marketing/blog/blog-header-alt-layout-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1835,7 +1642,6 @@ const catalogSource = [
     id: "blog-header-alt-layout-02",
     sourcePath: "src/components/marketing/blog/blog-header-alt-layout-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1844,7 +1650,6 @@ const catalogSource = [
     id: "blog-header-alt-layout-03",
     sourcePath: "src/components/marketing/blog/blog-header-alt-layout-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1853,7 +1658,6 @@ const catalogSource = [
     id: "blog-header-alt-layout-04",
     sourcePath: "src/components/marketing/blog/blog-header-alt-layout-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1862,7 +1666,6 @@ const catalogSource = [
     id: "blog-header-featured-post-01",
     sourcePath: "src/components/marketing/blog/blog-header-featured-post-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1871,7 +1674,6 @@ const catalogSource = [
     id: "blog-header-featured-post-02",
     sourcePath: "src/components/marketing/blog/blog-header-featured-post-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1880,7 +1682,6 @@ const catalogSource = [
     id: "blog-header-featured-post-03",
     sourcePath: "src/components/marketing/blog/blog-header-featured-post-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1889,7 +1690,6 @@ const catalogSource = [
     id: "blog-header-featured-post-04",
     sourcePath: "src/components/marketing/blog/blog-header-featured-post-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1898,7 +1698,6 @@ const catalogSource = [
     id: "blog-header-sidebar-01",
     sourcePath: "src/components/marketing/blog/blog-header-sidebar-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1907,7 +1706,6 @@ const catalogSource = [
     id: "blog-header-sidebar-02",
     sourcePath: "src/components/marketing/blog/blog-header-sidebar-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1916,7 +1714,6 @@ const catalogSource = [
     id: "blog-header-simple-01",
     sourcePath: "src/components/marketing/blog/blog-header-simple-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1925,7 +1722,6 @@ const catalogSource = [
     id: "blog-header-simple-02",
     sourcePath: "src/components/marketing/blog/blog-header-simple-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1934,7 +1730,6 @@ const catalogSource = [
     id: "blog-header-simple-03",
     sourcePath: "src/components/marketing/blog/blog-header-simple-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1943,7 +1738,6 @@ const catalogSource = [
     id: "blog-header-simple-04",
     sourcePath: "src/components/marketing/blog/blog-header-simple-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1952,7 +1746,6 @@ const catalogSource = [
     id: "blog-header-simple-05",
     sourcePath: "src/components/marketing/blog/blog-header-simple-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1961,7 +1754,6 @@ const catalogSource = [
     id: "blog-header-simple-06",
     sourcePath: "src/components/marketing/blog/blog-header-simple-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1970,7 +1762,6 @@ const catalogSource = [
     id: "blog-section-carousel-layout-01",
     sourcePath: "src/components/marketing/blog/blog-section-carousel-layout-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1979,7 +1770,6 @@ const catalogSource = [
     id: "blog-section-carousel-layout-02",
     sourcePath: "src/components/marketing/blog/blog-section-carousel-layout-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1989,7 +1779,6 @@ const catalogSource = [
     id: "blog-section-simple-center-aligned-01",
     sourcePath: "src/components/marketing/blog/blog-section-simple-center-aligned-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -1999,7 +1788,6 @@ const catalogSource = [
     id: "blog-section-simple-center-aligned-02",
     sourcePath: "src/components/marketing/blog/blog-section-simple-center-aligned-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2009,7 +1797,6 @@ const catalogSource = [
     id: "blog-section-simple-left-aligned-01",
     sourcePath: "src/components/marketing/blog/blog-section-simple-left-aligned-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2019,7 +1806,6 @@ const catalogSource = [
     id: "blog-section-simple-left-aligned-02",
     sourcePath: "src/components/marketing/blog/blog-section-simple-left-aligned-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2028,7 +1814,6 @@ const catalogSource = [
     id: "blog-section-split-layout-01",
     sourcePath: "src/components/marketing/blog/blog-section-split-layout-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2037,7 +1822,6 @@ const catalogSource = [
     id: "blog-section-split-layout-02",
     sourcePath: "src/components/marketing/blog/blog-section-split-layout-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2046,7 +1830,6 @@ const catalogSource = [
     id: "careers-card-01",
     sourcePath: "src/components/marketing/careers/careers-card-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2055,7 +1838,6 @@ const catalogSource = [
     id: "careers-card-02",
     sourcePath: "src/components/marketing/careers/careers-card-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2064,7 +1846,6 @@ const catalogSource = [
     id: "careers-card-03",
     sourcePath: "src/components/marketing/careers/careers-card-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2073,7 +1854,6 @@ const catalogSource = [
     id: "careers-card-04",
     sourcePath: "src/components/marketing/careers/careers-card-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2082,7 +1862,6 @@ const catalogSource = [
     id: "careers-simple-01-brand",
     sourcePath: "src/components/marketing/careers/careers-simple-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2091,7 +1870,6 @@ const catalogSource = [
     id: "careers-simple-01",
     sourcePath: "src/components/marketing/careers/careers-simple-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2100,7 +1878,6 @@ const catalogSource = [
     id: "careers-simple-02-brand",
     sourcePath: "src/components/marketing/careers/careers-simple-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -2109,7 +1886,6 @@ const catalogSource = [
     id: "careers-simple-02",
     sourcePath: "src/components/marketing/careers/careers-simple-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -2118,7 +1894,6 @@ const catalogSource = [
     id: "careers-simple-03-brand",
     sourcePath: "src/components/marketing/careers/careers-simple-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -2127,7 +1902,6 @@ const catalogSource = [
     id: "careers-simple-03",
     sourcePath: "src/components/marketing/careers/careers-simple-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -2136,7 +1910,6 @@ const catalogSource = [
     id: "careers-simple-04-brand",
     sourcePath: "src/components/marketing/careers/careers-simple-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -2145,7 +1918,6 @@ const catalogSource = [
     id: "careers-simple-04",
     sourcePath: "src/components/marketing/careers/careers-simple-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "verified",
   },
   {
     category: "marketing",
@@ -2154,7 +1926,6 @@ const catalogSource = [
     id: "contact-centered-map",
     sourcePath: "src/components/marketing/contact/contact-centered-map.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2163,7 +1934,6 @@ const catalogSource = [
     id: "contact-features-tabs-map-01",
     sourcePath: "src/components/marketing/contact/contact-features-tabs-map-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2172,7 +1942,6 @@ const catalogSource = [
     id: "contact-features-tabs-map-02",
     sourcePath: "src/components/marketing/contact/contact-features-tabs-map-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2181,7 +1950,6 @@ const catalogSource = [
     id: "contact-form-and-image-01",
     sourcePath: "src/components/marketing/contact/contact-form-and-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2190,7 +1958,6 @@ const catalogSource = [
     id: "contact-form-and-image-02",
     sourcePath: "src/components/marketing/contact/contact-form-and-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2199,7 +1966,6 @@ const catalogSource = [
     id: "contact-form-and-map",
     sourcePath: "src/components/marketing/contact/contact-form-and-map.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2208,7 +1974,6 @@ const catalogSource = [
     id: "contact-icon-cards-01",
     sourcePath: "src/components/marketing/contact/contact-icon-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2217,7 +1982,6 @@ const catalogSource = [
     id: "contact-icon-cards-02",
     sourcePath: "src/components/marketing/contact/contact-icon-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2226,7 +1990,6 @@ const catalogSource = [
     id: "contact-icon-cards-03",
     sourcePath: "src/components/marketing/contact/contact-icon-cards-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2235,7 +1998,6 @@ const catalogSource = [
     id: "contact-icons-and-form-brand",
     sourcePath: "src/components/marketing/contact/contact-icons-and-form-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2244,7 +2006,6 @@ const catalogSource = [
     id: "contact-icons-and-form",
     sourcePath: "src/components/marketing/contact/contact-icons-and-form.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2253,7 +2014,6 @@ const catalogSource = [
     id: "contact-icons-and-image-brand",
     sourcePath: "src/components/marketing/contact/contact-icons-and-image-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2262,7 +2022,6 @@ const catalogSource = [
     id: "contact-icons-and-image",
     sourcePath: "src/components/marketing/contact/contact-icons-and-image.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2271,7 +2030,6 @@ const catalogSource = [
     id: "contact-icons-and-map-01-brand",
     sourcePath: "src/components/marketing/contact/contact-icons-and-map-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2280,7 +2038,6 @@ const catalogSource = [
     id: "contact-icons-and-map-01",
     sourcePath: "src/components/marketing/contact/contact-icons-and-map-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2289,7 +2046,6 @@ const catalogSource = [
     id: "contact-icons-and-map-02-brand",
     sourcePath: "src/components/marketing/contact/contact-icons-and-map-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2298,7 +2054,6 @@ const catalogSource = [
     id: "contact-icons-and-map-02",
     sourcePath: "src/components/marketing/contact/contact-icons-and-map-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2307,7 +2062,6 @@ const catalogSource = [
     id: "contact-map-01",
     sourcePath: "src/components/marketing/contact/contact-map-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2316,7 +2070,6 @@ const catalogSource = [
     id: "contact-map-02",
     sourcePath: "src/components/marketing/contact/contact-map-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2325,7 +2078,6 @@ const catalogSource = [
     id: "contact-simple-form-01",
     sourcePath: "src/components/marketing/contact/contact-simple-form-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2334,7 +2086,6 @@ const catalogSource = [
     id: "contact-simple-form-02",
     sourcePath: "src/components/marketing/contact/contact-simple-form-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2343,7 +2094,6 @@ const catalogSource = [
     id: "contact-simple-form-03",
     sourcePath: "src/components/marketing/contact/contact-simple-form-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2352,7 +2102,6 @@ const catalogSource = [
     id: "contact-simple-form-04",
     sourcePath: "src/components/marketing/contact/contact-simple-form-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2361,7 +2110,6 @@ const catalogSource = [
     id: "contact-simple-form-05",
     sourcePath: "src/components/marketing/contact/contact-simple-form-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2370,7 +2118,6 @@ const catalogSource = [
     id: "contact-simple-form",
     sourcePath: "src/components/marketing/contact/contact-simple-form.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2379,7 +2126,6 @@ const catalogSource = [
     id: "contact-simple-icons-01-brand",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2388,7 +2134,6 @@ const catalogSource = [
     id: "contact-simple-icons-01",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2397,7 +2142,6 @@ const catalogSource = [
     id: "contact-simple-icons-02-brand",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2406,7 +2150,6 @@ const catalogSource = [
     id: "contact-simple-icons-02",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2415,7 +2158,6 @@ const catalogSource = [
     id: "contact-simple-icons-03-brand",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2424,7 +2166,6 @@ const catalogSource = [
     id: "contact-simple-icons-03",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2433,7 +2174,6 @@ const catalogSource = [
     id: "contact-simple-icons-04-brand",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2442,7 +2182,6 @@ const catalogSource = [
     id: "contact-simple-icons-04",
     sourcePath: "src/components/marketing/contact/contact-simple-icons-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2451,7 +2190,6 @@ const catalogSource = [
     id: "contact-simple-links-01",
     sourcePath: "src/components/marketing/contact/contact-simple-links-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2460,7 +2198,6 @@ const catalogSource = [
     id: "contact-simple-links-02",
     sourcePath: "src/components/marketing/contact/contact-simple-links-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2469,7 +2206,6 @@ const catalogSource = [
     id: "contact-vector-map-03",
     sourcePath: "src/components/marketing/contact/contact-vector-map-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2478,7 +2214,6 @@ const catalogSource = [
     id: "content-alternative-01",
     sourcePath: "src/components/marketing/content/content-alternative-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2487,7 +2222,6 @@ const catalogSource = [
     id: "content-alternative-02",
     sourcePath: "src/components/marketing/content/content-alternative-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2496,7 +2230,6 @@ const catalogSource = [
     id: "content-alternative-03",
     sourcePath: "src/components/marketing/content/content-alternative-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2505,7 +2238,6 @@ const catalogSource = [
     id: "content-large-image-01",
     sourcePath: "src/components/marketing/content/content-large-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2514,7 +2246,6 @@ const catalogSource = [
     id: "content-large-image-02",
     sourcePath: "src/components/marketing/content/content-large-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2523,7 +2254,6 @@ const catalogSource = [
     id: "content-large-image-03",
     sourcePath: "src/components/marketing/content/content-large-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2532,7 +2262,6 @@ const catalogSource = [
     id: "content-large-image-04",
     sourcePath: "src/components/marketing/content/content-large-image-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2541,7 +2270,6 @@ const catalogSource = [
     id: "content-section-rich-text-01",
     sourcePath: "src/components/marketing/content/content-section-rich-text-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2550,7 +2278,6 @@ const catalogSource = [
     id: "content-section-rich-text-02",
     sourcePath: "src/components/marketing/content/content-section-rich-text-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2559,7 +2286,6 @@ const catalogSource = [
     id: "content-section-simple-01",
     sourcePath: "src/components/marketing/content/content-section-simple-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2568,7 +2294,6 @@ const catalogSource = [
     id: "content-section-simple-02",
     sourcePath: "src/components/marketing/content/content-section-simple-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2577,7 +2302,6 @@ const catalogSource = [
     id: "content-section-simple-03",
     sourcePath: "src/components/marketing/content/content-section-simple-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2586,7 +2310,6 @@ const catalogSource = [
     id: "content-section-simple-04",
     sourcePath: "src/components/marketing/content/content-section-simple-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2595,7 +2318,6 @@ const catalogSource = [
     id: "content-section-simple-05",
     sourcePath: "src/components/marketing/content/content-section-simple-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2604,7 +2326,6 @@ const catalogSource = [
     id: "content-section-split-image-01",
     sourcePath: "src/components/marketing/content/content-section-split-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2613,7 +2334,6 @@ const catalogSource = [
     id: "content-section-split-image-02",
     sourcePath: "src/components/marketing/content/content-section-split-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2622,7 +2342,6 @@ const catalogSource = [
     id: "content-section-split-image-03",
     sourcePath: "src/components/marketing/content/content-section-split-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2631,7 +2350,6 @@ const catalogSource = [
     id: "content-simple",
     sourcePath: "src/components/marketing/content/content-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2640,7 +2358,6 @@ const catalogSource = [
     id: "content-split-image-01",
     sourcePath: "src/components/marketing/content/content-split-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2649,7 +2366,6 @@ const catalogSource = [
     id: "content-split-image-02",
     sourcePath: "src/components/marketing/content/content-split-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2658,7 +2374,6 @@ const catalogSource = [
     id: "content-split-image-03",
     sourcePath: "src/components/marketing/content/content-split-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2667,7 +2382,6 @@ const catalogSource = [
     id: "content-split-image-04",
     sourcePath: "src/components/marketing/content/content-split-image-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2676,7 +2390,6 @@ const catalogSource = [
     id: "cta-abstract-images-brand",
     sourcePath: "src/components/marketing/cta/cta-abstract-images-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2685,7 +2398,6 @@ const catalogSource = [
     id: "cta-abstract-images",
     sourcePath: "src/components/marketing/cta/cta-abstract-images.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2694,7 +2406,6 @@ const catalogSource = [
     id: "cta-card-horizontal-brand",
     sourcePath: "src/components/marketing/cta/cta-card-horizontal-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2703,7 +2414,6 @@ const catalogSource = [
     id: "cta-card-horizontal",
     sourcePath: "src/components/marketing/cta/cta-card-horizontal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2712,7 +2422,6 @@ const catalogSource = [
     id: "cta-card-vertical-brand",
     sourcePath: "src/components/marketing/cta/cta-card-vertical-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2721,7 +2430,6 @@ const catalogSource = [
     id: "cta-card-vertical",
     sourcePath: "src/components/marketing/cta/cta-card-vertical.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2730,7 +2438,6 @@ const catalogSource = [
     id: "cta-iphone-mockup-01",
     sourcePath: "src/components/marketing/cta/cta-iphone-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2739,7 +2446,6 @@ const catalogSource = [
     id: "cta-iphone-mockup-02",
     sourcePath: "src/components/marketing/cta/cta-iphone-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2748,7 +2454,6 @@ const catalogSource = [
     id: "cta-iphone-mockup-03",
     sourcePath: "src/components/marketing/cta/cta-iphone-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2757,7 +2462,6 @@ const catalogSource = [
     id: "cta-iphone-mockup-04",
     sourcePath: "src/components/marketing/cta/cta-iphone-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2766,7 +2470,6 @@ const catalogSource = [
     id: "cta-screen-mockup-01",
     sourcePath: "src/components/marketing/cta/cta-screen-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2775,7 +2478,6 @@ const catalogSource = [
     id: "cta-screen-mockup-02",
     sourcePath: "src/components/marketing/cta/cta-screen-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2784,7 +2486,6 @@ const catalogSource = [
     id: "cta-screen-mockup-03",
     sourcePath: "src/components/marketing/cta/cta-screen-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2793,7 +2494,6 @@ const catalogSource = [
     id: "cta-screen-mockup-04",
     sourcePath: "src/components/marketing/cta/cta-screen-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2802,7 +2502,6 @@ const catalogSource = [
     id: "cta-simple-centered-brand",
     sourcePath: "src/components/marketing/cta/cta-simple-centered-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2811,7 +2510,6 @@ const catalogSource = [
     id: "cta-simple-centered",
     sourcePath: "src/components/marketing/cta/cta-simple-centered.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2820,7 +2518,6 @@ const catalogSource = [
     id: "cta-simple-left-brand",
     sourcePath: "src/components/marketing/cta/cta-simple-left-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2829,7 +2526,6 @@ const catalogSource = [
     id: "cta-simple-left",
     sourcePath: "src/components/marketing/cta/cta-simple-left.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2838,7 +2534,6 @@ const catalogSource = [
     id: "cta-simple-logos-01-brand",
     sourcePath: "src/components/marketing/cta/cta-simple-logos-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2847,7 +2542,6 @@ const catalogSource = [
     id: "cta-simple-logos-01",
     sourcePath: "src/components/marketing/cta/cta-simple-logos-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2856,7 +2550,6 @@ const catalogSource = [
     id: "cta-simple-logos-02-brand",
     sourcePath: "src/components/marketing/cta/cta-simple-logos-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2865,7 +2558,6 @@ const catalogSource = [
     id: "cta-simple-logos-02",
     sourcePath: "src/components/marketing/cta/cta-simple-logos-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2874,7 +2566,6 @@ const catalogSource = [
     id: "cta-split-image-01",
     sourcePath: "src/components/marketing/cta/cta-split-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2883,7 +2574,6 @@ const catalogSource = [
     id: "cta-split-image-02",
     sourcePath: "src/components/marketing/cta/cta-split-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2892,7 +2582,6 @@ const catalogSource = [
     id: "cta-split-image-03",
     sourcePath: "src/components/marketing/cta/cta-split-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2901,7 +2590,6 @@ const catalogSource = [
     id: "cta-split-image-04",
     sourcePath: "src/components/marketing/cta/cta-split-image-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2910,7 +2598,6 @@ const catalogSource = [
     id: "cta-split-image-quote-01",
     sourcePath: "src/components/marketing/cta/cta-split-image-quote-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2919,7 +2606,6 @@ const catalogSource = [
     id: "cta-split-image-quote-02",
     sourcePath: "src/components/marketing/cta/cta-split-image-quote-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2928,7 +2614,6 @@ const catalogSource = [
     id: "cta-split-image-quote-03",
     sourcePath: "src/components/marketing/cta/cta-split-image-quote-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2937,7 +2622,6 @@ const catalogSource = [
     id: "cta-split-image-quote-04",
     sourcePath: "src/components/marketing/cta/cta-split-image-quote-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2946,7 +2630,6 @@ const catalogSource = [
     id: "faq-accordion-01-brand",
     sourcePath: "src/components/marketing/faq/faq-accordion-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2955,7 +2638,6 @@ const catalogSource = [
     id: "faq-accordion-01",
     sourcePath: "src/components/marketing/faq/faq-accordion-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2964,7 +2646,6 @@ const catalogSource = [
     id: "faq-accordion-02-brand",
     sourcePath: "src/components/marketing/faq/faq-accordion-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2973,7 +2654,6 @@ const catalogSource = [
     id: "faq-accordion-02",
     sourcePath: "src/components/marketing/faq/faq-accordion-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2982,7 +2662,6 @@ const catalogSource = [
     id: "faq-accordion-03-brand",
     sourcePath: "src/components/marketing/faq/faq-accordion-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -2991,7 +2670,6 @@ const catalogSource = [
     id: "faq-accordion-03",
     sourcePath: "src/components/marketing/faq/faq-accordion-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3000,7 +2678,6 @@ const catalogSource = [
     id: "faq-accordion-04-brand",
     sourcePath: "src/components/marketing/faq/faq-accordion-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3009,7 +2686,6 @@ const catalogSource = [
     id: "faq-accordion-04",
     sourcePath: "src/components/marketing/faq/faq-accordion-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3018,7 +2694,6 @@ const catalogSource = [
     id: "faq-simple-01-brand",
     sourcePath: "src/components/marketing/faq/faq-simple-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3027,7 +2702,6 @@ const catalogSource = [
     id: "faq-simple-01",
     sourcePath: "src/components/marketing/faq/faq-simple-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3036,7 +2710,6 @@ const catalogSource = [
     id: "faq-simple-02-brand",
     sourcePath: "src/components/marketing/faq/faq-simple-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3045,7 +2718,6 @@ const catalogSource = [
     id: "faq-simple-02",
     sourcePath: "src/components/marketing/faq/faq-simple-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3054,7 +2726,6 @@ const catalogSource = [
     id: "faq-simple-03-brand",
     sourcePath: "src/components/marketing/faq/faq-simple-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3063,7 +2734,6 @@ const catalogSource = [
     id: "faq-simple-03",
     sourcePath: "src/components/marketing/faq/faq-simple-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3072,7 +2742,6 @@ const catalogSource = [
     id: "faq-simple-04-brand",
     sourcePath: "src/components/marketing/faq/faq-simple-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3081,7 +2750,6 @@ const catalogSource = [
     id: "faq-simple-04",
     sourcePath: "src/components/marketing/faq/faq-simple-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3090,7 +2758,6 @@ const catalogSource = [
     id: "features-alternating-layout-01",
     sourcePath: "src/components/marketing/features/features-alternating-layout-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3099,7 +2766,6 @@ const catalogSource = [
     id: "features-alternating-layout-02",
     sourcePath: "src/components/marketing/features/features-alternating-layout-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3108,7 +2774,6 @@ const catalogSource = [
     id: "features-alternating-layout-03",
     sourcePath: "src/components/marketing/features/features-alternating-layout-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3117,7 +2782,6 @@ const catalogSource = [
     id: "features-alternating-layout-04",
     sourcePath: "src/components/marketing/features/features-alternating-layout-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3126,7 +2790,6 @@ const catalogSource = [
     id: "features-center-mockup-01",
     sourcePath: "src/components/marketing/features/features-center-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3135,7 +2798,6 @@ const catalogSource = [
     id: "features-center-mockup-02",
     sourcePath: "src/components/marketing/features/features-center-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3144,7 +2806,6 @@ const catalogSource = [
     id: "features-icon-cards-01",
     sourcePath: "src/components/marketing/features/features-icon-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3153,7 +2814,6 @@ const catalogSource = [
     id: "features-icon-cards-02",
     sourcePath: "src/components/marketing/features/features-icon-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3162,7 +2822,6 @@ const catalogSource = [
     id: "features-icons-and-image-01",
     sourcePath: "src/components/marketing/features/features-icons-and-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3171,7 +2830,6 @@ const catalogSource = [
     id: "features-icons-and-image-02",
     sourcePath: "src/components/marketing/features/features-icons-and-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3180,7 +2838,6 @@ const catalogSource = [
     id: "features-icons-and-image-03",
     sourcePath: "src/components/marketing/features/features-icons-and-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3189,7 +2846,6 @@ const catalogSource = [
     id: "features-icons-and-image-04",
     sourcePath: "src/components/marketing/features/features-icons-and-image-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3198,7 +2854,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-01",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3207,7 +2862,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-02",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3216,7 +2870,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-03",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3225,7 +2878,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-04",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3234,7 +2886,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-05",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3243,7 +2894,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-06",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3252,7 +2902,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-07",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-07.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3261,7 +2910,6 @@ const catalogSource = [
     id: "features-icons-and-mockup-08",
     sourcePath: "src/components/marketing/features/features-icons-and-mockup-08.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3270,7 +2918,6 @@ const catalogSource = [
     id: "features-integrations-icons-01",
     sourcePath: "src/components/marketing/features/features-integrations-icons-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3279,7 +2926,6 @@ const catalogSource = [
     id: "features-integrations-icons-02",
     sourcePath: "src/components/marketing/features/features-integrations-icons-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3288,7 +2934,6 @@ const catalogSource = [
     id: "features-integrations-icons-03",
     sourcePath: "src/components/marketing/features/features-integrations-icons-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3297,7 +2942,6 @@ const catalogSource = [
     id: "features-integrations-icons-04",
     sourcePath: "src/components/marketing/features/features-integrations-icons-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3306,7 +2950,6 @@ const catalogSource = [
     id: "features-large-screen-mockup-01",
     sourcePath: "src/components/marketing/features/features-large-screen-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3315,7 +2958,6 @@ const catalogSource = [
     id: "features-large-screen-mockup-02",
     sourcePath: "src/components/marketing/features/features-large-screen-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3324,7 +2966,6 @@ const catalogSource = [
     id: "features-simple-icons-01-brand",
     sourcePath: "src/components/marketing/features/features-simple-icons-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3333,7 +2974,6 @@ const catalogSource = [
     id: "features-simple-icons-01",
     sourcePath: "src/components/marketing/features/features-simple-icons-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3342,7 +2982,6 @@ const catalogSource = [
     id: "features-simple-icons-02-brand",
     sourcePath: "src/components/marketing/features/features-simple-icons-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3351,7 +2990,6 @@ const catalogSource = [
     id: "features-simple-icons-02",
     sourcePath: "src/components/marketing/features/features-simple-icons-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3360,7 +2998,6 @@ const catalogSource = [
     id: "features-simple-icons-03-brand",
     sourcePath: "src/components/marketing/features/features-simple-icons-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3369,7 +3006,6 @@ const catalogSource = [
     id: "features-simple-icons-03",
     sourcePath: "src/components/marketing/features/features-simple-icons-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3378,7 +3014,6 @@ const catalogSource = [
     id: "features-simple-icons-04-brand",
     sourcePath: "src/components/marketing/features/features-simple-icons-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3387,7 +3022,6 @@ const catalogSource = [
     id: "features-simple-icons-04",
     sourcePath: "src/components/marketing/features/features-simple-icons-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3396,7 +3030,6 @@ const catalogSource = [
     id: "features-tabs-mockup-01",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3405,7 +3038,6 @@ const catalogSource = [
     id: "features-tabs-mockup-02",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3414,7 +3046,6 @@ const catalogSource = [
     id: "features-tabs-mockup-03",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3423,7 +3054,6 @@ const catalogSource = [
     id: "features-tabs-mockup-04",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3432,7 +3062,6 @@ const catalogSource = [
     id: "features-tabs-mockup-05",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3441,7 +3070,6 @@ const catalogSource = [
     id: "features-tabs-mockup-06",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3450,7 +3078,6 @@ const catalogSource = [
     id: "features-tabs-mockup-07",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-07.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3459,7 +3086,6 @@ const catalogSource = [
     id: "features-tabs-mockup-08",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-08.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3468,7 +3094,6 @@ const catalogSource = [
     id: "features-tabs-mockup-09",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-09.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3477,7 +3102,6 @@ const catalogSource = [
     id: "features-tabs-mockup-10",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-10.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3486,7 +3110,6 @@ const catalogSource = [
     id: "features-tabs-mockup-11",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-11.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3495,7 +3118,6 @@ const catalogSource = [
     id: "features-tabs-mockup-12",
     sourcePath: "src/components/marketing/features/features-tabs-mockup-12.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3504,7 +3126,6 @@ const catalogSource = [
     id: "footer-large-01-brand",
     sourcePath: "src/components/marketing/footers/footer-large-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3513,7 +3134,6 @@ const catalogSource = [
     id: "footer-large-01",
     sourcePath: "src/components/marketing/footers/footer-large-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3522,7 +3142,6 @@ const catalogSource = [
     id: "footer-large-02-brand",
     sourcePath: "src/components/marketing/footers/footer-large-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3531,7 +3150,6 @@ const catalogSource = [
     id: "footer-large-02",
     sourcePath: "src/components/marketing/footers/footer-large-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3540,7 +3158,6 @@ const catalogSource = [
     id: "footer-large-03-brand",
     sourcePath: "src/components/marketing/footers/footer-large-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3549,7 +3166,6 @@ const catalogSource = [
     id: "footer-large-03",
     sourcePath: "src/components/marketing/footers/footer-large-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3558,7 +3174,6 @@ const catalogSource = [
     id: "footer-large-04-brand",
     sourcePath: "src/components/marketing/footers/footer-large-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3567,7 +3182,6 @@ const catalogSource = [
     id: "footer-large-04",
     sourcePath: "src/components/marketing/footers/footer-large-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3576,7 +3190,6 @@ const catalogSource = [
     id: "footer-large-05-brand",
     sourcePath: "src/components/marketing/footers/footer-large-05-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3585,7 +3198,6 @@ const catalogSource = [
     id: "footer-large-05",
     sourcePath: "src/components/marketing/footers/footer-large-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3594,7 +3206,6 @@ const catalogSource = [
     id: "footer-large-06-brand",
     sourcePath: "src/components/marketing/footers/footer-large-06-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3603,7 +3214,6 @@ const catalogSource = [
     id: "footer-large-06",
     sourcePath: "src/components/marketing/footers/footer-large-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3612,7 +3222,6 @@ const catalogSource = [
     id: "footer-large-07-brand",
     sourcePath: "src/components/marketing/footers/footer-large-07-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3621,7 +3230,6 @@ const catalogSource = [
     id: "footer-large-07",
     sourcePath: "src/components/marketing/footers/footer-large-07.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3630,7 +3238,6 @@ const catalogSource = [
     id: "footer-large-08-brand",
     sourcePath: "src/components/marketing/footers/footer-large-08-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3639,7 +3246,6 @@ const catalogSource = [
     id: "footer-large-08",
     sourcePath: "src/components/marketing/footers/footer-large-08.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3648,7 +3254,6 @@ const catalogSource = [
     id: "footer-large-09-brand",
     sourcePath: "src/components/marketing/footers/footer-large-09-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3657,7 +3262,6 @@ const catalogSource = [
     id: "footer-large-09",
     sourcePath: "src/components/marketing/footers/footer-large-09.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3666,7 +3270,6 @@ const catalogSource = [
     id: "footer-large-10-brand",
     sourcePath: "src/components/marketing/footers/footer-large-10-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3675,7 +3278,6 @@ const catalogSource = [
     id: "footer-large-10",
     sourcePath: "src/components/marketing/footers/footer-large-10.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3684,7 +3286,6 @@ const catalogSource = [
     id: "footer-large-11-brand",
     sourcePath: "src/components/marketing/footers/footer-large-11-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3693,7 +3294,6 @@ const catalogSource = [
     id: "footer-large-11",
     sourcePath: "src/components/marketing/footers/footer-large-11.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3702,7 +3302,6 @@ const catalogSource = [
     id: "footer-large-12-brand",
     sourcePath: "src/components/marketing/footers/footer-large-12-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3711,7 +3310,6 @@ const catalogSource = [
     id: "footer-large-12",
     sourcePath: "src/components/marketing/footers/footer-large-12.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3720,7 +3318,6 @@ const catalogSource = [
     id: "footer-large-13-brand",
     sourcePath: "src/components/marketing/footers/footer-large-13-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3729,7 +3326,6 @@ const catalogSource = [
     id: "footer-large-13",
     sourcePath: "src/components/marketing/footers/footer-large-13.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3738,7 +3334,6 @@ const catalogSource = [
     id: "footer-large-14-brand",
     sourcePath: "src/components/marketing/footers/footer-large-14-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3747,7 +3342,6 @@ const catalogSource = [
     id: "footer-large-14",
     sourcePath: "src/components/marketing/footers/footer-large-14.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3756,7 +3350,6 @@ const catalogSource = [
     id: "footer-large-15-brand",
     sourcePath: "src/components/marketing/footers/footer-large-15-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3765,7 +3358,6 @@ const catalogSource = [
     id: "footer-large-15",
     sourcePath: "src/components/marketing/footers/footer-large-15.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3774,7 +3366,6 @@ const catalogSource = [
     id: "footer-large-16-brand",
     sourcePath: "src/components/marketing/footers/footer-large-16-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3783,7 +3374,6 @@ const catalogSource = [
     id: "footer-large-16",
     sourcePath: "src/components/marketing/footers/footer-large-16.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3792,7 +3382,6 @@ const catalogSource = [
     id: "footer-small-01-brand",
     sourcePath: "src/components/marketing/footers/footer-small-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3801,7 +3390,6 @@ const catalogSource = [
     id: "footer-small-01",
     sourcePath: "src/components/marketing/footers/footer-small-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3810,7 +3398,6 @@ const catalogSource = [
     id: "footer-small-02-brand",
     sourcePath: "src/components/marketing/footers/footer-small-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3819,7 +3406,6 @@ const catalogSource = [
     id: "footer-small-02",
     sourcePath: "src/components/marketing/footers/footer-small-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3828,7 +3414,6 @@ const catalogSource = [
     id: "footer-small-03-brand",
     sourcePath: "src/components/marketing/footers/footer-small-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3837,7 +3422,6 @@ const catalogSource = [
     id: "footer-small-03",
     sourcePath: "src/components/marketing/footers/footer-small-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3846,7 +3430,6 @@ const catalogSource = [
     id: "footer-small-04-brand",
     sourcePath: "src/components/marketing/footers/footer-small-04-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3855,7 +3438,6 @@ const catalogSource = [
     id: "footer-small-04",
     sourcePath: "src/components/marketing/footers/footer-small-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3864,7 +3446,6 @@ const catalogSource = [
     id: "dropdown-menu-feature-card",
     sourcePath: "src/components/marketing/header-navigation/dropdown-menu-feature-card.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3873,7 +3454,6 @@ const catalogSource = [
     id: "dropdown-menu-featured-posts",
     sourcePath: "src/components/marketing/header-navigation/dropdown-menu-featured-posts.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3884,7 +3464,6 @@ const catalogSource = [
     sourcePath:
       "src/components/marketing/header-navigation/dropdown-menu-simple-two-columns-with-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3894,7 +3473,6 @@ const catalogSource = [
     id: "dropdown-menu-simple-two-columns",
     sourcePath: "src/components/marketing/header-navigation/dropdown-menu-simple-two-columns.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3904,7 +3482,6 @@ const catalogSource = [
     id: "dropdown-menu-simple-with-footer",
     sourcePath: "src/components/marketing/header-navigation/dropdown-menu-simple-with-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3913,7 +3490,6 @@ const catalogSource = [
     id: "dropdown-menu-simple",
     sourcePath: "src/components/marketing/header-navigation/dropdown-menu-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3924,7 +3500,6 @@ const catalogSource = [
     sourcePath:
       "src/components/marketing/header-navigation/dropdown-menu-with-two-cols-and-links-and-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3933,7 +3508,6 @@ const catalogSource = [
     id: "header",
     sourcePath: "src/components/marketing/header-navigation/header.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3942,7 +3516,6 @@ const catalogSource = [
     id: "menu-2-col-with-links",
     sourcePath: "src/components/marketing/header-navigation/menu-2-col-with-links.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3951,7 +3524,6 @@ const catalogSource = [
     id: "menu-2-col-with-sidebar",
     sourcePath: "src/components/marketing/header-navigation/menu-2-col-with-sidebar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3960,7 +3532,6 @@ const catalogSource = [
     id: "menu-3-col-with-sidebar",
     sourcePath: "src/components/marketing/header-navigation/menu-3-col-with-sidebar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3969,7 +3540,6 @@ const catalogSource = [
     id: "menu-4-col-slim-with-footer",
     sourcePath: "src/components/marketing/header-navigation/menu-4-col-slim-with-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3978,7 +3548,6 @@ const catalogSource = [
     id: "menu-4-col-with-footer",
     sourcePath: "src/components/marketing/header-navigation/menu-4-col-with-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3987,7 +3556,6 @@ const catalogSource = [
     id: "menu-blog-posts-with-footer",
     sourcePath: "src/components/marketing/header-navigation/menu-blog-posts-with-footer.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -3996,7 +3564,6 @@ const catalogSource = [
     id: "menu-blog-posts-with-sidebar",
     sourcePath: "src/components/marketing/header-navigation/menu-blog-posts-with-sidebar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4006,7 +3573,6 @@ const catalogSource = [
     id: "menu-floating-2-col-with-sidebar",
     sourcePath: "src/components/marketing/header-navigation/menu-floating-2-col-with-sidebar.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4015,7 +3581,6 @@ const catalogSource = [
     id: "header-centered-brand",
     sourcePath: "src/components/marketing/header-section/header-centered-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4024,7 +3589,6 @@ const catalogSource = [
     id: "header-centered-buttons-brand",
     sourcePath: "src/components/marketing/header-section/header-centered-buttons-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4033,7 +3597,6 @@ const catalogSource = [
     id: "header-centered-buttons",
     sourcePath: "src/components/marketing/header-section/header-centered-buttons.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4042,7 +3605,6 @@ const catalogSource = [
     id: "header-centered-email-brand",
     sourcePath: "src/components/marketing/header-section/header-centered-email-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4051,7 +3613,6 @@ const catalogSource = [
     id: "header-centered-email",
     sourcePath: "src/components/marketing/header-section/header-centered-email.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4060,7 +3621,6 @@ const catalogSource = [
     id: "header-centered-search-brand",
     sourcePath: "src/components/marketing/header-section/header-centered-search-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4069,7 +3629,6 @@ const catalogSource = [
     id: "header-centered-search",
     sourcePath: "src/components/marketing/header-section/header-centered-search.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4078,7 +3637,6 @@ const catalogSource = [
     id: "header-centered-tabs-brand",
     sourcePath: "src/components/marketing/header-section/header-centered-tabs-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4087,7 +3645,6 @@ const catalogSource = [
     id: "header-centered-tabs",
     sourcePath: "src/components/marketing/header-section/header-centered-tabs.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4096,7 +3653,6 @@ const catalogSource = [
     id: "header-centered",
     sourcePath: "src/components/marketing/header-section/header-centered.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4105,7 +3661,6 @@ const catalogSource = [
     id: "header-left-brand",
     sourcePath: "src/components/marketing/header-section/header-left-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4114,7 +3669,6 @@ const catalogSource = [
     id: "header-left-buttons-brand",
     sourcePath: "src/components/marketing/header-section/header-left-buttons-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4123,7 +3677,6 @@ const catalogSource = [
     id: "header-left-buttons",
     sourcePath: "src/components/marketing/header-section/header-left-buttons.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4132,7 +3685,6 @@ const catalogSource = [
     id: "header-left-email-brand",
     sourcePath: "src/components/marketing/header-section/header-left-email-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4141,7 +3693,6 @@ const catalogSource = [
     id: "header-left-email",
     sourcePath: "src/components/marketing/header-section/header-left-email.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4150,7 +3701,6 @@ const catalogSource = [
     id: "header-left-search-brand",
     sourcePath: "src/components/marketing/header-section/header-left-search-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4159,7 +3709,6 @@ const catalogSource = [
     id: "header-left-search",
     sourcePath: "src/components/marketing/header-section/header-left-search.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4168,7 +3717,6 @@ const catalogSource = [
     id: "header-left-tabs-brand",
     sourcePath: "src/components/marketing/header-section/header-left-tabs-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4177,7 +3725,6 @@ const catalogSource = [
     id: "header-left-tabs",
     sourcePath: "src/components/marketing/header-section/header-left-tabs.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4186,7 +3733,6 @@ const catalogSource = [
     id: "header-left",
     sourcePath: "src/components/marketing/header-section/header-left.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4195,7 +3741,6 @@ const catalogSource = [
     id: "header-space-between-brand",
     sourcePath: "src/components/marketing/header-section/header-space-between-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4205,7 +3750,6 @@ const catalogSource = [
     id: "header-space-between-buttons-brand",
     sourcePath: "src/components/marketing/header-section/header-space-between-buttons-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4214,7 +3758,6 @@ const catalogSource = [
     id: "header-space-between-buttons",
     sourcePath: "src/components/marketing/header-section/header-space-between-buttons.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4224,7 +3767,6 @@ const catalogSource = [
     id: "header-space-between-email-brand",
     sourcePath: "src/components/marketing/header-section/header-space-between-email-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4233,7 +3775,6 @@ const catalogSource = [
     id: "header-space-between-email",
     sourcePath: "src/components/marketing/header-section/header-space-between-email.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4243,7 +3784,6 @@ const catalogSource = [
     id: "header-space-between-search-brand",
     sourcePath: "src/components/marketing/header-section/header-space-between-search-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4252,7 +3792,6 @@ const catalogSource = [
     id: "header-space-between-search",
     sourcePath: "src/components/marketing/header-section/header-space-between-search.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4261,7 +3800,6 @@ const catalogSource = [
     id: "header-space-between-tabs-brand",
     sourcePath: "src/components/marketing/header-section/header-space-between-tabs-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4270,7 +3808,6 @@ const catalogSource = [
     id: "header-space-between-tabs",
     sourcePath: "src/components/marketing/header-section/header-space-between-tabs.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4279,7 +3816,6 @@ const catalogSource = [
     id: "header-space-between",
     sourcePath: "src/components/marketing/header-section/header-space-between.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4288,7 +3824,6 @@ const catalogSource = [
     id: "hero-abstract-angles-01",
     sourcePath: "src/components/marketing/header-section/hero-abstract-angles-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4297,7 +3832,6 @@ const catalogSource = [
     id: "hero-abstract-angles-02",
     sourcePath: "src/components/marketing/header-section/hero-abstract-angles-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4306,7 +3840,6 @@ const catalogSource = [
     id: "hero-abstract-angles-03",
     sourcePath: "src/components/marketing/header-section/hero-abstract-angles-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4315,7 +3848,6 @@ const catalogSource = [
     id: "hero-abstract-angles-04",
     sourcePath: "src/components/marketing/header-section/hero-abstract-angles-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4324,7 +3856,6 @@ const catalogSource = [
     id: "hero-card-mockup-01",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4333,7 +3864,6 @@ const catalogSource = [
     id: "hero-card-mockup-02",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4342,7 +3872,6 @@ const catalogSource = [
     id: "hero-card-mockup-03",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4351,7 +3880,6 @@ const catalogSource = [
     id: "hero-card-mockup-04",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4360,7 +3888,6 @@ const catalogSource = [
     id: "hero-card-mockup-05",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4369,7 +3896,6 @@ const catalogSource = [
     id: "hero-card-mockup-06",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4378,7 +3904,6 @@ const catalogSource = [
     id: "hero-card-mockup-07",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-07.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4387,7 +3912,6 @@ const catalogSource = [
     id: "hero-card-mockup-08",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-08.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4396,7 +3920,6 @@ const catalogSource = [
     id: "hero-card-mockup-09",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-09.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4405,7 +3928,6 @@ const catalogSource = [
     id: "hero-card-mockup-10",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-10.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4414,7 +3936,6 @@ const catalogSource = [
     id: "hero-card-mockup-11",
     sourcePath: "src/components/marketing/header-section/hero-card-mockup-11.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4423,7 +3944,6 @@ const catalogSource = [
     id: "hero-color-card-01",
     sourcePath: "src/components/marketing/header-section/hero-color-card-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4432,7 +3952,6 @@ const catalogSource = [
     id: "hero-color-card-02",
     sourcePath: "src/components/marketing/header-section/hero-color-card-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4441,7 +3960,6 @@ const catalogSource = [
     id: "hero-color-card-03",
     sourcePath: "src/components/marketing/header-section/hero-color-card-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4450,7 +3968,6 @@ const catalogSource = [
     id: "hero-color-card-04",
     sourcePath: "src/components/marketing/header-section/hero-color-card-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4459,7 +3976,6 @@ const catalogSource = [
     id: "hero-geometric-shapes-01",
     sourcePath: "src/components/marketing/header-section/hero-geometric-shapes-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4468,7 +3984,6 @@ const catalogSource = [
     id: "hero-geometric-shapes-03",
     sourcePath: "src/components/marketing/header-section/hero-geometric-shapes-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4477,7 +3992,6 @@ const catalogSource = [
     id: "hero-geometric-shapes-04",
     sourcePath: "src/components/marketing/header-section/hero-geometric-shapes-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4486,7 +4000,6 @@ const catalogSource = [
     id: "hero-iphone-mockup-01",
     sourcePath: "src/components/marketing/header-section/hero-iphone-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4495,7 +4008,6 @@ const catalogSource = [
     id: "hero-iphone-mockup-02",
     sourcePath: "src/components/marketing/header-section/hero-iphone-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4504,7 +4016,6 @@ const catalogSource = [
     id: "hero-iphone-mockup-03",
     sourcePath: "src/components/marketing/header-section/hero-iphone-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4513,7 +4024,6 @@ const catalogSource = [
     id: "hero-iphone-mockup-04",
     sourcePath: "src/components/marketing/header-section/hero-iphone-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4522,7 +4032,6 @@ const catalogSource = [
     id: "hero-screen-mockup-01",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4531,7 +4040,6 @@ const catalogSource = [
     id: "hero-screen-mockup-02",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4540,7 +4048,6 @@ const catalogSource = [
     id: "hero-screen-mockup-03",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4549,7 +4056,6 @@ const catalogSource = [
     id: "hero-screen-mockup-04",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4558,7 +4064,6 @@ const catalogSource = [
     id: "hero-screen-mockup-05",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4567,7 +4072,6 @@ const catalogSource = [
     id: "hero-screen-mockup-06",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4576,7 +4080,6 @@ const catalogSource = [
     id: "hero-screen-mockup-07",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-07.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4585,7 +4088,6 @@ const catalogSource = [
     id: "hero-screen-mockup-08",
     sourcePath: "src/components/marketing/header-section/hero-screen-mockup-08.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4594,7 +4096,6 @@ const catalogSource = [
     id: "hero-simple-text-01",
     sourcePath: "src/components/marketing/header-section/hero-simple-text-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4603,7 +4104,6 @@ const catalogSource = [
     id: "hero-simple-text-02",
     sourcePath: "src/components/marketing/header-section/hero-simple-text-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4612,7 +4112,6 @@ const catalogSource = [
     id: "hero-split-form-01",
     sourcePath: "src/components/marketing/header-section/hero-split-form-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4621,7 +4120,6 @@ const catalogSource = [
     id: "hero-split-form-02",
     sourcePath: "src/components/marketing/header-section/hero-split-form-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4630,7 +4128,6 @@ const catalogSource = [
     id: "hero-split-image-01",
     sourcePath: "src/components/marketing/header-section/hero-split-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4639,7 +4136,6 @@ const catalogSource = [
     id: "hero-split-image-02",
     sourcePath: "src/components/marketing/header-section/hero-split-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4648,7 +4144,6 @@ const catalogSource = [
     id: "hero-split-image-03",
     sourcePath: "src/components/marketing/header-section/hero-split-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4657,7 +4152,6 @@ const catalogSource = [
     id: "hero-split-image-04",
     sourcePath: "src/components/marketing/header-section/hero-split-image-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4666,7 +4160,6 @@ const catalogSource = [
     id: "hero-split-image-05",
     sourcePath: "src/components/marketing/header-section/hero-split-image-05.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4675,7 +4168,6 @@ const catalogSource = [
     id: "hero-split-image-06",
     sourcePath: "src/components/marketing/header-section/hero-split-image-06.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4684,7 +4176,6 @@ const catalogSource = [
     id: "metrics-card-brand-dark",
     sourcePath: "src/components/marketing/metrics/metrics-card-brand-dark.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4693,7 +4184,6 @@ const catalogSource = [
     id: "metrics-card-gray-light",
     sourcePath: "src/components/marketing/metrics/metrics-card-gray-light.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4702,7 +4192,6 @@ const catalogSource = [
     id: "metrics-image-with-cards-01",
     sourcePath: "src/components/marketing/metrics/metrics-image-with-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4711,7 +4200,6 @@ const catalogSource = [
     id: "metrics-image-with-cards-02",
     sourcePath: "src/components/marketing/metrics/metrics-image-with-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4721,7 +4209,6 @@ const catalogSource = [
     id: "metrics-minimal-centered-text-brand",
     sourcePath: "src/components/marketing/metrics/metrics-minimal-centered-text-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4730,7 +4217,6 @@ const catalogSource = [
     id: "metrics-minimal-centered-text",
     sourcePath: "src/components/marketing/metrics/metrics-minimal-centered-text.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4740,7 +4226,6 @@ const catalogSource = [
     id: "metrics-simple-accent-line-brand",
     sourcePath: "src/components/marketing/metrics/metrics-simple-accent-line-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4749,7 +4234,6 @@ const catalogSource = [
     id: "metrics-simple-accent-line",
     sourcePath: "src/components/marketing/metrics/metrics-simple-accent-line.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4759,7 +4243,6 @@ const catalogSource = [
     id: "metrics-simple-centered-text-brand",
     sourcePath: "src/components/marketing/metrics/metrics-simple-centered-text-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4768,7 +4251,6 @@ const catalogSource = [
     id: "metrics-simple-centered-text",
     sourcePath: "src/components/marketing/metrics/metrics-simple-centered-text.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4777,7 +4259,6 @@ const catalogSource = [
     id: "metrics-simple-with-actions-01",
     sourcePath: "src/components/marketing/metrics/metrics-simple-with-actions-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4786,7 +4267,6 @@ const catalogSource = [
     id: "metrics-simple-with-actions-02",
     sourcePath: "src/components/marketing/metrics/metrics-simple-with-actions-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4795,7 +4275,6 @@ const catalogSource = [
     id: "metrics-split-image-01-brand",
     sourcePath: "src/components/marketing/metrics/metrics-split-image-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4804,7 +4283,6 @@ const catalogSource = [
     id: "metrics-split-image-01",
     sourcePath: "src/components/marketing/metrics/metrics-split-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4813,7 +4291,6 @@ const catalogSource = [
     id: "metrics-split-image-02-brand",
     sourcePath: "src/components/marketing/metrics/metrics-split-image-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4822,7 +4299,6 @@ const catalogSource = [
     id: "metrics-split-image-02",
     sourcePath: "src/components/marketing/metrics/metrics-split-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4832,7 +4308,6 @@ const catalogSource = [
     id: "newsletter-card-horizontal-brand",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-card-horizontal-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4841,7 +4316,6 @@ const catalogSource = [
     id: "newsletter-card-horizontal",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-card-horizontal.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4850,7 +4324,6 @@ const catalogSource = [
     id: "newsletter-card-vertical-brand",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-card-vertical-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4859,7 +4332,6 @@ const catalogSource = [
     id: "newsletter-card-vertical",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-card-vertical.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4868,7 +4340,6 @@ const catalogSource = [
     id: "newsletter-iphone-mockup-01",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-iphone-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4877,7 +4348,6 @@ const catalogSource = [
     id: "newsletter-iphone-mockup-02",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-iphone-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4886,7 +4356,6 @@ const catalogSource = [
     id: "newsletter-iphone-mockup-03",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-iphone-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4895,7 +4364,6 @@ const catalogSource = [
     id: "newsletter-iphone-mockup-04",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-iphone-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4904,7 +4372,6 @@ const catalogSource = [
     id: "newsletter-screen-mockup-01",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-screen-mockup-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4913,7 +4380,6 @@ const catalogSource = [
     id: "newsletter-screen-mockup-02",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-screen-mockup-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4922,7 +4388,6 @@ const catalogSource = [
     id: "newsletter-screen-mockup-03",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-screen-mockup-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4931,7 +4396,6 @@ const catalogSource = [
     id: "newsletter-screen-mockup-04",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-screen-mockup-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4941,7 +4405,6 @@ const catalogSource = [
     id: "newsletter-simple-centered-brand",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-simple-centered-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4950,7 +4413,6 @@ const catalogSource = [
     id: "newsletter-simple-centered",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-simple-centered.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4959,7 +4421,6 @@ const catalogSource = [
     id: "newsletter-simple-left-brand",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-simple-left-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4968,7 +4429,6 @@ const catalogSource = [
     id: "newsletter-simple-left",
     sourcePath: "src/components/marketing/newsletter-cta/newsletter-simple-left.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4977,7 +4437,6 @@ const catalogSource = [
     id: "pricing-abstract-angles",
     sourcePath: "src/components/marketing/pricing-sections/pricing-abstract-angles.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4986,7 +4445,6 @@ const catalogSource = [
     id: "pricing-dual-action",
     sourcePath: "src/components/marketing/pricing-sections/pricing-dual-action.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -4995,7 +4453,6 @@ const catalogSource = [
     id: "pricing-gray-badge",
     sourcePath: "src/components/marketing/pricing-sections/pricing-gray-badge.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5004,7 +4461,6 @@ const catalogSource = [
     id: "pricing-large-table-01",
     sourcePath: "src/components/marketing/pricing-sections/pricing-large-table-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5013,7 +4469,6 @@ const catalogSource = [
     id: "pricing-large-table-02",
     sourcePath: "src/components/marketing/pricing-sections/pricing-large-table-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5022,7 +4477,6 @@ const catalogSource = [
     id: "pricing-primary-card-icon",
     sourcePath: "src/components/marketing/pricing-sections/pricing-primary-card-icon.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5031,7 +4485,6 @@ const catalogSource = [
     id: "pricing-primary-card-simple",
     sourcePath: "src/components/marketing/pricing-sections/pricing-primary-card-simple.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5040,7 +4493,6 @@ const catalogSource = [
     id: "pricing-primary-dark-badge",
     sourcePath: "src/components/marketing/pricing-sections/pricing-primary-dark-badge.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5050,7 +4502,6 @@ const catalogSource = [
     id: "pricing-section-featured-cards-01",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-featured-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5060,7 +4511,6 @@ const catalogSource = [
     id: "pricing-section-featured-cards-02",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-featured-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5070,7 +4520,6 @@ const catalogSource = [
     id: "pricing-section-featured-cards-03",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-featured-cards-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5080,7 +4529,6 @@ const catalogSource = [
     id: "pricing-section-featured-cards-04",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-featured-cards-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5089,7 +4537,6 @@ const catalogSource = [
     id: "pricing-section-simple-cards-01",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-simple-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5098,7 +4545,6 @@ const catalogSource = [
     id: "pricing-section-simple-cards-02",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-simple-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5107,7 +4553,6 @@ const catalogSource = [
     id: "pricing-section-simple-cards-03",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-simple-cards-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5116,7 +4561,6 @@ const catalogSource = [
     id: "pricing-section-simple-cards-04",
     sourcePath: "src/components/marketing/pricing-sections/pricing-section-simple-cards-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5125,7 +4569,6 @@ const catalogSource = [
     id: "pricing-simple-accent-line",
     sourcePath: "src/components/marketing/pricing-sections/pricing-simple-accent-line.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5134,7 +4577,6 @@ const catalogSource = [
     id: "pricing-simple-banner",
     sourcePath: "src/components/marketing/pricing-sections/pricing-simple-banner.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5143,7 +4585,6 @@ const catalogSource = [
     id: "pricing-simple-call-out",
     sourcePath: "src/components/marketing/pricing-sections/pricing-simple-call-out.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5152,7 +4593,6 @@ const catalogSource = [
     id: "pricing-simple-dual-check-item",
     sourcePath: "src/components/marketing/pricing-sections/pricing-simple-dual-check-item.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5161,7 +4601,6 @@ const catalogSource = [
     id: "pricing-simple-icon-offset",
     sourcePath: "src/components/marketing/pricing-sections/pricing-simple-icon-offset.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5170,7 +4609,6 @@ const catalogSource = [
     id: "pricing-simple-icon",
     sourcePath: "src/components/marketing/pricing-sections/pricing-simple-icon.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5179,7 +4617,6 @@ const catalogSource = [
     id: "social-proof-card-brand",
     sourcePath: "src/components/marketing/social-proof/social-proof-card-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5188,7 +4625,6 @@ const catalogSource = [
     id: "social-proof-card",
     sourcePath: "src/components/marketing/social-proof/social-proof-card.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5197,7 +4633,6 @@ const catalogSource = [
     id: "social-proof-cards-brand",
     sourcePath: "src/components/marketing/social-proof/social-proof-cards-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5206,7 +4641,6 @@ const catalogSource = [
     id: "social-proof-cards",
     sourcePath: "src/components/marketing/social-proof/social-proof-cards.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5215,7 +4649,6 @@ const catalogSource = [
     id: "social-proof-full-width-brand",
     sourcePath: "src/components/marketing/social-proof/social-proof-full-width-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5225,7 +4658,6 @@ const catalogSource = [
     id: "social-proof-full-width-dual-brand",
     sourcePath: "src/components/marketing/social-proof/social-proof-full-width-dual-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5234,7 +4666,6 @@ const catalogSource = [
     id: "social-proof-full-width-dual",
     sourcePath: "src/components/marketing/social-proof/social-proof-full-width-dual.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5244,7 +4675,6 @@ const catalogSource = [
     id: "social-proof-full-width-masked-brand",
     sourcePath: "src/components/marketing/social-proof/social-proof-full-width-masked-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5253,7 +4683,6 @@ const catalogSource = [
     id: "social-proof-full-width-masked",
     sourcePath: "src/components/marketing/social-proof/social-proof-full-width-masked.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5262,7 +4691,6 @@ const catalogSource = [
     id: "social-proof-full-width",
     sourcePath: "src/components/marketing/social-proof/social-proof-full-width.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5271,7 +4699,6 @@ const catalogSource = [
     id: "social-proof-press-brand",
     sourcePath: "src/components/marketing/social-proof/social-proof-press-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5280,7 +4707,6 @@ const catalogSource = [
     id: "social-proof-press-mentions",
     sourcePath: "src/components/marketing/social-proof/social-proof-press-mentions.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5289,7 +4715,6 @@ const catalogSource = [
     id: "team-section-image-card-01",
     sourcePath: "src/components/marketing/team-sections/team-section-image-card-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5298,7 +4723,6 @@ const catalogSource = [
     id: "team-section-image-card-02",
     sourcePath: "src/components/marketing/team-sections/team-section-image-card-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5307,7 +4731,6 @@ const catalogSource = [
     id: "team-section-image-card-03",
     sourcePath: "src/components/marketing/team-sections/team-section-image-card-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5316,7 +4739,6 @@ const catalogSource = [
     id: "team-section-image-card-04",
     sourcePath: "src/components/marketing/team-sections/team-section-image-card-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5325,7 +4747,6 @@ const catalogSource = [
     id: "team-section-image-collage-01",
     sourcePath: "src/components/marketing/team-sections/team-section-image-collage-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5334,7 +4755,6 @@ const catalogSource = [
     id: "team-section-image-collage-02",
     sourcePath: "src/components/marketing/team-sections/team-section-image-collage-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5343,7 +4763,6 @@ const catalogSource = [
     id: "team-section-image-glass-01",
     sourcePath: "src/components/marketing/team-sections/team-section-image-glass-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5352,7 +4771,6 @@ const catalogSource = [
     id: "team-section-image-glass-02",
     sourcePath: "src/components/marketing/team-sections/team-section-image-glass-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5361,7 +4779,6 @@ const catalogSource = [
     id: "team-section-image-glass-03",
     sourcePath: "src/components/marketing/team-sections/team-section-image-glass-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5370,7 +4787,6 @@ const catalogSource = [
     id: "team-section-image-glass-04",
     sourcePath: "src/components/marketing/team-sections/team-section-image-glass-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5379,7 +4795,6 @@ const catalogSource = [
     id: "team-section-simple-01",
     sourcePath: "src/components/marketing/team-sections/team-section-simple-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5388,7 +4803,6 @@ const catalogSource = [
     id: "team-section-simple-02",
     sourcePath: "src/components/marketing/team-sections/team-section-simple-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5397,7 +4811,6 @@ const catalogSource = [
     id: "team-section-simple-03",
     sourcePath: "src/components/marketing/team-sections/team-section-simple-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5406,7 +4819,6 @@ const catalogSource = [
     id: "team-section-simple-04",
     sourcePath: "src/components/marketing/team-sections/team-section-simple-04.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5415,7 +4827,6 @@ const catalogSource = [
     id: "testimonial-abstract-image",
     sourcePath: "src/components/marketing/testimonials/testimonial-abstract-image.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5424,7 +4835,6 @@ const catalogSource = [
     id: "testimonial-card-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-card-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5434,7 +4844,6 @@ const catalogSource = [
     id: "testimonial-card-split-image-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-card-split-image-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5443,7 +4852,6 @@ const catalogSource = [
     id: "testimonial-card-split-image",
     sourcePath: "src/components/marketing/testimonials/testimonial-card-split-image.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5452,7 +4860,6 @@ const catalogSource = [
     id: "testimonial-card",
     sourcePath: "src/components/marketing/testimonials/testimonial-card.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5461,7 +4868,6 @@ const catalogSource = [
     id: "testimonial-case-study-cards",
     sourcePath: "src/components/marketing/testimonials/testimonial-case-study-cards.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5471,7 +4877,6 @@ const catalogSource = [
     id: "testimonial-glassmorphic-cards-01",
     sourcePath: "src/components/marketing/testimonials/testimonial-glassmorphic-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5481,7 +4886,6 @@ const catalogSource = [
     id: "testimonial-glassmorphic-cards-02",
     sourcePath: "src/components/marketing/testimonials/testimonial-glassmorphic-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5491,7 +4895,6 @@ const catalogSource = [
     id: "testimonial-glassmorphic-cards-03",
     sourcePath: "src/components/marketing/testimonials/testimonial-glassmorphic-cards-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5501,7 +4904,6 @@ const catalogSource = [
     id: "testimonial-simple-centered-01-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-centered-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5510,7 +4912,6 @@ const catalogSource = [
     id: "testimonial-simple-centered-01",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-centered-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5520,7 +4921,6 @@ const catalogSource = [
     id: "testimonial-simple-centered-02-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-centered-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5529,7 +4929,6 @@ const catalogSource = [
     id: "testimonial-simple-centered-02",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-centered-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5539,7 +4938,6 @@ const catalogSource = [
     id: "testimonial-simple-centered-03-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-centered-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5548,7 +4946,6 @@ const catalogSource = [
     id: "testimonial-simple-centered-03",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-centered-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5558,7 +4955,6 @@ const catalogSource = [
     id: "testimonial-simple-left-aligned-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-left-aligned-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5567,7 +4963,6 @@ const catalogSource = [
     id: "testimonial-simple-left-aligned",
     sourcePath: "src/components/marketing/testimonials/testimonial-simple-left-aligned.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5577,7 +4972,6 @@ const catalogSource = [
     id: "testimonial-social-cards-01-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-social-cards-01-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5586,7 +4980,6 @@ const catalogSource = [
     id: "testimonial-social-cards-01",
     sourcePath: "src/components/marketing/testimonials/testimonial-social-cards-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5596,7 +4989,6 @@ const catalogSource = [
     id: "testimonial-social-cards-02-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-social-cards-02-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5605,7 +4997,6 @@ const catalogSource = [
     id: "testimonial-social-cards-02",
     sourcePath: "src/components/marketing/testimonials/testimonial-social-cards-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5615,7 +5006,6 @@ const catalogSource = [
     id: "testimonial-social-cards-03-brand",
     sourcePath: "src/components/marketing/testimonials/testimonial-social-cards-03-brand.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5624,7 +5014,6 @@ const catalogSource = [
     id: "testimonial-social-cards-03",
     sourcePath: "src/components/marketing/testimonials/testimonial-social-cards-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5633,7 +5022,6 @@ const catalogSource = [
     id: "testimonial-split-image-01",
     sourcePath: "src/components/marketing/testimonials/testimonial-split-image-01.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5642,7 +5030,6 @@ const catalogSource = [
     id: "testimonial-split-image-02",
     sourcePath: "src/components/marketing/testimonials/testimonial-split-image-02.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
   {
     category: "marketing",
@@ -5651,7 +5038,6 @@ const catalogSource = [
     id: "testimonial-split-image-03",
     sourcePath: "src/components/marketing/testimonials/testimonial-split-image-03.tsx",
     sourceVersion: "untitledui@0.1.64/library-v8",
-    status: "pending",
   },
 ] as const satisfies readonly CatalogSourceEntry[];
 
@@ -5750,7 +5136,7 @@ const toCatalogEntry = (entry: CatalogSourceEntry): CatalogEntry => {
     id: entry.id,
     sourcePath: entry.sourcePath,
     sourceVersion: entry.sourceVersion,
-    status: entry.status,
+    status: "pending",
     storybookTitle,
   };
 };

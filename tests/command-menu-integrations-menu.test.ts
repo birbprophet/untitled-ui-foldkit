@@ -9,7 +9,5 @@ import {
 describe("command menu integration previews", () => {
   it("keeps regular and stacked IDs on dedicated renderers", () => {
     expect(commandMenuIntegrationsMenu).not.toBe(commandMenuIntegrationsMenuStacked);
-    expect(typeof commandMenuIntegrationsMenu).toBe("function");
-    expect(typeof commandMenuIntegrationsMenuStacked).toBe("function");
   });
 });

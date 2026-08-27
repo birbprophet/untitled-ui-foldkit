@@ -21,7 +21,7 @@ over the house Oxlint stack — ultracite core, vendored Effect presets, `@rikal
 `@mpsuesser`, `@foldkit` plugins):
 
 - TypeScript: zero errors across `src/`, `tests/`, `stories/`.
-- Tests: **546 files / 625 tests green**, including catalog↔registry↔evidence
+- Tests: **531 files / 610 tests green**, including catalog↔registry↔evidence
   reconciliation.
 - Localized behavior: date components accept `"en-US" | "pt-BR"` (`Intl` weekday/date
   formatting, e.g. `Sun/Sat` vs `dom./sáb.`); calendar parity is under
@@ -60,6 +60,24 @@ Without a project register, import `default-brand.css` first to get the upstream
 ramp. Every brand hue, neutral surface, focus ring, and `_on-brand` text role resolves
 through these variables, so a host re-brand never forks component code.
 
+The ramp contract is also available programmatically — eleven `--brand-50` …
+`--brand-950` steps are the only colour injection surface renderers depend on:
+
+```ts
+import { renderBrandRampBlock, untitledDefaultBrandRamp } from "@birbprophet/untitled-ui-foldkit/theme";
+```
+
+### Brand context (identity data contract)
+
+Identity-bearing renderers accept identity through data, never imports.
+`BrandContext` describes a product symbol plus optional horizontal wordmark; the
+shipped default is the upstream Untitled UI mark, valid until a host passes its
+own assets:
+
+```ts
+import { untitledDefaultBrandContext } from "@birbprophet/untitled-ui-foldkit/brand-context";
+```
+
 ### Identity injection (logos & avatars)
 
 The library ships NO product artwork. Slots that upstream fills with its own logo or
@@ -96,7 +114,7 @@ theme.css / default-brand.css   token boundary styles (published)
 packages/oxlint-plugin          vendored house lint plugin (dev)
 ```
 
-Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.152,
+Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.153,
 vite-plus 0.3, oxlint 1.79, pnpm workspaces (`pnpm-workspace.yaml`). `pnpm install`,
 then `pnpm exec vp check` / `pnpm exec vp test`.
 

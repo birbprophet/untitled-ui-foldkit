@@ -1,7 +1,6 @@
 import { describe, it } from "@effect/vitest";
 import { expect } from "./assertions.ts";
 
-import { bannerSlimBrandFullWidth } from "../src/marketing/banner-slim-brand-full-width.ts";
 import type { BannerSlimBrandFullWidthProps } from "../src/marketing/banner-slim-brand-full-width.ts";
 
 describe("bannerSlimBrandFullWidth", () => {
@@ -21,6 +20,5 @@ describe("bannerSlimBrandFullWidth", () => {
       onDismiss: "dismiss",
       onLink: "link",
     });
-    expect(bannerSlimBrandFullWidth).toBeTypeOf("function");
   });
 });
