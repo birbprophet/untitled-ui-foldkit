@@ -144,6 +144,8 @@ const definition = {
     sidebarSlim(
       {
         accountAvatarUrl: agentFace("Olivia Rhye"),
+        accountEmail: "olivia@siglata.com",
+        accountName: "Olivia Rhye",
         activeUrl: model.activeUrl,
         brand: demoBrand(),
         currentHref: model.currentHref,

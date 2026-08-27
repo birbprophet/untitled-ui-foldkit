@@ -95,6 +95,8 @@ const definition = {
     sidebarSectionDividers(
       {
         accountAvatarUrl: agentFace("Olivia Rhye"),
+        accountEmail: "olivia@siglata.com",
+        accountName: "Olivia Rhye",
         activeUrl: model.activeUrl,
         brand: demoBrand(),
         expandedHrefs: model.expandedHrefs,

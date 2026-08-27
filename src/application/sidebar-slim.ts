@@ -15,6 +15,8 @@ import type { SidebarNavigationItem } from "./sidebar-navigation-base.ts";
 
 export interface SidebarSlimProps<Message> {
   readonly accountAvatarUrl: string;
+  readonly accountEmail: string;
+  readonly accountName: string;
   readonly activeUrl?: string;
   readonly brand: BrandLockup;
   readonly currentHref: string;
@@ -40,6 +42,7 @@ const compactAccount = <Message>(
   isOpen: boolean,
   onToggle: Message,
   accountAvatarUrl: string,
+  accountName: string,
   h: HtmlBuilder<Message>,
 ): Html =>
   h.div(
@@ -59,7 +62,7 @@ const compactAccount = <Message>(
         [
           avatar(
             {
-              alt: "Olivia Rhye",
+              alt: accountName,
               border: true,
               size: "md",
               src: accountAvatarUrl,
@@ -155,6 +158,7 @@ const desktop = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder<Messa
                     props.isAccountOpen,
                     props.onAccountToggle,
                     props.accountAvatarUrl,
+                    props.accountName,
                     h,
                   ),
                 ],
@@ -204,9 +208,9 @@ const desktop = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder<Messa
                           [
                             h.p(
                               [h.Class("text-sm font-semibold text-text-primary")],
-                              ["Olivia Rhye"],
+                              [props.accountName],
                             ),
-                            h.p([h.Class("text-sm text-text-tertiary")], ["olivia@siglata.com"]),
+                            h.p([h.Class("text-sm text-text-tertiary")], [props.accountEmail]),
                           ],
                         ),
                         h.button(
@@ -260,7 +264,14 @@ const mobileContent = <Message>(props: SidebarSlimProps<Message>, h: HtmlBuilder
               sidebarNavItem(item, props.activeUrl === item.href, props.onNavigate, h),
             ),
           ),
-          sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, props.accountAvatarUrl, h),
+          sidebarAccountCard(
+            props.isAccountOpen,
+            props.onAccountToggle,
+            props.accountAvatarUrl,
+            props.accountName,
+            props.accountEmail,
+            h,
+          ),
         ],
       ),
     ],

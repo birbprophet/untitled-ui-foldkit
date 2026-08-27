@@ -14,6 +14,8 @@ import type { SidebarNavigationItem } from "./sidebar-navigation-base.ts";
 
 export interface SidebarDualTierProps<Message> {
   readonly accountAvatarUrl: string;
+  readonly accountEmail: string;
+  readonly accountName: string;
   readonly activeUrl?: string;
   readonly brand: BrandLockup;
   readonly currentHref: string;
@@ -108,6 +110,8 @@ const mainSidebar = <Message>(
                 props.isAccountOpen,
                 props.onAccountToggle,
                 props.accountAvatarUrl,
+                props.accountName,
+                props.accountEmail,
                 h,
               ),
             ],

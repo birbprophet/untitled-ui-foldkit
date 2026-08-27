@@ -86,6 +86,8 @@ const definition = {
     sidebarSectionsSubheadings(
       {
         accountAvatarUrl: agentFace("Olivia Rhye"),
+        accountEmail: "olivia@siglata.com",
+        accountName: "Olivia Rhye",
         activeUrl: model.activeUrl,
         brand: demoBrand(),
         groups,

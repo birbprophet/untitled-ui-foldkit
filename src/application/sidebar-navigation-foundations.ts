@@ -13,6 +13,8 @@ import type { SidebarNavigationItem } from "./sidebar-navigation-base.ts";
 
 export interface SidebarNavigationBaseProps<Message> {
   readonly accountAvatarUrl: string;
+  readonly accountEmail: string;
+  readonly accountName: string;
   readonly activeUrl?: string;
   readonly brand: BrandLockup;
   readonly expandedHrefs: readonly string[];
@@ -112,6 +114,8 @@ export const sidebarNavigationBase = <Message>(
                     props.isAccountOpen,
                     props.onAccountToggle,
                     props.accountAvatarUrl,
+                    props.accountName,
+                    props.accountEmail,
                     h,
                   ),
                 ],
@@ -159,6 +163,8 @@ export const sidebarNavigationBase = <Message>(
                           props.isAccountOpen,
                           props.onAccountToggle,
                           props.accountAvatarUrl,
+                          props.accountName,
+                          props.accountEmail,
                           h,
                         ),
                       ],

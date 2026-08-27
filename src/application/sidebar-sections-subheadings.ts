@@ -17,6 +17,8 @@ export interface SidebarNavigationGroup {
 
 export interface SidebarSectionsSubheadingsProps<Message> {
   readonly accountAvatarUrl: string;
+  readonly accountEmail: string;
+  readonly accountName: string;
   readonly activeUrl?: string;
   readonly brand: BrandLockup;
   readonly groups: readonly SidebarNavigationGroup[];
@@ -94,7 +96,16 @@ const content = <Message>(
       ),
       h.div(
         [h.Class("mt-auto flex flex-col gap-5 px-2 py-4 lg:gap-6 lg:px-4")],
-        [sidebarAccountCard(props.isAccountOpen, props.onAccountToggle, props.accountAvatarUrl, h)],
+        [
+          sidebarAccountCard(
+            props.isAccountOpen,
+            props.onAccountToggle,
+            props.accountAvatarUrl,
+            props.accountName,
+            props.accountEmail,
+            h,
+          ),
+        ],
       ),
     ],
   );

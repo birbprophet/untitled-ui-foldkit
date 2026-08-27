@@ -114,6 +114,8 @@ const view = (model: Model, h: Parameters<typeof sidebarSimple<Message>>[1]) =>
   sidebarSimple(
     {
       accountAvatarUrl: agentFace("Olivia Rhye"),
+      accountEmail: "olivia@siglata.com",
+      accountName: "Olivia Rhye",
       activeUrl: model.activeUrl,
       brand: demoBrand(),
       expandedHrefs: model.expandedHrefs,

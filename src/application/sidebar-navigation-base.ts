@@ -40,6 +40,8 @@ export interface SidebarNavigationItem {
 
 export interface SidebarNavigationBaseProps<Message> {
   readonly accountAvatarUrl: string;
+  readonly accountEmail: string;
+  readonly accountName: string;
   readonly activeUrl?: string;
   readonly brand: BrandLockup;
   readonly expandedHrefs: readonly string[];
@@ -403,6 +405,8 @@ export const sidebarAccountCard = <Message>(
   isOpen: boolean,
   onToggle: Message,
   accountAvatarUrl: string,
+  accountName: string,
+  accountEmail: string,
   h: HtmlBuilder<Message>,
 ): Html =>
   h.div(
@@ -414,7 +418,7 @@ export const sidebarAccountCard = <Message>(
     [
       avatar(
         {
-          alt: "Caitlyn King",
+          alt: accountName,
           border: true,
           size: "md",
           src: accountAvatarUrl,
@@ -425,8 +429,8 @@ export const sidebarAccountCard = <Message>(
       h.div(
         [h.Class("min-w-0 flex-1")],
         [
-          h.p([h.Class("truncate text-sm font-semibold text-text-primary")], ["Caitlyn King"]),
-          h.p([h.Class("truncate text-sm text-text-tertiary")], ["caitlyn@siglata.com"]),
+          h.p([h.Class("truncate text-sm font-semibold text-text-primary")], [accountName]),
+          h.p([h.Class("truncate text-sm text-text-tertiary")], [accountEmail]),
         ],
       ),
       h.button(
@@ -513,6 +517,8 @@ const sidebarBody = <Message>(
                   props.isAccountOpen,
                   props.onAccountToggle,
                   props.accountAvatarUrl,
+                  props.accountName,
+                  props.accountEmail,
                   h,
                 ),
               ]),
