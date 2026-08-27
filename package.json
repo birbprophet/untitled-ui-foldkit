@@ -19,7 +19,11 @@
     "./catalog": "./src/catalog.ts",
     "./marketing": "./src/marketing.ts",
     "./theme.css": "./theme.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./application/*": "./src/application/*",
+    "./base/*": "./src/base/*",
+    "./marketing/*": "./src/marketing/*",
+    "./internal/*": "./src/internal/*"
   },
   "scripts": {
     "check": "vp check",
