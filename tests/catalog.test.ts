@@ -105,6 +105,18 @@ it("every verified story declares the catalog title for static CSF indexing", ()
   }
 });
 
+it("story files and verified catalog ids are the same set", () => {
+  const storyIds = ["base", "application", "marketing"]
+    .flatMap((category) =>
+      readdirSync(new URL(`../stories/untitled-ui/${category}/`, import.meta.url))
+        .filter((name) => name.endsWith(".stories.ts"))
+        .map((name) => name.replace(/\.stories\.ts$/u, "")),
+    )
+    .toSorted();
+  expect(storyIds).toEqual(verifiedCatalog.map((entry) => entry.id).toSorted());
+});
+
+
 it("verified components alone have public renderers", () => {
   const rendererFiles = readdirSync(new URL("../src/base/", import.meta.url)).filter((name) =>
     name.endsWith(".ts"),
