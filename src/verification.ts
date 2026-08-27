@@ -4876,7 +4876,7 @@ export const verifiedEvidence = {
     ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
-  "header": evidence(
+  header: evidence(
     ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),

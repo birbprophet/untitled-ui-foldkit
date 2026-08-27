@@ -14,7 +14,7 @@ Siglata consumes this package as `packages/ui` for Storybook verification and pr
 | Application | 128 | 128 |
 | Marketing | 443 | 443 |
 
-Synced from `siglata/siglata` at commit `6962b7f3`.
+Synced from `siglata/siglata` at commit `bcb0b2b2`.
 
 ## Consumption
 
