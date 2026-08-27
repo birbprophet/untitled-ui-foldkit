@@ -1,8 +1,10 @@
-/* oxlint-disable effect/noReturnInArrow -- Direct FoldKit transcription of the authenticated Untitled UI marketing menu. */
+/* oxlint-disable effect/noReturnInArrow, effect/noTernary, foldkit/keyed-required-for-mapped-rows -- Direct FoldKit transcription of the authenticated Untitled UI marketing menu. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
-import { marketingDropdownMenuItemLink, type MarketingDropdownMenuItem } from "./marketing-dropdown-shared.ts";
-import { marketingMenuReadyFooter, type MarketingMenuFooterAction } from "./marketing-menu-shared.ts";
+import { marketingDropdownMenuItemLink } from "./marketing-dropdown-shared.ts";
+import type { MarketingDropdownMenuItem } from "./marketing-dropdown-shared.ts";
+import { marketingMenuReadyFooter } from "./marketing-menu-shared.ts";
+import type { MarketingMenuFooterAction } from "./marketing-menu-shared.ts";
 
 export interface Menu4ColSlimWithFooterProps<Message> {
   readonly actions: readonly MarketingMenuFooterAction[];
@@ -15,7 +17,10 @@ export interface Menu4ColSlimWithFooterProps<Message> {
   readonly prompt: string;
 }
 
-export const menu4ColSlimWithFooter = <Message>(props: Menu4ColSlimWithFooterProps<Message>, h: HtmlBuilder<Message>): Html =>
+export const menu4ColSlimWithFooter = <Message>(
+  props: Menu4ColSlimWithFooterProps<Message>,
+  h: HtmlBuilder<Message>,
+): Html =>
   h.section(
     [
       h.Class(
@@ -24,20 +29,34 @@ export const menu4ColSlimWithFooter = <Message>(props: Menu4ColSlimWithFooterPro
       h.Dir("ltr"),
     ],
     [
-      h.div([h.Class(`mx-auto max-w-container ${props.isFloating === true ? "" : "md:px-8"}`)], [
-        h.ul(
-          [
-            h.Class(
-              `grid grid-cols-1 gap-0.5 pt-2 pb-4 md:grid-cols-2 md:gap-1 xl:grid-cols-4 xl:flex-nowrap ${props.isFloating === true ? "md:p-5" : "md:py-6"}`,
+      h.div(
+        [h.Class(`mx-auto max-w-container ${props.isFloating === true ? "" : "md:px-8"}`)],
+        [
+          h.ul(
+            [
+              h.Class(
+                `grid grid-cols-1 gap-0.5 pt-2 pb-4 md:grid-cols-2 md:gap-1 xl:grid-cols-4 xl:flex-nowrap ${props.isFloating === true ? "md:p-5" : "md:py-6"}`,
+              ),
+            ],
+            props.items.map((menuItem) =>
+              h.keyed("li")(
+                menuItem.id,
+                [],
+                [marketingDropdownMenuItemLink(menuItem, props.onItem, h)],
+              ),
             ),
-          ],
-          props.items.map((item) =>
-            h.li([h.keyed("li")(item.id, [], [marketingDropdownMenuItemLink(item, props.onItem, h)])]),
           ),
-        ),
-      ]),
+        ],
+      ),
       marketingMenuReadyFooter(
-        { actions: props.actions, ctaLabel: props.ctaLabel, onAction: props.onAction, onCta: props.onCta, prompt: props.prompt, visibleOnMobile: true },
+        {
+          actions: props.actions,
+          ctaLabel: props.ctaLabel,
+          onAction: props.onAction,
+          onCta: props.onCta,
+          prompt: props.prompt,
+          visibleOnMobile: true,
+        },
         h,
       ),
     ],

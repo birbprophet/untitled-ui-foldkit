@@ -1,12 +1,14 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noSpread -- Shared mega-menu primitives for Untitled UI marketing header navigation. */
+/* oxlint-disable effect/noReturnInArrow, effect/noSpread, effect/noTernary, foldkit/keyed-required-for-mapped-rows -- Shared mega-menu primitives for Untitled UI marketing header navigation. */
 import type { Html, HtmlBuilder } from "foldkit/html";
 
 import { button } from "../base/button.ts";
 import {
   marketingDropdownMenuFeaturedCard,
   marketingDropdownMenuItemLink,
-  type MarketingDropdownMenuColumn,
-  type MarketingDropdownMenuItem,
+} from "./marketing-dropdown-shared.ts";
+import type {
+  MarketingDropdownMenuColumn,
+  MarketingDropdownMenuItem,
 } from "./marketing-dropdown-shared.ts";
 
 export interface MarketingMenuVideoTutorial<Message> {
@@ -89,12 +91,18 @@ export const marketingMenuBlogPostHorizontal = <Message>(
         h.Class("h-50 w-full shrink-0 rounded-md bg-bg-secondary object-cover sm:h-22 sm:w-36"),
         h.Src(post.imageSrc),
       ]),
-      h.div([h.Class("flex flex-col gap-3")], [
-        h.div([h.Class("flex flex-col gap-1")], [
-          h.h4([h.Class("line-clamp-2 text-sm font-semibold text-text-primary")], [post.title]),
-          h.p([h.Class("line-clamp-2 text-sm text-text-tertiary")], [post.subtitle]),
-        ]),
-      ]),
+      h.div(
+        [h.Class("flex flex-col gap-3")],
+        [
+          h.div(
+            [h.Class("flex flex-col gap-1")],
+            [
+              h.h4([h.Class("line-clamp-2 text-sm font-semibold text-text-primary")], [post.title]),
+              h.p([h.Class("line-clamp-2 text-sm text-text-tertiary")], [post.subtitle]),
+            ],
+          ),
+        ],
+      ),
     ],
   );
 
@@ -107,21 +115,22 @@ export const marketingMenuColumnList = <Message>(
   h.div(
     [h.Class(gridClass)],
     columns.map((column) =>
-      h.div([
-        h.keyed("div")(
-          column.id,
-          [],
-          [
-            h.h3([h.Class("mb-3 px-4 text-sm font-semibold text-text-brand-tertiary md:px-0")], [column.title]),
-            h.ul(
-              [h.Class("flex flex-col gap-0.5")],
-              column.items.map((item) =>
-                h.li([h.keyed("li")(item.id, [], [marketingDropdownMenuItemLink(item, onItem, h)])]),
-              ),
+      h.keyed("div")(
+        column.id,
+        [],
+        [
+          h.h3(
+            [h.Class("mb-3 px-4 text-sm font-semibold text-text-brand-tertiary md:px-0")],
+            [column.title],
+          ),
+          h.ul(
+            [h.Class("flex flex-col gap-0.5")],
+            column.items.map((menuItem) =>
+              h.keyed("li")(menuItem.id, [], [marketingDropdownMenuItemLink(menuItem, onItem, h)]),
             ),
-          ],
-        ),
-      ]),
+          ),
+        ],
+      ),
     ),
   );
 
@@ -137,29 +146,49 @@ export const marketingMenuVideoCard = <Message>(
       h.Href(tutorial.href),
     ],
     [
-      h.div([h.Class("relative w-60 shrink-0 overflow-hidden sm:w-44")], [
-        h.img([h.Alt(tutorial.imageAlt), h.Class("aspect-video w-full rounded-md object-cover"), h.Src(tutorial.imageSrc)]),
-        h.div(
-          [h.Class("absolute inset-0 flex items-center justify-center rounded-md bg-black/10 ring-[0.5px] ring-black/10 ring-inset")],
-          [h.span([h.Class("text-fg-white")], [playIcon(h)])],
-        ),
-      ]),
-      h.div([h.Class("flex flex-col gap-3")], [
-        h.div([h.Class("flex flex-col gap-1")], [
-          h.h4([h.Class("line-clamp-2 text-sm font-semibold text-text-primary")], [tutorial.title]),
-          h.p([h.Class("line-clamp-2 text-sm text-text-tertiary")], [tutorial.description]),
-        ]),
-        button(
-          {
-            color: "link-color",
-            iconLeadingElement: playIcon(h),
-            label: tutorial.watchLabel,
-            onPress: tutorial.onWatch,
-            size: "sm",
-          },
-          h,
-        ),
-      ]),
+      h.div(
+        [h.Class("relative w-60 shrink-0 overflow-hidden sm:w-44")],
+        [
+          h.img([
+            h.Alt(tutorial.imageAlt),
+            h.Class("aspect-video w-full rounded-md object-cover"),
+            h.Src(tutorial.imageSrc),
+          ]),
+          h.div(
+            [
+              h.Class(
+                "absolute inset-0 flex items-center justify-center rounded-md bg-black/10 ring-[0.5px] ring-black/10 ring-inset",
+              ),
+            ],
+            [h.span([h.Class("text-fg-white")], [playIcon(h)])],
+          ),
+        ],
+      ),
+      h.div(
+        [h.Class("flex flex-col gap-3")],
+        [
+          h.div(
+            [h.Class("flex flex-col gap-1")],
+            [
+              h.h4(
+                [h.Class("line-clamp-2 text-sm font-semibold text-text-primary")],
+                [tutorial.title],
+              ),
+              h.p([h.Class("line-clamp-2 text-sm text-text-tertiary")], [tutorial.description]),
+            ],
+          ),
+          button(
+            {
+              color: "link-color",
+              iconLeadingElement: playIcon(h),
+              label: tutorial.watchLabel,
+              onPress: tutorial.onWatch,
+              size: "sm",
+            },
+            h,
+          ),
+        ],
+      ),
     ],
   );
 
@@ -176,9 +205,10 @@ export const marketingMenuFeatureCardVertical = <Message>(
   },
   h: HtmlBuilder<Message>,
 ): Html =>
-  h.div([h.Class("w-full bg-bg-secondary px-1 pt-2 pb-3 md:max-w-70 md:rounded-2xl md:p-2")], [
-    marketingDropdownMenuFeaturedCard(props, h),
-  ]);
+  h.div(
+    [h.Class("w-full bg-bg-secondary px-1 pt-2 pb-3 md:max-w-70 md:rounded-2xl md:p-2")],
+    [marketingDropdownMenuFeaturedCard(props, h)],
+  );
 
 export const marketingMenuReadyFooter = <Message>(
   props: {
@@ -205,33 +235,37 @@ export const marketingMenuReadyFooter = <Message>(
           ),
         ],
         [
-          h.div([h.Class("flex gap-2")], [
-            h.p([h.Class("text-sm font-medium text-text-tertiary")], [props.prompt]),
-            button({ color: "link-color", label: props.ctaLabel, onPress: props.onCta, size: "md" }, h),
-          ]),
+          h.div(
+            [h.Class("flex gap-2")],
+            [
+              h.p([h.Class("text-sm font-medium text-text-tertiary")], [props.prompt]),
+              button(
+                { color: "link-color", label: props.ctaLabel, onPress: props.onCta, size: "md" },
+                h,
+              ),
+            ],
+          ),
           h.ul(
             [h.Class("flex flex-col gap-3 md:flex-row md:gap-4")],
             props.actions.map((action) =>
-              h.li([
-                h.keyed("li")(
-                  action.id,
-                  [],
-                  [
-                    button(
-                      {
-                        color: "link-color",
-                        href: action.href,
-                        iconLeadingElement:
-                          action.iconPath === undefined ? undefined : menuIcon(action.iconPath, h),
-                        label: action.label,
-                        onPress: props.onAction(action.id),
-                        size: "md",
-                      },
-                      h,
-                    ),
-                  ],
-                ),
-              ]),
+              h.keyed("li")(
+                action.id,
+                [],
+                [
+                  button(
+                    {
+                      color: "link-color",
+                      href: action.href,
+                      iconLeadingElement:
+                        action.iconPath === undefined ? undefined : menuIcon(action.iconPath, h),
+                      label: action.label,
+                      onPress: props.onAction(action.id),
+                      size: "md",
+                    },
+                    h,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -256,60 +290,85 @@ export const marketingMenuBlogPostsGrid = <Message>(
   },
   h: HtmlBuilder<Message>,
 ): Html =>
-  h.section([h.Class("relative overflow-hidden bg-bg-primary md:shadow-lg"), h.Dir("ltr")], [
-    h.div([h.Class("mx-auto flex max-w-container flex-col xl:flex-row")], [
-      h.div([h.Class("flex flex-1 flex-col gap-5 px-4 pt-4 pb-5 md:px-8 md:py-6")], [
-        h.h3([h.Class("text-sm font-semibold text-text-brand-tertiary")], [props.postsTitle]),
-        h.ul(
-          [h.Class("grid grid-cols-1 gap-2 md:grid-cols-2")],
-          props.posts.map((post) =>
-            h.li([
-              h.keyed("li")(
-                post.id,
-                [],
-                [
-                  h.a(
+  h.section(
+    [h.Class("relative overflow-hidden bg-bg-primary md:shadow-lg"), h.Dir("ltr")],
+    [
+      h.div(
+        [h.Class("mx-auto flex max-w-container flex-col xl:flex-row")],
+        [
+          h.div(
+            [h.Class("flex flex-1 flex-col gap-5 px-4 pt-4 pb-5 md:px-8 md:py-6")],
+            [
+              h.h3([h.Class("text-sm font-semibold text-text-brand-tertiary")], [props.postsTitle]),
+              h.ul(
+                [h.Class("grid grid-cols-1 gap-2 md:grid-cols-2")],
+                props.posts.map((post) =>
+                  h.keyed("li")(
+                    post.id,
+                    [],
                     [
-                      h.Class(
-                        "flex gap-3 rounded-lg p-3 outline-focus-ring transition hover:bg-bg-primary_hover focus-visible:outline-2",
+                      h.a(
+                        [
+                          h.Class(
+                            "flex gap-3 rounded-lg p-3 outline-focus-ring transition hover:bg-bg-primary_hover focus-visible:outline-2",
+                          ),
+                          h.Href("#"),
+                        ],
+                        [
+                          h.img([
+                            h.Alt(post.imageAlt),
+                            h.Class("size-16 shrink-0 rounded-lg object-cover"),
+                            h.Src(post.imageSrc),
+                          ]),
+                          h.div(
+                            [h.Class("flex flex-col gap-1")],
+                            [
+                              h.p(
+                                [h.Class("text-sm font-semibold text-text-secondary")],
+                                [post.title],
+                              ),
+                              h.p([h.Class("text-sm text-text-tertiary")], [post.subtitle]),
+                            ],
+                          ),
+                        ],
                       ),
-                      h.Href("#"),
-                    ],
-                    [
-                      h.img([h.Alt(post.imageAlt), h.Class("size-16 shrink-0 rounded-lg object-cover"), h.Src(post.imageSrc)]),
-                      h.div([h.Class("flex flex-col gap-1")], [
-                        h.p([h.Class("text-sm font-semibold text-text-secondary")], [post.title]),
-                        h.p([h.Class("text-sm text-text-tertiary")], [post.subtitle]),
-                      ]),
                     ],
                   ),
-                ],
+                ),
               ),
-            ]),
+              h.a(
+                [
+                  h.Class(
+                    "inline-flex items-center gap-1 text-md font-semibold text-text-brand-secondary outline-focus-ring focus-visible:outline-2",
+                  ),
+                  h.Href("#"),
+                  h.OnClick(props.onAllPosts),
+                ],
+                [props.allPostsLabel, chevronRight(h)],
+              ),
+            ],
           ),
-        ),
-        h.a(
-          [
-            h.Class(
-              "inline-flex items-center gap-1 text-md font-semibold text-text-brand-secondary outline-focus-ring focus-visible:outline-2",
-            ),
-            h.Href("#"),
-            h.OnClick(props.onAllPosts),
-          ],
-          [props.allPostsLabel, chevronRight(h)],
-        ),
-      ]),
-      h.div(
-        [h.Class("w-full shrink-0 border-t border-border-secondary px-4 py-5 md:max-w-80 md:border-t-0 md:px-8 md:py-6 xl:border-l")],
-        [
-          h.h3([h.Class("mb-3 text-sm font-semibold text-text-brand-tertiary")], ["Company"]),
-          h.ul(
-            [h.Class("flex flex-col gap-0.5")],
-            props.items.map((item) =>
-              h.li([h.keyed("li")(item.id, [], [marketingDropdownMenuItemLink(item, props.onItem, h)])]),
-            ),
+          h.div(
+            [
+              h.Class(
+                "w-full shrink-0 border-t border-border-secondary px-4 py-5 md:max-w-80 md:border-t-0 md:px-8 md:py-6 xl:border-l",
+              ),
+            ],
+            [
+              h.h3([h.Class("mb-3 text-sm font-semibold text-text-brand-tertiary")], ["Company"]),
+              h.ul(
+                [h.Class("flex flex-col gap-0.5")],
+                props.items.map((menuItem) =>
+                  h.keyed("li")(
+                    menuItem.id,
+                    [],
+                    [marketingDropdownMenuItemLink(menuItem, props.onItem, h)],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
-    ]),
-  ]);
+    ],
+  );
