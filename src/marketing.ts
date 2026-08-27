@@ -923,6 +923,3 @@ export { verifiedMarketingComponents } from "./registry.ts";
 
 // Wildcard fixture re-exports: consumers (e.g. Storybook suites) may import a
 // single port's default-data constants without reaching through deep subpaths.
-export * from "./marketing/marketing-dropdown-shared.ts";
-export * from "./marketing/marketing-footer-shared.ts";
-export * from "./marketing/marketing-menu-shared.ts";
