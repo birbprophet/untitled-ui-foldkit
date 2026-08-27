@@ -189,7 +189,7 @@ import { bannerTextFieldBrand } from "./marketing/banner-text-field-brand.ts";
 import { bannerTextFieldDefaultFullWidth } from "./marketing/banner-text-field-default-full-width.ts";
 import { bannerTextFieldDefault } from "./marketing/banner-text-field-default.ts";
 import { blogCards } from "./marketing/blog-cards.ts";
-import { blogHeaderAltLayout01Articles } from "./marketing/blog-header-alt-layout-01.ts";
+import { blogHeaderAltLayout01 } from "./marketing/blog-header-alt-layout-01.ts";
 import { blogHeaderAltLayout02 } from "./marketing/blog-header-alt-layout-02.ts";
 import { blogHeaderAltLayout03 } from "./marketing/blog-header-alt-layout-03.ts";
 import { blogHeaderAltLayout04 } from "./marketing/blog-header-alt-layout-04.ts";
@@ -202,7 +202,7 @@ import { blogHeaderSidebar02 } from "./marketing/blog-header-sidebar-02.ts";
 import { blogHeaderSimple01 } from "./marketing/blog-header-simple-01.ts";
 import { blogHeaderSimple02 } from "./marketing/blog-header-simple-02.ts";
 import { blogHeaderSimple03 } from "./marketing/blog-header-simple-03.ts";
-import { blogHeaderSimple04Articles } from "./marketing/blog-header-simple-04.ts";
+import { blogHeaderSimple04 } from "./marketing/blog-header-simple-04.ts";
 import { blogHeaderSimple05 } from "./marketing/blog-header-simple-05.ts";
 import { blogHeaderSimple06 } from "./marketing/blog-header-simple-06.ts";
 import { blogSectionCarouselLayout01 } from "./marketing/blog-section-carousel-layout-01.ts";
@@ -216,7 +216,7 @@ import { blogSectionSplitLayout02 } from "./marketing/blog-section-split-layout-
 import { careersCard01 } from "./marketing/careers-card-01.ts";
 import { careersCard02 } from "./marketing/careers-card-02.ts";
 import { careersCard03 } from "./marketing/careers-card-03.ts";
-import { careersCard04LocationValues } from "./marketing/careers-card-04.ts";
+import { careersCard04 } from "./marketing/careers-card-04.ts";
 import { careersSimple01Brand } from "./marketing/careers-simple-01-brand.ts";
 import { careersSimple01 } from "./marketing/careers-simple-01.ts";
 import { careersSimple02Brand } from "./marketing/careers-simple-02-brand.ts";
@@ -231,33 +231,386 @@ import { contactFeaturesTabsMap02 } from "./marketing/contact-features-tabs-map-
 import { contactFormAndImage01 } from "./marketing/contact-form-and-image-01.ts";
 import { contactFormAndImage02 } from "./marketing/contact-form-and-image-02.ts";
 import { contactFormAndMap } from "./marketing/contact-form-and-map.ts";
-import { contactIconCards01Cards } from "./marketing/contact-icon-cards-01.ts";
+import { contactIconCards01 } from "./marketing/contact-icon-cards-01.ts";
 import { contactIconCards02 } from "./marketing/contact-icon-cards-02.ts";
 import { contactIconCards03 } from "./marketing/contact-icon-cards-03.ts";
 import { contactIconsAndFormBrand } from "./marketing/contact-icons-and-form-brand.ts";
 import { contactIconsAndForm } from "./marketing/contact-icons-and-form.ts";
-import { contactIconsAndImageBrandLocations } from "./marketing/contact-icons-and-image-brand.ts";
-import { contactIconsAndImageImage } from "./marketing/contact-icons-and-image.ts";
-import { contactIconsAndMap01BrandItems } from "./marketing/contact-icons-and-map-01-brand.ts";
+import { contactIconsAndImageBrand } from "./marketing/contact-icons-and-image-brand.ts";
+import { contactIconsAndImage } from "./marketing/contact-icons-and-image.ts";
+import { contactIconsAndMap01Brand } from "./marketing/contact-icons-and-map-01-brand.ts";
 import { contactIconsAndMap01 } from "./marketing/contact-icons-and-map-01.ts";
-import { contactIconsAndMap02BrandMap } from "./marketing/contact-icons-and-map-02-brand.ts";
+import { contactIconsAndMap02Brand } from "./marketing/contact-icons-and-map-02-brand.ts";
 import { contactIconsAndMap02 } from "./marketing/contact-icons-and-map-02.ts";
-import { contactMap01Locations } from "./marketing/contact-map-01.ts";
+import { contactMap01 } from "./marketing/contact-map-01.ts";
 import { contactMap02 } from "./marketing/contact-map-02.ts";
 import { contactSimpleForm01 } from "./marketing/contact-simple-form-01.ts";
-import { contactSimpleForm02Image } from "./marketing/contact-simple-form-02.ts";
+import { contactSimpleForm02 } from "./marketing/contact-simple-form-02.ts";
 import { contactSimpleForm03 } from "./marketing/contact-simple-form-03.ts";
-import { contactSimpleForm04Contacts } from "./marketing/contact-simple-form-04.ts";
+import { contactSimpleForm04 } from "./marketing/contact-simple-form-04.ts";
 import { contactSimpleForm05 } from "./marketing/contact-simple-form-05.ts";
 import { contactSimpleForm } from "./marketing/contact-simple-form.ts";
-import { contactSimpleIcons01BrandItems } from "./marketing/contact-simple-icons-01-brand.ts";
+import { contactSimpleIcons01Brand } from "./marketing/contact-simple-icons-01-brand.ts";
 import { contactSimpleIcons01 } from "./marketing/contact-simple-icons-01.ts";
-import { contactSimpleIcons02BrandItems } from "./marketing/contact-simple-icons-02-brand.ts";
+import { contactSimpleIcons02Brand } from "./marketing/contact-simple-icons-02-brand.ts";
 import { contactSimpleIcons02 } from "./marketing/contact-simple-icons-02.ts";
-import { contactSimpleIcons03BrandItems } from "./marketing/contact-simple-icons-03-brand.ts";
+import { contactSimpleIcons03Brand } from "./marketing/contact-simple-icons-03-brand.ts";
 import { contactSimpleIcons03 } from "./marketing/contact-simple-icons-03.ts";
 import { contactSimpleIcons04Brand } from "./marketing/contact-simple-icons-04-brand.ts";
+import { contactSimpleIcons04 } from "./marketing/contact-simple-icons-04.ts";
 import { contactSimpleLinks01 } from "./marketing/contact-simple-links-01.ts";
+import { contactSimpleLinks02 } from "./marketing/contact-simple-links-02.ts";
+import { contactVectorMap03 } from "./marketing/contact-vector-map-03.ts";
+import { contentAlternative01 } from "./marketing/content-alternative-01.ts";
+import { contentAlternative02 } from "./marketing/content-alternative-02.ts";
+import { contentAlternative03 } from "./marketing/content-alternative-03.ts";
+import { contentLargeImage01 } from "./marketing/content-large-image-01.ts";
+import { contentLargeImage02 } from "./marketing/content-large-image-02.ts";
+import { contentLargeImage03 } from "./marketing/content-large-image-03.ts";
+import { contentLargeImage04 } from "./marketing/content-large-image-04.ts";
+import { contentSectionRichText01 } from "./marketing/content-section-rich-text-01.ts";
+import { contentSectionRichText02 } from "./marketing/content-section-rich-text-02.ts";
+import { contentSectionSimple01 } from "./marketing/content-section-simple-01.ts";
+import { contentSectionSimple02 } from "./marketing/content-section-simple-02.ts";
+import { contentSectionSimple03 } from "./marketing/content-section-simple-03.ts";
+import { contentSectionSimple04 } from "./marketing/content-section-simple-04.ts";
+import { contentSectionSimple05 } from "./marketing/content-section-simple-05.ts";
+import { contentSectionSplitImage01 } from "./marketing/content-section-split-image-01.ts";
+import { contentSectionSplitImage02 } from "./marketing/content-section-split-image-02.ts";
+import { contentSectionSplitImage03 } from "./marketing/content-section-split-image-03.ts";
+import { contentSimple } from "./marketing/content-simple.ts";
+import { contentSplitImage01 } from "./marketing/content-split-image-01.ts";
+import { contentSplitImage02 } from "./marketing/content-split-image-02.ts";
+import { contentSplitImage03 } from "./marketing/content-split-image-03.ts";
+import { contentSplitImage04 } from "./marketing/content-split-image-04.ts";
+import { ctaAbstractImagesBrand } from "./marketing/cta-abstract-images-brand.ts";
+import { ctaAbstractImages } from "./marketing/cta-abstract-images.ts";
+import { ctaCardHorizontalBrand } from "./marketing/cta-card-horizontal-brand.ts";
+import { ctaCardHorizontal } from "./marketing/cta-card-horizontal.ts";
+import { ctaCardVerticalBrand } from "./marketing/cta-card-vertical-brand.ts";
+import { ctaCardVertical } from "./marketing/cta-card-vertical.ts";
+import { ctaIphoneMockup01 } from "./marketing/cta-iphone-mockup-01.ts";
+import { ctaIphoneMockup02 } from "./marketing/cta-iphone-mockup-02.ts";
+import { ctaIphoneMockup03 } from "./marketing/cta-iphone-mockup-03.ts";
+import { ctaIphoneMockup04 } from "./marketing/cta-iphone-mockup-04.ts";
+import { ctaScreenMockup01 } from "./marketing/cta-screen-mockup-01.ts";
+import { ctaScreenMockup02 } from "./marketing/cta-screen-mockup-02.ts";
+import { ctaScreenMockup03 } from "./marketing/cta-screen-mockup-03.ts";
+import { ctaScreenMockup04 } from "./marketing/cta-screen-mockup-04.ts";
+import { ctaSimpleCenteredBrand } from "./marketing/cta-simple-centered-brand.ts";
+import { ctaSimpleCentered } from "./marketing/cta-simple-centered.ts";
+import { ctaSimpleLeftBrand } from "./marketing/cta-simple-left-brand.ts";
+import { ctaSimpleLeft } from "./marketing/cta-simple-left.ts";
+import { ctaSimpleLogos01Brand } from "./marketing/cta-simple-logos-01-brand.ts";
+import { ctaSimpleLogos01 } from "./marketing/cta-simple-logos-01.ts";
+import { ctaSimpleLogos02Brand } from "./marketing/cta-simple-logos-02-brand.ts";
+import { ctaSimpleLogos02 } from "./marketing/cta-simple-logos-02.ts";
+import { ctaSplitImage01 } from "./marketing/cta-split-image-01.ts";
+import { ctaSplitImage02 } from "./marketing/cta-split-image-02.ts";
+import { ctaSplitImage03 } from "./marketing/cta-split-image-03.ts";
+import { ctaSplitImage04 } from "./marketing/cta-split-image-04.ts";
+import { ctaSplitImageQuote01 } from "./marketing/cta-split-image-quote-01.ts";
+import { ctaSplitImageQuote02 } from "./marketing/cta-split-image-quote-02.ts";
+import { ctaSplitImageQuote03 } from "./marketing/cta-split-image-quote-03.ts";
+import { ctaSplitImageQuote04 } from "./marketing/cta-split-image-quote-04.ts";
+import { dropdownMenuFeatureCard } from "./marketing/dropdown-menu-feature-card.ts";
+import { dropdownMenuFeaturedPosts } from "./marketing/dropdown-menu-featured-posts.ts";
+import { dropdownMenuSimpleTwoColumnsWithFooter } from "./marketing/dropdown-menu-simple-two-columns-with-footer.ts";
+import { dropdownMenuSimpleTwoColumns } from "./marketing/dropdown-menu-simple-two-columns.ts";
+import { dropdownMenuSimpleWithFooter } from "./marketing/dropdown-menu-simple-with-footer.ts";
+import { dropdownMenuSimple } from "./marketing/dropdown-menu-simple.ts";
+import { dropdownMenuWithTwoColsAndLinksAndFooter } from "./marketing/dropdown-menu-with-two-cols-and-links-and-footer.ts";
+import { faqAccordion01Brand } from "./marketing/faq-accordion-01-brand.ts";
+import { faqAccordion01 } from "./marketing/faq-accordion-01.ts";
+import { faqAccordion02Brand } from "./marketing/faq-accordion-02-brand.ts";
+import { faqAccordion02 } from "./marketing/faq-accordion-02.ts";
+import { faqAccordion03Brand } from "./marketing/faq-accordion-03-brand.ts";
+import { faqAccordion03 } from "./marketing/faq-accordion-03.ts";
+import { faqAccordion04Brand } from "./marketing/faq-accordion-04-brand.ts";
+import { faqAccordion04 } from "./marketing/faq-accordion-04.ts";
+import { faqSimple01Brand } from "./marketing/faq-simple-01-brand.ts";
+import { faqSimple01 } from "./marketing/faq-simple-01.ts";
+import { faqSimple02Brand } from "./marketing/faq-simple-02-brand.ts";
+import { faqSimple02 } from "./marketing/faq-simple-02.ts";
+import { faqSimple03Brand } from "./marketing/faq-simple-03-brand.ts";
+import { faqSimple03 } from "./marketing/faq-simple-03.ts";
+import { faqSimple04Brand } from "./marketing/faq-simple-04-brand.ts";
+import { faqSimple04 } from "./marketing/faq-simple-04.ts";
+import { featuresAlternatingLayout01 } from "./marketing/features-alternating-layout-01.ts";
+import { featuresAlternatingLayout02 } from "./marketing/features-alternating-layout-02.ts";
+import { featuresAlternatingLayout03 } from "./marketing/features-alternating-layout-03.ts";
+import { featuresAlternatingLayout04 } from "./marketing/features-alternating-layout-04.ts";
+import { featuresCenterMockup01 } from "./marketing/features-center-mockup-01.ts";
+import { featuresCenterMockup02 } from "./marketing/features-center-mockup-02.ts";
+import { featuresIconCards01 } from "./marketing/features-icon-cards-01.ts";
+import { featuresIconCards02 } from "./marketing/features-icon-cards-02.ts";
+import { featuresIconsAndImage01 } from "./marketing/features-icons-and-image-01.ts";
+import { featuresIconsAndImage02 } from "./marketing/features-icons-and-image-02.ts";
+import { featuresIconsAndImage03 } from "./marketing/features-icons-and-image-03.ts";
+import { featuresIconsAndImage04 } from "./marketing/features-icons-and-image-04.ts";
+import { featuresIconsAndMockup01 } from "./marketing/features-icons-and-mockup-01.ts";
+import { featuresIconsAndMockup02 } from "./marketing/features-icons-and-mockup-02.ts";
+import { featuresIconsAndMockup03 } from "./marketing/features-icons-and-mockup-03.ts";
+import { featuresIconsAndMockup04 } from "./marketing/features-icons-and-mockup-04.ts";
+import { featuresIconsAndMockup05 } from "./marketing/features-icons-and-mockup-05.ts";
+import { featuresIconsAndMockup06 } from "./marketing/features-icons-and-mockup-06.ts";
+import { featuresIconsAndMockup07 } from "./marketing/features-icons-and-mockup-07.ts";
+import { featuresIconsAndMockup08 } from "./marketing/features-icons-and-mockup-08.ts";
+import { featuresIntegrationsIcons01 } from "./marketing/features-integrations-icons-01.ts";
+import { featuresIntegrationsIcons02 } from "./marketing/features-integrations-icons-02.ts";
+import { featuresIntegrationsIcons03 } from "./marketing/features-integrations-icons-03.ts";
+import { featuresIntegrationsIcons04 } from "./marketing/features-integrations-icons-04.ts";
+import { featuresLargeScreenMockup01 } from "./marketing/features-large-screen-mockup-01.ts";
+import { featuresLargeScreenMockup02 } from "./marketing/features-large-screen-mockup-02.ts";
+import { featuresSimpleIcons01Brand } from "./marketing/features-simple-icons-01-brand.ts";
+import { featuresSimpleIcons01 } from "./marketing/features-simple-icons-01.ts";
+import { featuresSimpleIcons02Brand } from "./marketing/features-simple-icons-02-brand.ts";
+import { featuresSimpleIcons02 } from "./marketing/features-simple-icons-02.ts";
+import { featuresSimpleIcons03Brand } from "./marketing/features-simple-icons-03-brand.ts";
+import { featuresSimpleIcons03 } from "./marketing/features-simple-icons-03.ts";
+import { featuresSimpleIcons04Brand } from "./marketing/features-simple-icons-04-brand.ts";
+import { featuresSimpleIcons04 } from "./marketing/features-simple-icons-04.ts";
+import { featuresTabsMockup01 } from "./marketing/features-tabs-mockup-01.ts";
+import { featuresTabsMockup02 } from "./marketing/features-tabs-mockup-02.ts";
+import { featuresTabsMockup03 } from "./marketing/features-tabs-mockup-03.ts";
+import { featuresTabsMockup04 } from "./marketing/features-tabs-mockup-04.ts";
+import { featuresTabsMockup05 } from "./marketing/features-tabs-mockup-05.ts";
+import { featuresTabsMockup06 } from "./marketing/features-tabs-mockup-06.ts";
+import { featuresTabsMockup07 } from "./marketing/features-tabs-mockup-07.ts";
+import { featuresTabsMockup08 } from "./marketing/features-tabs-mockup-08.ts";
+import { featuresTabsMockup09 } from "./marketing/features-tabs-mockup-09.ts";
+import { featuresTabsMockup10 } from "./marketing/features-tabs-mockup-10.ts";
+import { featuresTabsMockup11 } from "./marketing/features-tabs-mockup-11.ts";
+import { featuresTabsMockup12 } from "./marketing/features-tabs-mockup-12.ts";
+import { footerLarge01Brand } from "./marketing/footer-large-01-brand.ts";
+import { footerLarge01 } from "./marketing/footer-large-01.ts";
+import { footerLarge02Brand } from "./marketing/footer-large-02-brand.ts";
+import { footerLarge02 } from "./marketing/footer-large-02.ts";
+import { footerLarge03Brand } from "./marketing/footer-large-03-brand.ts";
+import { footerLarge03 } from "./marketing/footer-large-03.ts";
+import { footerLarge04Brand } from "./marketing/footer-large-04-brand.ts";
+import { footerLarge04 } from "./marketing/footer-large-04.ts";
+import { footerLarge05Brand } from "./marketing/footer-large-05-brand.ts";
+import { footerLarge05 } from "./marketing/footer-large-05.ts";
+import { footerLarge06Brand } from "./marketing/footer-large-06-brand.ts";
+import { footerLarge06 } from "./marketing/footer-large-06.ts";
+import { footerLarge07Brand } from "./marketing/footer-large-07-brand.ts";
+import { footerLarge07 } from "./marketing/footer-large-07.ts";
+import { footerLarge08Brand } from "./marketing/footer-large-08-brand.ts";
+import { footerLarge08 } from "./marketing/footer-large-08.ts";
+import { footerLarge09Brand } from "./marketing/footer-large-09-brand.ts";
+import { footerLarge09 } from "./marketing/footer-large-09.ts";
+import { footerLarge10Brand } from "./marketing/footer-large-10-brand.ts";
+import { footerLarge10 } from "./marketing/footer-large-10.ts";
+import { footerLarge11Brand } from "./marketing/footer-large-11-brand.ts";
+import { footerLarge11 } from "./marketing/footer-large-11.ts";
+import { footerLarge12Brand } from "./marketing/footer-large-12-brand.ts";
+import { footerLarge12 } from "./marketing/footer-large-12.ts";
+import { footerLarge13Brand } from "./marketing/footer-large-13-brand.ts";
+import { footerLarge13 } from "./marketing/footer-large-13.ts";
+import { footerLarge14Brand } from "./marketing/footer-large-14-brand.ts";
+import { footerLarge14 } from "./marketing/footer-large-14.ts";
+import { footerLarge15Brand } from "./marketing/footer-large-15-brand.ts";
+import { footerLarge15 } from "./marketing/footer-large-15.ts";
+import { footerLarge16Brand } from "./marketing/footer-large-16-brand.ts";
+import { footerLarge16 } from "./marketing/footer-large-16.ts";
+import { footerSmall01Brand } from "./marketing/footer-small-01-brand.ts";
+import { footerSmall01 } from "./marketing/footer-small-01.ts";
+import { footerSmall02Brand } from "./marketing/footer-small-02-brand.ts";
+import { footerSmall02 } from "./marketing/footer-small-02.ts";
+import { footerSmall03Brand } from "./marketing/footer-small-03-brand.ts";
+import { footerSmall03 } from "./marketing/footer-small-03.ts";
+import { footerSmall04Brand } from "./marketing/footer-small-04-brand.ts";
+import { footerSmall04 } from "./marketing/footer-small-04.ts";
+import { headerCenteredBrand } from "./marketing/header-centered-brand.ts";
+import { headerCenteredButtonsBrand } from "./marketing/header-centered-buttons-brand.ts";
+import { headerCenteredButtons } from "./marketing/header-centered-buttons.ts";
+import { headerCenteredEmailBrand } from "./marketing/header-centered-email-brand.ts";
+import { headerCenteredEmail } from "./marketing/header-centered-email.ts";
+import { headerCenteredSearchBrand } from "./marketing/header-centered-search-brand.ts";
+import { headerCenteredSearch } from "./marketing/header-centered-search.ts";
+import { headerCenteredTabsBrand } from "./marketing/header-centered-tabs-brand.ts";
+import { headerCenteredTabs } from "./marketing/header-centered-tabs.ts";
+import { headerCentered } from "./marketing/header-centered.ts";
+import { headerLeftBrand } from "./marketing/header-left-brand.ts";
+import { headerLeftButtonsBrand } from "./marketing/header-left-buttons-brand.ts";
+import { headerLeftButtons } from "./marketing/header-left-buttons.ts";
+import { headerLeftEmailBrand } from "./marketing/header-left-email-brand.ts";
+import { headerLeftEmail } from "./marketing/header-left-email.ts";
+import { headerLeftSearchBrand } from "./marketing/header-left-search-brand.ts";
+import { headerLeftSearch } from "./marketing/header-left-search.ts";
+import { headerLeftTabsBrand } from "./marketing/header-left-tabs-brand.ts";
+import { headerLeftTabs } from "./marketing/header-left-tabs.ts";
+import { headerLeft } from "./marketing/header-left.ts";
+import { headerSpaceBetweenBrand } from "./marketing/header-space-between-brand.ts";
+import { headerSpaceBetweenButtonsBrand } from "./marketing/header-space-between-buttons-brand.ts";
+import { headerSpaceBetweenButtons } from "./marketing/header-space-between-buttons.ts";
+import { headerSpaceBetweenEmailBrand } from "./marketing/header-space-between-email-brand.ts";
+import { headerSpaceBetweenEmail } from "./marketing/header-space-between-email.ts";
+import { headerSpaceBetweenSearchBrand } from "./marketing/header-space-between-search-brand.ts";
+import { headerSpaceBetweenSearch } from "./marketing/header-space-between-search.ts";
+import { headerSpaceBetweenTabsBrand } from "./marketing/header-space-between-tabs-brand.ts";
+import { headerSpaceBetweenTabs } from "./marketing/header-space-between-tabs.ts";
+import { headerSpaceBetween } from "./marketing/header-space-between.ts";
+import { header } from "./marketing/header.ts";
+import { heroAbstractAngles01 } from "./marketing/hero-abstract-angles-01.ts";
+import { heroAbstractAngles02 } from "./marketing/hero-abstract-angles-02.ts";
+import { heroAbstractAngles03 } from "./marketing/hero-abstract-angles-03.ts";
+import { heroAbstractAngles04 } from "./marketing/hero-abstract-angles-04.ts";
+import { heroCardMockup01 } from "./marketing/hero-card-mockup-01.ts";
+import { heroCardMockup02 } from "./marketing/hero-card-mockup-02.ts";
+import { heroCardMockup03 } from "./marketing/hero-card-mockup-03.ts";
+import { heroCardMockup04 } from "./marketing/hero-card-mockup-04.ts";
+import { heroCardMockup05 } from "./marketing/hero-card-mockup-05.ts";
+import { heroCardMockup06 } from "./marketing/hero-card-mockup-06.ts";
+import { heroCardMockup07 } from "./marketing/hero-card-mockup-07.ts";
+import { heroCardMockup08 } from "./marketing/hero-card-mockup-08.ts";
+import { heroCardMockup09 } from "./marketing/hero-card-mockup-09.ts";
+import { heroCardMockup10 } from "./marketing/hero-card-mockup-10.ts";
+import { heroCardMockup11 } from "./marketing/hero-card-mockup-11.ts";
+import { heroColorCard01 } from "./marketing/hero-color-card-01.ts";
+import { heroColorCard02 } from "./marketing/hero-color-card-02.ts";
+import { heroColorCard03 } from "./marketing/hero-color-card-03.ts";
+import { heroColorCard04 } from "./marketing/hero-color-card-04.ts";
+import { heroGeometricShapes01 } from "./marketing/hero-geometric-shapes-01.ts";
+import { heroGeometricShapes03 } from "./marketing/hero-geometric-shapes-03.ts";
+import { heroGeometricShapes04 } from "./marketing/hero-geometric-shapes-04.ts";
+import { heroIphoneMockup01 } from "./marketing/hero-iphone-mockup-01.ts";
+import { heroIphoneMockup02 } from "./marketing/hero-iphone-mockup-02.ts";
+import { heroIphoneMockup03 } from "./marketing/hero-iphone-mockup-03.ts";
+import { heroIphoneMockup04 } from "./marketing/hero-iphone-mockup-04.ts";
+import { heroScreenMockup01 } from "./marketing/hero-screen-mockup-01.ts";
+import { heroScreenMockup02 } from "./marketing/hero-screen-mockup-02.ts";
+import { heroScreenMockup03 } from "./marketing/hero-screen-mockup-03.ts";
+import { heroScreenMockup04 } from "./marketing/hero-screen-mockup-04.ts";
+import { heroScreenMockup05 } from "./marketing/hero-screen-mockup-05.ts";
+import { heroScreenMockup06 } from "./marketing/hero-screen-mockup-06.ts";
+import { heroScreenMockup07 } from "./marketing/hero-screen-mockup-07.ts";
+import { heroScreenMockup08 } from "./marketing/hero-screen-mockup-08.ts";
+import { heroSimpleText01 } from "./marketing/hero-simple-text-01.ts";
+import { heroSimpleText02 } from "./marketing/hero-simple-text-02.ts";
+import { heroSplitForm01 } from "./marketing/hero-split-form-01.ts";
+import { heroSplitForm02 } from "./marketing/hero-split-form-02.ts";
+import { heroSplitImage01 } from "./marketing/hero-split-image-01.ts";
+import { heroSplitImage02 } from "./marketing/hero-split-image-02.ts";
+import { heroSplitImage03 } from "./marketing/hero-split-image-03.ts";
+import { heroSplitImage04 } from "./marketing/hero-split-image-04.ts";
+import { heroSplitImage05 } from "./marketing/hero-split-image-05.ts";
+import { heroSplitImage06 } from "./marketing/hero-split-image-06.ts";
+import { menu2ColWithLinks } from "./marketing/menu-2-col-with-links.ts";
+import { menu2ColWithSidebar } from "./marketing/menu-2-col-with-sidebar.ts";
+import { menu3ColWithSidebar } from "./marketing/menu-3-col-with-sidebar.ts";
+import { menu4ColSlimWithFooter } from "./marketing/menu-4-col-slim-with-footer.ts";
+import { menu4ColWithFooter } from "./marketing/menu-4-col-with-footer.ts";
+import { menuBlogPostsWithFooter } from "./marketing/menu-blog-posts-with-footer.ts";
+import { menuBlogPostsWithSidebar } from "./marketing/menu-blog-posts-with-sidebar.ts";
+import { menuFloating2ColWithSidebar } from "./marketing/menu-floating-2-col-with-sidebar.ts";
+import { metricsCardBrandDark } from "./marketing/metrics-card-brand-dark.ts";
+import { metricsCardGrayLight } from "./marketing/metrics-card-gray-light.ts";
+import { metricsImageWithCards01 } from "./marketing/metrics-image-with-cards-01.ts";
+import { metricsImageWithCards02 } from "./marketing/metrics-image-with-cards-02.ts";
+import { metricsMinimalCenteredTextBrand } from "./marketing/metrics-minimal-centered-text-brand.ts";
+import { metricsMinimalCenteredText } from "./marketing/metrics-minimal-centered-text.ts";
+import { metricsSimpleAccentLineBrand } from "./marketing/metrics-simple-accent-line-brand.ts";
+import { metricsSimpleAccentLine } from "./marketing/metrics-simple-accent-line.ts";
+import { metricsSimpleCenteredTextBrand } from "./marketing/metrics-simple-centered-text-brand.ts";
+import { metricsSimpleCenteredText } from "./marketing/metrics-simple-centered-text.ts";
+import { metricsSimpleWithActions01 } from "./marketing/metrics-simple-with-actions-01.ts";
+import { metricsSimpleWithActions02 } from "./marketing/metrics-simple-with-actions-02.ts";
+import { metricsSplitImage01Brand } from "./marketing/metrics-split-image-01-brand.ts";
+import { metricsSplitImage01 } from "./marketing/metrics-split-image-01.ts";
+import { metricsSplitImage02Brand } from "./marketing/metrics-split-image-02-brand.ts";
+import { metricsSplitImage02 } from "./marketing/metrics-split-image-02.ts";
+import { newsletterCardHorizontalBrand } from "./marketing/newsletter-card-horizontal-brand.ts";
+import { newsletterCardHorizontal } from "./marketing/newsletter-card-horizontal.ts";
+import { newsletterCardVerticalBrand } from "./marketing/newsletter-card-vertical-brand.ts";
+import { newsletterCardVertical } from "./marketing/newsletter-card-vertical.ts";
+import { newsletterIphoneMockup01 } from "./marketing/newsletter-iphone-mockup-01.ts";
+import { newsletterIphoneMockup02 } from "./marketing/newsletter-iphone-mockup-02.ts";
+import { newsletterIphoneMockup03 } from "./marketing/newsletter-iphone-mockup-03.ts";
+import { newsletterIphoneMockup04 } from "./marketing/newsletter-iphone-mockup-04.ts";
+import { newsletterScreenMockup01 } from "./marketing/newsletter-screen-mockup-01.ts";
+import { newsletterScreenMockup02 } from "./marketing/newsletter-screen-mockup-02.ts";
+import { newsletterScreenMockup03 } from "./marketing/newsletter-screen-mockup-03.ts";
+import { newsletterScreenMockup04 } from "./marketing/newsletter-screen-mockup-04.ts";
+import { newsletterSimpleCenteredBrand } from "./marketing/newsletter-simple-centered-brand.ts";
+import { newsletterSimpleCentered } from "./marketing/newsletter-simple-centered.ts";
+import { newsletterSimpleLeftBrand } from "./marketing/newsletter-simple-left-brand.ts";
+import { newsletterSimpleLeft } from "./marketing/newsletter-simple-left.ts";
+import { pricingAbstractAngles } from "./marketing/pricing-abstract-angles.ts";
+import { pricingDualAction } from "./marketing/pricing-dual-action.ts";
+import { pricingGrayBadge } from "./marketing/pricing-gray-badge.ts";
+import { pricingLargeTable01 } from "./marketing/pricing-large-table-01.ts";
+import { pricingLargeTable02 } from "./marketing/pricing-large-table-02.ts";
+import { pricingPrimaryCardIcon } from "./marketing/pricing-primary-card-icon.ts";
+import { pricingPrimaryCardSimple } from "./marketing/pricing-primary-card-simple.ts";
+import { pricingPrimaryDarkBadge } from "./marketing/pricing-primary-dark-badge.ts";
+import { pricingSectionFeaturedCards01 } from "./marketing/pricing-section-featured-cards-01.ts";
+import { pricingSectionFeaturedCards02 } from "./marketing/pricing-section-featured-cards-02.ts";
+import { pricingSectionFeaturedCards03 } from "./marketing/pricing-section-featured-cards-03.ts";
+import { pricingSectionFeaturedCards04 } from "./marketing/pricing-section-featured-cards-04.ts";
+import { pricingSectionSimpleCards01 } from "./marketing/pricing-section-simple-cards-01.ts";
+import { pricingSectionSimpleCards02 } from "./marketing/pricing-section-simple-cards-02.ts";
+import { pricingSectionSimpleCards03 } from "./marketing/pricing-section-simple-cards-03.ts";
+import { pricingSectionSimpleCards04 } from "./marketing/pricing-section-simple-cards-04.ts";
+import { pricingSimpleAccentLine } from "./marketing/pricing-simple-accent-line.ts";
+import { pricingSimpleBanner } from "./marketing/pricing-simple-banner.ts";
+import { pricingSimpleCallOut } from "./marketing/pricing-simple-call-out.ts";
+import { pricingSimpleDualCheckItem } from "./marketing/pricing-simple-dual-check-item.ts";
+import { pricingSimpleIconOffset } from "./marketing/pricing-simple-icon-offset.ts";
+import { pricingSimpleIcon } from "./marketing/pricing-simple-icon.ts";
+import { socialProofCardBrand } from "./marketing/social-proof-card-brand.ts";
+import { socialProofCard } from "./marketing/social-proof-card.ts";
+import { socialProofCardsBrand } from "./marketing/social-proof-cards-brand.ts";
+import { socialProofCards } from "./marketing/social-proof-cards.ts";
+import { socialProofFullWidthBrand } from "./marketing/social-proof-full-width-brand.ts";
+import { socialProofFullWidthDualBrand } from "./marketing/social-proof-full-width-dual-brand.ts";
+import { socialProofFullWidthDual } from "./marketing/social-proof-full-width-dual.ts";
+import { socialProofFullWidthMaskedBrand } from "./marketing/social-proof-full-width-masked-brand.ts";
+import { socialProofFullWidthMasked } from "./marketing/social-proof-full-width-masked.ts";
+import { socialProofFullWidth } from "./marketing/social-proof-full-width.ts";
+import { socialProofPressBrand } from "./marketing/social-proof-press-brand.ts";
+import { socialProofPressMentions } from "./marketing/social-proof-press-mentions.ts";
+import { teamSectionImageCard01 } from "./marketing/team-section-image-card-01.ts";
+import { teamSectionImageCard02 } from "./marketing/team-section-image-card-02.ts";
+import { teamSectionImageCard03 } from "./marketing/team-section-image-card-03.ts";
+import { teamSectionImageCard04 } from "./marketing/team-section-image-card-04.ts";
+import { teamSectionImageCollage01 } from "./marketing/team-section-image-collage-01.ts";
+import { teamSectionImageCollage02 } from "./marketing/team-section-image-collage-02.ts";
+import { teamSectionImageGlass01 } from "./marketing/team-section-image-glass-01.ts";
+import { teamSectionImageGlass02 } from "./marketing/team-section-image-glass-02.ts";
+import { teamSectionImageGlass03 } from "./marketing/team-section-image-glass-03.ts";
+import { teamSectionImageGlass04 } from "./marketing/team-section-image-glass-04.ts";
+import { teamSectionSimple01 } from "./marketing/team-section-simple-01.ts";
+import { teamSectionSimple02 } from "./marketing/team-section-simple-02.ts";
+import { teamSectionSimple03 } from "./marketing/team-section-simple-03.ts";
+import { teamSectionSimple04 } from "./marketing/team-section-simple-04.ts";
+import { testimonialAbstractImage } from "./marketing/testimonial-abstract-image.ts";
+import { testimonialCardBrand } from "./marketing/testimonial-card-brand.ts";
+import { testimonialCardSplitImageBrand } from "./marketing/testimonial-card-split-image-brand.ts";
+import { testimonialCardSplitImage } from "./marketing/testimonial-card-split-image.ts";
+import { testimonialCard } from "./marketing/testimonial-card.ts";
+import { testimonialCaseStudyCards } from "./marketing/testimonial-case-study-cards.ts";
+import { testimonialGlassmorphicCards01 } from "./marketing/testimonial-glassmorphic-cards-01.ts";
+import { testimonialGlassmorphicCards02 } from "./marketing/testimonial-glassmorphic-cards-02.ts";
+import { testimonialGlassmorphicCards03 } from "./marketing/testimonial-glassmorphic-cards-03.ts";
+import { testimonialSimpleCentered01Brand } from "./marketing/testimonial-simple-centered-01-brand.ts";
+import { testimonialSimpleCentered01 } from "./marketing/testimonial-simple-centered-01.ts";
+import { testimonialSimpleCentered02Brand } from "./marketing/testimonial-simple-centered-02-brand.ts";
+import { testimonialSimpleCentered02 } from "./marketing/testimonial-simple-centered-02.ts";
+import { testimonialSimpleCentered03Brand } from "./marketing/testimonial-simple-centered-03-brand.ts";
+import { testimonialSimpleCentered03 } from "./marketing/testimonial-simple-centered-03.ts";
+import { testimonialSimpleLeftAlignedBrand } from "./marketing/testimonial-simple-left-aligned-brand.ts";
+import { testimonialSimpleLeftAligned } from "./marketing/testimonial-simple-left-aligned.ts";
+import { testimonialSocialCards01Brand } from "./marketing/testimonial-social-cards-01-brand.ts";
+import { testimonialSocialCards01 } from "./marketing/testimonial-social-cards-01.ts";
+import { testimonialSocialCards02Brand } from "./marketing/testimonial-social-cards-02-brand.ts";
+import { testimonialSocialCards02 } from "./marketing/testimonial-social-cards-02.ts";
+import { testimonialSocialCards03Brand } from "./marketing/testimonial-social-cards-03-brand.ts";
+import { testimonialSocialCards03 } from "./marketing/testimonial-social-cards-03.ts";
+import { testimonialSplitImage01 } from "./marketing/testimonial-split-image-01.ts";
+import { testimonialSplitImage02 } from "./marketing/testimonial-split-image-02.ts";
+import { testimonialSplitImage03 } from "./marketing/testimonial-split-image-03.ts";
 
 export const verifiedBaseComponents = {
   "app-store-buttons": appStoreButtons,
@@ -442,28 +795,28 @@ export const verifiedApplicationComponents = {
 } as const;
 
 export const verifiedMarketingComponents = {
-  "banner-countdown-brand": bannerCountdownBrand,
   "banner-countdown-brand-full-width": bannerCountdownBrandFullWidth,
-  "banner-countdown-default": bannerCountdownDefault,
+  "banner-countdown-brand": bannerCountdownBrand,
   "banner-countdown-default-full-width": bannerCountdownDefaultFullWidth,
-  "banner-dual-action-brand": bannerDualActionBrand,
+  "banner-countdown-default": bannerCountdownDefault,
   "banner-dual-action-brand-full-width": bannerDualActionBrandFullWidth,
-  "banner-dual-action-default": bannerDualActionDefault,
+  "banner-dual-action-brand": bannerDualActionBrand,
   "banner-dual-action-default-full-width": bannerDualActionDefaultFullWidth,
-  "banner-single-action-brand": bannerSingleActionBrand,
+  "banner-dual-action-default": bannerDualActionDefault,
   "banner-single-action-brand-full-width": bannerSingleActionBrandFullWidth,
-  "banner-single-action-default": bannerSingleActionDefault,
+  "banner-single-action-brand": bannerSingleActionBrand,
   "banner-single-action-default-full-width": bannerSingleActionDefaultFullWidth,
-  "banner-slim-brand": bannerSlimBrand,
+  "banner-single-action-default": bannerSingleActionDefault,
   "banner-slim-brand-full-width": bannerSlimBrandFullWidth,
-  "banner-slim-default": bannerSlimDefault,
+  "banner-slim-brand": bannerSlimBrand,
   "banner-slim-default-full-width": bannerSlimDefaultFullWidth,
-  "banner-text-field-brand": bannerTextFieldBrand,
+  "banner-slim-default": bannerSlimDefault,
   "banner-text-field-brand-full-width": bannerTextFieldBrandFullWidth,
-  "banner-text-field-default": bannerTextFieldDefault,
+  "banner-text-field-brand": bannerTextFieldBrand,
   "banner-text-field-default-full-width": bannerTextFieldDefaultFullWidth,
+  "banner-text-field-default": bannerTextFieldDefault,
   "blog-cards": blogCards,
-  "blog-header-alt-layout-01": blogHeaderAltLayout01Articles,
+  "blog-header-alt-layout-01": blogHeaderAltLayout01,
   "blog-header-alt-layout-02": blogHeaderAltLayout02,
   "blog-header-alt-layout-03": blogHeaderAltLayout03,
   "blog-header-alt-layout-04": blogHeaderAltLayout04,
@@ -476,7 +829,7 @@ export const verifiedMarketingComponents = {
   "blog-header-simple-01": blogHeaderSimple01,
   "blog-header-simple-02": blogHeaderSimple02,
   "blog-header-simple-03": blogHeaderSimple03,
-  "blog-header-simple-04": blogHeaderSimple04Articles,
+  "blog-header-simple-04": blogHeaderSimple04,
   "blog-header-simple-05": blogHeaderSimple05,
   "blog-header-simple-06": blogHeaderSimple06,
   "blog-section-carousel-layout-01": blogSectionCarouselLayout01,
@@ -490,48 +843,401 @@ export const verifiedMarketingComponents = {
   "careers-card-01": careersCard01,
   "careers-card-02": careersCard02,
   "careers-card-03": careersCard03,
-  "careers-card-04": careersCard04LocationValues,
-  "careers-simple-01": careersSimple01,
+  "careers-card-04": careersCard04,
   "careers-simple-01-brand": careersSimple01Brand,
-  "careers-simple-02": careersSimple02,
+  "careers-simple-01": careersSimple01,
   "careers-simple-02-brand": careersSimple02Brand,
-  "careers-simple-03": careersSimple03,
+  "careers-simple-02": careersSimple02,
   "careers-simple-03-brand": careersSimple03Brand,
-  "careers-simple-04": careersSimple04,
+  "careers-simple-03": careersSimple03,
   "careers-simple-04-brand": careersSimple04Brand,
+  "careers-simple-04": careersSimple04,
   "contact-centered-map": contactCenteredMap,
   "contact-features-tabs-map-01": contactFeaturesTabsMap01,
   "contact-features-tabs-map-02": contactFeaturesTabsMap02,
   "contact-form-and-image-01": contactFormAndImage01,
   "contact-form-and-image-02": contactFormAndImage02,
   "contact-form-and-map": contactFormAndMap,
-  "contact-icon-cards-01": contactIconCards01Cards,
+  "contact-icon-cards-01": contactIconCards01,
   "contact-icon-cards-02": contactIconCards02,
   "contact-icon-cards-03": contactIconCards03,
-  "contact-icons-and-form": contactIconsAndForm,
   "contact-icons-and-form-brand": contactIconsAndFormBrand,
-  "contact-icons-and-image": contactIconsAndImageImage,
-  "contact-icons-and-image-brand": contactIconsAndImageBrandLocations,
+  "contact-icons-and-form": contactIconsAndForm,
+  "contact-icons-and-image-brand": contactIconsAndImageBrand,
+  "contact-icons-and-image": contactIconsAndImage,
+  "contact-icons-and-map-01-brand": contactIconsAndMap01Brand,
   "contact-icons-and-map-01": contactIconsAndMap01,
-  "contact-icons-and-map-01-brand": contactIconsAndMap01BrandItems,
+  "contact-icons-and-map-02-brand": contactIconsAndMap02Brand,
   "contact-icons-and-map-02": contactIconsAndMap02,
-  "contact-icons-and-map-02-brand": contactIconsAndMap02BrandMap,
-  "contact-map-01": contactMap01Locations,
+  "contact-map-01": contactMap01,
   "contact-map-02": contactMap02,
-  "contact-simple-form": contactSimpleForm,
   "contact-simple-form-01": contactSimpleForm01,
-  "contact-simple-form-02": contactSimpleForm02Image,
+  "contact-simple-form-02": contactSimpleForm02,
   "contact-simple-form-03": contactSimpleForm03,
-  "contact-simple-form-04": contactSimpleForm04Contacts,
+  "contact-simple-form-04": contactSimpleForm04,
   "contact-simple-form-05": contactSimpleForm05,
+  "contact-simple-form": contactSimpleForm,
+  "contact-simple-icons-01-brand": contactSimpleIcons01Brand,
   "contact-simple-icons-01": contactSimpleIcons01,
-  "contact-simple-icons-01-brand": contactSimpleIcons01BrandItems,
+  "contact-simple-icons-02-brand": contactSimpleIcons02Brand,
   "contact-simple-icons-02": contactSimpleIcons02,
-  "contact-simple-icons-02-brand": contactSimpleIcons02BrandItems,
+  "contact-simple-icons-03-brand": contactSimpleIcons03Brand,
   "contact-simple-icons-03": contactSimpleIcons03,
-  "contact-simple-icons-03-brand": contactSimpleIcons03BrandItems,
   "contact-simple-icons-04-brand": contactSimpleIcons04Brand,
+  "contact-simple-icons-04": contactSimpleIcons04,
   "contact-simple-links-01": contactSimpleLinks01,
+  "contact-simple-links-02": contactSimpleLinks02,
+  "contact-vector-map-03": contactVectorMap03,
+  "content-alternative-01": contentAlternative01,
+  "content-alternative-02": contentAlternative02,
+  "content-alternative-03": contentAlternative03,
+  "content-large-image-01": contentLargeImage01,
+  "content-large-image-02": contentLargeImage02,
+  "content-large-image-03": contentLargeImage03,
+  "content-large-image-04": contentLargeImage04,
+  "content-section-rich-text-01": contentSectionRichText01,
+  "content-section-rich-text-02": contentSectionRichText02,
+  "content-section-simple-01": contentSectionSimple01,
+  "content-section-simple-02": contentSectionSimple02,
+  "content-section-simple-03": contentSectionSimple03,
+  "content-section-simple-04": contentSectionSimple04,
+  "content-section-simple-05": contentSectionSimple05,
+  "content-section-split-image-01": contentSectionSplitImage01,
+  "content-section-split-image-02": contentSectionSplitImage02,
+  "content-section-split-image-03": contentSectionSplitImage03,
+  "content-simple": contentSimple,
+  "content-split-image-01": contentSplitImage01,
+  "content-split-image-02": contentSplitImage02,
+  "content-split-image-03": contentSplitImage03,
+  "content-split-image-04": contentSplitImage04,
+  "cta-abstract-images-brand": ctaAbstractImagesBrand,
+  "cta-abstract-images": ctaAbstractImages,
+  "cta-card-horizontal-brand": ctaCardHorizontalBrand,
+  "cta-card-horizontal": ctaCardHorizontal,
+  "cta-card-vertical-brand": ctaCardVerticalBrand,
+  "cta-card-vertical": ctaCardVertical,
+  "cta-iphone-mockup-01": ctaIphoneMockup01,
+  "cta-iphone-mockup-02": ctaIphoneMockup02,
+  "cta-iphone-mockup-03": ctaIphoneMockup03,
+  "cta-iphone-mockup-04": ctaIphoneMockup04,
+  "cta-screen-mockup-01": ctaScreenMockup01,
+  "cta-screen-mockup-02": ctaScreenMockup02,
+  "cta-screen-mockup-03": ctaScreenMockup03,
+  "cta-screen-mockup-04": ctaScreenMockup04,
+  "cta-simple-centered-brand": ctaSimpleCenteredBrand,
+  "cta-simple-centered": ctaSimpleCentered,
+  "cta-simple-left-brand": ctaSimpleLeftBrand,
+  "cta-simple-left": ctaSimpleLeft,
+  "cta-simple-logos-01-brand": ctaSimpleLogos01Brand,
+  "cta-simple-logos-01": ctaSimpleLogos01,
+  "cta-simple-logos-02-brand": ctaSimpleLogos02Brand,
+  "cta-simple-logos-02": ctaSimpleLogos02,
+  "cta-split-image-01": ctaSplitImage01,
+  "cta-split-image-02": ctaSplitImage02,
+  "cta-split-image-03": ctaSplitImage03,
+  "cta-split-image-04": ctaSplitImage04,
+  "cta-split-image-quote-01": ctaSplitImageQuote01,
+  "cta-split-image-quote-02": ctaSplitImageQuote02,
+  "cta-split-image-quote-03": ctaSplitImageQuote03,
+  "cta-split-image-quote-04": ctaSplitImageQuote04,
+  "dropdown-menu-feature-card": dropdownMenuFeatureCard,
+  "dropdown-menu-featured-posts": dropdownMenuFeaturedPosts,
+  "dropdown-menu-simple-two-columns-with-footer": dropdownMenuSimpleTwoColumnsWithFooter,
+  "dropdown-menu-simple-two-columns": dropdownMenuSimpleTwoColumns,
+  "dropdown-menu-simple-with-footer": dropdownMenuSimpleWithFooter,
+  "dropdown-menu-simple": dropdownMenuSimple,
+  "dropdown-menu-with-two-cols-and-links-and-footer": dropdownMenuWithTwoColsAndLinksAndFooter,
+  "faq-accordion-01-brand": faqAccordion01Brand,
+  "faq-accordion-01": faqAccordion01,
+  "faq-accordion-02-brand": faqAccordion02Brand,
+  "faq-accordion-02": faqAccordion02,
+  "faq-accordion-03-brand": faqAccordion03Brand,
+  "faq-accordion-03": faqAccordion03,
+  "faq-accordion-04-brand": faqAccordion04Brand,
+  "faq-accordion-04": faqAccordion04,
+  "faq-simple-01-brand": faqSimple01Brand,
+  "faq-simple-01": faqSimple01,
+  "faq-simple-02-brand": faqSimple02Brand,
+  "faq-simple-02": faqSimple02,
+  "faq-simple-03-brand": faqSimple03Brand,
+  "faq-simple-03": faqSimple03,
+  "faq-simple-04-brand": faqSimple04Brand,
+  "faq-simple-04": faqSimple04,
+  "features-alternating-layout-01": featuresAlternatingLayout01,
+  "features-alternating-layout-02": featuresAlternatingLayout02,
+  "features-alternating-layout-03": featuresAlternatingLayout03,
+  "features-alternating-layout-04": featuresAlternatingLayout04,
+  "features-center-mockup-01": featuresCenterMockup01,
+  "features-center-mockup-02": featuresCenterMockup02,
+  "features-icon-cards-01": featuresIconCards01,
+  "features-icon-cards-02": featuresIconCards02,
+  "features-icons-and-image-01": featuresIconsAndImage01,
+  "features-icons-and-image-02": featuresIconsAndImage02,
+  "features-icons-and-image-03": featuresIconsAndImage03,
+  "features-icons-and-image-04": featuresIconsAndImage04,
+  "features-icons-and-mockup-01": featuresIconsAndMockup01,
+  "features-icons-and-mockup-02": featuresIconsAndMockup02,
+  "features-icons-and-mockup-03": featuresIconsAndMockup03,
+  "features-icons-and-mockup-04": featuresIconsAndMockup04,
+  "features-icons-and-mockup-05": featuresIconsAndMockup05,
+  "features-icons-and-mockup-06": featuresIconsAndMockup06,
+  "features-icons-and-mockup-07": featuresIconsAndMockup07,
+  "features-icons-and-mockup-08": featuresIconsAndMockup08,
+  "features-integrations-icons-01": featuresIntegrationsIcons01,
+  "features-integrations-icons-02": featuresIntegrationsIcons02,
+  "features-integrations-icons-03": featuresIntegrationsIcons03,
+  "features-integrations-icons-04": featuresIntegrationsIcons04,
+  "features-large-screen-mockup-01": featuresLargeScreenMockup01,
+  "features-large-screen-mockup-02": featuresLargeScreenMockup02,
+  "features-simple-icons-01-brand": featuresSimpleIcons01Brand,
+  "features-simple-icons-01": featuresSimpleIcons01,
+  "features-simple-icons-02-brand": featuresSimpleIcons02Brand,
+  "features-simple-icons-02": featuresSimpleIcons02,
+  "features-simple-icons-03-brand": featuresSimpleIcons03Brand,
+  "features-simple-icons-03": featuresSimpleIcons03,
+  "features-simple-icons-04-brand": featuresSimpleIcons04Brand,
+  "features-simple-icons-04": featuresSimpleIcons04,
+  "features-tabs-mockup-01": featuresTabsMockup01,
+  "features-tabs-mockup-02": featuresTabsMockup02,
+  "features-tabs-mockup-03": featuresTabsMockup03,
+  "features-tabs-mockup-04": featuresTabsMockup04,
+  "features-tabs-mockup-05": featuresTabsMockup05,
+  "features-tabs-mockup-06": featuresTabsMockup06,
+  "features-tabs-mockup-07": featuresTabsMockup07,
+  "features-tabs-mockup-08": featuresTabsMockup08,
+  "features-tabs-mockup-09": featuresTabsMockup09,
+  "features-tabs-mockup-10": featuresTabsMockup10,
+  "features-tabs-mockup-11": featuresTabsMockup11,
+  "features-tabs-mockup-12": featuresTabsMockup12,
+  "footer-large-01-brand": footerLarge01Brand,
+  "footer-large-01": footerLarge01,
+  "footer-large-02-brand": footerLarge02Brand,
+  "footer-large-02": footerLarge02,
+  "footer-large-03-brand": footerLarge03Brand,
+  "footer-large-03": footerLarge03,
+  "footer-large-04-brand": footerLarge04Brand,
+  "footer-large-04": footerLarge04,
+  "footer-large-05-brand": footerLarge05Brand,
+  "footer-large-05": footerLarge05,
+  "footer-large-06-brand": footerLarge06Brand,
+  "footer-large-06": footerLarge06,
+  "footer-large-07-brand": footerLarge07Brand,
+  "footer-large-07": footerLarge07,
+  "footer-large-08-brand": footerLarge08Brand,
+  "footer-large-08": footerLarge08,
+  "footer-large-09-brand": footerLarge09Brand,
+  "footer-large-09": footerLarge09,
+  "footer-large-10-brand": footerLarge10Brand,
+  "footer-large-10": footerLarge10,
+  "footer-large-11-brand": footerLarge11Brand,
+  "footer-large-11": footerLarge11,
+  "footer-large-12-brand": footerLarge12Brand,
+  "footer-large-12": footerLarge12,
+  "footer-large-13-brand": footerLarge13Brand,
+  "footer-large-13": footerLarge13,
+  "footer-large-14-brand": footerLarge14Brand,
+  "footer-large-14": footerLarge14,
+  "footer-large-15-brand": footerLarge15Brand,
+  "footer-large-15": footerLarge15,
+  "footer-large-16-brand": footerLarge16Brand,
+  "footer-large-16": footerLarge16,
+  "footer-small-01-brand": footerSmall01Brand,
+  "footer-small-01": footerSmall01,
+  "footer-small-02-brand": footerSmall02Brand,
+  "footer-small-02": footerSmall02,
+  "footer-small-03-brand": footerSmall03Brand,
+  "footer-small-03": footerSmall03,
+  "footer-small-04-brand": footerSmall04Brand,
+  "footer-small-04": footerSmall04,
+  "header-centered-brand": headerCenteredBrand,
+  "header-centered-buttons-brand": headerCenteredButtonsBrand,
+  "header-centered-buttons": headerCenteredButtons,
+  "header-centered-email-brand": headerCenteredEmailBrand,
+  "header-centered-email": headerCenteredEmail,
+  "header-centered-search-brand": headerCenteredSearchBrand,
+  "header-centered-search": headerCenteredSearch,
+  "header-centered-tabs-brand": headerCenteredTabsBrand,
+  "header-centered-tabs": headerCenteredTabs,
+  "header-centered": headerCentered,
+  "header-left-brand": headerLeftBrand,
+  "header-left-buttons-brand": headerLeftButtonsBrand,
+  "header-left-buttons": headerLeftButtons,
+  "header-left-email-brand": headerLeftEmailBrand,
+  "header-left-email": headerLeftEmail,
+  "header-left-search-brand": headerLeftSearchBrand,
+  "header-left-search": headerLeftSearch,
+  "header-left-tabs-brand": headerLeftTabsBrand,
+  "header-left-tabs": headerLeftTabs,
+  "header-left": headerLeft,
+  "header-space-between-brand": headerSpaceBetweenBrand,
+  "header-space-between-buttons-brand": headerSpaceBetweenButtonsBrand,
+  "header-space-between-buttons": headerSpaceBetweenButtons,
+  "header-space-between-email-brand": headerSpaceBetweenEmailBrand,
+  "header-space-between-email": headerSpaceBetweenEmail,
+  "header-space-between-search-brand": headerSpaceBetweenSearchBrand,
+  "header-space-between-search": headerSpaceBetweenSearch,
+  "header-space-between-tabs-brand": headerSpaceBetweenTabsBrand,
+  "header-space-between-tabs": headerSpaceBetweenTabs,
+  "header-space-between": headerSpaceBetween,
+  "header": header,
+  "hero-abstract-angles-01": heroAbstractAngles01,
+  "hero-abstract-angles-02": heroAbstractAngles02,
+  "hero-abstract-angles-03": heroAbstractAngles03,
+  "hero-abstract-angles-04": heroAbstractAngles04,
+  "hero-card-mockup-01": heroCardMockup01,
+  "hero-card-mockup-02": heroCardMockup02,
+  "hero-card-mockup-03": heroCardMockup03,
+  "hero-card-mockup-04": heroCardMockup04,
+  "hero-card-mockup-05": heroCardMockup05,
+  "hero-card-mockup-06": heroCardMockup06,
+  "hero-card-mockup-07": heroCardMockup07,
+  "hero-card-mockup-08": heroCardMockup08,
+  "hero-card-mockup-09": heroCardMockup09,
+  "hero-card-mockup-10": heroCardMockup10,
+  "hero-card-mockup-11": heroCardMockup11,
+  "hero-color-card-01": heroColorCard01,
+  "hero-color-card-02": heroColorCard02,
+  "hero-color-card-03": heroColorCard03,
+  "hero-color-card-04": heroColorCard04,
+  "hero-geometric-shapes-01": heroGeometricShapes01,
+  "hero-geometric-shapes-03": heroGeometricShapes03,
+  "hero-geometric-shapes-04": heroGeometricShapes04,
+  "hero-iphone-mockup-01": heroIphoneMockup01,
+  "hero-iphone-mockup-02": heroIphoneMockup02,
+  "hero-iphone-mockup-03": heroIphoneMockup03,
+  "hero-iphone-mockup-04": heroIphoneMockup04,
+  "hero-screen-mockup-01": heroScreenMockup01,
+  "hero-screen-mockup-02": heroScreenMockup02,
+  "hero-screen-mockup-03": heroScreenMockup03,
+  "hero-screen-mockup-04": heroScreenMockup04,
+  "hero-screen-mockup-05": heroScreenMockup05,
+  "hero-screen-mockup-06": heroScreenMockup06,
+  "hero-screen-mockup-07": heroScreenMockup07,
+  "hero-screen-mockup-08": heroScreenMockup08,
+  "hero-simple-text-01": heroSimpleText01,
+  "hero-simple-text-02": heroSimpleText02,
+  "hero-split-form-01": heroSplitForm01,
+  "hero-split-form-02": heroSplitForm02,
+  "hero-split-image-01": heroSplitImage01,
+  "hero-split-image-02": heroSplitImage02,
+  "hero-split-image-03": heroSplitImage03,
+  "hero-split-image-04": heroSplitImage04,
+  "hero-split-image-05": heroSplitImage05,
+  "hero-split-image-06": heroSplitImage06,
+  "menu-2-col-with-links": menu2ColWithLinks,
+  "menu-2-col-with-sidebar": menu2ColWithSidebar,
+  "menu-3-col-with-sidebar": menu3ColWithSidebar,
+  "menu-4-col-slim-with-footer": menu4ColSlimWithFooter,
+  "menu-4-col-with-footer": menu4ColWithFooter,
+  "menu-blog-posts-with-footer": menuBlogPostsWithFooter,
+  "menu-blog-posts-with-sidebar": menuBlogPostsWithSidebar,
+  "menu-floating-2-col-with-sidebar": menuFloating2ColWithSidebar,
+  "metrics-card-brand-dark": metricsCardBrandDark,
+  "metrics-card-gray-light": metricsCardGrayLight,
+  "metrics-image-with-cards-01": metricsImageWithCards01,
+  "metrics-image-with-cards-02": metricsImageWithCards02,
+  "metrics-minimal-centered-text-brand": metricsMinimalCenteredTextBrand,
+  "metrics-minimal-centered-text": metricsMinimalCenteredText,
+  "metrics-simple-accent-line-brand": metricsSimpleAccentLineBrand,
+  "metrics-simple-accent-line": metricsSimpleAccentLine,
+  "metrics-simple-centered-text-brand": metricsSimpleCenteredTextBrand,
+  "metrics-simple-centered-text": metricsSimpleCenteredText,
+  "metrics-simple-with-actions-01": metricsSimpleWithActions01,
+  "metrics-simple-with-actions-02": metricsSimpleWithActions02,
+  "metrics-split-image-01-brand": metricsSplitImage01Brand,
+  "metrics-split-image-01": metricsSplitImage01,
+  "metrics-split-image-02-brand": metricsSplitImage02Brand,
+  "metrics-split-image-02": metricsSplitImage02,
+  "newsletter-card-horizontal-brand": newsletterCardHorizontalBrand,
+  "newsletter-card-horizontal": newsletterCardHorizontal,
+  "newsletter-card-vertical-brand": newsletterCardVerticalBrand,
+  "newsletter-card-vertical": newsletterCardVertical,
+  "newsletter-iphone-mockup-01": newsletterIphoneMockup01,
+  "newsletter-iphone-mockup-02": newsletterIphoneMockup02,
+  "newsletter-iphone-mockup-03": newsletterIphoneMockup03,
+  "newsletter-iphone-mockup-04": newsletterIphoneMockup04,
+  "newsletter-screen-mockup-01": newsletterScreenMockup01,
+  "newsletter-screen-mockup-02": newsletterScreenMockup02,
+  "newsletter-screen-mockup-03": newsletterScreenMockup03,
+  "newsletter-screen-mockup-04": newsletterScreenMockup04,
+  "newsletter-simple-centered-brand": newsletterSimpleCenteredBrand,
+  "newsletter-simple-centered": newsletterSimpleCentered,
+  "newsletter-simple-left-brand": newsletterSimpleLeftBrand,
+  "newsletter-simple-left": newsletterSimpleLeft,
+  "pricing-abstract-angles": pricingAbstractAngles,
+  "pricing-dual-action": pricingDualAction,
+  "pricing-gray-badge": pricingGrayBadge,
+  "pricing-large-table-01": pricingLargeTable01,
+  "pricing-large-table-02": pricingLargeTable02,
+  "pricing-primary-card-icon": pricingPrimaryCardIcon,
+  "pricing-primary-card-simple": pricingPrimaryCardSimple,
+  "pricing-primary-dark-badge": pricingPrimaryDarkBadge,
+  "pricing-section-featured-cards-01": pricingSectionFeaturedCards01,
+  "pricing-section-featured-cards-02": pricingSectionFeaturedCards02,
+  "pricing-section-featured-cards-03": pricingSectionFeaturedCards03,
+  "pricing-section-featured-cards-04": pricingSectionFeaturedCards04,
+  "pricing-section-simple-cards-01": pricingSectionSimpleCards01,
+  "pricing-section-simple-cards-02": pricingSectionSimpleCards02,
+  "pricing-section-simple-cards-03": pricingSectionSimpleCards03,
+  "pricing-section-simple-cards-04": pricingSectionSimpleCards04,
+  "pricing-simple-accent-line": pricingSimpleAccentLine,
+  "pricing-simple-banner": pricingSimpleBanner,
+  "pricing-simple-call-out": pricingSimpleCallOut,
+  "pricing-simple-dual-check-item": pricingSimpleDualCheckItem,
+  "pricing-simple-icon-offset": pricingSimpleIconOffset,
+  "pricing-simple-icon": pricingSimpleIcon,
+  "social-proof-card-brand": socialProofCardBrand,
+  "social-proof-card": socialProofCard,
+  "social-proof-cards-brand": socialProofCardsBrand,
+  "social-proof-cards": socialProofCards,
+  "social-proof-full-width-brand": socialProofFullWidthBrand,
+  "social-proof-full-width-dual-brand": socialProofFullWidthDualBrand,
+  "social-proof-full-width-dual": socialProofFullWidthDual,
+  "social-proof-full-width-masked-brand": socialProofFullWidthMaskedBrand,
+  "social-proof-full-width-masked": socialProofFullWidthMasked,
+  "social-proof-full-width": socialProofFullWidth,
+  "social-proof-press-brand": socialProofPressBrand,
+  "social-proof-press-mentions": socialProofPressMentions,
+  "team-section-image-card-01": teamSectionImageCard01,
+  "team-section-image-card-02": teamSectionImageCard02,
+  "team-section-image-card-03": teamSectionImageCard03,
+  "team-section-image-card-04": teamSectionImageCard04,
+  "team-section-image-collage-01": teamSectionImageCollage01,
+  "team-section-image-collage-02": teamSectionImageCollage02,
+  "team-section-image-glass-01": teamSectionImageGlass01,
+  "team-section-image-glass-02": teamSectionImageGlass02,
+  "team-section-image-glass-03": teamSectionImageGlass03,
+  "team-section-image-glass-04": teamSectionImageGlass04,
+  "team-section-simple-01": teamSectionSimple01,
+  "team-section-simple-02": teamSectionSimple02,
+  "team-section-simple-03": teamSectionSimple03,
+  "team-section-simple-04": teamSectionSimple04,
+  "testimonial-abstract-image": testimonialAbstractImage,
+  "testimonial-card-brand": testimonialCardBrand,
+  "testimonial-card-split-image-brand": testimonialCardSplitImageBrand,
+  "testimonial-card-split-image": testimonialCardSplitImage,
+  "testimonial-card": testimonialCard,
+  "testimonial-case-study-cards": testimonialCaseStudyCards,
+  "testimonial-glassmorphic-cards-01": testimonialGlassmorphicCards01,
+  "testimonial-glassmorphic-cards-02": testimonialGlassmorphicCards02,
+  "testimonial-glassmorphic-cards-03": testimonialGlassmorphicCards03,
+  "testimonial-simple-centered-01-brand": testimonialSimpleCentered01Brand,
+  "testimonial-simple-centered-01": testimonialSimpleCentered01,
+  "testimonial-simple-centered-02-brand": testimonialSimpleCentered02Brand,
+  "testimonial-simple-centered-02": testimonialSimpleCentered02,
+  "testimonial-simple-centered-03-brand": testimonialSimpleCentered03Brand,
+  "testimonial-simple-centered-03": testimonialSimpleCentered03,
+  "testimonial-simple-left-aligned-brand": testimonialSimpleLeftAlignedBrand,
+  "testimonial-simple-left-aligned": testimonialSimpleLeftAligned,
+  "testimonial-social-cards-01-brand": testimonialSocialCards01Brand,
+  "testimonial-social-cards-01": testimonialSocialCards01,
+  "testimonial-social-cards-02-brand": testimonialSocialCards02Brand,
+  "testimonial-social-cards-02": testimonialSocialCards02,
+  "testimonial-social-cards-03-brand": testimonialSocialCards03Brand,
+  "testimonial-social-cards-03": testimonialSocialCards03,
+  "testimonial-split-image-01": testimonialSplitImage01,
+  "testimonial-split-image-02": testimonialSplitImage02,
+  "testimonial-split-image-03": testimonialSplitImage03,
 } as const;
 
 export const verifiedComponents = {

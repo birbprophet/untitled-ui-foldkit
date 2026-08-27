@@ -6,15 +6,15 @@ Siglata consumes this package as `packages/ui` for Storybook verification and pr
 
 ## Status
 
-**266 / 619** authenticated component IDs verified (excluding RTL-only `rtl-demo`).
+**619 / 619** authenticated component IDs verified (excluding RTL-only `rtl-demo`).
 
 | Category | Verified | Total |
 | -------- | -------- | ----- |
 | Base | 48 | 48 |
 | Application | 128 | 128 |
-| Marketing | 90 | 443 |
+| Marketing | 443 | 443 |
 
-353 marketing sections remain pending across fourteen families.
+Synced from `siglata/siglata` at commit `6962b7f3`.
 
 ## Consumption
 
@@ -41,5 +41,9 @@ Peer dependencies: `foldkit`, `effect`, Siglata tokens at the app boundary.
 ```bash
 cp -R siglata/packages/ui/src ./src
 cp -R siglata/packages/ui/tests ./tests
-cp siglata/packages/ui/theme.css siglata/packages/ui/package.json ./
+cp siglata/packages/ui/theme.css ./
+cp -R siglata/apps/storybook/stories/untitled-ui ./stories/untitled-ui
+sed -i '' 's|../../../apps/storybook/stories/untitled-ui/|../../stories/untitled-ui/|g' tests/catalog.test.ts
 ```
+
+Keep this repo's `package.json` exports and peer dependency block; do not copy Siglata's workspace dependency pins wholesale.

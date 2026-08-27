@@ -1143,6 +1143,10 @@ export const verifiedEvidence = {
     ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
+  "contact-simple-icons-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "contact-simple-icons-04-brand": evidence(
     ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
@@ -1151,7 +1155,107 @@ export const verifiedEvidence = {
     ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
+  "features-simple-icons-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-04-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-07": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-08": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-09": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-10": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-11": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-12": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "content-divider": evidence(["single line", "dual line", "background fill", "light", "dark"]),
+  "content-simple": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-split-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-split-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-split-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-split-image-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "create-event-menu": evidence(
     [
       "open",
@@ -1195,6 +1299,126 @@ export const verifiedEvidence = {
     ],
     "verified at 393, 768, 1024, and 1440",
     "verified in en-US and pt-BR",
+  ),
+  "cta-abstract-images": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-abstract-images-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-card-horizontal": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-card-horizontal-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-card-vertical": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-card-vertical-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-iphone-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-iphone-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-iphone-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-iphone-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-screen-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-screen-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-screen-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-screen-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-centered": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-centered-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-left": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-left-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-logos-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-logos-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-logos-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-simple-logos-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-quote-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-quote-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-quote-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "cta-split-image-quote-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
   ),
   "date-picker": evidence([
     "closed trigger",
@@ -1478,6 +1702,34 @@ export const verifiedEvidence = {
     "outside dismissal",
     "Escape dismissal",
   ]),
+  "dropdown-menu-feature-card": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "dropdown-menu-featured-posts": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "dropdown-menu-simple": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "dropdown-menu-simple-two-columns": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "dropdown-menu-simple-two-columns-with-footer": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "dropdown-menu-simple-with-footer": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "dropdown-menu-with-two-cols-and-links-and-footer": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "dropdown-modal": evidence(
     [
       "open",
@@ -1553,6 +1805,254 @@ export const verifiedEvidence = {
     "light",
     "dark",
   ]),
+  "faq-accordion-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-accordion-04-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "faq-simple-04-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-alternating-layout-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-alternating-layout-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-alternating-layout-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-alternating-layout-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-center-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-center-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icon-cards-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icon-cards-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-image-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-07": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-icons-and-mockup-08": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-integrations-icons-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-integrations-icons-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-integrations-icons-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-integrations-icons-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-large-screen-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-large-screen-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-simple-icons-04-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-07": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-08": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-09": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-10": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-11": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "features-tabs-mockup-12": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "file-upload-base": evidence(
     [
       "drop zone",
@@ -1706,6 +2206,166 @@ export const verifiedEvidence = {
     "verified at 393, 768, 1024, and 1440",
     "verified in en-US and pt-BR",
   ),
+  "footer-large-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-04-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-05-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-06-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-07": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-07-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-08": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-08-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-09": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-09-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-10": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-10-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-11": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-11-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-12": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-12-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-13": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-13-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-14": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-14-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-15": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-15-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-16": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-large-16-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "footer-small-04-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   form: evidence(["native form", "submit", "reset", "browser validation", "no validate"]),
   "form-01-modal": evidence(
     [
@@ -1764,6 +2424,90 @@ export const verifiedEvidence = {
     "light",
     "dark",
   ]),
+  header: evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-buttons": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-buttons-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-email": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-email-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-search": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-search-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-tabs": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-centered-tabs-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-buttons": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-buttons-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-email": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-email-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-search": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-search-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-tabs": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-left-tabs-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "header-navigation": evidence(
     [
       "primary navigation",
@@ -1779,6 +2523,222 @@ export const verifiedEvidence = {
       "light",
       "dark",
     ],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-buttons": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-buttons-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-email": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-email-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-search": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-search-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-tabs": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header-space-between-tabs-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-abstract-angles-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-abstract-angles-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-abstract-angles-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-abstract-angles-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-07": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-08": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-09": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-10": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-card-mockup-11": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-color-card-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-color-card-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-color-card-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-color-card-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-geometric-shapes-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-geometric-shapes-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-geometric-shapes-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-iphone-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-iphone-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-iphone-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-iphone-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-07": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-screen-mockup-08": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-simple-text-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-simple-text-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-form-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-form-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-image-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-image-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "hero-split-image-06": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
   "hook-form": evidence([
@@ -2012,6 +2972,38 @@ export const verifiedEvidence = {
     ],
     "verified at 393, 768, 1024, and 1440",
   ),
+  "menu-2-col-with-links": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-2-col-with-sidebar": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-3-col-with-sidebar": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-4-col-slim-with-footer": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-4-col-with-footer": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-blog-posts-with-footer": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-blog-posts-with-sidebar": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "menu-floating-2-col-with-sidebar": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "message-chat-menu": evidence(
     [
       "open",
@@ -2104,6 +3096,70 @@ export const verifiedEvidence = {
     ],
     "verified at 393, 768, 1024, and 1440",
   ),
+  "metrics-card-brand-dark": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-card-gray-light": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-image-with-cards-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-image-with-cards-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-minimal-centered-text": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-minimal-centered-text-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-simple-accent-line": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-simple-accent-line-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-simple-centered-text": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-simple-centered-text-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-simple-with-actions-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-simple-with-actions-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-split-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-split-image-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-split-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "metrics-split-image-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   modal: evidence([
     "dialog trigger",
     "modal overlay",
@@ -2190,6 +3246,70 @@ export const verifiedEvidence = {
       "mobile",
       "desktop",
     ],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-card-horizontal": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-card-horizontal-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-card-vertical": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-card-vertical-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-iphone-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-iphone-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-iphone-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-iphone-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-screen-mockup-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-screen-mockup-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-screen-mockup-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-screen-mockup-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-simple-centered": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-simple-centered-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-simple-left": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "newsletter-simple-left-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
   "notification-settings-button-menu": evidence(
@@ -2572,6 +3692,94 @@ export const verifiedEvidence = {
     "verified in en-US and pt-BR",
   ),
   "play-button-icon": evidence(["default", "hover"]),
+  "pricing-abstract-angles": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-dual-action": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-gray-badge": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-large-table-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-large-table-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-primary-card-icon": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-primary-card-simple": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-primary-dark-badge": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-featured-cards-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-featured-cards-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-featured-cards-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-featured-cards-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-simple-cards-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-simple-cards-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-simple-cards-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-section-simple-cards-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-simple-accent-line": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-simple-banner": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-simple-call-out": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-simple-dual-check-item": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-simple-icon": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "pricing-simple-icon-offset": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "profile-settings-modal": evidence(
     [
       "open",
@@ -2927,6 +4135,54 @@ export const verifiedEvidence = {
     "link",
     "disabled",
   ]),
+  "social-proof-card": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-card-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-cards": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-cards-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-full-width": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-full-width-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-full-width-dual": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-full-width-dual-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-full-width-masked": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-full-width-masked-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-press-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "social-proof-press-mentions": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
   "stacked-left-aligned-modal": evidence(
     [
       "open",
@@ -3078,6 +4334,166 @@ export const verifiedEvidence = {
       "mobile",
       "desktop",
     ],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-card-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-card-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-card-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-card-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-collage-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-collage-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-glass-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-glass-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-glass-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-image-glass-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-simple-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-simple-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-simple-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "team-section-simple-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-abstract-image": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-card": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-card-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-card-split-image": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-card-split-image-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-case-study-cards": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-glassmorphic-cards-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-glassmorphic-cards-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-glassmorphic-cards-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-centered-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-centered-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-centered-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-centered-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-centered-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-centered-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-left-aligned": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-simple-left-aligned-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-social-cards-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-social-cards-01-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-social-cards-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-social-cards-02-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-social-cards-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-social-cards-03-brand": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-split-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-split-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "testimonial-split-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
   "text-editor": evidence(
@@ -3381,6 +4797,87 @@ export const verifiedEvidence = {
       "mobile",
       "desktop",
     ],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+
+  "contact-simple-links-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "contact-vector-map-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-alternative-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-alternative-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-alternative-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-large-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-large-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-large-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-large-image-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-rich-text-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-rich-text-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-simple-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-simple-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-simple-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-simple-04": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-simple-05": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-split-image-01": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-split-image-02": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "content-section-split-image-03": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
+    "verified at 393, 768, 1024, and 1440",
+  ),
+  "header": evidence(
+    ["light", "dark", "mobile", "tablet", "laptop", "desktop"],
     "verified at 393, 768, 1024, and 1440",
   ),
 } as const;

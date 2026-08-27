@@ -13,11 +13,8 @@
   "exports": {
     "./application": "./src/application.ts",
     "./base": "./src/base.ts",
-    "./brand-context": "./src/brand-context.ts",
     "./catalog": "./src/catalog.ts",
-    "./default-brand.css": "./default-brand.css",
     "./marketing": "./src/marketing.ts",
-    "./theme": "./src/theme.ts",
     "./theme.css": "./theme.css",
     "./package.json": "./package.json"
   },
@@ -40,5 +37,12 @@
     "avatar": "*",
     "brand": "*",
     "tokens": "*"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.24.0",
+      "onFail": "download"
+    }
   }
 }

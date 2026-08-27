@@ -57,7 +57,7 @@ it("every verified story declares the catalog title for static CSF indexing", ()
   for (const entry of verifiedCatalog) {
     const story = readFileSync(
       new URL(
-        `../../../apps/storybook/stories/untitled-ui/${entry.category}/${entry.id}.stories.ts`,
+        `../../stories/untitled-ui/${entry.category}/${entry.id}.stories.ts`,
         import.meta.url,
       ),
       "utf-8",

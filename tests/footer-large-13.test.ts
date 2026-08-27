@@ -1,0 +1,10 @@
+import { describe, it } from "@effect/vitest";
+import { expect } from "./assertions.ts";
+
+import { footerLarge13 } from "../src/marketing/footer-large-13.ts";
+
+describe("footer large 13", () => {
+  it("exposes the authenticated marketing section renderer", () => {
+    expect(footerLarge13).toBeTypeOf("function");
+  });
+});
