@@ -64,7 +64,10 @@ The ramp contract is also available programmatically — eleven `--brand-50` …
 `--brand-950` steps are the only colour injection surface renderers depend on:
 
 ```ts
-import { renderBrandRampBlock, untitledDefaultBrandRamp } from "@birbprophet/untitled-ui-foldkit/theme";
+import {
+  renderBrandRampBlock,
+  untitledDefaultBrandRamp,
+} from "@birbprophet/untitled-ui-foldkit/theme";
 ```
 
 ### Brand context (identity data contract)
@@ -114,9 +117,9 @@ theme.css / default-brand.css   token boundary styles (published)
 packages/oxlint-plugin          vendored house lint plugin (dev)
 ```
 
-Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.153,
-vite-plus 0.3, oxlint 1.79, pnpm workspaces (`pnpm-workspace.yaml`). `pnpm install`,
-then `pnpm exec vp check` / `pnpm exec vp test`.
+Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.156,
+vite-plus 0.3, oxlint 1.79, bun workspaces (`workspaces` in `package.json`).
+`bun install`, then `vp check` / `vp test`.
 
 ## Sync bridge
 

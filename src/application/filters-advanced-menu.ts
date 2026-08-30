@@ -362,7 +362,7 @@ const controlSelect = <Message, Id extends string>(
               h.DataAttribute("advanced-control", control),
               h.DataAttribute("advanced-filter", filterId),
               h.DataAttribute("advanced-option", id),
-              h.OnClickFocus(triggerSelector(filterId, control), onSelect(id)),
+              h.OnClick(onSelect(id), { focusSelector: triggerSelector(filterId, control) }),
               h.OnKeyDownFocus((pressed) =>
                 moveFocus(props, filterId, control, optionIds, index, pressed),
               ),
@@ -418,10 +418,9 @@ const teamSelect = <Message>(
           ...(isOpen
             ? [h.OnClick(props.onControlOpenChanged(filter.id, "team", false))]
             : [
-                h.OnClickFocus(
-                  teamSearchSelector(filter.id),
-                  props.onControlOpenChanged(filter.id, "team", true),
-                ),
+                h.OnClick(props.onControlOpenChanged(filter.id, "team", true), {
+                  focusSelector: teamSearchSelector(filter.id),
+                }),
               ]),
           h.OnKeyDownFocus((pressed) => {
             if (pressed === "Escape" && isOpen) {

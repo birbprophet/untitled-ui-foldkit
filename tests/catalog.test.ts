@@ -116,7 +116,6 @@ it("story files and verified catalog ids are the same set", () => {
   expect(storyIds).toEqual(verifiedCatalog.map((entry) => entry.id).toSorted());
 });
 
-
 it("verified components alone have public renderers", () => {
   const rendererFiles = readdirSync(new URL("../src/base/", import.meta.url)).filter((name) =>
     name.endsWith(".ts"),

@@ -8,15 +8,14 @@ const CalendarInitialScrollCompleted = S.Struct({
   _tag: S.Literal("CalendarInitialScrollCompleted"),
 });
 
-const ScrollCalendarToFirstEvent = Mount.define(
-  "ScrollCalendarToFirstEvent",
-  CalendarInitialScrollCompleted,
-)((element) =>
-  Effect.sync(() => {
-    element.scrollTop = 864;
-    return { _tag: "CalendarInitialScrollCompleted" } as const;
-  }),
-);
+const ScrollCalendarToFirstEvent = Mount.define("ScrollCalendarToFirstEvent", {
+  execute: ({ element }) =>
+    Effect.sync(() => {
+      element.scrollTop = 864;
+      return { _tag: "CalendarInitialScrollCompleted" } as const;
+    }),
+  messages: [CalendarInitialScrollCompleted],
+});
 
 export const scrollCalendarToFirstEvent = <Message>(
   completed: NoInfer<Message>,

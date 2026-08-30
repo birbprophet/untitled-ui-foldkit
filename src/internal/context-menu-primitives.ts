@@ -160,7 +160,11 @@ export const contextMenuItem = <Message, Submenu extends string>(
       h.DataAttribute("context-menu-id", props.id),
       h.DataAttribute("context-menu-item", item.id),
       ...(item.submenu === undefined && !isCheckbox
-        ? [h.OnClickFocus(`[data-context-menu-trigger="${props.id}"]`, props.onSelect(item.id))]
+        ? [
+            h.OnClick(props.onSelect(item.id), {
+              focusSelector: `[data-context-menu-trigger="${props.id}"]`,
+            }),
+          ]
         : [
             h.OnClick(
               item.submenu === undefined
