@@ -48,7 +48,7 @@
     "oxlint": "1.79.0",
     "oxlint-plugin": "workspace:*",
     "storybook": "10.5.10",
-    "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#a1624e35ced249ed24b65704f224884ae8b00635",
+    "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#7697a11ea55a6b6dac3250f7ec7c8065f02b6a6e",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
     "ultracite": "7.10.6",
