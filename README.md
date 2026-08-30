@@ -117,9 +117,9 @@ theme.css / default-brand.css   token boundary styles (published)
 packages/oxlint-plugin          vendored house lint plugin (dev)
 ```
 
-Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.153,
-vite-plus 0.3, oxlint 1.79, pnpm workspaces (`pnpm-workspace.yaml`). `pnpm install`,
-then `pnpm exec vp check` / `pnpm exec vp test`.
+Tooling pins mirror `siglata/siglata`: typescript 7, effect 4 rc, foldkit 0.156,
+vite-plus 0.3, oxlint 1.79, bun workspaces (`workspaces` in `package.json`).
+`bun install`, then `vp check` / `vp test`.
 
 ## Sync bridge
 

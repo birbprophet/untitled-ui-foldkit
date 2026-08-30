@@ -204,7 +204,7 @@ const menuItem = <Message>(
       h.DataAttribute("dropdown-id", props.id),
       h.DataAttribute("dropdown-item", item.id),
       ...(indicator === "none" ? [] : [h.Attribute("aria-checked", String(selected))]),
-      h.OnClickFocus(triggerSelector(props.id), props.onSelect(item.id)),
+      h.OnClick(props.onSelect(item.id), { focusSelector: triggerSelector(props.id) }),
       h.OnFocus(props.onFocus(item.id)),
       h.OnKeyDownFocus((key) => {
         if (key === "Escape") {

@@ -263,10 +263,9 @@ const permissionMenu = <Message>(
                     ),
                     h.DataAttribute("permission", permission),
                     h.DataAttribute("share-project-menu-list", menu),
-                    h.OnClickFocus(
-                      `[data-share-project-menu-trigger="${menu}"]`,
-                      props.onPermissionSelect(menu, permission),
-                    ),
+                    h.OnClick(props.onPermissionSelect(menu, permission), {
+                      focusSelector: `[data-share-project-menu-trigger="${menu}"]`,
+                    }),
                     h.OnFocus(props.onFocusPermission(permission)),
                     h.OnKeyDownFocus((key) => menuFocus(props, menu, available, permission, key)),
                     h.Role("menuitemradio"),

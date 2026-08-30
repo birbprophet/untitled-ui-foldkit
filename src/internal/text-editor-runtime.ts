@@ -88,42 +88,40 @@ const selectionEvent = (): typeof EditorSelectionChanged.Type => {
   };
 };
 
-const ObserveTextEditor = Mount.defineStream(
-  "ObserveTextEditor",
-  EditorChanged,
-  EditorSelectionChanged,
-)((element) =>
-  Stream.callback<EditorEvent>((queue) =>
-    Effect.gen(function* ObserveEditorEvents() {
-      const emitChange = () => {
-        Queue.offerUnsafe(queue, {
-          _tag: "EditorChanged",
-          html: element.innerHTML,
-          text: element.textContent ?? "",
-        });
-      };
-      const emitSelection = () => {
-        const selection = document.getSelection();
-        if (selection !== null && element.contains(selection.anchorNode)) {
-          Queue.offerUnsafe(queue, selectionEvent());
-        }
-      };
-      yield* Effect.acquireRelease(
-        Effect.sync(() => {
-          element.addEventListener("input", emitChange);
-          document.addEventListener("selectionchange", emitSelection);
-          return { emitChange, emitSelection };
-        }),
-        ({ emitChange: change, emitSelection: selection }) =>
+const ObserveTextEditor = Mount.defineStream("ObserveTextEditor", {
+  execute: ({ element }) =>
+    Stream.callback<EditorEvent>((queue) =>
+      Effect.gen(function* ObserveEditorEvents() {
+        const emitChange = () => {
+          Queue.offerUnsafe(queue, {
+            _tag: "EditorChanged",
+            html: element.innerHTML,
+            text: element.textContent ?? "",
+          });
+        };
+        const emitSelection = () => {
+          const selection = document.getSelection();
+          if (selection !== null && element.contains(selection.anchorNode)) {
+            Queue.offerUnsafe(queue, selectionEvent());
+          }
+        };
+        yield* Effect.acquireRelease(
           Effect.sync(() => {
-            element.removeEventListener("input", change);
-            document.removeEventListener("selectionchange", selection);
+            element.addEventListener("input", emitChange);
+            document.addEventListener("selectionchange", emitSelection);
+            return { emitChange, emitSelection };
           }),
-      );
-      return yield* Effect.never;
-    }),
-  ),
-);
+          ({ emitChange: change, emitSelection: selection }) =>
+            Effect.sync(() => {
+              element.removeEventListener("input", change);
+              document.removeEventListener("selectionchange", selection);
+            }),
+        );
+        return yield* Effect.never;
+      }),
+    ),
+  messages: [EditorChanged, EditorSelectionChanged],
+});
 
 export const observeTextEditor = <Message>(
   onChange: (change: TextEditorChange) => NoInfer<Message>,
