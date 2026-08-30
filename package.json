@@ -31,12 +31,6 @@
     "check": "vp check",
     "test": "vp test"
   },
-  "overrides": {
-    "@effect/vitest": "4.0.0-rc.112",
-    "effect": "4.0.0-rc.112",
-    "foldkit": "0.153.0",
-    "oxlint": "1.79.0"
-  },
   "dependencies": {
     "effect": "4.0.0-rc.112",
     "foldkit": "0.153.0"
@@ -66,6 +60,12 @@
     "avatar": "*",
     "brand": "*",
     "tokens": "*"
+  },
+  "overrides": {
+    "@effect/vitest": "4.0.0-rc.112",
+    "effect": "4.0.0-rc.112",
+    "foldkit": "0.153.0",
+    "oxlint": "1.79.0"
   },
   "devEngines": {
     "packageManager": {

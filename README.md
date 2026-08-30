@@ -64,7 +64,10 @@ The ramp contract is also available programmatically — eleven `--brand-50` …
 `--brand-950` steps are the only colour injection surface renderers depend on:
 
 ```ts
-import { renderBrandRampBlock, untitledDefaultBrandRamp } from "@birbprophet/untitled-ui-foldkit/theme";
+import {
+  renderBrandRampBlock,
+  untitledDefaultBrandRamp,
+} from "@birbprophet/untitled-ui-foldkit/theme";
 ```
 
 ### Brand context (identity data contract)
