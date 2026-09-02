@@ -33,12 +33,12 @@
   },
   "dependencies": {
     "effect": "4.0.0-rc.112",
-    "foldkit": "0.156.0"
+    "foldkit": "0.157.0"
   },
   "devDependencies": {
     "@effect/vitest": "4.0.0-rc.112",
-    "@foldkit/oxlint-plugin": "0.11.0",
-    "@foldkit/vite-plugin": "0.20.0",
+    "@foldkit/oxlint-plugin": "0.12.0",
+    "@foldkit/vite-plugin": "0.20.1",
     "@mpsuesser/oxlint-plugin-effect": "0.4.3",
     "@rikalabs/oxlint-standards": "0.8.1",
     "@storybook/html-vite": "10.5.10",
@@ -48,7 +48,7 @@
     "oxlint": "1.79.0",
     "oxlint-plugin": "workspace:*",
     "storybook": "10.5.10",
-    "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#7697a11ea55a6b6dac3250f7ec7c8065f02b6a6e",
+    "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#c1874b029184853bd2a5f0087c7fd32cc71c3e8d",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
     "ultracite": "7.10.6",
@@ -64,7 +64,7 @@
   "overrides": {
     "@effect/vitest": "4.0.0-rc.112",
     "effect": "4.0.0-rc.112",
-    "foldkit": "0.156.0",
+    "foldkit": "0.157.0",
     "oxlint": "1.79.0"
   },
   "devEngines": {

@@ -6,12 +6,12 @@
       "name": "@birbprophet/untitled-ui-foldkit",
       "dependencies": {
         "effect": "4.0.0-rc.112",
-        "foldkit": "0.156.0",
+        "foldkit": "0.157.0",
       },
       "devDependencies": {
         "@effect/vitest": "4.0.0-rc.112",
-        "@foldkit/oxlint-plugin": "0.11.0",
-        "@foldkit/vite-plugin": "0.20.0",
+        "@foldkit/oxlint-plugin": "0.12.0",
+        "@foldkit/vite-plugin": "0.20.1",
         "@mpsuesser/oxlint-plugin-effect": "0.4.3",
         "@rikalabs/oxlint-standards": "0.8.1",
         "@storybook/html-vite": "10.5.10",
@@ -21,7 +21,7 @@
         "oxlint": "1.79.0",
         "oxlint-plugin": "workspace:*",
         "storybook": "10.5.10",
-        "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#7697a11ea55a6b6dac3250f7ec7c8065f02b6a6e",
+        "storybook-renderer-foldkit": "github:birbprophet/storybook-renderer-foldkit#c1874b029184853bd2a5f0087c7fd32cc71c3e8d",
         "tailwindcss": "4.3.3",
         "typescript": "7.0.2",
         "ultracite": "7.10.6",
@@ -54,7 +54,7 @@
   "overrides": {
     "@effect/vitest": "4.0.0-rc.112",
     "effect": "4.0.0-rc.112",
-    "foldkit": "0.156.0",
+    "foldkit": "0.157.0",
     "oxlint": "1.79.0",
   },
   "packages": {
@@ -138,9 +138,9 @@
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.28.2", "", { "os": "win32", "cpu": "x64" }, "sha512-5ebpxr3nWMzrL/rnUI755Jkuee0bHL/Gq0WTF9lvcpv73wAp5eu8MfBUgWK9bhWvZjj7yX8etf/8tI8Ney695g=="],
 
-    "@foldkit/oxlint-plugin": ["@foldkit/oxlint-plugin@0.11.0", "", { "dependencies": { "effect-oxlint": "^0.3.4" } }, "sha512-QVty6rJ9CYBWMXxVuAMOrnG/ZA281qviYsy0QympI1LfHOW/09i9mcHbWXZJSB728USNRi2Uj2sGO5MRuS/vNQ=="],
+    "@foldkit/oxlint-plugin": ["@foldkit/oxlint-plugin@0.12.0", "", { "dependencies": { "effect-oxlint": "^0.3.4" } }, "sha512-ho3vJzHcnAh2scthT2CbUecF8Ht0uq94J4CYM0QSqJthzUEPLbbxnx84ReMm3IOTVsFHKEkSOL8bz1z2w/N58Q=="],
 
-    "@foldkit/vite-plugin": ["@foldkit/vite-plugin@0.20.0", "", { "dependencies": { "magic-string": "^1.2.3", "ws": "^8.21.3" }, "peerDependencies": { "effect": "4.0.0-rc.112", "foldkit": ">=0.153.0", "vite": "^7.0.0 || ^8.0.0" } }, "sha512-rzJocKgnlndHZfj620u0ptJmqBlJmDeZYW3mKy3m4+lKRZHsEB29xeD3sKZuCbDtMmtfl35FOUO9suC8Ub/G4g=="],
+    "@foldkit/vite-plugin": ["@foldkit/vite-plugin@0.20.1", "", { "dependencies": { "magic-string": "^1.2.3", "ws": "^8.21.3" }, "peerDependencies": { "effect": "4.0.0-rc.112", "foldkit": ">=0.153.0", "vite": "^7.0.0 || ^8.0.0" } }, "sha512-nWUDL0GCWU5CJMkzJhtDRa7s0kDOUqIpufCaIsB5Hb3d6xKIg+F6IuckL7Vbt9dBPaPbpQZW5R1oOlNO76jVlw=="],
 
     "@isaacs/fs-minipass": ["@isaacs/fs-minipass@4.0.1", "", { "dependencies": { "minipass": "^7.0.4" } }, "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w=="],
 
@@ -796,7 +796,7 @@
 
     "find-workspaces": ["find-workspaces@0.3.1", "", { "dependencies": { "fast-glob": "^3.3.2", "pkg-types": "^1.0.3", "yaml": "^2.3.4" } }, "sha512-UDkGILGJSA1LN5Aa7McxCid4sqW3/e+UYsVwyxki3dDT0F8+ym0rAfnCkEfkL0rO7M+8/mvkim4t/s3IPHmg+w=="],
 
-    "foldkit": ["foldkit@0.156.0", "", { "dependencies": { "parse5": "^8.0.1" }, "peerDependencies": { "effect": "4.0.0-rc.112" } }, "sha512-KqzaB0E9S3AzRVR4rN4Xuqj0fzasgmpo52uNnXI26TqV013hwgukGA4+z7+iNuZ2CzqheeiBL3C5MUsk3ewnbg=="],
+    "foldkit": ["foldkit@0.157.0", "", { "dependencies": { "parse5": "^8.0.1" }, "peerDependencies": { "effect": "4.0.0-rc.112" } }, "sha512-I2ImNQqrM+ZRLm+S8xy0gm9G0BBmJYOq+6l4UcvrjBdRLuUrFyClKXsvycCFHlwqhbbz4tKrUhONyslACJqauw=="],
 
     "forever-agent": ["forever-agent@0.6.1", "", {}, "sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw=="],
 
@@ -1202,7 +1202,7 @@
 
     "storybook": ["storybook@10.5.10", "", { "dependencies": { "@storybook/global": "^5.0.0", "@storybook/icons": "^2.0.2", "@testing-library/dom": "^10.4.1", "@testing-library/jest-dom": "6.9.1", "@testing-library/user-event": "^14.6.1", "@vitest/expect": "3.2.4", "@vitest/spy": "3.2.4", "@webcontainer/env": "^1.1.1", "esbuild": "^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0 || ^0.28.0", "jsonc-parser": "^3.3.1", "open": "^10.2.0", "oxc-parser": "^0.127.0", "oxc-resolver": "11.21.2", "recast": "^0.23.5", "semver": "^7.7.3", "use-sync-external-store": "^1.5.0", "ws": "^8.21.1" }, "peerDependencies": { "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "prettier": "^2 || ^3", "vite-plus": "^0.1.15 || ^0.2.0" }, "optionalPeers": ["@types/react", "prettier", "vite-plus"], "bin": "./dist/bin/dispatcher.js" }, "sha512-Rz8k9ejFHsi7lbtJTaxZlhCUz4GkbJIKEoKDjXeLfr/ZhXip73E6keKxW0KH8iGeKiCqHAbJCV4YIQrxTOLiig=="],
 
-    "storybook-renderer-foldkit": ["storybook-renderer-foldkit@github:birbprophet/storybook-renderer-foldkit#7697a11", { "dependencies": { "effect": "4.0.0-rc.112", "foldkit": "0.156.0" } }, "birbprophet-storybook-renderer-foldkit-7697a11", "sha512-nJqQGDfqmTjSwXhXXcOkW6MyfTF51xuArWtqZwJaB7sV7ilgR+IguAnpj1UublrB7xoQ+08Avs6ggauw2ngxNg=="],
+    "storybook-renderer-foldkit": ["storybook-renderer-foldkit@github:birbprophet/storybook-renderer-foldkit#c1874b0", { "dependencies": { "effect": "4.0.0-rc.112", "foldkit": "0.157.0" } }, "birbprophet-storybook-renderer-foldkit-c1874b0", "sha512-d0EnnRnj9dmdJFOAfmUDLTi1+6kuxPvurVIKNBt2DZknZqXGxOjHgeKpd5HbRTy5D6d877JNlCF2ER5pnM6pxQ=="],
 
     "stream-combiner": ["stream-combiner@0.0.2", "", { "dependencies": { "duplexer": "~0.0.3" } }, "sha512-Z2D5hPQapscuHNqiyUgjnF1sxG/9CB7gs1a9vcS2/OvMiFwmm6EZw9IjbU34l5mPXS62RidpoBdyB83E0GXHLw=="],
 
@@ -1478,7 +1478,7 @@
 
     "wrap-ansi/ansi-styles": ["ansi-styles@6.2.3", "", {}, "sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg=="],
 
-    "@foldkit/oxlint-plugin/effect-oxlint/@oxlint/plugins": ["@oxlint/plugins@1.80.0", "", {}, "sha512-QRgH1XqQEYNHa4f1vvPQ5fAdNdncHGIUG1ZWLlGIZHky3qwCEeAKYitZNbZMtaXtAQAAFFTOwqUfzESvimqZNA=="],
+    "@foldkit/oxlint-plugin/effect-oxlint/@oxlint/plugins": ["@oxlint/plugins@1.81.0", "", {}, "sha512-HhD8kd3r6XpelZkhxhRty/po8V6yK1VV63Eq4kSsOS2IoHUywG3DV2EX+z/ZHw46aLI74Y6aA604NRiAqLKW9w=="],
 
     "@oxc-resolver/binding-wasm32-wasi/@emnapi/core/@emnapi/wasi-threads": ["@emnapi/wasi-threads@1.2.2", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA=="],
 
