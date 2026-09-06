@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/jetbrains-mono/index.css";
+@import "../default-brand.css";
+@import "../theme.css";
+@import "../typography.css";
+@source "../src/**/*.ts";
+@source "../stories/**/*.ts";
+
+:root {
+  --font-inter: "Inter Variable";
+  --font-family: "Inter Variable", Inter, sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+html:has([data-hide-canvas-scrollbar="true"]) {
+  scrollbar-width: none;
+}
+
+body {
+  background: var(--color-bg-primary, #ffffff);
+  color: var(--color-text-primary, #181d27);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+#storybook-root {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.uui-story-matrix {
+  display: grid;
+  gap: 32px;
+  width: min(100%, 1120px);
+}
+
+.uui-story-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.uui-story-label {
+  color: var(--color-text-tertiary, #717680);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  min-width: 136px;
+}
