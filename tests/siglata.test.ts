@@ -1,12 +1,8 @@
-/* oxlint-disable effect/noReturnInArrow, effect/noTernary -- Luminance formula uses standard WCAG 2.1 piecewise function. */
+/* oxlint-disable effect/noReturnInArrow, effect/noTernary, mps/avoid-sync-fs, mps/use-filesystem-service -- Luminance formula uses standard WCAG 2.1 piecewise function; tests verify committed stylesheet files synchronously. */
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "@effect/vitest";
 
-import {
-  renderSiglataBrandRampBlock,
-  siglataBrandContext,
-  siglataBrandRamp,
-  siglataExtendedBrandRamp,
-} from "../src/siglata.ts";
+import { siglataBrandRamp, siglataExtendedBrandRamp } from "../src/siglata.ts";
 import { brandRampNames } from "../src/theme.ts";
 
 const toLinear = function toLinear(c: number): number {
@@ -41,8 +37,8 @@ describe("Siglata theme adapter", () => {
     expect(siglataExtendedBrandRamp["--brand-25"]).toBe("#f7fcfa");
   });
 
-  it("renders a contrast-compliant CSS block for Siglata", () => {
-    const css = renderSiglataBrandRampBlock();
+  it("provides contrast-compliant button tokens in siglata-brand.css", () => {
+    const css = readFileSync(new URL("../siglata-brand.css", import.meta.url), "utf-8");
     expect(css).toContain("--color-bg-brand-solid: var(--brand-700);");
     expect(css).toContain("--color-bg-brand-solid-hover: var(--brand-800);");
     expect(css).toContain("--brand-500: #62c8ac;");
@@ -64,11 +60,5 @@ describe("Siglata theme adapter", () => {
     expect(contrast700).toBeGreaterThanOrEqual(4.5);
     // --brand-800 passes 4.5:1 floor (~7.5:1)
     expect(contrast800).toBeGreaterThanOrEqual(4.5);
-  });
-
-  it("provides Sheetling mascot BrandContext for Siglata identity injection", () => {
-    expect(siglataBrandContext.symbol.alt).toBe("Siglata Sheetling mascot");
-    expect(siglataBrandContext.symbol.url).toContain("data:image/svg+xml");
-    expect(siglataBrandContext.wordmarkHorizontal?.alt).toBe("Siglata");
   });
 });

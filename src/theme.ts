@@ -44,7 +44,3 @@ export const untitledDefaultBrandRamp = {
   "--brand-900": "#42307d",
   "--brand-950": "#2c185f",
 } as const satisfies BrandRamp;
-
-/** Render a `:root` brand-ramp block for injection ahead of `ui/theme.css`. */
-export const renderBrandRampBlock = (ramp: BrandRamp, selector = ":root"): string =>
-  `${selector} {\n${brandRampNames.map((name) => `  ${name}: ${ramp[name]};`).join("\n")}\n}\n`;
