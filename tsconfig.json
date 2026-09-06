@@ -23,5 +23,12 @@
       }
     ]
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "vite.config.ts", "stories/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "tests/**/*.ts",
+    "vite.config.ts",
+    "stories/**/*.ts",
+    ".storybook/**/*.ts"
+  ]
 }
